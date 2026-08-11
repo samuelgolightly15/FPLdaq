@@ -1,0 +1,3548 @@
+{
+ "players": {
+  "101188": {
+   "full": "Lucas Digne",
+   "name": "Digne",
+   "pos": 2,
+   "team": 2
+  },
+  "101282": {
+   "full": "Matt Crooks",
+   "name": "Crooks",
+   "pos": 3,
+   "team": 11
+  },
+  "105666": {
+   "full": "Jack Butland",
+   "name": "Butland",
+   "pos": 1,
+   "team": 11
+  },
+  "105717": {
+   "full": "Arthur Masuaku",
+   "name": "Masuaku",
+   "pos": 2,
+   "team": 20
+  },
+  "106611": {
+   "full": "Michael Keane",
+   "name": "Keane",
+   "pos": 2,
+   "team": 9
+  },
+  "106760": {
+   "full": "Luke Shaw",
+   "name": "Shaw",
+   "pos": 2,
+   "team": 16
+  },
+  "108413": {
+   "full": "Will Hughes",
+   "name": "Hughes",
+   "pos": 3,
+   "team": 8
+  },
+  "108416": {
+   "full": "John Egan",
+   "name": "Egan",
+   "pos": 2,
+   "team": 11
+  },
+  "108813": {
+   "full": "Christian Walton",
+   "name": "Walton",
+   "pos": 1,
+   "team": 12
+  },
+  "109646": {
+   "full": "Tosin Adarabioyo",
+   "name": "Tosin",
+   "pos": 2,
+   "team": 6
+  },
+  "109745": {
+   "full": "Kepa Arrizabalaga Revuelta",
+   "name": "Arrizabalaga",
+   "pos": 1,
+   "team": 1
+  },
+  "110690": {
+   "full": "Ben Wilson",
+   "name": "Wilson",
+   "pos": 1,
+   "team": 7
+  },
+  "111234": {
+   "full": "Jordan Pickford",
+   "name": "Pickford",
+   "pos": 1,
+   "team": 9
+  },
+  "111317": {
+   "full": "David Brooks",
+   "name": "Brooks",
+   "pos": 3,
+   "team": 3
+  },
+  "112520": {
+   "full": "Alex Palmer",
+   "name": "Palmer",
+   "pos": 1,
+   "team": 12
+  },
+  "114243": {
+   "full": "Jacob Murphy",
+   "name": "J.Murphy",
+   "pos": 3,
+   "team": 17
+  },
+  "114283": {
+   "full": "Jack Grealish",
+   "name": "Grealish",
+   "pos": 3,
+   "team": 15
+  },
+  "115556": {
+   "full": "Ben Davies",
+   "name": "Davies",
+   "pos": 2,
+   "team": 19
+  },
+  "116535": {
+   "full": "Alisson Becker",
+   "name": "A.Becker",
+   "pos": 1,
+   "team": 14
+  },
+  "119471": {
+   "full": "Fabian Schär",
+   "name": "Schär",
+   "pos": 2,
+   "team": 17
+  },
+  "121709": {
+   "full": "Walter Benítez",
+   "name": "Benitez",
+   "pos": 1,
+   "team": 8
+  },
+  "122074": {
+   "full": "Marcus Bettinelli",
+   "name": "Bettinelli",
+   "pos": 1,
+   "team": 15
+  },
+  "122798": {
+   "full": "Andrew Robertson",
+   "name": "Robertson",
+   "pos": 2,
+   "team": 19
+  },
+  "122806": {
+   "full": "John McGinn",
+   "name": "McGinn",
+   "pos": 3,
+   "team": 2
+  },
+  "128295": {
+   "full": "Christian Nørgaard",
+   "name": "Nørgaard",
+   "pos": 3,
+   "team": 9
+  },
+  "135720": {
+   "full": "Kevin Danso",
+   "name": "Danso",
+   "pos": 2,
+   "team": 19
+  },
+  "138001": {
+   "full": "Tom King",
+   "name": "King",
+   "pos": 1,
+   "team": 9
+  },
+  "141746": {
+   "full": "Bruno Borges Fernandes",
+   "name": "B.Fernandes",
+   "pos": 3,
+   "team": 16
+  },
+  "146426": {
+   "full": "Semi Ajayi",
+   "name": "Ajayi",
+   "pos": 2,
+   "team": 11
+  },
+  "147675": {
+   "full": "Chuba Akpom",
+   "name": "Akpom",
+   "pos": 4,
+   "team": 12
+  },
+  "149484": {
+   "full": "Tyrone Mings",
+   "name": "Mings",
+   "pos": 2,
+   "team": 2
+  },
+  "149929": {
+   "full": "Wes Burns",
+   "name": "Burns",
+   "pos": 3,
+   "team": 12
+  },
+  "152551": {
+   "full": "Jefferson Lerma Solís",
+   "name": "Lerma",
+   "pos": 3,
+   "team": 8
+  },
+  "153133": {
+   "full": "Alex Iwobi",
+   "name": "Iwobi",
+   "pos": 3,
+   "team": 10
+  },
+  "153366": {
+   "full": "Harrison Reed",
+   "name": "Reed",
+   "pos": 3,
+   "team": 10
+  },
+  "153682": {
+   "full": "Harry Wilson",
+   "name": "Wilson",
+   "pos": 3,
+   "team": 13
+  },
+  "154561": {
+   "full": "David Raya Martín",
+   "name": "Raya",
+   "pos": 1,
+   "team": 1
+  },
+  "154566": {
+   "full": "Dominic Solanke-Mitchell",
+   "name": "Solanke",
+   "pos": 4,
+   "team": 19
+  },
+  "155405": {
+   "full": "Kalvin Phillips",
+   "name": "Phillips",
+   "pos": 3,
+   "team": 15
+  },
+  "155408": {
+   "full": "Lewis Cook",
+   "name": "Cook",
+   "pos": 3,
+   "team": 3
+  },
+  "155503": {
+   "full": "Freddie Woodman",
+   "name": "Woodman",
+   "pos": 1,
+   "team": 14
+  },
+  "158499": {
+   "full": "Ryan Christie",
+   "name": "Christie",
+   "pos": 3,
+   "team": 3
+  },
+  "158983": {
+   "full": "Endo Wataru",
+   "name": "Endo",
+   "pos": 3,
+   "team": 14
+  },
+  "159506": {
+   "full": "Ola Aina",
+   "name": "Aina",
+   "pos": 2,
+   "team": 18
+  },
+  "160817": {
+   "full": "Paddy McNair",
+   "name": "McNair",
+   "pos": 2,
+   "team": 11
+  },
+  "166477": {
+   "full": "Timothy Castagne",
+   "name": "Castagne",
+   "pos": 2,
+   "team": 10
+  },
+  "166989": {
+   "full": "Youri Tielemans",
+   "name": "Tielemans",
+   "pos": 3,
+   "team": 16
+  },
+  "167074": {
+   "full": "Kenny Tete",
+   "name": "Tete",
+   "pos": 2,
+   "team": 10
+  },
+  "167512": {
+   "full": "Luke O'Nien",
+   "name": "O'Nien",
+   "pos": 2,
+   "team": 20
+  },
+  "167825": {
+   "full": "Dillon Phillips",
+   "name": "Phillips",
+   "pos": 1,
+   "team": 11
+  },
+  "168144": {
+   "full": "Matt Grimes",
+   "name": "Grimes",
+   "pos": 3,
+   "team": 7
+  },
+  "168636": {
+   "full": "Enes Ünal",
+   "name": "Enes Ünal",
+   "pos": 4,
+   "team": 3
+  },
+  "169359": {
+   "full": "Matt Targett",
+   "name": "Targett",
+   "pos": 2,
+   "team": 11
+  },
+  "169432": {
+   "full": "Oli McBurnie",
+   "name": "McBurnie",
+   "pos": 4,
+   "team": 11
+  },
+  "169528": {
+   "full": "Antonee Robinson",
+   "name": "Robinson",
+   "pos": 2,
+   "team": 10
+  },
+  "169593": {
+   "full": "Remi Matthews",
+   "name": "Matthews",
+   "pos": 1,
+   "team": 8
+  },
+  "171270": {
+   "full": "Kieran Dowell",
+   "name": "Dowell",
+   "pos": 3,
+   "team": 11
+  },
+  "171287": {
+   "full": "Joe Gomez",
+   "name": "Gomez",
+   "pos": 2,
+   "team": 14
+  },
+  "171314": {
+   "full": "Rúben dos Santos Gato Alves Dias",
+   "name": "Rúben",
+   "pos": 2,
+   "team": 15
+  },
+  "172453": {
+   "full": "Sam Szmodics",
+   "name": "Szmodics",
+   "pos": 3,
+   "team": 12
+  },
+  "172649": {
+   "full": "Dean Henderson",
+   "name": "Henderson",
+   "pos": 1,
+   "team": 8
+  },
+  "172780": {
+   "full": "James Maddison",
+   "name": "Maddison",
+   "pos": 3,
+   "team": 19
+  },
+  "173878": {
+   "full": "Jay Dasilva",
+   "name": "Dasilva",
+   "pos": 2,
+   "team": 7
+  },
+  "173879": {
+   "full": "Tammy Abraham",
+   "name": "Abraham",
+   "pos": 4,
+   "team": 2
+  },
+  "174594": {
+   "full": "Lukas Nmecha",
+   "name": "Nmecha",
+   "pos": 4,
+   "team": 13
+  },
+  "174874": {
+   "full": "Joachim Andersen",
+   "name": "Andersen",
+   "pos": 2,
+   "team": 10
+  },
+  "176297": {
+   "full": "Marcus Rashford",
+   "name": "Rashford",
+   "pos": 3,
+   "team": 16
+  },
+  "176412": {
+   "full": "Haji Wright",
+   "name": "Wright",
+   "pos": 4,
+   "team": 7
+  },
+  "176420": {
+   "full": "Darnell Furlong",
+   "name": "Furlong",
+   "pos": 2,
+   "team": 12
+  },
+  "17761": {
+   "full": "James Tarkowski",
+   "name": "Tarkowski",
+   "pos": 2,
+   "team": 9
+  },
+  "177815": {
+   "full": "Dominic Calvert-Lewin",
+   "name": "Calvert-Lewin",
+   "pos": 4,
+   "team": 13
+  },
+  "178301": {
+   "full": "Ollie Watkins",
+   "name": "Watkins",
+   "pos": 4,
+   "team": 2
+  },
+  "180135": {
+   "full": "Sean Longstaff",
+   "name": "Longstaff",
+   "pos": 3,
+   "team": 13
+  },
+  "180736": {
+   "full": "Trevoh Chalobah",
+   "name": "Chalobah",
+   "pos": 2,
+   "team": 6
+  },
+  "180974": {
+   "full": "Joelinton Cássio Apolinário de Lira",
+   "name": "Joelinton",
+   "pos": 3,
+   "team": 17
+  },
+  "183015": {
+   "full": "Cédric Kipré",
+   "name": "Kipré",
+   "pos": 2,
+   "team": 12
+  },
+  "183656": {
+   "full": "Josh Dasilva",
+   "name": "Dasilva",
+   "pos": 3,
+   "team": 4
+  },
+  "184029": {
+   "full": "Martin Ødegaard",
+   "name": "Ødegaard",
+   "pos": 3,
+   "team": 1
+  },
+  "184254": {
+   "full": "Guglielmo Vicario",
+   "name": "Vicario",
+   "pos": 1,
+   "team": 19
+  },
+  "184341": {
+   "full": "Mason Mount",
+   "name": "Mount",
+   "pos": 3,
+   "team": 16
+  },
+  "184349": {
+   "full": "Ryan Sessegnon",
+   "name": "Sessegnon",
+   "pos": 2,
+   "team": 10
+  },
+  "184667": {
+   "full": "Victor Lindelöf",
+   "name": "Lindelöf",
+   "pos": 2,
+   "team": 2
+  },
+  "191866": {
+   "full": "Kristoffer Ajer",
+   "name": "Ajer",
+   "pos": 2,
+   "team": 4
+  },
+  "193278": {
+   "full": "Lewie Coyle",
+   "name": "Coyle",
+   "pos": 2,
+   "team": 11
+  },
+  "194010": {
+   "full": "Rico Henry",
+   "name": "Henry",
+   "pos": 2,
+   "team": 4
+  },
+  "195384": {
+   "full": "Mikel Merino Zazón",
+   "name": "Merino",
+   "pos": 3,
+   "team": 1
+  },
+  "195546": {
+   "full": "Emiliano Buendía Stati",
+   "name": "Buendía",
+   "pos": 3,
+   "team": 2
+  },
+  "198869": {
+   "full": "Benjamin White",
+   "name": "White",
+   "pos": 2,
+   "team": 1
+  },
+  "199598": {
+   "full": "Ethan Ampadu",
+   "name": "Ampadu",
+   "pos": 3,
+   "team": 13
+  },
+  "199796": {
+   "full": "Matty Cash",
+   "name": "Cash",
+   "pos": 2,
+   "team": 2
+  },
+  "199798": {
+   "full": "Ezri Konsa Ngoyo",
+   "name": "Konsa",
+   "pos": 2,
+   "team": 2
+  },
+  "200089": {
+   "full": "Joe Willock",
+   "name": "Willock",
+   "pos": 3,
+   "team": 17
+  },
+  "200617": {
+   "full": "Daniel James",
+   "name": "James",
+   "pos": 3,
+   "team": 13
+  },
+  "200641": {
+   "full": "Reiss Nelson",
+   "name": "Nelson",
+   "pos": 3,
+   "team": 1
+  },
+  "200720": {
+   "full": "Caoimhín Kelleher",
+   "name": "Kelleher",
+   "pos": 1,
+   "team": 4
+  },
+  "200785": {
+   "full": "Tyler Adams",
+   "name": "Adams",
+   "pos": 3,
+   "team": 3
+  },
+  "200834": {
+   "full": "Nordi Mukiele",
+   "name": "Mukiele",
+   "pos": 2,
+   "team": 20
+  },
+  "201595": {
+   "full": "Lucas Estella Perri",
+   "name": "Perri",
+   "pos": 1,
+   "team": 13
+  },
+  "201658": {
+   "full": "Marcus Tavernier",
+   "name": "Tavernier",
+   "pos": 3,
+   "team": 3
+  },
+  "201666": {
+   "full": "Harvey Barnes",
+   "name": "Barnes",
+   "pos": 3,
+   "team": 17
+  },
+  "201895": {
+   "full": "Omar Alderete",
+   "name": "Alderete",
+   "pos": 2,
+   "team": 20
+  },
+  "202993": {
+   "full": "Rodrigo Bentancur",
+   "name": "Bentancur",
+   "pos": 3,
+   "team": 19
+  },
+  "204120": {
+   "full": "Olivier Boscagli",
+   "name": "Boscagli",
+   "pos": 2,
+   "team": 5
+  },
+  "204480": {
+   "full": "Declan Rice",
+   "name": "Rice",
+   "pos": 3,
+   "team": 1
+  },
+  "204561": {
+   "full": "Xaver Schlager",
+   "name": "Schlager",
+   "pos": 3,
+   "team": 18
+  },
+  "204580": {
+   "full": "Vitaly Janelt",
+   "name": "Janelt",
+   "pos": 3,
+   "team": 4
+  },
+  "204813": {
+   "full": "Joel Latibeaudiere",
+   "name": "Latibeaudiere",
+   "pos": 2,
+   "team": 7
+  },
+  "204822": {
+   "full": "Omar Richards",
+   "name": "O.Richards",
+   "pos": 2,
+   "team": 18
+  },
+  "204936": {
+   "full": "Gianluigi Donnarumma",
+   "name": "Donnarumma",
+   "pos": 1,
+   "team": 15
+  },
+  "204968": {
+   "full": "Ryan Yates",
+   "name": "Yates",
+   "pos": 3,
+   "team": 18
+  },
+  "205533": {
+   "full": "Eddie Nketiah",
+   "name": "Nketiah",
+   "pos": 4,
+   "team": 8
+  },
+  "205651": {
+   "full": "Gabriel Fernando de Jesus",
+   "name": "G.Jesus",
+   "pos": 4,
+   "team": 1
+  },
+  "206915": {
+   "full": "Curtis Jones",
+   "name": "C.Jones",
+   "pos": 3,
+   "team": 14
+  },
+  "207189": {
+   "full": "Sander Berge",
+   "name": "Berge",
+   "pos": 3,
+   "team": 10
+  },
+  "207283": {
+   "full": "Mathias Jensen",
+   "name": "Jensen",
+   "pos": 3,
+   "team": 4
+  },
+  "208481": {
+   "full": "Abdülkadir Ömür",
+   "name": "Ömür",
+   "pos": 3,
+   "team": 11
+  },
+  "208706": {
+   "full": "Bruno Guimarães Rodriguez Moura",
+   "name": "Bruno G.",
+   "pos": 3,
+   "team": 1
+  },
+  "209036": {
+   "full": "Marc Guéhi",
+   "name": "Guéhi",
+   "pos": 2,
+   "team": 15
+  },
+  "209046": {
+   "full": "Callum Hudson-Odoi",
+   "name": "Hudson-Odoi",
+   "pos": 3,
+   "team": 18
+  },
+  "209244": {
+   "full": "Phil Foden",
+   "name": "Foden",
+   "pos": 3,
+   "team": 15
+  },
+  "209289": {
+   "full": "Emile Smith Rowe",
+   "name": "Smith Rowe",
+   "pos": 3,
+   "team": 10
+  },
+  "209365": {
+   "full": "Matthijs de Ligt",
+   "name": "De Ligt",
+   "pos": 2,
+   "team": 16
+  },
+  "209400": {
+   "full": "Daichi Kamada",
+   "name": "Kamada",
+   "pos": 3,
+   "team": 8
+  },
+  "210156": {
+   "full": "Taiwo Awoniyi",
+   "name": "Awoniyi",
+   "pos": 4,
+   "team": 18
+  },
+  "210462": {
+   "full": "Ibrahim Sangaré",
+   "name": "Sangaré",
+   "pos": 3,
+   "team": 18
+  },
+  "21205": {
+   "full": "Tom Heaton",
+   "name": "Heaton",
+   "pos": 1,
+   "team": 16
+  },
+  "212314": {
+   "full": "Saša Lukić",
+   "name": "Lukić",
+   "pos": 3,
+   "team": 12
+  },
+  "212319": {
+   "full": "Richarlison de Andrade",
+   "name": "Richarlison",
+   "pos": 4,
+   "team": 19
+  },
+  "213292": {
+   "full": "David Akintola",
+   "name": "Akintola",
+   "pos": 3,
+   "team": 11
+  },
+  "214225": {
+   "full": "Joe Rodon",
+   "name": "Rodon",
+   "pos": 2,
+   "team": 13
+  },
+  "214285": {
+   "full": "Kostas Tsimikas",
+   "name": "Tsimikas",
+   "pos": 2,
+   "team": 14
+  },
+  "214572": {
+   "full": "Brandon Austin",
+   "name": "Austin",
+   "pos": 1,
+   "team": 19
+  },
+  "215059": {
+   "full": "Robert Lynch Sánchez",
+   "name": "Sánchez",
+   "pos": 1,
+   "team": 6
+  },
+  "215136": {
+   "full": "Neco Williams",
+   "name": "N.Williams",
+   "pos": 2,
+   "team": 18
+  },
+  "215379": {
+   "full": "Elliot Anderson",
+   "name": "Anderson",
+   "pos": 3,
+   "team": 15
+  },
+  "215413": {
+   "full": "Kiernan Dewsbury-Hall",
+   "name": "Dewsbury-Hall",
+   "pos": 3,
+   "team": 9
+  },
+  "215711": {
+   "full": "Leon Bailey",
+   "name": "Bailey",
+   "pos": 3,
+   "team": 2
+  },
+  "216051": {
+   "full": "Diogo Dalot Teixeira",
+   "name": "Dalot",
+   "pos": 2,
+   "team": 16
+  },
+  "216055": {
+   "full": "Florentino Ibrain Morris Luís",
+   "name": "Florentino",
+   "pos": 3,
+   "team": 12
+  },
+  "216094": {
+   "full": "Jeremie Frimpong",
+   "name": "Frimpong",
+   "pos": 2,
+   "team": 14
+  },
+  "216616": {
+   "full": "Dara O'Shea",
+   "name": "O'Shea",
+   "pos": 2,
+   "team": 12
+  },
+  "216646": {
+   "full": "Yoane Wissa",
+   "name": "Wissa",
+   "pos": 4,
+   "team": 17
+  },
+  "218364": {
+   "full": "Borna Sosa",
+   "name": "Sosa",
+   "pos": 2,
+   "team": 8
+  },
+  "218997": {
+   "full": "Ellis Simms",
+   "name": "Simms",
+   "pos": 4,
+   "team": 7
+  },
+  "219168": {
+   "full": "Alexander Isak",
+   "name": "Isak",
+   "pos": 4,
+   "team": 14
+  },
+  "219249": {
+   "full": "Matt O'Riley",
+   "name": "O'Riley",
+   "pos": 3,
+   "team": 5
+  },
+  "219847": {
+   "full": "Kai Havertz",
+   "name": "Havertz",
+   "pos": 4,
+   "team": 1
+  },
+  "219924": {
+   "full": "Issa Diop",
+   "name": "Diop",
+   "pos": 2,
+   "team": 12
+  },
+  "220237": {
+   "full": "Sven Botman",
+   "name": "Botman",
+   "pos": 2,
+   "team": 17
+  },
+  "220362": {
+   "full": "Axel Disasi",
+   "name": "Disasi",
+   "pos": 2,
+   "team": 6
+  },
+  "220566": {
+   "full": "Rodrigo 'Rodri' Hernandez Cascante",
+   "name": "Rodrigo",
+   "pos": 3,
+   "team": 15
+  },
+  "220583": {
+   "full": "Luke Woolfenden",
+   "name": "Woolfenden",
+   "pos": 2,
+   "team": 7
+  },
+  "220627": {
+   "full": "James Justin",
+   "name": "Justin",
+   "pos": 2,
+   "team": 13
+  },
+  "221389": {
+   "full": "John Victor Maciel Furtado",
+   "name": "John",
+   "pos": 1,
+   "team": 18
+  },
+  "221399": {
+   "full": "Jack Harrison",
+   "name": "Harrison",
+   "pos": 3,
+   "team": 13
+  },
+  "221466": {
+   "full": "Marcos Senesi Barón",
+   "name": "Senesi",
+   "pos": 2,
+   "team": 19
+  },
+  "221632": {
+   "full": "Cristian Romero",
+   "name": "Romero",
+   "pos": 2,
+   "team": 19
+  },
+  "221820": {
+   "full": "Lisandro Martínez",
+   "name": "Martinez",
+   "pos": 2,
+   "team": 16
+  },
+  "222018": {
+   "full": "Ben Johnson",
+   "name": "Johnson",
+   "pos": 2,
+   "team": 12
+  },
+  "222531": {
+   "full": "Morgan Gibbs-White",
+   "name": "Gibbs-White",
+   "pos": 3,
+   "team": 18
+  },
+  "222625": {
+   "full": "George Hirst",
+   "name": "Hirst",
+   "pos": 4,
+   "team": 12
+  },
+  "222683": {
+   "full": "Justin Kluivert",
+   "name": "Kluivert",
+   "pos": 3,
+   "team": 3
+  },
+  "222694": {
+   "full": "Pascal Struijk",
+   "name": "Struijk",
+   "pos": 2,
+   "team": 5
+  },
+  "223094": {
+   "full": "Erling Haaland",
+   "name": "Haaland",
+   "pos": 4,
+   "team": 15
+  },
+  "223340": {
+   "full": "Bukayo Saka",
+   "name": "Saka",
+   "pos": 3,
+   "team": 1
+  },
+  "223434": {
+   "full": "Igor Julio dos Santos de Paulo",
+   "name": "Igor",
+   "pos": 2,
+   "team": 5
+  },
+  "223541": {
+   "full": "Federico Chiesa",
+   "name": "Chiesa",
+   "pos": 3,
+   "team": 14
+  },
+  "223723": {
+   "full": "Takehiro Tomiyasu",
+   "name": "Tomiyasu",
+   "pos": 2,
+   "team": 8
+  },
+  "223827": {
+   "full": "Daniel Ballard",
+   "name": "Ballard",
+   "pos": 2,
+   "team": 20
+  },
+  "224117": {
+   "full": "Viktor Gyökeres",
+   "name": "Gyökeres",
+   "pos": 4,
+   "team": 1
+  },
+  "224967": {
+   "full": "Vitalii Mykolenko",
+   "name": "Mykolenko",
+   "pos": 2,
+   "team": 9
+  },
+  "225796": {
+   "full": "Reece James",
+   "name": "James",
+   "pos": 2,
+   "team": 6
+  },
+  "226182": {
+   "full": "Jayden Bogle",
+   "name": "Bogle",
+   "pos": 2,
+   "team": 13
+  },
+  "226597": {
+   "full": "Gabriel dos Santos Magalhães",
+   "name": "Gabriel",
+   "pos": 2,
+   "team": 1
+  },
+  "226944": {
+   "full": "Boubacar Kamara",
+   "name": "Kamara",
+   "pos": 3,
+   "team": 2
+  },
+  "226965": {
+   "full": "Victor Torp",
+   "name": "Torp",
+   "pos": 3,
+   "team": 7
+  },
+  "227444": {
+   "full": "Nikola Milenković",
+   "name": "Milenković",
+   "pos": 2,
+   "team": 18
+  },
+  "229164": {
+   "full": "Chiedozie Ogbene",
+   "name": "Ogbene",
+   "pos": 3,
+   "team": 12
+  },
+  "229600": {
+   "full": "Mark Travers",
+   "name": "Travers",
+   "pos": 1,
+   "team": 9
+  },
+  "230001": {
+   "full": "Noussair Mazraoui",
+   "name": "Mazraoui",
+   "pos": 2,
+   "team": 16
+  },
+  "230730": {
+   "full": "Brandon Thomas-Asante",
+   "name": "Thomas-Asante",
+   "pos": 4,
+   "team": 7
+  },
+  "231065": {
+   "full": "Ethan Pinnock",
+   "name": "Pinnock",
+   "pos": 2,
+   "team": 4
+  },
+  "231416": {
+   "full": "Ferdi Kadıoğlu",
+   "name": "F.Kadıoğlu",
+   "pos": 2,
+   "team": 5
+  },
+  "231747": {
+   "full": "Jean-Philippe Mateta",
+   "name": "Mateta",
+   "pos": 4,
+   "team": 8
+  },
+  "231899": {
+   "full": "Jack Taylor",
+   "name": "Taylor",
+   "pos": 3,
+   "team": 12
+  },
+  "232112": {
+   "full": "Manuel Ugarte Ribeiro",
+   "name": "Ugarte",
+   "pos": 3,
+   "team": 16
+  },
+  "232185": {
+   "full": "Ismaïla Sarr",
+   "name": "Sarr",
+   "pos": 3,
+   "team": 8
+  },
+  "232351": {
+   "full": "Ryan Giles",
+   "name": "Giles",
+   "pos": 2,
+   "team": 11
+  },
+  "232413": {
+   "full": "Eberechi Eze",
+   "name": "Eze",
+   "pos": 3,
+   "team": 1
+  },
+  "232457": {
+   "full": "Anis Mehmeti",
+   "name": "Mehmeti",
+   "pos": 3,
+   "team": 12
+  },
+  "232571": {
+   "full": "Anthony Patterson",
+   "name": "Patterson",
+   "pos": 1,
+   "team": 20
+  },
+  "232653": {
+   "full": "Jacob Ramsey",
+   "name": "J.Ramsey",
+   "pos": 3,
+   "team": 17
+  },
+  "232787": {
+   "full": "Conor Gallagher",
+   "name": "Gallagher",
+   "pos": 3,
+   "team": 19
+  },
+  "232859": {
+   "full": "Djed Spence",
+   "name": "Spence",
+   "pos": 2,
+   "team": 19
+  },
+  "232892": {
+   "full": "Calvin Bassey",
+   "name": "Bassey",
+   "pos": 2,
+   "team": 10
+  },
+  "232905": {
+   "full": "Liam Millar",
+   "name": "Millar",
+   "pos": 3,
+   "team": 11
+  },
+  "232928": {
+   "full": "James Garner",
+   "name": "Garner",
+   "pos": 3,
+   "team": 9
+  },
+  "235826": {
+   "full": "Joël Piroe",
+   "name": "Piroe",
+   "pos": 4,
+   "team": 13
+  },
+  "240514": {
+   "full": "Kjell Scherpen",
+   "name": "Scherpen",
+   "pos": 1,
+   "team": 12
+  },
+  "241117": {
+   "full": "Azor Matusiwa",
+   "name": "Matusiwa",
+   "pos": 3,
+   "team": 12
+  },
+  "241293": {
+   "full": "Ephron Mason-Clark",
+   "name": "Mason-Clark",
+   "pos": 3,
+   "team": 7
+  },
+  "242313": {
+   "full": "Oscar Mingueza",
+   "name": "Mingueza",
+   "pos": 2,
+   "team": 8
+  },
+  "242880": {
+   "full": "Benoît Badiashile Mukinayi",
+   "name": "B.Badiashile",
+   "pos": 2,
+   "team": 6
+  },
+  "242882": {
+   "full": "Bafodé Diakité",
+   "name": "Diakité",
+   "pos": 2,
+   "team": 3
+  },
+  "242898": {
+   "full": "Brennan Johnson",
+   "name": "Johnson",
+   "pos": 3,
+   "team": 8
+  },
+  "243016": {
+   "full": "Alexis Mac Allister",
+   "name": "Mac Allister",
+   "pos": 3,
+   "team": 14
+  },
+  "243298": {
+   "full": "Cody Gakpo",
+   "name": "Gakpo",
+   "pos": 3,
+   "team": 14
+  },
+  "243413": {
+   "full": "Regan Slater",
+   "name": "Slater",
+   "pos": 3,
+   "team": 11
+  },
+  "243526": {
+   "full": "Gabriel Gudmundsson",
+   "name": "Gudmundsson",
+   "pos": 2,
+   "team": 13
+  },
+  "243571": {
+   "full": "Nathan Patterson",
+   "name": "Patterson",
+   "pos": 2,
+   "team": 9
+  },
+  "244042": {
+   "full": "Rodrigo Muniz Carvalho",
+   "name": "Muniz",
+   "pos": 4,
+   "team": 10
+  },
+  "244723": {
+   "full": "Tyrick Mitchell",
+   "name": "Mitchell",
+   "pos": 2,
+   "team": 8
+  },
+  "244850": {
+   "full": "Morgan Rogers",
+   "name": "Rogers",
+   "pos": 3,
+   "team": 6
+  },
+  "244851": {
+   "full": "Cole Palmer",
+   "name": "Palmer",
+   "pos": 3,
+   "team": 6
+  },
+  "244858": {
+   "full": "Fábio Freitas Gouveia Carvalho",
+   "name": "Carvalho",
+   "pos": 3,
+   "team": 4
+  },
+  "244860": {
+   "full": "Hayden Hackney",
+   "name": "Hackney",
+   "pos": 3,
+   "team": 9
+  },
+  "244954": {
+   "full": "Pau Torres",
+   "name": "Pau",
+   "pos": 2,
+   "team": 2
+  },
+  "246301": {
+   "full": "Jorge Cuenca Barreno",
+   "name": "J.Cuenca",
+   "pos": 2,
+   "team": 10
+  },
+  "247348": {
+   "full": "Daniel Muñoz Mejía",
+   "name": "Muñoz",
+   "pos": 2,
+   "team": 8
+  },
+  "247412": {
+   "full": "Jørgen Strand Larsen",
+   "name": "Strand Larsen",
+   "pos": 4,
+   "team": 8
+  },
+  "247632": {
+   "full": "Pedro Lomba Neto",
+   "name": "Neto",
+   "pos": 3,
+   "team": 6
+  },
+  "248056": {
+   "full": "Tanaka Ao",
+   "name": "Tanaka",
+   "pos": 3,
+   "team": 13
+  },
+  "248857": {
+   "full": "Noni Madueke",
+   "name": "Madueke",
+   "pos": 3,
+   "team": 1
+  },
+  "248875": {
+   "full": "Jérémy Doku",
+   "name": "Doku",
+   "pos": 3,
+   "team": 15
+  },
+  "249231": {
+   "full": "Keane Lewis-Potter",
+   "name": "Lewis-Potter",
+   "pos": 3,
+   "team": 4
+  },
+  "250199": {
+   "full": "Nicolás Domínguez",
+   "name": "Dominguez",
+   "pos": 3,
+   "team": 18
+  },
+  "40383": {
+   "full": "Fraser Forster",
+   "name": "Forster",
+   "pos": 1,
+   "team": 3
+  },
+  "424876": {
+   "full": "Dominik Szoboszlai",
+   "name": "Szoboszlai",
+   "pos": 3,
+   "team": 14
+  },
+  "427623": {
+   "full": "Chris Richards",
+   "name": "Richards",
+   "pos": 2,
+   "team": 8
+  },
+  "427637": {
+   "full": "Brenden Aaronson",
+   "name": "Aaronson",
+   "pos": 3,
+   "team": 13
+  },
+  "428580": {
+   "full": "Frank Onyeka",
+   "name": "Onyeka",
+   "pos": 3,
+   "team": 7
+  },
+  "430871": {
+   "full": "Matheus Santos Carneiro da Cunha",
+   "name": "Cunha",
+   "pos": 3,
+   "team": 16
+  },
+  "432422": {
+   "full": "Sandro Tonali",
+   "name": "Tonali",
+   "pos": 3,
+   "team": 19
+  },
+  "432714": {
+   "full": "James McAtee",
+   "name": "McAtee",
+   "pos": 3,
+   "team": 18
+  },
+  "432720": {
+   "full": "James Trafford",
+   "name": "Trafford",
+   "pos": 1,
+   "team": 13
+  },
+  "432830": {
+   "full": "Nathan Collins",
+   "name": "Collins",
+   "pos": 2,
+   "team": 4
+  },
+  "432987": {
+   "full": "Vitezslav Jaros",
+   "name": "Jaros",
+   "pos": 1,
+   "team": 14
+  },
+  "433036": {
+   "full": "Tijjani Reijnders",
+   "name": "Reijnders",
+   "pos": 3,
+   "team": 15
+  },
+  "433154": {
+   "full": "Dwight McNeil",
+   "name": "McNeil",
+   "pos": 3,
+   "team": 9
+  },
+  "433590": {
+   "full": "Cody Drameh",
+   "name": "Drameh",
+   "pos": 2,
+   "team": 11
+  },
+  "434399": {
+   "full": "Reinildo Mandava",
+   "name": "Reinildo",
+   "pos": 2,
+   "team": 20
+  },
+  "434752": {
+   "full": "Jaka Bijol",
+   "name": "Bijol",
+   "pos": 2,
+   "team": 13
+  },
+  "435997": {
+   "full": "Noah Okafor",
+   "name": "Okafor",
+   "pos": 3,
+   "team": 13
+  },
+  "436761": {
+   "full": "Liam Kitching",
+   "name": "Kitching",
+   "pos": 2,
+   "team": 7
+  },
+  "436893": {
+   "full": "Julián Araujo Zúñiga",
+   "name": "J.Araujo",
+   "pos": 2,
+   "team": 3
+  },
+  "437495": {
+   "full": "Illan Meslier",
+   "name": "Meslier",
+   "pos": 1,
+   "team": 1
+  },
+  "437499": {
+   "full": "Maxence Lacroix",
+   "name": "Lacroix",
+   "pos": 2,
+   "team": 6
+  },
+  "437505": {
+   "full": "Wilson Isidor",
+   "name": "Isidor",
+   "pos": 4,
+   "team": 20
+  },
+  "437730": {
+   "full": "Antoine Semenyo",
+   "name": "Semenyo",
+   "pos": 3,
+   "team": 15
+  },
+  "437738": {
+   "full": "Sebastiaan Bornauw",
+   "name": "Bornauw",
+   "pos": 2,
+   "team": 13
+  },
+  "438098": {
+   "full": "Fábio Ferreira Vieira",
+   "name": "Fábio Vieira",
+   "pos": 3,
+   "team": 1
+  },
+  "438234": {
+   "full": "Omar Marmoush",
+   "name": "Marmoush",
+   "pos": 4,
+   "team": 15
+  },
+  "438464": {
+   "full": "Cheick Doucouré",
+   "name": "Doucouré",
+   "pos": 3,
+   "team": 8
+  },
+  "439509": {
+   "full": "Christos Tzolis",
+   "name": "Tzolis",
+   "pos": 3,
+   "team": 1
+  },
+  "439668": {
+   "full": "Josh Eccles",
+   "name": "Eccles",
+   "pos": 3,
+   "team": 7
+  },
+  "440089": {
+   "full": "Mikkel Damsgaard",
+   "name": "Damsgaard",
+   "pos": 3,
+   "team": 4
+  },
+  "440993": {
+   "full": "Iliman Ndiaye",
+   "name": "Ndiaye",
+   "pos": 3,
+   "team": 9
+  },
+  "441164": {
+   "full": "Pedro Porro Sauceda",
+   "name": "Pedro Porro",
+   "pos": 2,
+   "team": 19
+  },
+  "441191": {
+   "full": "Tino Livramento",
+   "name": "Livramento",
+   "pos": 2,
+   "team": 17
+  },
+  "441264": {
+   "full": "Brian Brobbey",
+   "name": "Brobbey",
+   "pos": 4,
+   "team": 20
+  },
+  "441266": {
+   "full": "Ryan Gravenberch",
+   "name": "Gravenberch",
+   "pos": 3,
+   "team": 14
+  },
+  "441302": {
+   "full": "Ian Maatsen",
+   "name": "Maatsen",
+   "pos": 2,
+   "team": 2
+  },
+  "442967": {
+   "full": "Daizen Maeda",
+   "name": "Maeda",
+   "pos": 3,
+   "team": 12
+  },
+  "443261": {
+   "full": "Jack Clarke",
+   "name": "Clarke",
+   "pos": 3,
+   "team": 12
+  },
+  "444102": {
+   "full": "Francisco Evanilson de Lima Barbosa",
+   "name": "Evanilson",
+   "pos": 4,
+   "team": 3
+  },
+  "444145": {
+   "full": "Gabriel Martinelli Silva",
+   "name": "Martinelli",
+   "pos": 3,
+   "team": 1
+  },
+  "444172": {
+   "full": "Will Dennis",
+   "name": "Dennis",
+   "pos": 1,
+   "team": 3
+  },
+  "444180": {
+   "full": "Jaidon Anthony",
+   "name": "Anthony",
+   "pos": 3,
+   "team": 4
+  },
+  "444307": {
+   "full": "Thimothée Lo-Tutala",
+   "name": "Lo-Tutala",
+   "pos": 1,
+   "team": 11
+  },
+  "444463": {
+   "full": "Wesley Fofana",
+   "name": "Fofana",
+   "pos": 2,
+   "team": 6
+  },
+  "444765": {
+   "full": "Sepp van den Berg",
+   "name": "Van den Berg",
+   "pos": 2,
+   "team": 4
+  },
+  "444884": {
+   "full": "Harvey Elliott",
+   "name": "Elliott",
+   "pos": 3,
+   "team": 14
+  },
+  "445028": {
+   "full": "Hidemasa Morita",
+   "name": "Morita",
+   "pos": 3,
+   "team": 11
+  },
+  "445044": {
+   "full": "Dejan Kulusevski",
+   "name": "Kulusevski",
+   "pos": 3,
+   "team": 19
+  },
+  "445122": {
+   "full": "Jurriën Timber",
+   "name": "J.Timber",
+   "pos": 2,
+   "team": 1
+  },
+  "446008": {
+   "full": "Bryan Mbeumo",
+   "name": "Mbeumo",
+   "pos": 3,
+   "team": 16
+  },
+  "448047": {
+   "full": "Enzo Fernández",
+   "name": "Enzo",
+   "pos": 3,
+   "team": 6
+  },
+  "448089": {
+   "full": "Joao Gomes",
+   "name": "Gomes",
+   "pos": 3,
+   "team": 2
+  },
+  "448104": {
+   "full": "Piero Hincapié",
+   "name": "Hincapie",
+   "pos": 2,
+   "team": 1
+  },
+  "448514": {
+   "full": "Rayan Aït-Nouri",
+   "name": "Aït-Nouri",
+   "pos": 2,
+   "team": 15
+  },
+  "449027": {
+   "full": "Giorgi Mamardashvili",
+   "name": "Mamardashvili",
+   "pos": 1,
+   "team": 14
+  },
+  "449428": {
+   "full": "Matty Jacob",
+   "name": "Jacob",
+   "pos": 2,
+   "team": 11
+  },
+  "449429": {
+   "full": "Jacob Greaves",
+   "name": "Greaves",
+   "pos": 2,
+   "team": 12
+  },
+  "449434": {
+   "full": "Anthony Elanga",
+   "name": "Elanga",
+   "pos": 3,
+   "team": 17
+  },
+  "449871": {
+   "full": "Amadou Onana",
+   "name": "Onana",
+   "pos": 3,
+   "team": 2
+  },
+  "450542": {
+   "full": "Jesurun Rak-Sakyi",
+   "name": "J.Rak-Sakyi",
+   "pos": 3,
+   "team": 8
+  },
+  "451284": {
+   "full": "Milan van Ewijk",
+   "name": "van Ewijk",
+   "pos": 2,
+   "team": 7
+  },
+  "451302": {
+   "full": "Altay Bayındır",
+   "name": "Bayindir",
+   "pos": 1,
+   "team": 16
+  },
+  "451340": {
+   "full": "Mitoma Kaoru",
+   "name": "Mitoma",
+   "pos": 3,
+   "team": 5
+  },
+  "451490": {
+   "full": "João Pedro Loureiro da Costa",
+   "name": "Costinha",
+   "pos": 2,
+   "team": 5
+  },
+  "454490": {
+   "full": "Michael Svoboda",
+   "name": "Svoboda",
+   "pos": 2,
+   "team": 5
+  },
+  "455084": {
+   "full": "Leif Davis",
+   "name": "Davis",
+   "pos": 2,
+   "team": 12
+  },
+  "456512": {
+   "full": "Dan Ndoye",
+   "name": "Ndoye",
+   "pos": 3,
+   "team": 18
+  },
+  "457569": {
+   "full": "Đorđe Petrović",
+   "name": "Petrović",
+   "pos": 1,
+   "team": 3
+  },
+  "458249": {
+   "full": "Joshua Zirkzee",
+   "name": "Zirkzee",
+   "pos": 4,
+   "team": 16
+  },
+  "460028": {
+   "full": "Levi Samuels Colwill",
+   "name": "Colwill",
+   "pos": 2,
+   "team": 6
+  },
+  "460842": {
+   "full": "Mohammed Kudus",
+   "name": "Kudus",
+   "pos": 3,
+   "team": 19
+  },
+  "461102": {
+   "full": "Bobby Thomas",
+   "name": "Thomas",
+   "pos": 2,
+   "team": 7
+  },
+  "461199": {
+   "full": "Romaine Mundle",
+   "name": "Mundle",
+   "pos": 3,
+   "team": 20
+  },
+  "461587": {
+   "full": "Kasey McAteer",
+   "name": "McAteer",
+   "pos": 3,
+   "team": 12
+  },
+  "462387": {
+   "full": "Ali Al-Hamadi",
+   "name": "Al-Hamadi",
+   "pos": 4,
+   "team": 12
+  },
+  "462424": {
+   "full": "William Saliba",
+   "name": "Saliba",
+   "pos": 2,
+   "team": 1
+  },
+  "462635": {
+   "full": "Joe Gelhardt",
+   "name": "Gelhardt",
+   "pos": 3,
+   "team": 13
+  },
+  "463034": {
+   "full": "Liam Delap",
+   "name": "Delap",
+   "pos": 4,
+   "team": 6
+  },
+  "463067": {
+   "full": "Georginio Rutter",
+   "name": "Georginio",
+   "pos": 4,
+   "team": 5
+  },
+  "463936": {
+   "full": "Jamie Bynoe-Gittens",
+   "name": "Gittens",
+   "pos": 3,
+   "team": 6
+  },
+  "463981": {
+   "full": "James Hill",
+   "name": "Hill",
+   "pos": 2,
+   "team": 3
+  },
+  "464353": {
+   "full": "Harvey Davies",
+   "name": "Davies",
+   "pos": 1,
+   "team": 14
+  },
+  "465247": {
+   "full": "Senne Lammens",
+   "name": "Lammens",
+   "pos": 1,
+   "team": 16
+  },
+  "465351": {
+   "full": "Matheus Nunes",
+   "name": "Matheus N.",
+   "pos": 2,
+   "team": 15
+  },
+  "465390": {
+   "full": "Kaine Kesler-Hayden",
+   "name": "Kesler-Hayden",
+   "pos": 2,
+   "team": 7
+  },
+  "465525": {
+   "full": "Eliot Matazo",
+   "name": "Matazo",
+   "pos": 3,
+   "team": 11
+  },
+  "465642": {
+   "full": "Malick Thiaw",
+   "name": "Thiaw",
+   "pos": 2,
+   "team": 17
+  },
+  "465680": {
+   "full": "Arnaud Kalimuendo",
+   "name": "Kalimuendo",
+   "pos": 4,
+   "team": 18
+  },
+  "465694": {
+   "full": "Nico González Iglesias",
+   "name": "N.Gonzalez",
+   "pos": 3,
+   "team": 15
+  },
+  "465730": {
+   "full": "Maxim De Cuyper",
+   "name": "De Cuyper",
+   "pos": 2,
+   "team": 5
+  },
+  "466052": {
+   "full": "Rayan Cherki",
+   "name": "Cherki",
+   "pos": 3,
+   "team": 15
+  },
+  "466075": {
+   "full": "Riccardo Calafiori",
+   "name": "Calafiori",
+   "pos": 2,
+   "team": 1
+  },
+  "466525": {
+   "full": "Anton Stach",
+   "name": "Stach",
+   "pos": 3,
+   "team": 13
+  },
+  "467779": {
+   "full": "Mats Wieffer",
+   "name": "Wieffer",
+   "pos": 2,
+   "team": 5
+  },
+  "469142": {
+   "full": "Jan Paul van Hecke",
+   "name": "Van Hecke",
+   "pos": 2,
+   "team": 19
+  },
+  "469247": {
+   "full": "Samuel Iling-Junior",
+   "name": "Iling Jr",
+   "pos": 3,
+   "team": 2
+  },
+  "469272": {
+   "full": "Loum Tchaouna",
+   "name": "Tchaouna",
+   "pos": 3,
+   "team": 7
+  },
+  "470294": {
+   "full": "Darko Gyabi",
+   "name": "Gyabi",
+   "pos": 3,
+   "team": 11
+  },
+  "470313": {
+   "full": "Nick Woltemade",
+   "name": "Woltemade",
+   "pos": 4,
+   "team": 17
+  },
+  "470315": {
+   "full": "Luca Netz",
+   "name": "Netz",
+   "pos": 2,
+   "team": 18
+  },
+  "470551": {
+   "full": "Lukás Hornícek",
+   "name": "Horníček",
+   "pos": 1,
+   "team": 17
+  },
+  "472713": {
+   "full": "Aaron Hickey",
+   "name": "Hickey",
+   "pos": 2,
+   "team": 4
+  },
+  "472739": {
+   "full": "Carl Rushworth",
+   "name": "Rushworth",
+   "pos": 1,
+   "team": 7
+  },
+  "472769": {
+   "full": "Nico O'Reilly",
+   "name": "O'Reilly",
+   "pos": 2,
+   "team": 15
+  },
+  "473284": {
+   "full": "Konstantinos Tzolakis",
+   "name": "Tzolakis",
+   "pos": 1,
+   "team": 11
+  },
+  "475168": {
+   "full": "João Pedro Junqueira de Jesus",
+   "name": "João Pedro",
+   "pos": 4,
+   "team": 6
+  },
+  "476887": {
+   "full": "Dilane Bakwa",
+   "name": "Bakwa",
+   "pos": 3,
+   "team": 18
+  },
+  "477064": {
+   "full": "Rico Lewis",
+   "name": "Lewis",
+   "pos": 2,
+   "team": 15
+  },
+  "477424": {
+   "full": "Joško Gvardiol",
+   "name": "Gvardiol",
+   "pos": 2,
+   "team": 15
+  },
+  "477547": {
+   "full": "Leo Fuhr Hjelde",
+   "name": "Hjelde",
+   "pos": 2,
+   "team": 20
+  },
+  "477555": {
+   "full": "Oscar Bobb",
+   "name": "Bobb",
+   "pos": 3,
+   "team": 10
+  },
+  "480455": {
+   "full": "Jarrad Branthwaite",
+   "name": "Branthwaite",
+   "pos": 2,
+   "team": 9
+  },
+  "480457": {
+   "full": "Jack Rudoni",
+   "name": "Rudoni",
+   "pos": 3,
+   "team": 7
+  },
+  "481624": {
+   "full": "Jaden Philogene",
+   "name": "Philogene",
+   "pos": 3,
+   "team": 12
+  },
+  "481655": {
+   "full": "Martín Zubimendi Ibáñez",
+   "name": "Zubimendi",
+   "pos": 3,
+   "team": 1
+  },
+  "482442": {
+   "full": "Pape Matar Sarr",
+   "name": "P.M.Sarr",
+   "pos": 3,
+   "team": 19
+  },
+  "482609": {
+   "full": "Malo Gusto",
+   "name": "Gusto",
+   "pos": 2,
+   "team": 6
+  },
+  "482973": {
+   "full": "Igor Jesus Maciel da Cruz",
+   "name": "Igor Jesus",
+   "pos": 4,
+   "team": 18
+  },
+  "483067": {
+   "full": "António João Pereira de Albuquerque Tavares da Silva",
+   "name": "Silva",
+   "pos": 2,
+   "team": 3
+  },
+  "484389": {
+   "full": "Oliver Dovin",
+   "name": "Dovin",
+   "pos": 1,
+   "team": 7
+  },
+  "484420": {
+   "full": "Enzo Le Fée",
+   "name": "E.Le Fée",
+   "pos": 3,
+   "team": 20
+  },
+  "485047": {
+   "full": "Felipe Rodrigues da Silva",
+   "name": "Morato",
+   "pos": 2,
+   "team": 18
+  },
+  "485055": {
+   "full": "Antonín Kinský",
+   "name": "Kinsky",
+   "pos": 1,
+   "team": 19
+  },
+  "485337": {
+   "full": "Evann Guessand",
+   "name": "Guessand",
+   "pos": 3,
+   "team": 2
+  },
+  "485711": {
+   "full": "Benjamin Sesko",
+   "name": "Šeško",
+   "pos": 4,
+   "team": 16
+  },
+  "486385": {
+   "full": "Norberto Bercique Gomes Betuncal",
+   "name": "Beto",
+   "pos": 4,
+   "team": 9
+  },
+  "486520": {
+   "full": "Ilia Gruev",
+   "name": "Gruev",
+   "pos": 3,
+   "team": 13
+  },
+  "486672": {
+   "full": "Moisés Caicedo Corozo",
+   "name": "Caicedo",
+   "pos": 3,
+   "team": 6
+  },
+  "487053": {
+   "full": "Destiny Udogie",
+   "name": "Udogie",
+   "pos": 2,
+   "team": 19
+  },
+  "487117": {
+   "full": "Evan Ferguson",
+   "name": "Ferguson",
+   "pos": 4,
+   "team": 5
+  },
+  "487676": {
+   "full": "Trai Hume",
+   "name": "Hume",
+   "pos": 2,
+   "team": 20
+  },
+  "487838": {
+   "full": "Lewis Hall",
+   "name": "Hall",
+   "pos": 2,
+   "team": 17
+  },
+  "488024": {
+   "full": "Yéremy Pino Santos",
+   "name": "Yeremy",
+   "pos": 3,
+   "team": 8
+  },
+  "489580": {
+   "full": "Calvin Ramsay",
+   "name": "Ramsay",
+   "pos": 2,
+   "team": 14
+  },
+  "489639": {
+   "full": "Bart Verbruggen",
+   "name": "Verbruggen",
+   "pos": 1,
+   "team": 5
+  },
+  "489706": {
+   "full": "Justin Devenny",
+   "name": "Devenny",
+   "pos": 3,
+   "team": 8
+  },
+  "489888": {
+   "full": "Amine Adli",
+   "name": "Adli",
+   "pos": 3,
+   "team": 3
+  },
+  "490094": {
+   "full": "Tim Iroegbunam",
+   "name": "Iroegbunam",
+   "pos": 3,
+   "team": 9
+  },
+  "490145": {
+   "full": "Dane Scarlett",
+   "name": "Scarlett",
+   "pos": 4,
+   "team": 19
+  },
+  "490161": {
+   "full": "Abu Kamara",
+   "name": "Kamara",
+   "pos": 3,
+   "team": 11
+  },
+  "490881": {
+   "full": "Toby Collyer",
+   "name": "Collyer",
+   "pos": 3,
+   "team": 16
+  },
+  "491007": {
+   "full": "Dário Luís Essugo",
+   "name": "D.Essugo",
+   "pos": 3,
+   "team": 6
+  },
+  "491279": {
+   "full": "Micky van de Ven",
+   "name": "Van de Ven",
+   "pos": 2,
+   "team": 19
+  },
+  "491501": {
+   "full": "James McConnell",
+   "name": "McConnell",
+   "pos": 3,
+   "team": 14
+  },
+  "492498": {
+   "full": "Raphael Borges Rodrigues",
+   "name": "Borges Rodrigues",
+   "pos": 3,
+   "team": 7
+  },
+  "49262": {
+   "full": "Jason Steele",
+   "name": "Steele",
+   "pos": 1,
+   "team": 5
+  },
+  "492777": {
+   "full": "Conor Bradley",
+   "name": "Bradley",
+   "pos": 2,
+   "team": 14
+  },
+  "492859": {
+   "full": "Wilfried Gnonto",
+   "name": "Gnonto",
+   "pos": 3,
+   "team": 13
+  },
+  "493105": {
+   "full": "Alejandro Garnacho Ferreyra",
+   "name": "Garnacho",
+   "pos": 3,
+   "team": 2
+  },
+  "493250": {
+   "full": "Amad Diallo",
+   "name": "Amad",
+   "pos": 3,
+   "team": 16
+  },
+  "493362": {
+   "full": "Xavi Simons",
+   "name": "Xavi",
+   "pos": 3,
+   "team": 19
+  },
+  "494307": {
+   "full": "Max Alleyne",
+   "name": "Alleyne",
+   "pos": 2,
+   "team": 15
+  },
+  "494521": {
+   "full": "Adrien Truffert",
+   "name": "Truffert",
+   "pos": 2,
+   "team": 3
+  },
+  "494595": {
+   "full": "Florian Wirtz",
+   "name": "Wirtz",
+   "pos": 3,
+   "team": 14
+  },
+  "494928": {
+   "full": "Juanlu Sánchez",
+   "name": "Sanchez",
+   "pos": 2,
+   "team": 3
+  },
+  "494950": {
+   "full": "Harvey Cartwright",
+   "name": "Cartwright",
+   "pos": 1,
+   "team": 11
+  },
+  "496208": {
+   "full": "Ben Gannon-Doak",
+   "name": "Gannon-Doak",
+   "pos": 3,
+   "team": 3
+  },
+  "496221": {
+   "full": "Adam Wharton",
+   "name": "Wharton",
+   "pos": 3,
+   "team": 8
+  },
+  "496661": {
+   "full": "Tyler Dibling",
+   "name": "Dibling",
+   "pos": 3,
+   "team": 9
+  },
+  "498016": {
+   "full": "Robin Roefs",
+   "name": "Roefs",
+   "pos": 1,
+   "team": 20
+  },
+  "499169": {
+   "full": "Myles Lewis-Skelly",
+   "name": "Lewis-Skelly",
+   "pos": 3,
+   "team": 1
+  },
+  "499175": {
+   "full": "Ethan Nwaneri",
+   "name": "Nwaneri",
+   "pos": 3,
+   "team": 1
+  },
+  "499300": {
+   "full": "Adam Aznou",
+   "name": "Aznou",
+   "pos": 2,
+   "team": 9
+  },
+  "499309": {
+   "full": "Marc Guiu Paz",
+   "name": "Marc Guiu",
+   "pos": 4,
+   "team": 6
+  },
+  "499604": {
+   "full": "Rayan Vitor Simplício Rocha",
+   "name": "Rayan",
+   "pos": 3,
+   "team": 3
+  },
+  "499716": {
+   "full": "James Rowswell",
+   "name": "Rowswell",
+   "pos": 2,
+   "team": 19
+  },
+  "499721": {
+   "full": "Mikey Moore",
+   "name": "Moore",
+   "pos": 3,
+   "team": 19
+  },
+  "499726": {
+   "full": "Callum Olusesi",
+   "name": "Olusesi",
+   "pos": 3,
+   "team": 19
+  },
+  "500040": {
+   "full": "Cristhian Mosquera",
+   "name": "Mosquera",
+   "pos": 2,
+   "team": 1
+  },
+  "500058": {
+   "full": "Jayden Danns",
+   "name": "Danns",
+   "pos": 4,
+   "team": 14
+  },
+  "500151": {
+   "full": "Nicolò Savona",
+   "name": "Savona",
+   "pos": 2,
+   "team": 18
+  },
+  "50093": {
+   "full": "David Button",
+   "name": "Button",
+   "pos": 1,
+   "team": 12
+  },
+  "500957": {
+   "full": "Enis Destan",
+   "name": "Destan",
+   "pos": 4,
+   "team": 11
+  },
+  "501390": {
+   "full": "Marcelino Núñez",
+   "name": "Núñez",
+   "pos": 3,
+   "team": 12
+  },
+  "501459": {
+   "full": "Tatsuhiro Sakamoto",
+   "name": "Sakamoto",
+   "pos": 3,
+   "team": 7
+  },
+  "50175": {
+   "full": "Danny Welbeck",
+   "name": "Welbeck",
+   "pos": 4,
+   "team": 6
+  },
+  "501902": {
+   "full": "Charlie Hughes",
+   "name": "Hughes",
+   "pos": 2,
+   "team": 11
+  },
+  "502500": {
+   "full": "Igor Thiago Nascimento Rodrigues",
+   "name": "Thiago",
+   "pos": 4,
+   "team": 4
+  },
+  "502697": {
+   "full": "Carlos Alcaraz Durán",
+   "name": "Alcaraz",
+   "pos": 3,
+   "team": 9
+  },
+  "503037": {
+   "full": "Emmanuel Emegha",
+   "name": "Emegha",
+   "pos": 4,
+   "team": 6
+  },
+  "503139": {
+   "full": "Alex Scott",
+   "name": "Scott",
+   "pos": 3,
+   "team": 3
+  },
+  "503301": {
+   "full": "Omari Hutchinson",
+   "name": "Hutchinson",
+   "pos": 3,
+   "team": 18
+  },
+  "505079": {
+   "full": "Alfie McNally",
+   "name": "McNally",
+   "pos": 1,
+   "team": 10
+  },
+  "507433": {
+   "full": "Hákon Rafn Valdimarsson",
+   "name": "Valdimarsson",
+   "pos": 1,
+   "team": 4
+  },
+  "508395": {
+   "full": "Yehor Yarmoliuk",
+   "name": "Yarmoliuk",
+   "pos": 3,
+   "team": 4
+  },
+  "508479": {
+   "full": "Filip Jörgensen",
+   "name": "Jörgensen",
+   "pos": 1,
+   "team": 6
+  },
+  "509416": {
+   "full": "Yasin Ayari",
+   "name": "Ayari",
+   "pos": 3,
+   "team": 5
+  },
+  "510281": {
+   "full": "Sávio Moreira de Oliveira",
+   "name": "Savinho",
+   "pos": 3,
+   "team": 15
+  },
+  "510663": {
+   "full": "Hugo Ekitiké",
+   "name": "Ekitiké",
+   "pos": 4,
+   "team": 14
+  },
+  "511499": {
+   "full": "Mathys Tel",
+   "name": "Tel",
+   "pos": 3,
+   "team": 19
+  },
+  "512462": {
+   "full": "Jake O'Brien",
+   "name": "O'Brien",
+   "pos": 2,
+   "team": 9
+  },
+  "513086": {
+   "full": "Jannik Schuster",
+   "name": "Schuster",
+   "pos": 2,
+   "team": 4
+  },
+  "513418": {
+   "full": "Kevin Schade",
+   "name": "Schade",
+   "pos": 3,
+   "team": 4
+  },
+  "513466": {
+   "full": "Merlin Röhl",
+   "name": "Röhl",
+   "pos": 3,
+   "team": 9
+  },
+  "513545": {
+   "full": "Mamadou Sangaré",
+   "name": "Sangaré",
+   "pos": 3,
+   "team": 4
+  },
+  "514254": {
+   "full": "Diego Gómez Amarilla",
+   "name": "Gomez",
+   "pos": 3,
+   "team": 5
+  },
+  "514356": {
+   "full": "Roméo Lavia",
+   "name": "Lavia",
+   "pos": 3,
+   "team": 6
+  },
+  "514514": {
+   "full": "Lewis Koumas",
+   "name": "Koumas",
+   "pos": 3,
+   "team": 14
+  },
+  "515046": {
+   "full": "Melker Ellborg",
+   "name": "Ellborg",
+   "pos": 1,
+   "team": 20
+  },
+  "515597": {
+   "full": "Lamare Bogarde",
+   "name": "Bogarde",
+   "pos": 3,
+   "team": 2
+  },
+  "515621": {
+   "full": "Chadi Riad Dnanou",
+   "name": "Chadi Riad",
+   "pos": 2,
+   "team": 8
+  },
+  "516895": {
+   "full": "Kobbie Mainoo",
+   "name": "Mainoo",
+   "pos": 3,
+   "team": 16
+  },
+  "517052": {
+   "full": "Nicolas Jackson",
+   "name": "N.Jackson",
+   "pos": 4,
+   "team": 6
+  },
+  "519440": {
+   "full": "Wellity Lucky",
+   "name": "Lucky",
+   "pos": 2,
+   "team": 14
+  },
+  "519634": {
+   "full": "Jenson Seelt",
+   "name": "Seelt",
+   "pos": 2,
+   "team": 20
+  },
+  "519913": {
+   "full": "Tyler Fletcher",
+   "name": "Fletcher",
+   "pos": 3,
+   "team": 16
+  },
+  "522047": {
+   "full": "Tarik Muharemović",
+   "name": "Muharemović",
+   "pos": 2,
+   "team": 13
+  },
+  "531442": {
+   "full": "Abdul Fatawu",
+   "name": "Fatawu",
+   "pos": 3,
+   "team": 12
+  },
+  "532529": {
+   "full": "Jack Hinshelwood",
+   "name": "Hinshelwood",
+   "pos": 3,
+   "team": 5
+  },
+  "532605": {
+   "full": "Andrey Nascimento dos Santos",
+   "name": "Andrey Santos",
+   "pos": 3,
+   "team": 16
+  },
+  "533463": {
+   "full": "Dango Ouattara",
+   "name": "O.Dango",
+   "pos": 3,
+   "team": 4
+  },
+  "534392": {
+   "full": "Mason Burstow",
+   "name": "Burstow",
+   "pos": 4,
+   "team": 11
+  },
+  "535301": {
+   "full": "Carlos Baleba",
+   "name": "Baleba",
+   "pos": 3,
+   "team": 5
+  },
+  "535818": {
+   "full": "Simon Adingra",
+   "name": "Adingra",
+   "pos": 3,
+   "team": 20
+  },
+  "535928": {
+   "full": "Stefan Bajčetić Maquieira",
+   "name": "Bajcetic",
+   "pos": 3,
+   "team": 14
+  },
+  "536661": {
+   "full": "Nilson Angulo",
+   "name": "Angulo",
+   "pos": 3,
+   "team": 20
+  },
+  "536694": {
+   "full": "Matheus França de Oliveira",
+   "name": "M.França",
+   "pos": 3,
+   "team": 8
+  },
+  "536916": {
+   "full": "Facundo Buonanotte",
+   "name": "Buonanotte",
+   "pos": 3,
+   "team": 5
+  },
+  "538207": {
+   "full": "William Osula",
+   "name": "Osula",
+   "pos": 4,
+   "team": 17
+  },
+  "538638": {
+   "full": "Tyler Bindon",
+   "name": "Bindon",
+   "pos": 2,
+   "team": 18
+  },
+  "539142": {
+   "full": "Aurèle Amenda",
+   "name": "Amenda",
+   "pos": 2,
+   "team": 7
+  },
+  "540324": {
+   "full": "Mohamed Belloumi",
+   "name": "Belloumi",
+   "pos": 3,
+   "team": 11
+  },
+  "543158": {
+   "full": "Valentín Barco",
+   "name": "Barco",
+   "pos": 3,
+   "team": 6
+  },
+  "543295": {
+   "full": "Antoni Milambo",
+   "name": "Milambo",
+   "pos": 3,
+   "team": 4
+  },
+  "543968": {
+   "full": "Emersonn Correia da Silva",
+   "name": "Emersonn",
+   "pos": 4,
+   "team": 12
+  },
+  "54469": {
+   "full": "Adam Smith",
+   "name": "Smith",
+   "pos": 2,
+   "team": 3
+  },
+  "544877": {
+   "full": "Milos Kerkez",
+   "name": "Kerkez",
+   "pos": 2,
+   "team": 14
+  },
+  "545477": {
+   "full": "Alex Murphy",
+   "name": "A.Murphy",
+   "pos": 2,
+   "team": 17
+  },
+  "546600": {
+   "full": "Kayne van Oevelen",
+   "name": "Van Oevelen",
+   "pos": 1,
+   "team": 12
+  },
+  "547027": {
+   "full": "Habib Diarra",
+   "name": "Diarra",
+   "pos": 3,
+   "team": 20
+  },
+  "547037": {
+   "full": "Jack Fletcher",
+   "name": "J.Fletcher",
+   "pos": 3,
+   "team": 16
+  },
+  "547676": {
+   "full": "Tyler Fredricson",
+   "name": "Fredricson",
+   "pos": 2,
+   "team": 16
+  },
+  "547701": {
+   "full": "Archie Gray",
+   "name": "Gray",
+   "pos": 3,
+   "team": 19
+  },
+  "547719": {
+   "full": "Lewis Miley",
+   "name": "L.Miley",
+   "pos": 3,
+   "team": 17
+  },
+  "548308": {
+   "full": "Ashley Phillips",
+   "name": "Phillips",
+   "pos": 2,
+   "team": 19
+  },
+  "549067": {
+   "full": "Zach Abbott",
+   "name": "Abbott",
+   "pos": 2,
+   "team": 18
+  },
+  "549074": {
+   "full": "Tom Watson",
+   "name": "Watson",
+   "pos": 3,
+   "team": 5
+  },
+  "549653": {
+   "full": "Norman Bassette",
+   "name": "Bassette",
+   "pos": 4,
+   "team": 7
+  },
+  "549912": {
+   "full": "Chemsdine Talbi",
+   "name": "Talbi",
+   "pos": 3,
+   "team": 20
+  },
+  "549939": {
+   "full": "Mike Penders",
+   "name": "Penders",
+   "pos": 1,
+   "team": 6
+  },
+  "550090": {
+   "full": "Diego Coppola",
+   "name": "Coppola",
+   "pos": 2,
+   "team": 5
+  },
+  "550615": {
+   "full": "Tyrique George",
+   "name": "George",
+   "pos": 3,
+   "team": 9
+  },
+  "550839": {
+   "full": "Wilson Odobert",
+   "name": "Odobert",
+   "pos": 3,
+   "team": 19
+  },
+  "550864": {
+   "full": "Leny Yoro",
+   "name": "Yoro",
+   "pos": 2,
+   "team": 16
+  },
+  "551210": {
+   "full": "Jorrel Hato",
+   "name": "Hato",
+   "pos": 2,
+   "team": 6
+  },
+  "551226": {
+   "full": "Mateus Fernandes",
+   "name": "Fernandes",
+   "pos": 3,
+   "team": 19
+  },
+  "551262": {
+   "full": "Jahnoah Markelo",
+   "name": "Markelo",
+   "pos": 4,
+   "team": 7
+  },
+  "551466": {
+   "full": "Gonzalo García",
+   "name": "García",
+   "pos": 4,
+   "team": 10
+  },
+  "551499": {
+   "full": "Victor Munoz",
+   "name": "Munoz",
+   "pos": 3,
+   "team": 14
+  },
+  "552946": {
+   "full": "Jens Hjertø-Dahl",
+   "name": "Hjertø-Dahl",
+   "pos": 3,
+   "team": 11
+  },
+  "553783": {
+   "full": "Óscar Zambrano",
+   "name": "Zambrano",
+   "pos": 3,
+   "team": 11
+  },
+  "554197": {
+   "full": "Chris Rigg",
+   "name": "Rigg",
+   "pos": 3,
+   "team": 20
+  },
+  "554578": {
+   "full": "Ewen Jaouen",
+   "name": "Jaouen",
+   "pos": 1,
+   "team": 17
+  },
+  "556637": {
+   "full": "Nehemiah Oriola",
+   "name": "Oriola",
+   "pos": 3,
+   "team": 5
+  },
+  "557012": {
+   "full": "Sindre Walle Egeli",
+   "name": "Walle Egeli",
+   "pos": 4,
+   "team": 12
+  },
+  "560262": {
+   "full": "Junior Kroupi",
+   "name": "Kroupi.Jr",
+   "pos": 3,
+   "team": 3
+  },
+  "560552": {
+   "full": "Kevin Santos Lopes de Macedo",
+   "name": "Kevin",
+   "pos": 3,
+   "team": 10
+  },
+  "561245": {
+   "full": "Álvaro Rodríguez",
+   "name": "Rodríguez",
+   "pos": 4,
+   "team": 3
+  },
+  "565297": {
+   "full": "Mateo Joseph Fernández-Regatillo",
+   "name": "Mateo Joseph",
+   "pos": 4,
+   "team": 13
+  },
+  "567119": {
+   "full": "Shumaira Mheuka",
+   "name": "Mheuka",
+   "pos": 4,
+   "team": 6
+  },
+  "56979": {
+   "full": "Jordan Henderson",
+   "name": "Henderson",
+   "pos": 3,
+   "team": 6
+  },
+  "570241": {
+   "full": "Kim Ji-soo",
+   "name": "Ji-soo",
+   "pos": 2,
+   "team": 4
+  },
+  "570526": {
+   "full": "Lucas Bergvall",
+   "name": "Bergvall",
+   "pos": 3,
+   "team": 19
+  },
+  "571779": {
+   "full": "César Palacios",
+   "name": "Palacios",
+   "pos": 3,
+   "team": 10
+  },
+  "574458": {
+   "full": "Mamadou Sarr",
+   "name": "M.Sarr",
+   "pos": 2,
+   "team": 6
+  },
+  "575204": {
+   "full": "Claudio Echeverri",
+   "name": "Echeverri",
+   "pos": 3,
+   "team": 15
+  },
+  "575458": {
+   "full": "Jair Paula da Cunha Filho",
+   "name": "Jair Cunha",
+   "pos": 2,
+   "team": 18
+  },
+  "575476": {
+   "full": "Murillo Costa dos Santos",
+   "name": "Murillo",
+   "pos": 2,
+   "team": 18
+  },
+  "575901": {
+   "full": "Julio Soler Barreto",
+   "name": "Soler",
+   "pos": 2,
+   "team": 3
+  },
+  "576620": {
+   "full": "Bendito Mantato",
+   "name": "Bendito Mantato",
+   "pos": 3,
+   "team": 16
+  },
+  "576628": {
+   "full": "Shea Lacey",
+   "name": "Lacey",
+   "pos": 3,
+   "team": 16
+  },
+  "577016": {
+   "full": "Josh Acheampong",
+   "name": "Acheampong",
+   "pos": 2,
+   "team": 6
+  },
+  "577285": {
+   "full": "George Hemmings",
+   "name": "George Hemmings",
+   "pos": 3,
+   "team": 2
+  },
+  "577411": {
+   "full": "Miguel Brau",
+   "name": "Brau",
+   "pos": 2,
+   "team": 7
+  },
+  "577669": {
+   "full": "Noah Sadiki",
+   "name": "Sadiki",
+   "pos": 3,
+   "team": 20
+  },
+  "577725": {
+   "full": "Josh King",
+   "name": "King",
+   "pos": 3,
+   "team": 10
+  },
+  "577974": {
+   "full": "Harry Amass",
+   "name": "Amass",
+   "pos": 2,
+   "team": 16
+  },
+  "578153": {
+   "full": "Abdukodir Khusanov",
+   "name": "Khusanov",
+   "pos": 2,
+   "team": 15
+  },
+  "578545": {
+   "full": "Kosta Nedeljkovic",
+   "name": "Nedeljkovic",
+   "pos": 2,
+   "team": 2
+  },
+  "586268": {
+   "full": "Armin Pecsi",
+   "name": "Pecsi",
+   "pos": 1,
+   "team": 14
+  },
+  "586309": {
+   "full": "Thierno Barry",
+   "name": "Barry",
+   "pos": 4,
+   "team": 9
+  },
+  "590014": {
+   "full": "Rio Cardines",
+   "name": "Cardines",
+   "pos": 2,
+   "team": 8
+  },
+  "590039": {
+   "full": "Divine Mukasa",
+   "name": "Mukasa",
+   "pos": 3,
+   "team": 15
+  },
+  "591386": {
+   "full": "Trey Nyoni",
+   "name": "Nyoni",
+   "pos": 3,
+   "team": 14
+  },
+  "592031": {
+   "full": "Yankuba Minteh",
+   "name": "Minteh",
+   "pos": 3,
+   "team": 5
+  },
+  "593117": {
+   "full": "Geovany Quenda",
+   "name": "Quenda",
+   "pos": 3,
+   "team": 6
+  },
+  "593174": {
+   "full": "Kaye Furo",
+   "name": "Furo",
+   "pos": 4,
+   "team": 4
+  },
+  "596047": {
+   "full": "Chido Obi",
+   "name": "Obi",
+   "pos": 4,
+   "team": 16
+  },
+  "596777": {
+   "full": "Patrick Dorgu",
+   "name": "Dorgu",
+   "pos": 3,
+   "team": 16
+  },
+  "597320": {
+   "full": "Harry Howell",
+   "name": "Howell",
+   "pos": 3,
+   "team": 5
+  },
+  "59735": {
+   "full": "Karl Darlow",
+   "name": "Darlow",
+   "pos": 1,
+   "team": 16
+  },
+  "599303": {
+   "full": "Sean Neave",
+   "name": "Neave",
+   "pos": 4,
+   "team": 17
+  },
+  "60307": {
+   "full": "Pascal Groß",
+   "name": "Groß",
+   "pos": 3,
+   "team": 5
+  },
+  "606702": {
+   "full": "Jeremy Jacquet",
+   "name": "Jacquet",
+   "pos": 2,
+   "team": 14
+  },
+  "606745": {
+   "full": "Ayden Heaven",
+   "name": "Heaven",
+   "pos": 2,
+   "team": 16
+  },
+  "606798": {
+   "full": "Andrés García",
+   "name": "A.García",
+   "pos": 2,
+   "team": 2
+  },
+  "60689": {
+   "full": "Chris Wood",
+   "name": "Wood",
+   "pos": 4,
+   "team": 18
+  },
+  "606921": {
+   "full": "Romain Esse",
+   "name": "Esse",
+   "pos": 3,
+   "team": 8
+  },
+  "607464": {
+   "full": "Michael Kayode",
+   "name": "Kayode",
+   "pos": 2,
+   "team": 4
+  },
+  "608181": {
+   "full": "Stefanos Tzimas",
+   "name": "Tzimas",
+   "pos": 4,
+   "team": 5
+  },
+  "608227": {
+   "full": "Elliot Stroud",
+   "name": "Stroud",
+   "pos": 3,
+   "team": 11
+  },
+  "609873": {
+   "full": "Harrison Armstrong",
+   "name": "Armstrong",
+   "pos": 3,
+   "team": 9
+  },
+  "610799": {
+   "full": "Luka Vušković",
+   "name": "Vuskovic",
+   "pos": 2,
+   "team": 5
+  },
+  "611665": {
+   "full": "Bazoumana Touré",
+   "name": "Touré",
+   "pos": 3,
+   "team": 17
+  },
+  "611922": {
+   "full": "Rio Ngumoha",
+   "name": "Ngumoha",
+   "pos": 3,
+   "team": 14
+  },
+  "614071": {
+   "full": "Johan Manzambi",
+   "name": "Manzambi",
+   "pos": 3,
+   "team": 2
+  },
+  "614574": {
+   "full": "Alex Tóth",
+   "name": "Tóth.A",
+   "pos": 3,
+   "team": 3
+  },
+  "616077": {
+   "full": "Max Dowman",
+   "name": "Dowman",
+   "pos": 3,
+   "team": 1
+  },
+  "616221": {
+   "full": "João Victor de Souza Menezes",
+   "name": "Souza",
+   "pos": 2,
+   "team": 19
+  },
+  "616222": {
+   "full": "Vitor de Oliveira Nunes dos Reis",
+   "name": "Vitor Reis",
+   "pos": 2,
+   "team": 15
+  },
+  "620109": {
+   "full": "Marco Palestra",
+   "name": "Palestra",
+   "pos": 2,
+   "team": 6
+  },
+  "620487": {
+   "full": "Veljko Milosavljevic",
+   "name": "Milosavljević",
+   "pos": 2,
+   "team": 3
+  },
+  "622758": {
+   "full": "Aaron Anselmino",
+   "name": "Anselmino",
+   "pos": 2,
+   "team": 6
+  },
+  "624773": {
+   "full": "Estêvão Almeida de Oliveira Gonçalves",
+   "name": "Estêvão",
+   "pos": 3,
+   "team": 6
+  },
+  "629397": {
+   "full": "Kaine Andrews",
+   "name": "Andrews",
+   "pos": 3,
+   "team": 7
+  },
+  "631786": {
+   "full": "Jonah Kusi-Asare",
+   "name": "Kusi-Asare",
+   "pos": 4,
+   "team": 10
+  },
+  "632794": {
+   "full": "Aladji Bamba",
+   "name": "Bamba",
+   "pos": 3,
+   "team": 17
+  },
+  "636852": {
+   "full": "Sean Steur",
+   "name": "Steur",
+   "pos": 3,
+   "team": 17
+  },
+  "640419": {
+   "full": "Jun'ai Byfield",
+   "name": "Byfield",
+   "pos": 2,
+   "team": 19
+  },
+  "645618": {
+   "full": "Bradley Burrowes",
+   "name": "Burrowes",
+   "pos": 3,
+   "team": 2
+  },
+  "647681": {
+   "full": "Giovanni Leoni",
+   "name": "Leoni",
+   "pos": 2,
+   "team": 14
+  },
+  "647850": {
+   "full": "Charalampos Kostoulas",
+   "name": "Kostoulas",
+   "pos": 4,
+   "team": 5
+  },
+  "649208": {
+   "full": "Jeremy Monga",
+   "name": "Monga",
+   "pos": 3,
+   "team": 15
+  },
+  "651426": {
+   "full": "Jaydee Canvot",
+   "name": "Canvot",
+   "pos": 2,
+   "team": 8
+  },
+  "653481": {
+   "full": "Alysson Edward Franco da Rocha dos Santos",
+   "name": "Alysson",
+   "pos": 3,
+   "team": 2
+  },
+  "660392": {
+   "full": "Christantus Uche",
+   "name": "Uche",
+   "pos": 4,
+   "team": 8
+  },
+  "661800": {
+   "full": "Cathal McCarthy",
+   "name": "McCarthy",
+   "pos": 2,
+   "team": 11
+  },
+  "661888": {
+   "full": "Caleb Yirenkyi",
+   "name": "Yirenkyi",
+   "pos": 3,
+   "team": 7
+  },
+  "67089": {
+   "full": "Martin Dubravka",
+   "name": "Dubravka",
+   "pos": 1,
+   "team": 19
+  },
+  "672492": {
+   "full": "Joél Drakes-Thomas",
+   "name": "Drakes-Thomas",
+   "pos": 3,
+   "team": 8
+  },
+  "684268": {
+   "full": "George Shepherd",
+   "name": "Shepherd",
+   "pos": 3,
+   "team": 7
+  },
+  "699989": {
+   "full": "Djiamgone Jocelin Ta Bi",
+   "name": "Jocelin.T",
+   "pos": 3,
+   "team": 20
+  },
+  "700308": {
+   "full": "Zadok Yohanna",
+   "name": "Yohanna",
+   "pos": 3,
+   "team": 5
+  },
+  "72147": {
+   "full": "Marco Bizot",
+   "name": "M.Bizot",
+   "pos": 1,
+   "team": 2
+  },
+  "75115": {
+   "full": "Callum Wilson",
+   "name": "Wilson",
+   "pos": 4,
+   "team": 4
+  },
+  "76357": {
+   "full": "Tom Cairney",
+   "name": "Cairney",
+   "pos": 3,
+   "team": 10
+  },
+  "78916": {
+   "full": "Dan Burn",
+   "name": "Burn",
+   "pos": 2,
+   "team": 17
+  },
+  "80178": {
+   "full": "Jake Bidwell",
+   "name": "Bidwell",
+   "pos": 2,
+   "team": 7
+  },
+  "80201": {
+   "full": "Bernd Leno",
+   "name": "Leno",
+   "pos": 1,
+   "team": 10
+  },
+  "81441": {
+   "full": "Mark Gillespie",
+   "name": "Gillespie",
+   "pos": 1,
+   "team": 17
+  },
+  "83299": {
+   "full": "Lewis Dunk",
+   "name": "Dunk",
+   "pos": 2,
+   "team": 5
+  },
+  "84450": {
+   "full": "Granit Xhaka",
+   "name": "Xhaka",
+   "pos": 3,
+   "team": 20
+  },
+  "85633": {
+   "full": "Matz Sels",
+   "name": "Sels",
+   "pos": 1,
+   "team": 18
+  },
+  "86873": {
+   "full": "Benjamin Lecomte",
+   "name": "Lecomte",
+   "pos": 1,
+   "team": 10
+  },
+  "88894": {
+   "full": "Ross Barkley",
+   "name": "Barkley",
+   "pos": 3,
+   "team": 2
+  },
+  "91651": {
+   "full": "Mateo Kovačić",
+   "name": "Kovačić",
+   "pos": 3,
+   "team": 15
+  },
+  "93605": {
+   "full": "Thomas Meunier",
+   "name": "Meunier",
+   "pos": 2,
+   "team": 20
+  },
+  "95658": {
+   "full": "Harry Maguire",
+   "name": "Maguire",
+   "pos": 2,
+   "team": 16
+  },
+  "97032": {
+   "full": "Virgil van Dijk",
+   "name": "Virgil",
+   "pos": 2,
+   "team": 14
+  },
+  "98747": {
+   "full": "Nick Pope",
+   "name": "Pope",
+   "pos": 1,
+   "team": 17
+  },
+  "98980": {
+   "full": "Emiliano Martínez Romero",
+   "name": "Martinez",
+   "pos": 1,
+   "team": 2
+  }
+ },
+ "teams": {
+  "1": {
+   "name": "Arsenal",
+   "short": "ARS"
+  },
+  "10": {
+   "name": "Fulham",
+   "short": "FUL"
+  },
+  "11": {
+   "name": "Hull City",
+   "short": "HUL"
+  },
+  "12": {
+   "name": "Ipswich Town",
+   "short": "IPS"
+  },
+  "13": {
+   "name": "Leeds",
+   "short": "LEE"
+  },
+  "14": {
+   "name": "Liverpool",
+   "short": "LIV"
+  },
+  "15": {
+   "name": "Man City",
+   "short": "MCI"
+  },
+  "16": {
+   "name": "Man Utd",
+   "short": "MUN"
+  },
+  "17": {
+   "name": "Newcastle",
+   "short": "NEW"
+  },
+  "18": {
+   "name": "Nott'm Forest",
+   "short": "NFO"
+  },
+  "19": {
+   "name": "Spurs",
+   "short": "TOT"
+  },
+  "2": {
+   "name": "Aston Villa",
+   "short": "AVL"
+  },
+  "20": {
+   "name": "Sunderland",
+   "short": "SUN"
+  },
+  "3": {
+   "name": "Bournemouth",
+   "short": "BOU"
+  },
+  "4": {
+   "name": "Brentford",
+   "short": "BRE"
+  },
+  "5": {
+   "name": "Brighton",
+   "short": "BHA"
+  },
+  "6": {
+   "name": "Chelsea",
+   "short": "CHE"
+  },
+  "7": {
+   "name": "Coventry City",
+   "short": "COV"
+  },
+  "8": {
+   "name": "Crystal Palace",
+   "short": "CRY"
+  },
+  "9": {
+   "name": "Everton",
+   "short": "EVE"
+  }
+ }
+}
