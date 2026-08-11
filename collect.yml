@@ -1,0 +1,49 @@
+name: Collect FPL snapshot
+
+on:
+  schedule:
+    # 7 past the hour: on-the-hour slots are the busiest and get delayed most.
+    - cron: '7 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: collect
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Take snapshot
+        run: python scripts/collect.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "fpl-index bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if [ -z "$(git status --porcelain data)" ]; then
+            echo "Nothing new to commit"
+            exit 0
+          fi
+
+          git add data
+          git commit -m "snapshot $(date -u +'%Y-%m-%dT%H:00Z')"
+
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              exit 0
+            fi
+            echo "push attempt $attempt failed, retrying"
+            sleep 10
+          done
+          exit 1
