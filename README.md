@@ -113,3 +113,26 @@ the `fetch` calls will be blocked:
 ```
 python3 -m http.server -d docs 8000
 ```
+
+
+## Points
+
+Each element also carries `total_points`, which is zero for everyone until the
+season starts. Nothing on the page uses it yet; it is collected now so that
+points per pound invested, and similar measures, have history to work with
+later rather than starting from whatever date the idea occurs.
+
+Snapshots written before this change have two values per element instead of
+three. The aggregation step reads both.
+
+## Flows
+
+`core.json` carries a precomputed `flows` block: the twelve biggest risers and
+fallers in share of the market over the last 24 hours. Precomputing it in
+Python means the page does not have to load the series for all 577 players
+just to rank them.
+
+The measure is change in share, in percentage points, not change in cash. Cash
+would show almost every player rising while managers are still registering,
+which says nothing about where money is actually moving. Share nets to zero
+across the game, so a rise for one player is a fall for another.
