@@ -82,18 +82,20 @@ def build_snapshot(data, stamp):
         pct = int(round(float(p["selected_by_percent"]) * 10))
         elements[str(p["code"])] = [p["now_cost"], pct]
 
-    next_event = None
+    next_event, deadline = None, None
     for ev in data.get("events", []):
         if ev.get("is_current"):
             next_event = ev["id"]
-            break
-        if ev.get("is_next") and next_event is None:
-            next_event = ev["id"]
+        if ev.get("is_next") or (next_event is None and not ev.get("finished")):
+            if deadline is None:
+                next_event = next_event or ev["id"]
+                deadline = ev.get("deadline_time")
 
     return {
         "t": stamp,
         "total_players": data["total_players"],
         "next_event": next_event,
+        "deadline": deadline,
         "e": elements,
     }
 
