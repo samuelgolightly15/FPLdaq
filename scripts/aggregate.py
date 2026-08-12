@@ -103,6 +103,48 @@ def find_deadlines(snaps, times):
     return out
 
 
+def find_flows(players, teams, times, hours=24, top=12):
+    """
+    Who gained and lost the most share over the last `hours`.
+
+    Measured as a change in share of the index, in parts per million, so it
+    nets to roughly zero across the whole game: for someone to be bought into,
+    someone else has to be sold out of. Using cash instead would show almost
+    everyone rising during the registration surge, which tells you nothing
+    about where managers are actually moving.
+    """
+    if len(times) < 2:
+        return {"hours": hours, "from": times[-1] if times else None, "in": [], "out": []}
+
+    target = parse(times[-1]) - timedelta(hours=hours)
+    start = 0
+    for i, t in enumerate(times):
+        if parse(t) <= target:
+            start = i
+        else:
+            break
+
+    moves = []
+    for code, p in players.items():
+        a, z = p["share"][start], p["share"][-1]
+        if a is None or z is None:
+            continue
+        moves.append(
+            {
+                "n": p["n"],
+                "t": p["t"],
+                "d": z - a,
+                "to": z,
+                "pr": p["price"][-1],
+            }
+        )
+
+    moves.sort(key=lambda m: m["d"])
+    out = [m for m in moves if m["d"] < 0][:top]
+    gain = [m for m in reversed(moves) if m["d"] > 0][:top]
+    return {"hours": hours, "from": times[start], "in": gain, "out": out}
+
+
 def main():
     snaps = load_snapshots()
     if not snaps:
@@ -134,7 +176,7 @@ def main():
 
         # Raw weights first. The manager count cancels in the ratio, so it is
         # left out entirely rather than multiplied in and divided back out.
-        weights = {c: (cost / 10) * pct for c, (cost, pct) in snap["e"].items()}
+        weights = {c: (el[0] / 10) * el[1] for c, el in snap["e"].items()}
         total = sum(weights.values())
         if total <= 0:
             continue
@@ -143,7 +185,9 @@ def main():
 
         for code, w in weights.items():
             share = w / total * 1_000_000
-            cost, pct = snap["e"][code]
+            el = snap["e"][code]
+            cost, pct = el[0], el[1]
+            pts = el[2] if len(el) > 2 else None
 
             p = players.get(code)
             if p is None:
@@ -155,10 +199,12 @@ def main():
                     "share": [None] * n,
                     "own": [None] * n,
                     "price": [None] * n,
+                    "pts": [None] * n,
                 }
             p["share"][i] = round(share)
             p["own"][i] = round(pct / 1000 * snap["total_players"] / 1000)
             p["price"][i] = cost
+            p["pts"][i] = pts
 
             tid = str(players_meta.get(code, {}).get("team", 0))
             group = POS_OF.get(players_meta.get(code, {}).get("pos"))
@@ -193,6 +239,7 @@ def main():
 
     core = dict(header)
     core["teams"] = teams
+    core["flows"] = find_flows(players, teams, times)
     core["clubs"] = clubs
     core["players"] = {c: players[c] for c in core_codes}
     core["directory"] = {c: [p["n"], p["t"], p["p"], latest[c]] for c, p in players.items()}

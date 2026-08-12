@@ -12,13 +12,18 @@ Snapshot line format (kept short because there is one per hour, all season):
   {"t": "2026-08-09T14:00:00Z",
    "total_players": 3041555,
    "next_event": 1,
-   "e": {"154561": [60, 309], ...}}
+   "e": {"154561": [60, 309, 0], ...}}
 
-where each element is [now_cost, selected_by_percent * 10], both integers.
+where each element is [now_cost, selected_by_percent * 10, total_points].
 now_cost is in tenths of a million (60 = 6.0m). Ownership is stored as the
 raw percentage the API gives, NOT a headcount: owners are derived later as
 pct/1000 * total_players, so that total_players can be held fixed if you
-want an index that is not dominated by new managers registering.
+want an index that is not dominated by new managers registering. Points are
+zero for everyone until the season starts, and are carried so that later
+work can look at points per pound invested.
+
+Older snapshots have two values per element rather than three; the
+aggregation step handles both.
 
 Keys are the player's permanent `code`, not the per-season `id`.
 """
@@ -80,7 +85,7 @@ def build_snapshot(data, stamp):
         if p.get("removed"):
             continue
         pct = int(round(float(p["selected_by_percent"]) * 10))
-        elements[str(p["code"])] = [p["now_cost"], pct]
+        elements[str(p["code"])] = [p["now_cost"], pct, p.get("total_points", 0)]
 
     next_event, deadline = None, None
     for ev in data.get("events", []):
