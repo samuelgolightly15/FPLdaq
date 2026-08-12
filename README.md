@@ -65,3 +65,51 @@ means the site can show either a true market cap or a version holding
   history small even after thousands of snapshots.
 - GitHub disables scheduled workflows in repos with no commits for 60 days.
   This one commits hourly, so it stays alive on its own.
+
+## The site
+
+`docs/index.html` is the whole website: one file, no build step, no
+dependencies. GitHub Pages serves it from the `docs/` folder on `main`
+(Settings > Pages > Source: Deploy from a branch, `main`, `/docs`).
+
+Everything on the page is a **share of the total market**, not a cash figure.
+For each player, price times owners, divided by the same sum across all
+players. The manager count is the same for every player at a given hour, so
+it cancels out of the ratio: shares are unaffected by the millions of teams
+registered before the first deadline, which was distorting the cash version
+badly. Shares are stored as parts per million and always add to 1,000,000.
+
+The collector records the deadline the game is counting down to. When that
+value changes, a deadline has passed, and the "Since deadline" toggle rebases
+every line to 100 at that point. Before the season starts it rebases to the
+first snapshot instead and the button reads "Rebased to 100".
+
+`scripts/aggregate.py` turns the raw snapshots into what the page reads. It
+runs in the same workflow, straight after the collector, and writes:
+
+- `docs/data/core.json` loaded on open: the 20 clubs, the current top 40
+  players, and a name/club entry for all 577 so search works instantly
+- `docs/data/full.json` fetched only when someone searches for a player
+  outside the top 40
+
+The split matters on mobile. Together the files are about six times the size
+of core alone, and most visits never need the larger one.
+
+History is kept hourly for the last 7 days and thinned to one point per day
+before that. Without thinning the file grows by roughly 14,000 numbers a day
+and becomes unusable within a couple of months. Change `RECENT_DAYS` if you
+want a longer hourly window.
+
+To rebuild locally after collecting:
+
+```
+python3 scripts/collect.py
+python3 scripts/aggregate.py
+```
+
+Then open `docs/index.html` through a local server rather than as a file, or
+the `fetch` calls will be blocked:
+
+```
+python3 -m http.server -d docs 8000
+```
