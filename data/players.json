@@ -1228,7 +1228,7 @@
    "full": "Brennan Johnson",
    "name": "Johnson",
    "pos": 3,
-   "team": 8
+   "team": 9
   },
   "243016": {
    "full": "Alexis Mac Allister",
@@ -1432,7 +1432,7 @@
    "full": "Dwight McNeil",
    "name": "McNeil",
    "pos": 3,
-   "team": 9
+   "team": 8
   },
   "433590": {
    "full": "Cody Drameh",
@@ -1644,6 +1644,12 @@
    "pos": 3,
    "team": 19
   },
+  "445087": {
+   "full": "Ronald Araujo",
+   "name": "Araujo",
+   "pos": 2,
+   "team": 14
+  },
   "445122": {
    "full": "Jurriën Timber",
    "name": "J.Timber",
@@ -1830,6 +1836,12 @@
    "pos": 4,
    "team": 5
   },
+  "463210": {
+   "full": "Shea Charles",
+   "name": "Charles",
+   "pos": 3,
+   "team": 10
+  },
   "463936": {
    "full": "Jamie Bynoe-Gittens",
    "name": "Gittens",
@@ -1895,6 +1907,12 @@
    "name": "De Cuyper",
    "pos": 2,
    "team": 5
+  },
+  "465920": {
+   "full": "Mykhailo Mudryk",
+   "name": "Mudryk",
+   "pos": 3,
+   "team": 6
   },
   "466052": {
    "full": "Rayan Cherki",
@@ -2915,6 +2933,12 @@
    "name": "Mheuka",
    "pos": 4,
    "team": 6
+  },
+  "568420": {
+   "full": "Ousmane Diomande",
+   "name": "Diomande",
+   "pos": 2,
+   "team": 18
   },
   "56979": {
    "full": "Jordan Henderson",
