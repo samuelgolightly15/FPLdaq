@@ -37,6 +37,10 @@ FULL_PATH = os.path.join(ROOT, "docs", "data", "full.json")
 RECENT_DAYS = 7
 CORE_PLAYERS = 40
 
+# The template squad: how many of each position a manager actually picks.
+# element_type 1 = GK, 2 = DEF, 3 = MID, 4 = FWD.
+TEMPLATE_SLOTS = {1: 2, 2: 5, 3: 5, 4: 3}
+
 # element_type 1 = goalkeeper, 2 = defender, 3 = midfielder, 4 = forward.
 # Keepers and defenders are shown together: both are bought for clean sheets,
 # and most clubs have only two or three owned keepers at any time.
@@ -163,6 +167,7 @@ def main():
     clubs = {
         tid: {
             "share": [None] * n,
+            "cash": [None] * n,
             "pos": {name: [None] * n for name, _ in POS_GROUPS},
         }
         for tid in teams
@@ -182,6 +187,7 @@ def main():
             continue
 
         club_acc = {tid: {name: 0.0 for name, _ in POS_GROUPS} for tid in teams}
+        cash_acc = {tid: 0.0 for tid in teams}
 
         for code, w in weights.items():
             share = w / total * 1_000_000
@@ -210,9 +216,16 @@ def main():
             group = POS_OF.get(players_meta.get(code, {}).get("pos"))
             if tid in club_acc and group:
                 club_acc[tid][group] += share
+                # Money committed by the average manager: price times
+                # ownership fraction. Summed over every player this comes to
+                # roughly £100m, which is the FPL squad budget, so it reads
+                # as "of the average £100m squad, this much sits here".
+                # Stored in thousands of pounds.
+                cash_acc[tid] += (cost / 10) * (pct / 1000) * 1000
 
         for tid, groups in club_acc.items():
             clubs[tid]["share"][i] = round(sum(groups.values()))
+            clubs[tid]["cash"][i] = round(cash_acc[tid])
             for name, _ in POS_GROUPS:
                 clubs[tid]["pos"][name][i] = round(groups[name])
 
@@ -223,12 +236,26 @@ def main():
         return 0
 
     latest = {c: last(p["share"]) for c, p in players.items()}
-    core_codes = sorted(latest, key=lambda c: -latest[c])[:CORE_PLAYERS]
+    ranked = sorted(latest, key=lambda c: -latest[c])
+
+    # The most invested-in players in each position, which is as close as
+    # ownership alone gets to the template team.
+    template = {
+        str(pos): [c for c in ranked if players[c]["p"] == pos][:slots]
+        for pos, slots in TEMPLATE_SLOTS.items()
+    }
+
+    # Core must carry every template pick, otherwise the default view would
+    # have to wait on full.json to draw a defender ranked outside the top 40.
+    core_codes = list(
+        dict.fromkeys(ranked[:CORE_PLAYERS] + [c for cs in template.values() for c in cs])
+    )
 
     header = {
         "generated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "units": {
             "share": "parts per million of total market cap",
+            "cash": "thousands of pounds of the average manager's squad",
             "own": "thousands of managers",
             "price": "tenths of a million",
         },
@@ -239,6 +266,7 @@ def main():
 
     core = dict(header)
     core["teams"] = teams
+    core["template"] = template
     core["flows"] = find_flows(players, teams, times)
     core["clubs"] = clubs
     core["players"] = {c: players[c] for c in core_codes}
