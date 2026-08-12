@@ -57,6 +57,9 @@ h2{font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-weight:700;
   font-size:1.4rem;margin:0 0 .2rem;line-height:1.15;color:var(--royal)}
 .blurb{font-size:.85rem;color:var(--slate);margin:0 0 1rem;max-width:34rem}
 
+.squadline{font-size:.76rem;color:var(--slate);margin:0 0 .8rem;
+  border-left:3px solid var(--sea);padding-left:.6rem}
+.squadline b{color:var(--royal)}
 .chart{position:relative;touch-action:pan-y;background:#fff}
 svg{display:block;width:100%;height:auto;overflow:visible}
 .grid{stroke:var(--grid);stroke-width:.9}
@@ -81,7 +84,10 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 .swatch{width:.68rem;height:.68rem;flex:none;align-self:center}
 .legend .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .legend .tag{font-family:"Archivo",Arial,sans-serif;font-size:.64rem;color:var(--slate)}
+.legend .val{text-align:right;line-height:1.15}
+.legend .val em{display:block;font-style:normal;font-size:.66rem;color:var(--slate)}
 .legend .chg{font-size:.78rem;width:4rem;text-align:right}
+.club-id .tot em{font-style:normal;color:var(--slate);opacity:.75}
 .legend .drop{background:none;border:0;color:var(--slate);font:inherit;
   cursor:pointer;padding:0 .1rem;line-height:1}
 
@@ -163,14 +169,19 @@ a{color:inherit}
 <main>
 <section>
   <div class="eyebrow">Players</div>
-  <h2>10 most invested in players</h2>
-  <p class="blurb">Looking at all managers in FPL and where they've invested
-  their funds. Calculated as price multiplied by % ownership.</p>
+  <h2>The template squad</h2>
+  <p class="blurb">The most invested-in players in each position, two
+  goalkeepers, five defenders, five midfielders and three forwards, which is
+  the shape of a squad. Calculated as price multiplied by % ownership, so it
+  reads as the money the average manager holds in each player.</p>
 
-  <div class="modes" role="group" aria-label="Player chart scale">
-    <button type="button" data-chart="players" data-mode="share" aria-pressed="true">Share of index</button>
-    <button type="button" data-chart="players" data-mode="rebase" aria-pressed="false" id="mode-players-rebase">Rebased to 100</button>
+  <div class="modes" role="group" aria-label="Position">
+    <button type="button" data-pos="1" aria-pressed="false">GK</button>
+    <button type="button" data-pos="2" aria-pressed="false">Def</button>
+    <button type="button" data-pos="3" aria-pressed="false">Mid</button>
+    <button type="button" data-pos="4" aria-pressed="true">Fwd</button>
   </div>
+  <p class="squadline" id="squadline"></p>
 
   <div class="chart" id="chart-players"></div>
   <p class="readout" id="readout-players"></p>
@@ -178,7 +189,7 @@ a{color:inherit}
 
   <div class="search">
     <label class="visually-hidden" for="q-players">Add a player</label>
-    <input id="q-players" type="search" autocomplete="off" placeholder="Add a player to the chart">
+    <input id="q-players" type="search" autocomplete="off" placeholder="Compare another player" id="q-players-input">
     <ul class="results" id="results-players"></ul>
   </div>
 </section>
@@ -220,7 +231,7 @@ a{color:inherit}
   add to 100 per cent, which means a player can drift down while nobody sells
   them.</p>
   <p class="support">Built and run for free. If it is useful to you,
-  <a href="https://ko-fi.com/marcusleadboot" rel="noopener">you can buy me a coffee</a>.
+  <a href="https://ko-fi.com/YOUR_KOFI_HANDLE" rel="noopener">you can buy me a coffee</a>.
   The hourly data behind this site is
   <a href="https://github.com/samuelgolightly15/FPLdaq" rel="noopener">open on GitHub</a>.</p>
   <p class="status" id="status">Loading.</p>
@@ -238,10 +249,24 @@ const PALETTE = ["#11436d","#26a197","#801650","#f56927","#25303b","#6a3d8f",
                  "#0f7a8f","#b5762a","#4f6b1f","#c2445f","#3b6ea5","#8a6a1f"];
 const GROUPS = [["gd","GK & Def"],["mid","Mid"],["fwd","Fwd"]];
 
-const S = {data:null, full:null, fullLoading:null, players:{sel:[],mode:"share"}};
+const S = {data:null, full:null, fullLoading:null,
+           players:{sel:[], mode:"share", pos:"4", added:{1:[],2:[],3:[],4:[]}}};
 
 const $ = id => document.getElementById(id);
 const share = ppm => ppm==null ? "—" : (ppm/10000).toFixed(ppm<10000 ? 2 : 1)+"%";
+/* Money committed by the average manager, in thousands of pounds. Summed
+   across every player this comes to about £100m, the FPL squad budget. */
+const money = k => k==null ? "—" : k>=1000 ? "£"+(k/1000).toFixed(2)+"m"
+                                           : "£"+Math.round(k)+"k";
+/* Players carry price and owner count rather than a cash series, so the
+   per-manager figure is derived here: price x ownership fraction. */
+function cashOf(code){
+  const p=S.data.players[code]||(S.full&&S.full.players[code]);
+  if(!p) return null;
+  const m=S.data.managers;
+  return p.price.map((pr,i)=> (pr==null||p.own[i]==null||!m[i]) ? null
+    : (pr/10)*(p.own[i]*1000/m[i])*1000);
+}
 const pp = ppm => (ppm>=0?"+":"−")+(Math.abs(ppm)/10000).toFixed(3);
 const pct = v => (v>=0?"+":"")+v.toFixed(1)+"%";
 const firstOf = a => { for(const v of a) if(v!=null) return v; return null; };
@@ -292,7 +317,7 @@ function draw(key){
     const v=lo+(hi-lo)*g/4, yy=y(v);
     svg+=`<line class="grid" x1="${M.l}" y1="${yy}" x2="${W-M.r}" y2="${yy}"/>`
        + `<text class="axis" x="${M.l-6}" y="${yy+3}" text-anchor="end">`
-       + (st.mode==="rebase"?v.toFixed(0):share(v))+`</text>`;
+       + (st.mode==="rebase"?v.toFixed(0):share(v))+`</text>`;  // axis stays in share
   }
   (S.data.deadlines||[]).forEach(d=>{
     svg+=`<line class="deadline" x1="${x(d.index)}" x2="${x(d.index)}" y1="${M.t}" y2="${H-M.b}"/>`;
@@ -344,6 +369,33 @@ function wireCrosshair(key,host,x){
   host.addEventListener("touchend",off);
 }
 
+const POS_NAME = {1:"goalkeepers",2:"defenders",3:"midfielders",4:"forwards"};
+
+/* The template picks for the active position, plus anything the visitor has
+   added for comparison. Additions are kept per position so switching back
+   and forth does not lose them. */
+function rebuildPlayers(){
+  const pos=S.players.pos;
+  const codes=(S.data.template[pos]||[]).concat(S.players.added[pos]||[]);
+  S.players.sel=codes.map(seriesForPlayer).filter(Boolean);
+}
+
+/* What the template costs, and how much of the average squad sits in it. */
+function squadLine(){
+  const d=S.data;
+  let held=0, cost=0, n=0;
+  for(const pos of ["1","2","3","4"]) for(const c of d.template[pos]||[]){
+    const p=d.players[c]; if(!p) continue;
+    const cash=cashOf(c); const v=cash?lastOf(cash):null;
+    if(v!=null) held+=v;
+    const pr=lastOf(p.price); if(pr!=null) cost+=pr/10;
+    n++;
+  }
+  return `The average manager holds <b>${money(held)}</b> of their £100m squad `
+       + `in these ${n} players. Buying all ${n} today would cost `
+       + `<b>£${cost.toFixed(1)}m</b>.`;
+}
+
 function renderLegend(key){
   const st=S[key], ul=$("legend-"+key); ul.innerHTML="";
   st.sel.forEach((s,i)=>{
@@ -351,12 +403,22 @@ function renderLegend(key){
     const li=document.createElement("li");
     li.innerHTML=`<span class="swatch" style="background:${PALETTE[i%PALETTE.length]}"></span>`
       +`<span class="nm">${s.name}${s.tag?` <span class="tag">${s.tag}</span>`:""}</span>`
-      +`<span class="val">${share(v)}</span>`
+      +`<span class="val">${money(s.cash?lastOf(s.cash):null)}`
+      +`<em>${share(v)}</em></span>`
       +`<span class="chg ${c==null?"":c>=0?"up":"down"}">${c==null?"":pct(c)}</span>`;
     const b=document.createElement("button");
     b.className="drop"; b.type="button"; b.textContent="×";
     b.setAttribute("aria-label","Remove "+s.name);
-    b.onclick=()=>{ st.sel.splice(i,1); draw(key); renderLegend(key); };
+    b.onclick=()=>{
+      if(key==="players"){
+        const pos=S.players.pos;
+        const codes=(S.data.template[pos]||[]).concat(S.players.added[pos]||[]);
+        const code=codes[i];
+        S.players.added[pos]=(S.players.added[pos]||[]).filter(c=>c!==code);
+        rebuildPlayers();
+      } else st.sel.splice(i,1);
+      draw(key); renderLegend(key);
+    };
     li.appendChild(b); ul.appendChild(li);
   });
 }
@@ -440,7 +502,7 @@ function renderClubs(){
     return `<div class="club"><div class="club-id">`
          + `<span class="rk">${String(rank+1).padStart(2,"0")}</span> `
          + `<b style="color:${colour}">${team.name}</b>`
-         + `<span class="tot">${share(lastOf(club.share))} of index</span>`
+         + `<span class="tot">${money(lastOf(club.cash))} <em>${share(lastOf(club.share))}</em></span>`
          + `</div>${cells}</div>`;
   }).join("");
 }
@@ -478,7 +540,7 @@ function seriesForPlayer(code){
   const p=S.data.players[code]||(S.full&&S.full.players[code]);
   if(!p) return null;
   const t=S.data.teams[String(p.t)];
-  return {name:p.n, tag:t?t.short:"", values:p.share};
+  return {name:p.n, tag:t?t.short:"", values:p.share, cash:cashOf(code)};
 }
 
 function statusLine(){
@@ -516,36 +578,36 @@ async function boot(){
   }
   const d=S.data;
 
-  if(d.deadlines&&d.deadlines.length) $("mode-players-rebase").textContent="Since deadline";
-
-  S.players.sel=Object.keys(d.players)
-    .sort((a,b)=>(lastOf(d.players[b].share)||0)-(lastOf(d.players[a].share)||0))
-    .slice(0,10).map(seriesForPlayer);
+  rebuildPlayers();
+  $("squadline").innerHTML=squadLine();
 
   renderTicker(); renderFlows(); renderClubs();
   draw("players"); renderLegend("players");
   $("status").textContent=statusLine();
 
-  document.querySelectorAll(".modes button").forEach(b=>{
+  document.querySelectorAll(".modes button[data-pos]").forEach(b=>{
     b.onclick=()=>{
-      const k=b.dataset.chart;
-      S[k].mode=b.dataset.mode;
-      document.querySelectorAll(`.modes button[data-chart="${k}"]`)
+      S.players.pos=b.dataset.pos;
+      document.querySelectorAll(".modes button[data-pos]")
         .forEach(o=>o.setAttribute("aria-pressed",String(o===b)));
-      draw(k);
+      const input=$("q-players");
+      if(input) input.placeholder="Compare another of the "+POS_NAME[b.dataset.pos];
+      rebuildPlayers(); draw("players"); renderLegend("players");
     };
   });
 
   setupSearch("players",
     q=>Object.entries(d.directory)
-      .filter(([,v])=>v[0].toLowerCase().includes(q))
+      .filter(([,v])=>String(v[2])===S.players.pos && v[0].toLowerCase().includes(q))
       .sort((a,b)=>b[1][3]-a[1][3])
       .map(([code,v])=>({code,name:v[0],tag:(d.teams[String(v[1])]||{}).short||""})),
     async hit=>{
-      if(S.players.sel.some(s=>s.name===hit.name&&s.tag===hit.tag)) return;
+      const pos=S.players.pos;
+      if((d.template[pos]||[]).includes(hit.code)) return;
+      if((S.players.added[pos]||[]).includes(hit.code)) return;
       if(!d.players[hit.code]) await ensureFull();
-      const s=seriesForPlayer(hit.code);
-      if(s) S.players.sel.push(s);
+      S.players.added[pos].push(hit.code);
+      rebuildPlayers();
     });
 }
 
