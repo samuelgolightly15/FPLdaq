@@ -2,8 +2,12 @@ name: Collect FPL snapshot
 
 on:
   schedule:
-    # 7 past the hour: on-the-hour slots are the busiest and get delayed most.
+    # Twice an hour, away from the busy on-the-hour slot. GitHub drops
+    # scheduled runs under load, so two attempts roughly halve the odds of
+    # losing an hour entirely. The collector skips a run if the previous one
+    # was under 20 minutes ago, so this does not double the data.
     - cron: '7 * * * *'
+    - cron: '37 * * * *'
   workflow_dispatch:
 
 permissions:
