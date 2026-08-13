@@ -9,7 +9,7 @@ Writes two things under data/:
 
 Snapshot line format (kept short because there is one per hour, all season):
 
-  {"t": "2026-08-09T14:00:00Z",
+  {"t": "2026-08-09T14:07:00Z",
    "total_players": 3041555,
    "next_event": 1,
    "e": {"154561": [60, 309, 0], ...}}
@@ -33,7 +33,7 @@ import os
 import sys
 import time
 import urllib.request
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 API = "https://fantasy.premierleague.com/api/bootstrap-static/"
 
@@ -63,18 +63,42 @@ def fetch(attempts=4):
             time.sleep(wait)
 
 
-def hour_bucket():
-    """The current UTC hour, floored. Cron can drift by 10-20 minutes."""
-    return datetime.now(timezone.utc).replace(minute=0, second=0, microsecond=0)
+# Runs closer together than this are treated as the same reading. Two cron
+# entries an hour means a normal gap of about 30 minutes, so 20 leaves room
+# for drift without letting a delayed run and a punctual one both record.
+MIN_GAP_MINUTES = 20
 
 
-def already_recorded(path, stamp):
+def now_stamp():
+    """
+    The actual time of this run, to the minute.
+
+    Deliberately NOT floored to the hour. Scheduled workflows are best effort
+    and are routinely 5 to 30 minutes late. Flooring meant a run delayed past
+    the hour boundary claimed the next hour's slot, and the following run then
+    saw that slot filled and recorded nothing, so one delay cost two readings.
+    Recording the real time means every run that happens produces a point.
+    """
+    return datetime.now(timezone.utc).replace(second=0, microsecond=0)
+
+
+def recent_enough(path, when):
+    """True if a snapshot was already taken within MIN_GAP_MINUTES."""
     if not os.path.exists(path):
         return False
+    cutoff = when - timedelta(minutes=MIN_GAP_MINUTES)
     with open(path, "r", encoding="utf-8") as fh:
         for line in fh:
             line = line.strip()
-            if line and json.loads(line).get("t") == stamp:
+            if not line:
+                continue
+            try:
+                t = datetime.strptime(
+                    json.loads(line)["t"], "%Y-%m-%dT%H:%M:%SZ"
+                ).replace(tzinfo=timezone.utc)
+            except (ValueError, KeyError, json.JSONDecodeError):
+                continue
+            if t > cutoff:
                 return True
     return False
 
@@ -138,13 +162,13 @@ def write_if_changed(path, payload):
 def main():
     os.makedirs(SNAP_DIR, exist_ok=True)
 
-    bucket = hour_bucket()
-    stamp = bucket.strftime("%Y-%m-%dT%H:00:00Z")
-    path = os.path.join(SNAP_DIR, bucket.strftime("%Y-%m-%d") + ".jsonl")
+    when = now_stamp()
+    stamp = when.strftime("%Y-%m-%dT%H:%M:00Z")
+    path = os.path.join(SNAP_DIR, when.strftime("%Y-%m-%d") + ".jsonl")
 
     force = "--force" in sys.argv
-    if already_recorded(path, stamp) and not force:
-        print(f"{stamp} already recorded, nothing to do")
+    if recent_enough(path, when) and not force:
+        print(f"a snapshot was taken within {MIN_GAP_MINUTES} minutes, skipping")
         return
 
     data = fetch()
