@@ -57,6 +57,8 @@ h2{font-family:"Archivo","Helvetica Neue",Arial,sans-serif;font-weight:700;
   font-size:1.4rem;margin:0 0 .2rem;line-height:1.15;color:var(--royal)}
 .blurb{font-size:.85rem;color:var(--slate);margin:0 0 1rem;max-width:34rem}
 
+.spanline{font-size:.72rem;color:var(--slate);margin:0 0 .9rem}
+.spanline b{color:var(--royal);font-weight:600}
 .squadline{font-size:.76rem;color:var(--slate);margin:0 0 .8rem;
   border-left:3px solid var(--sea);padding-left:.6rem}
 .squadline b{color:var(--royal)}
@@ -110,7 +112,7 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 .flow-head .lbl{font-family:"Archivo",Arial,sans-serif;font-size:.74rem;
   font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 .flow-head .n{font-family:"Archivo",Arial,sans-serif;font-size:.62rem;color:var(--slate)}
-.bar{display:grid;grid-template-columns:5.4rem 1fr 3.2rem;gap:.4rem;
+.bar{display:grid;grid-template-columns:6.6rem 1fr 3.6rem;gap:.35rem;
   align-items:center;padding:.18rem 0;font-size:.78rem}
 .bar .who{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bar .who i{font-style:normal;font-family:"Archivo",Arial,sans-serif;
@@ -118,6 +120,12 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 .bar .track{height:.7rem;background:var(--shade);position:relative}
 .bar .fill{position:absolute;inset:0 auto 0 0;height:100%}
 .bar .amt{font-size:.7rem;text-align:right}
+/* Sold rows read the other way: bars grow right to left from the edge. */
+.bar.rev{grid-template-columns:3.6rem 1fr 6.6rem}
+.bar.rev .amt{order:1;text-align:left}
+.bar.rev .track{order:2}
+.bar.rev .who{order:3;text-align:right}
+.bar.rev .fill{inset:0 0 0 auto}
 
 .club-head,.club{display:grid;grid-template-columns:5.4rem repeat(3,1fr);gap:.4rem}
 .club-head{align-items:end;padding-bottom:.25rem;border-bottom:1px solid var(--royal)}
@@ -197,15 +205,16 @@ a{color:inherit}
 <section>
   <div class="eyebrow">Flows</div>
   <h2>Bought and sold today</h2>
-  <p class="blurb" id="flow-blurb">Change in each player's share of the market
-  over the last 24 hours.</p>
+  <p class="blurb" id="flow-blurb">Change over the last 24 hours in the money
+  the average manager holds in each player, on the same measure as the chart
+  above. Price rises count as money in, as well as new owners.</p>
   <div class="flows">
     <div>
       <div class="flow-head"><span class="lbl">Most bought</span><span class="n" id="flow-n-in"></span></div>
       <div id="flow-in"></div>
     </div>
     <div>
-      <div class="flow-head"><span class="lbl">Most sold</span><span class="n" id="flow-n-out"></span></div>
+      <div class="flow-head rev"><span class="n" id="flow-n-out"></span><span class="lbl">Most sold</span></div>
       <div id="flow-out"></div>
     </div>
   </div>
@@ -215,6 +224,7 @@ a{color:inherit}
   <div class="eyebrow">Teams</div>
   <h2>FPL manager investment by team</h2>
   <p class="blurb">All twenty clubs, most heavily invested in first.</p>
+  <p class="spanline" id="spanline"></p>
 
   <div class="club-head" aria-hidden="true">
     <span>Club</span><span>GK &amp; Def</span><span>Mid</span><span>Fwd</span>
@@ -231,7 +241,7 @@ a{color:inherit}
   add to 100 per cent, which means a player can drift down while nobody sells
   them.</p>
   <p class="support">Built and run for free. If it is useful to you,
-  <a href="https://ko-fi.commarcusleadboot" rel="noopener">you can buy me a coffee</a>.
+  <a href="https://ko-fi.com/marcusleadboot" rel="noopener">you can buy me a coffee</a>.
   The hourly data behind this site is
   <a href="https://github.com/samuelgolightly15/FPLdaq" rel="noopener">open on GitHub</a>.</p>
   <p class="status" id="status">Loading.</p>
@@ -267,7 +277,9 @@ function cashOf(code){
   return p.price.map((pr,i)=> (pr==null||p.own[i]==null||!m[i]) ? null
     : (pr/10)*(p.own[i]*1000/m[i])*1000);
 }
-const pp = ppm => (ppm>=0?"+":"−")+(Math.abs(ppm)/10000).toFixed(3);
+/* Signed change in the money the average manager holds, in thousands. */
+const dmoney = k => { const a=Math.abs(k), sign=k>=0?"+":"−";
+  return sign+(a>=1000 ? "£"+(a/1000).toFixed(2)+"m" : "£"+Math.round(a)+"k"); };
 const pct = v => (v>=0?"+":"")+v.toFixed(1)+"%";
 const firstOf = a => { for(const v of a) if(v!=null) return v; return null; };
 const lastOf  = a => { for(let i=a.length-1;i>=0;i--) if(a[i]!=null) return a[i]; return null; };
@@ -376,15 +388,22 @@ const POS_NAME = {1:"goalkeepers",2:"defenders",3:"midfielders",4:"forwards"};
    and forth does not lose them. */
 function rebuildPlayers(){
   const pos=S.players.pos;
-  const codes=(S.data.template[pos]||[]).concat(S.players.added[pos]||[]);
-  S.players.sel=codes.map(seriesForPlayer).filter(Boolean);
+  const t=S.data.template||{};
+  // A core.json written before the template block existed still draws:
+  // fall back to the most invested-in players of this position.
+  let base=t[pos];
+  if(!base) base=Object.keys(S.data.players)
+    .filter(c=>String(S.data.players[c].p)===pos)
+    .sort((a,b)=>(lastOf(S.data.players[b].share)||0)-(lastOf(S.data.players[a].share)||0))
+    .slice(0,{1:2,2:5,3:5,4:3}[pos]||5);
+  S.players.sel=base.concat(S.players.added[pos]||[]).map(seriesForPlayer).filter(Boolean);
 }
 
 /* What the template costs, and how much of the average squad sits in it. */
 function squadLine(){
   const d=S.data;
   let held=0, cost=0, n=0;
-  for(const pos of ["1","2","3","4"]) for(const c of d.template[pos]||[]){
+  for(const pos of ["1","2","3","4"]) for(const c of (d.template||{})[pos]||[]){
     const p=d.players[c]; if(!p) continue;
     const cash=cashOf(c); const v=cash?lastOf(cash):null;
     if(v!=null) held+=v;
@@ -412,7 +431,7 @@ function renderLegend(key){
     b.onclick=()=>{
       if(key==="players"){
         const pos=S.players.pos;
-        const codes=(S.data.template[pos]||[]).concat(S.players.added[pos]||[]);
+        const codes=((S.data.template||{})[pos]||[]).concat(S.players.added[pos]||[]);
         const code=codes[i];
         S.players.added[pos]=(S.players.added[pos]||[]).filter(c=>c!==code);
         rebuildPlayers();
@@ -437,18 +456,20 @@ function renderFlows(){
   const since=new Date(f.from).toLocaleString("en-GB",
     {day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
   $("flow-n-in").textContent="since "+since;
-  $("flow-n-out").textContent="percentage points";
+  $("flow-n-out").textContent="since "+since;
 
-  const rows=(list,colour,sign)=>list.map(m=>{
+  const rows=(list,colour,sign,rev)=>list.map(m=>{
     const t=S.data.teams[String(m.t)];
     const w=Math.abs(m.d)/max*100;
-    return `<div class="bar"><span class="who">${m.n} <i>${t?t.short:""}</i></span>`
+    // Club code sits next to the name on both sides, so it swaps position.
+    const who = rev ? `<i>${t?t.short:""}</i> ${m.n}` : `${m.n} <i>${t?t.short:""}</i>`;
+    return `<div class="bar${rev?" rev":""}"><span class="who">${who}</span>`
          + `<span class="track"><span class="fill" style="width:${w.toFixed(1)}%;background:${colour}"></span></span>`
-         + `<span class="amt ${sign}">${pp(m.d)}</span></div>`;
+         + `<span class="amt ${sign}">${dmoney(m.d)}</span></div>`;
   }).join("");
 
   $("flow-in").innerHTML=rows(f.in,"var(--rise)","up");
-  $("flow-out").innerHTML=rows(f.out,"var(--fall)","down");
+  $("flow-out").innerHTML=rows(f.out,"var(--fall)","down",true);
 }
 
 /* ---------------- club sparklines ---------------- */
@@ -482,6 +503,26 @@ function sparkline(values,colour){
   });
   return `<svg viewBox="0 0 ${SW} ${SH}" preserveAspectRatio="none" aria-hidden="true">`
        + marks+areas.join("")+out+`</svg>`;
+}
+
+/* What period the sparklines cover, and what the change column measures
+   against, both of which are otherwise invisible. */
+function spanNote(){
+  const t=S.data.times;
+  if(!t.length) return "";
+  const a=new Date(t[0]), z=new Date(t[t.length-1]);
+  const hours=(z-a)/3.6e6;
+  const dt=d=>d.toLocaleString("en-GB",{day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"});
+  const dd=d=>d.toLocaleDateString("en-GB",{day:"numeric",month:"short"});
+  const range = hours<48 ? `${dt(a)} to ${dt(z)}` : `${dd(a)} to ${dd(z)}`;
+  const every = hours<24*7 ? "hourly" : "hourly for the last week, daily before that";
+  const dl=S.data.deadlines||[];
+  const basis = dl.length
+    ? "the deadline on "+dd(new Date(dl[dl.length-1].time))
+    : "the first reading";
+  return `Each line covers <b>${range}</b>, ${t.length} readings, ${every}. `
+       + `The figure on the left is the latest share; the one on the right is `
+       + `the change since ${basis}.`;
 }
 
 function renderClubs(){
@@ -578,10 +619,11 @@ async function boot(){
   }
   const d=S.data;
 
-  rebuildPlayers();
-  $("squadline").innerHTML=squadLine();
+  try{ rebuildPlayers(); $("squadline").innerHTML=squadLine(); }
+  catch(e){ console.error("player chart:",e); }
 
   renderTicker(); renderFlows(); renderClubs();
+  $("spanline").innerHTML=spanNote();
   draw("players"); renderLegend("players");
   $("status").textContent=statusLine();
 
@@ -603,7 +645,7 @@ async function boot(){
       .map(([code,v])=>({code,name:v[0],tag:(d.teams[String(v[1])]||{}).short||""})),
     async hit=>{
       const pos=S.players.pos;
-      if((d.template[pos]||[]).includes(hit.code)) return;
+      if(((d.template||{})[pos]||[]).includes(hit.code)) return;
       if((S.players.added[pos]||[]).includes(hit.code)) return;
       if(!d.players[hit.code]) await ensureFull();
       S.players.added[pos].push(hit.code);
