@@ -107,15 +107,18 @@ def find_deadlines(snaps, times):
     return out
 
 
-def find_flows(players, teams, times, hours=24, top=12):
+def find_flows(players, managers, times, hours=24, top=12):
     """
-    Who gained and lost the most share over the last `hours`.
+    Who gained and lost the most money over the last `hours`.
 
-    Measured as a change in share of the index, in parts per million, so it
-    nets to roughly zero across the whole game: for someone to be bought into,
-    someone else has to be sold out of. Using cash instead would show almost
-    everyone rising during the registration surge, which tells you nothing
-    about where managers are actually moving.
+    Measured in the same unit as everything else on the page: price times
+    ownership fraction, which is the money the average manager holds in that
+    player. Differencing it over a day gives the money moving in or out.
+
+    Ownership is a percentage, so the millions of managers registering before
+    the deadline do not inflate this. Price changes do move it, which is
+    correct: a player getting more expensive genuinely ties up more of a
+    squad. Reported in thousands of pounds.
     """
     if len(times) < 2:
         return {"hours": hours, "from": times[-1] if times else None, "in": [], "out": []}
@@ -128,17 +131,23 @@ def find_flows(players, teams, times, hours=24, top=12):
         else:
             break
 
+    def cash(p, i):
+        """Money the average manager holds, in thousands of pounds."""
+        if p["price"][i] is None or p["own"][i] is None or not managers[i]:
+            return None
+        return (p["price"][i] / 10) * (p["own"][i] * 1000 / managers[i]) * 1000
+
     moves = []
     for code, p in players.items():
-        a, z = p["share"][start], p["share"][-1]
+        a, z = cash(p, start), cash(p, -1)
         if a is None or z is None:
             continue
         moves.append(
             {
                 "n": p["n"],
                 "t": p["t"],
-                "d": z - a,
-                "to": z,
+                "d": round(z - a, 1),
+                "to": round(z),
                 "pr": p["price"][-1],
             }
         )
@@ -267,7 +276,7 @@ def main():
     core = dict(header)
     core["teams"] = teams
     core["template"] = template
-    core["flows"] = find_flows(players, teams, times)
+    core["flows"] = find_flows(players, managers, times)
     core["clubs"] = clubs
     core["players"] = {c: players[c] for c in core_codes}
     core["directory"] = {c: [p["n"], p["t"], p["p"], latest[c]] for c, p in players.items()}
