@@ -117,15 +117,12 @@ svg{display:block;width:100%;height:auto;overflow:visible}
 .bar .who{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bar .who i{font-style:normal;font-family:"Archivo",Arial,sans-serif;
   font-size:.62rem;color:var(--slate)}
-.bar .track{height:.7rem;background:var(--shade);position:relative}
-.bar .fill{position:absolute;inset:0 auto 0 0;height:100%}
+.bar .track{height:.7rem;background:var(--shade);display:flex}
+.bar .fill{height:100%;flex:none}
 .bar .amt{font-size:.7rem;text-align:right}
-/* Sold rows read the other way: bars grow right to left from the edge. */
-.bar.rev{grid-template-columns:3.6rem 1fr 6.6rem}
-.bar.rev .amt{order:1;text-align:left}
-.bar.rev .track{order:2}
-.bar.rev .who{order:3;text-align:right}
-.bar.rev .fill{inset:0 0 0 auto}
+/* Sold rows keep the same columns as bought, so names and numbers line up
+   down the page. Only the bar itself grows the other way. */
+.bar.rev .track{justify-content:flex-end}
 
 .club-head,.club{display:grid;grid-template-columns:5.4rem repeat(3,1fr);gap:.4rem}
 .club-head{align-items:end;padding-bottom:.25rem;border-bottom:1px solid var(--royal)}
@@ -214,7 +211,7 @@ a{color:inherit}
       <div id="flow-in"></div>
     </div>
     <div>
-      <div class="flow-head rev"><span class="n" id="flow-n-out"></span><span class="lbl">Most sold</span></div>
+      <div class="flow-head"><span class="lbl">Most sold</span><span class="n" id="flow-n-out"></span></div>
       <div id="flow-out"></div>
     </div>
   </div>
@@ -461,9 +458,7 @@ function renderFlows(){
   const rows=(list,colour,sign,rev)=>list.map(m=>{
     const t=S.data.teams[String(m.t)];
     const w=Math.abs(m.d)/max*100;
-    // Club code sits next to the name on both sides, so it swaps position.
-    const who = rev ? `<i>${t?t.short:""}</i> ${m.n}` : `${m.n} <i>${t?t.short:""}</i>`;
-    return `<div class="bar${rev?" rev":""}"><span class="who">${who}</span>`
+    return `<div class="bar${rev?" rev":""}"><span class="who">${m.n} <i>${t?t.short:""}</i></span>`
          + `<span class="track"><span class="fill" style="width:${w.toFixed(1)}%;background:${colour}"></span></span>`
          + `<span class="amt ${sign}">${dmoney(m.d)}</span></div>`;
   }).join("");
