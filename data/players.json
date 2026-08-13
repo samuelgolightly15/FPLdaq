@@ -522,6 +522,12 @@
    "pos": 3,
    "team": 2
   },
+  "196100": {
+   "full": "Gustavo Hamer",
+   "name": "Hamer",
+   "pos": 3,
+   "team": 7
+  },
   "198869": {
    "full": "Benjamin White",
    "name": "White",
@@ -2116,7 +2122,7 @@
    "full": "Evann Guessand",
    "name": "Guessand",
    "pos": 3,
-   "team": 2
+   "team": 8
   },
   "485711": {
    "full": "Benjamin Sesko",
@@ -2333,6 +2339,12 @@
    "name": "Roefs",
    "pos": 1,
    "team": 20
+  },
+  "498444": {
+   "full": "Pep Chavarría",
+   "name": "Chavarria",
+   "pos": 2,
+   "team": 6
   },
   "499169": {
    "full": "Myles Lewis-Skelly",
@@ -3365,6 +3377,12 @@
    "name": "Shepherd",
    "pos": 3,
    "team": 7
+  },
+  "690838": {
+   "full": "Brian Madjo",
+   "name": "Madjo",
+   "pos": 4,
+   "team": 2
   },
   "699989": {
    "full": "Djiamgone Jocelin Ta Bi",
