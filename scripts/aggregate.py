@@ -279,7 +279,18 @@ def main():
     core["flows"] = find_flows(players, managers, times)
     core["clubs"] = clubs
     core["players"] = {c: players[c] for c in core_codes}
-    core["directory"] = {c: [p["n"], p["t"], p["p"], latest[c]] for c, p in players.items()}
+    # Full name is carried so search can match a first name: the display name
+    # is often just the surname, or an initialled form like "B.Fernandes".
+    core["directory"] = {
+        c: [
+            p["n"],
+            p["t"],
+            p["p"],
+            latest[c],
+            players_meta.get(c, {}).get("full", p["n"]),
+        ]
+        for c, p in players.items()
+    }
 
     full = dict(header)
     full["players"] = {c: p for c, p in players.items() if c not in core_codes}
