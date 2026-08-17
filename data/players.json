@@ -1398,6 +1398,12 @@
    "pos": 3,
    "team": 7
   },
+  "428971": {
+   "full": "Steven Benda",
+   "name": "Benda",
+   "pos": 1,
+   "team": 18
+  },
   "430871": {
    "full": "Matheus Santos Carneiro da Cunha",
    "name": "Cunha",
@@ -1961,6 +1967,12 @@
    "name": "Iling Jr",
    "pos": 3,
    "team": 2
+  },
+  "469266": {
+   "full": "Lucas Gourna-Douath",
+   "name": "Gourna-Douath",
+   "pos": 3,
+   "team": 11
   },
   "469272": {
    "full": "Loum Tchaouna",
@@ -2975,6 +2987,12 @@
    "name": "Bergvall",
    "pos": 3,
    "team": 19
+  },
+  "570794": {
+   "full": "Anan Khalaili",
+   "name": "Khalaili",
+   "pos": 2,
+   "team": 8
   },
   "571779": {
    "full": "César Palacios",
