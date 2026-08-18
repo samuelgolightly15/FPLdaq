@@ -754,7 +754,7 @@
    "full": "Taiwo Awoniyi",
    "name": "Awoniyi",
    "pos": 4,
-   "team": 18
+   "team": 7
   },
   "210462": {
    "full": "Ibrahim Sangaré",
@@ -2028,6 +2028,12 @@
    "pos": 1,
    "team": 11
   },
+  "474120": {
+   "full": "Julio Enciso",
+   "name": "Enciso",
+   "pos": 3,
+   "team": 12
+  },
   "475168": {
    "full": "João Pedro Junqueira de Jesus",
    "name": "João Pedro",
@@ -2999,6 +3005,12 @@
    "name": "Palacios",
    "pos": 3,
    "team": 10
+  },
+  "572584": {
+   "full": "Abdoul Ouattara",
+   "name": "Ouattara",
+   "pos": 2,
+   "team": 12
   },
   "574458": {
    "full": "Mamadou Sarr",
