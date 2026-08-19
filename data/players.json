@@ -1860,6 +1860,12 @@
    "pos": 3,
    "team": 10
   },
+  "463726": {
+   "full": "Amar Dedic",
+   "name": "Dedić",
+   "pos": 2,
+   "team": 17
+  },
   "463936": {
    "full": "Jamie Bynoe-Gittens",
    "name": "Gittens",
@@ -2718,6 +2724,12 @@
    "pos": 3,
    "team": 5
   },
+  "538007": {
+   "full": "Promise David",
+   "name": "David",
+   "pos": 4,
+   "team": 5
+  },
   "538207": {
    "full": "William Osula",
    "name": "Osula",
@@ -2939,6 +2951,12 @@
    "name": "Walle Egeli",
    "pos": 4,
    "team": 12
+  },
+  "559152": {
+   "full": "Zavier Gozo",
+   "name": "Gozo",
+   "pos": 3,
+   "team": 8
   },
   "560262": {
    "full": "Junior Kroupi",
