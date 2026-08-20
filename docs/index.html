@@ -1308,12 +1308,17 @@ function renderPitch(){
     + `<div class="pitch-bench"><span class="lbl">Bench, in order</span>`
     + `<div class="pitch-row">${bench.map(p=>card(p,true)).join("")}</div></div>`;
 
+  // Overlap is a count of players, not a score: each contributes their
+  // ownership fraction, so 4.39 means the average manager already holds 4.39
+  // of these fifteen. Spelled out because the bare number reads as a rating.
+  const pctOverlap = (m.overlap / 15 * 100).toFixed(0);
   $("pitch-sub").innerHTML =
       `A ${form} costing <b>£${m.spend.toFixed(1)}m</b> of the £${m.budget.toFixed(1)}m `
-    + `the average manager holds. It captures ${m.overlap.toFixed(2)} of the `
-    + `${m.unconstrained.toFixed(2)} players an unlimited budget would reach, `
-    + `so the budget alone costs about ${(m.unconstrained-m.overlap).toFixed(2)} `
-    + `of a player's worth of ownership.`;
+    + `the average manager holds. Of these fifteen players, the average manager `
+    + `already owns <b>${m.overlap.toFixed(2)}</b>, or ${pctOverlap} per cent of `
+    + `the squad. Without the budget and the three-per-club limit the closest `
+    + `possible fifteen would overlap by ${m.unconstrained.toFixed(2)}, so those `
+    + `rules cost about ${(m.unconstrained-m.overlap).toFixed(2)} of a player.`;
 }
 
 /* While a gameweek is in play the collector writes a new reading every ten
