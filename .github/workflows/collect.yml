@@ -2,8 +2,12 @@ name: Collect FPL snapshot
 
 on:
   schedule:
-    # 7 past the hour: on-the-hour slots are the busiest and get delayed most.
+    # Twice an hour, away from the busy on-the-hour slot. GitHub drops
+    # scheduled runs under load, so two attempts roughly halve the odds of
+    # losing an hour entirely. The collector skips a run if the previous one
+    # was under 20 minutes ago, so this does not double the data.
     - cron: '7 * * * *'
+    - cron: '37 * * * *'
   workflow_dispatch:
 
 permissions:
@@ -27,6 +31,10 @@ jobs:
         run: python scripts/collect.py
 
       - name: Rebuild site data
+        # Never fatal. The snapshot is already on disk by this point, and
+        # losing a reading because a chart could not be rebuilt would be a bad
+        # trade: the aggregation reruns next hour, the reading does not.
+        continue-on-error: true
         run: python scripts/aggregate.py
 
       - name: Commit and push
