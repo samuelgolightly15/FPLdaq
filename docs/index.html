@@ -206,18 +206,21 @@ table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
 
 /* ---------- pitch ---------- */
 .pitch{background:var(--shade);border:1px solid var(--grid);padding:.7rem .5rem}
-.pitch-row{display:flex;justify-content:center;gap:.3rem;margin-bottom:.45rem;
-  flex-wrap:wrap}
+.pitch-row{display:flex;justify-content:center;gap:.2rem;margin-bottom:.35rem;
+  flex-wrap:nowrap}
 .pitch-bench{border-top:1px dashed var(--grid);margin-top:.6rem;padding-top:.6rem}
 .pitch-bench .lbl{display:block;text-align:center;font-family:"Archivo",Arial,sans-serif;
   font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);
   margin-bottom:.4rem}
-.plr{flex:0 1 5.2rem;min-width:4.4rem;background:#fff;border:1px solid var(--grid);
-  border-top:3px solid var(--royal);padding:.3rem .25rem;text-align:center}
-.plr b{display:block;font-family:"Archivo",Arial,sans-serif;font-size:.7rem;
+/* Every position sits on one line, so the cards share the width evenly and
+   shrink rather than wrapping. Five defenders is the tightest case. */
+.plr{flex:1 1 0;min-width:0;max-width:6rem;background:#fff;border:1px solid var(--grid);
+  border-top:3px solid var(--royal);padding:.25rem .15rem;text-align:center}
+.plr b{display:block;font-family:"Archivo",Arial,sans-serif;font-size:.63rem;
   font-weight:700;line-height:1.1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.plr .c{display:block;font-size:.56rem;letter-spacing:.06em;color:var(--slate)}
-.plr .o{display:block;font-size:.62rem;font-variant-numeric:tabular-nums}
+.plr .c{display:block;font-size:.5rem;letter-spacing:.02em;color:var(--slate);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.plr .o{display:block;font-size:.56rem;font-variant-numeric:tabular-nums}
 .plr.cap b::after{content:" C";color:var(--orange)}
 .plr.sub{opacity:.72;border-top-width:2px}
 
@@ -292,7 +295,7 @@ table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
   average manager holds in each player. A <b>solid</b> line means the player was
   in the FPLdaq Template at that moment; <b>dotted</b> means the market held them
   but an affordable template could not fit them in.</p>
-  <p class="squadline" id="ownline"></p>
+
 
   <div class="modes" role="group" aria-label="Position">
     <button type="button" data-pos="1" aria-pressed="false">GK</button>
@@ -465,7 +468,7 @@ const W=640, H=300, M={t:12,r:8,b:22,l:46};
 function draw(key){
   const st=S[key], host=$("chart-"+key), times=S.data.times;
   const series = st.sel.map((s,i)=>({
-    name:s.name, colour:PALETTE[i%PALETTE.length],
+    name:s.name, colour:PALETTE[i%PALETTE.length], mask:s.mask,
     values: st.mode==="rebase" ? rebase(s.values) : s.values
   }));
   if(!series.length){ host.innerHTML=""; return; }
@@ -578,9 +581,19 @@ function squadLine(){
     const pr=lastOf(p.price); if(pr!=null) cost+=pr/10;
     n++;
   }
-  return `The average manager holds <b>${money(held)}</b> of their £100m squad `
-       + `in these ${n} players. Buying all ${n} today would cost `
-       + `<b>£${cost.toFixed(1)}m</b>.`;
+  // Combined with the Template overlap, so the two facts read as one thought.
+  const m=d.model_now;
+  let tail="";
+  if(m){
+    const inTpl=new Set(m.squad.map(p=>p.code));
+    const shown=[].concat(...Object.values(d.template||{}));
+    const hit=shown.filter(c=>inTpl.has(c)).length;
+    tail=` <b>${hit} of the ${shown.length}</b> are in the FPLdaq Template; `
+       + `the rest are priced out of an affordable fifteen.`;
+  }
+  return `The average manager holds <b>${money(held)}</b> of their squad in these `
+       + `${n} players, which would cost <b>£${cost.toFixed(1)}m</b> to buy today.`
+       + tail;
 }
 
 function renderLegend(key){
@@ -819,7 +832,7 @@ async function boot(){
   catch(e){ console.error("player chart:",e); }
 
   renderTicker(); renderFlows(); renderClubs();
-  setupViews(); renderSwappi(); renderAllocation(); renderPitch(); renderOwnLine(); setupTeam();
+  setupViews(); renderSwappi(); renderAllocation(); renderPitch(); setupTeam();
   startPolling();
   $("spanline").innerHTML=spanNote();
   draw("players"); renderLegend("players");
@@ -1253,7 +1266,7 @@ function setupViews(){
       // while hidden, so anything revealed has to be redrawn.
       if(v==="market"){
         renderSwappi(); draw("players"); renderAllocation(); renderClubs();
-        renderPitch(); renderOwnLine();
+        renderPitch();
       } else { renderAlpha(); }
       window.scrollTo({top:0});
     };
@@ -1280,7 +1293,7 @@ function renderPitch(){
     const t = S.data.teams[String(p.team)];
     return `<div class="plr${p.code===cap?" cap":""}${sub?" sub":""}"`
          + ` style="border-top-color:${CLUB_COLOUR[t?t.short:""]||"#11436d"}">`
-         + `<b>${p.n}</b><span class="c">${t?t.short:""} · £${(p.price/10).toFixed(1)}m</span>`
+         + `<b>${p.n}</b><span class="c">${t?t.short:""} £${(p.price/10).toFixed(1)}m</span>`
          + `<span class="o">${(p.own*100).toFixed(1)}%</span></div>`;
   };
 
