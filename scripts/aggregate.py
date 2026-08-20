@@ -35,6 +35,12 @@ try:
     import model_squad as MS
 except ImportError:
     MS = None
+    print(
+        "WARNING: scripts/model_squad.py not found. The FPLdaq Template, the "
+        "pitch view and the solid/dotted lines will all be empty until it is "
+        "added to the scripts folder.",
+        file=sys.stderr,
+    )
 from datetime import datetime, timezone, timedelta
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -545,6 +551,8 @@ def main():
         with open(path, "w", encoding="utf-8") as fh:
             json.dump(payload, fh, ensure_ascii=False, separators=(",", ":"))
 
+    if MS is None:
+        print("model_squad missing -> model_now is null, tpl flags omitted")
     print(
         f"{len(players)} players, {len(clubs)} clubs, {n} points, "
         f"{len(header['deadlines'])} deadline(s) passed\n"
