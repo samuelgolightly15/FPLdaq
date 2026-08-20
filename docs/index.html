@@ -104,6 +104,8 @@ svg{display:block;width:100%;height:auto;overflow:visible}
   font-size:.85rem;text-align:left;cursor:pointer;background:none;border:0;
   border-bottom:1px solid var(--hair);padding:.45rem .65rem;color:var(--royal)}
 .results button:hover,.results button:focus{background:var(--shade)}
+.results .full{margin-left:auto;font-size:.68rem;color:var(--slate);
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:9rem}
 
 .flows{display:grid;gap:1.4rem}
 @media (min-width:34rem){.flows{grid-template-columns:1fr 1fr;gap:1.1rem}}
@@ -158,6 +160,66 @@ a{color:inherit}
 @media (prefers-reduced-motion:reduce){
   .ticker-track{animation:none}.ticker{overflow-x:auto}
 }
+
+/* ---------- views ---------- */
+.views{display:flex;border-bottom:1px solid var(--royal);margin:0 0 1.8rem}
+.views button{font-family:"Archivo",Arial,sans-serif;font-size:.82rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;padding:.55rem .95rem;cursor:pointer;
+  background:none;border:0;border-bottom:3px solid transparent;color:var(--slate);
+  margin-bottom:-1px}
+.views button[aria-selected="true"]{color:var(--royal);border-bottom-color:var(--orange)}
+
+/* ---------- team entry ---------- */
+.teambox{margin-top:1.2rem;border-top:1px solid var(--grid);padding-top:.9rem}
+.teambox .lbl{display:block;font-family:"Archivo",Arial,sans-serif;font-size:.66rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-bottom:.35rem}
+.teamrow{display:flex;gap:.4rem}
+.teamrow input{font:inherit;font-size:.9rem;flex:1;min-width:0;padding:.5rem .6rem;
+  background:var(--shade);border:1px solid var(--grid);color:var(--royal);border-radius:0}
+.teamrow button{font-family:"Archivo",Arial,sans-serif;font-size:.78rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.05em;padding:.5rem .8rem;cursor:pointer;
+  background:var(--royal);color:#fff;border:1px solid var(--royal);border-radius:0}
+#team-help{background:none;color:var(--royal);width:2.2rem;padding:0;font-size:.95rem}
+.teaminfo{font-size:.76rem;color:var(--slate);background:var(--shade);
+  border-left:3px solid var(--orange);padding:.55rem .65rem;margin:.5rem 0 0}
+.teaminfo b{color:var(--royal)}
+.teamstate{font-size:.76rem;color:var(--slate);margin:.45rem 0 0;min-height:1.1em}
+.teamstate.err{color:var(--pink)}
+
+/* ---------- alpha table ---------- */
+table.alpha{width:100%;border-collapse:collapse;font-size:.84rem}
+table.alpha td{padding:.45rem .2rem;border-bottom:1px solid var(--hair);
+  vertical-align:baseline}
+table.alpha td.v{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;
+  width:5.2rem}
+table.alpha td.d{font-size:.72rem;color:var(--slate);display:block;padding-top:0;
+  border:0;margin-bottom:.2rem}
+table.alpha tr.rung td{color:var(--slate)}
+table.alpha tr.step td:first-child{padding-left:.9rem;border-left:3px solid var(--grid)}
+table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
+  font-weight:600;padding-top:.55rem}
+.note{font-size:.72rem;color:var(--slate);margin:.7rem 0 0}
+
+.method{border-left:3px solid var(--grid);padding-left:.8rem;margin:1.1rem 0 0}
+.method p{font-size:.82rem;color:var(--slate);margin:0 0 .6rem}
+.method b{color:var(--royal)}
+
+/* ---------- pitch ---------- */
+.pitch{background:var(--shade);border:1px solid var(--grid);padding:.7rem .5rem}
+.pitch-row{display:flex;justify-content:center;gap:.3rem;margin-bottom:.45rem;
+  flex-wrap:wrap}
+.pitch-bench{border-top:1px dashed var(--grid);margin-top:.6rem;padding-top:.6rem}
+.pitch-bench .lbl{display:block;text-align:center;font-family:"Archivo",Arial,sans-serif;
+  font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);
+  margin-bottom:.4rem}
+.plr{flex:0 1 5.2rem;min-width:4.4rem;background:#fff;border:1px solid var(--grid);
+  border-top:3px solid var(--royal);padding:.3rem .25rem;text-align:center}
+.plr b{display:block;font-family:"Archivo",Arial,sans-serif;font-size:.7rem;
+  font-weight:700;line-height:1.1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.plr .c{display:block;font-size:.56rem;letter-spacing:.06em;color:var(--slate)}
+.plr .o{display:block;font-size:.62rem;font-variant-numeric:tabular-nums}
+.plr.cap b::after{content:" C";color:var(--orange)}
+.plr.sub{opacity:.72;border-top-width:2px}
 </style>
 </head>
 <body>
@@ -172,8 +234,51 @@ a{color:inherit}
 <div class="ticker" aria-label="Club shares of the index"><div class="ticker-track" id="ticker"></div></div>
 
 <main>
+<nav class="views" role="tablist" aria-label="Views">
+  <button type="button" data-view="market" role="tab" aria-selected="true">Market Analysis</button>
+  <button type="button" data-view="team" role="tab" aria-selected="false">Team Analysis</button>
+</nav>
+
+<div class="view" id="view-market">
 <section>
-  <div class="eyebrow">Players</div>
+  <div class="eyebrow">Performance benchmarks</div>
+  <h2>Performance benchmarks</h2>
+  <p class="blurb">Two reference points for a gameweek's scoring: what the
+  whole market earned, and what a passive manager tracking it would have
+  earned.</p>
+
+  <div class="chart" id="chart-swappi"></div>
+  <p class="readout" id="readout-swappi"></p>
+  <ul class="legend" id="legend-swappi"></ul>
+
+  <div class="method">
+    <p><b>SWAPPI</b>, the Selection-Weighted All Player Points Index, takes
+    every point scored in the Premier League and weights it by how much of the
+    average manager's squad was invested in that player. Weights are frozen at
+    each deadline, because squads lock then, so it measures what the market was
+    holding when it locked rather than what it bought afterwards. It counts all
+    577 players, so it is not a score any manager could achieve: no eleven, no
+    captain, no bench. It does reflect aggregate market behaviour, and serves as
+    a guide to what a less engaged or disengaged manager might score.</p>
+    <p><b>The modelled template</b> is a more realistic demonstration of what a
+    manager could achieve by simply following the crowd. It is the affordable fifteen that overlaps most with
+    what the market owns, picked under the real rules: two goalkeepers, five
+    defenders, five midfielders, three forwards, no more than three from any
+    club, and within the average manager's own budget. It starts the eleven
+    most-owned of those fifteen in a legal formation and captains the
+    highest-owned outfielder. Nothing is chosen with hindsight, so it is a
+    benchmark that could actually have been followed.</p>
+    <p>The gap between them is the cost of playing the game as it is really
+    played: a budget you cannot exceed, a bench of four, and one armband.</p>
+  </div>
+
+  <div class="eyebrow" style="margin-top:1.7rem">The modelled template today</div>
+  <p class="blurb" id="pitch-sub"></p>
+  <div class="pitch" id="pitch"></div>
+</section>
+
+<section>
+  <div class="eyebrow">Flows &amp; ownership</div>
   <h2>The template squad</h2>
   <p class="blurb">The most invested-in players in each position, two
   goalkeepers, five defenders, five midfielders and three forwards, which is
@@ -197,6 +302,17 @@ a{color:inherit}
     <input id="q-players" type="search" autocomplete="off" placeholder="Compare another player" id="q-players-input">
     <ul class="results" id="results-players"></ul>
   </div>
+</section>
+
+<section>
+  <div class="eyebrow">Allocation</div>
+  <h2>Where the money sits by position</h2>
+  <p class="blurb">The share of the average manager's squad held in each
+  position, over time. Enter a team ID above and your own split is drawn over
+  the top as dashed lines.</p>
+  <div class="chart" id="chart-alloc"></div>
+  <p class="readout" id="readout-alloc"></p>
+  <ul class="legend" id="legend-alloc"></ul>
 </section>
 
 <section>
@@ -228,6 +344,34 @@ a{color:inherit}
   </div>
   <div id="clubs"></div>
 </section>
+</div>
+
+<div class="view" id="view-team" hidden>
+<section>
+  <div class="eyebrow">Team analysis</div>
+  <h2>Your team against the benchmarks</h2>
+  <p class="blurb">Enter your team ID to see how your season compares with
+  SWAPPI and the modelled template, and where the difference came from.</p>
+<div class="teambox">
+    <label class="lbl" for="team-id">Compare your team</label>
+    <div class="teamrow">
+      <input id="team-id" type="text" inputmode="numeric" autocomplete="off"
+             placeholder="Team ID, e.g. 1234567">
+      <button type="button" id="team-go">Go</button>
+      <button type="button" id="team-help" aria-expanded="false"
+              aria-controls="team-info" title="Where to find it">?</button>
+    </div>
+    <p class="teaminfo" id="team-info" hidden>Sign in at fantasy.premierleague.com,
+    open <b>Points</b>, and read the number out of the address bar:
+    fantasy.premierleague.com/entry/<b>1234567</b>/event/1. That number is your
+    team ID. Nothing is stored anywhere but your own browser.</p>
+    <p class="teamstate" id="team-state"></p>
+  </div>
+
+  <div id="alpha" hidden>
+    <div class="eyebrow" style="margin-top:1.6rem">Value-add / alpha breakdown</div>
+</section>
+</div>
 </main>
 
 <footer>
@@ -337,14 +481,26 @@ function draw(key){
     const anchor=i===0?"start":i===times.length-1?"end":"middle";
     svg+=`<text class="axis" x="${x(i)}" y="${H-M.b+14}" text-anchor="${anchor}">${label}</text>`;
   });
+  // A run breaks on a gap in the data OR on the player entering or leaving the
+  // template, so the line can go dotted for the stretch they were outside it.
   for(const s of series){
-    let run=[];
+    let run=[], state=null;
     const flush=()=>{
       if(run.length===1) svg+=`<circle cx="${run[0][0]}" cy="${run[0][1]}" r="2" fill="${s.colour}"/>`;
-      else if(run.length>1) svg+=`<polyline class="line" stroke="${s.colour}" points="${run.map(p=>p.join(",")).join(" ")}"/>`;
+      else if(run.length>1) svg+=`<polyline class="line" stroke="${s.colour}" points="${run.map(p=>p.join(",")).join(" ")}"`
+        + (state===0?` stroke-dasharray="3 3" opacity=".75"`:``)+`/>`;
       run=[];
     };
-    s.values.forEach((v,i)=>{ if(v==null) flush(); else run.push([x(i).toFixed(1),y(v).toFixed(1)]); });
+    s.values.forEach((v,i)=>{
+      const inTpl = s.mask ? s.mask[i] : null;
+      if(v==null){ flush(); state=null; return; }
+      if(state!==null && inTpl!==state){
+        run.push([x(i).toFixed(1),y(v).toFixed(1)]);   // join the two segments
+        flush();
+      }
+      state=inTpl;
+      run.push([x(i).toFixed(1),y(v).toFixed(1)]);
+    });
     flush();
   }
   svg+=`<line class="crosshair" id="ch-${key}" y1="${M.t}" y2="${H-M.b}" style="display:none"/></svg>`;
@@ -544,6 +700,36 @@ function renderClubs(){
 }
 
 /* ---------------- search ---------------- */
+
+/* Strip accents so "gyokeres" finds Gyökeres. NFD splits most letters into
+   base plus combining mark, but a few need spelling out: ß, ø, đ and friends
+   have no decomposition. */
+const FOLD = {"ß":"ss","ø":"o","đ":"d","ð":"d","ł":"l","þ":"th","æ":"ae","œ":"oe","ı":"i"};
+function fold(str){
+  return str.toLowerCase()
+    .replace(/[ßøđðłþæœı]/g, c => FOLD[c])
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+/* Every letter of the query appears in order, so "gyk" finds Gyökeres and a
+   dropped letter still matches. Only used once the stricter tests fail. */
+function subsequence(hay, needle){
+  let i = 0;
+  for (const ch of hay){ if (ch === needle[i]) i++; if (i === needle.length) return true; }
+  return needle.length === 0;
+}
+
+/* Lower is better. Ranks a prefix above a mid-word hit above a fuzzy one, so
+   typing "sa" puts Saka and Saliba above Mosquera. */
+function matchScore(q, name, full){
+  const n = fold(name), f = fold(full);
+  if (n.startsWith(q)) return 0;
+  if (f.split(/[\s'-]+/).some(w => w.startsWith(q))) return 1;
+  if (n.includes(q)) return 2;
+  if (f.includes(q)) return 3;
+  if (subsequence(n, q)) return 4;
+  return 99;
+}
 function setupSearch(key,lookup,add){
   const input=$("q-"+key), list=$("results-"+key);
   const close=()=>{ list.innerHTML=""; };
@@ -576,7 +762,7 @@ function seriesForPlayer(code){
   const p=S.data.players[code]||(S.full&&S.full.players[code]);
   if(!p) return null;
   const t=S.data.teams[String(p.t)];
-  return {name:p.n, tag:t?t.short:"", values:p.share, cash:cashOf(code)};
+  return {name:p.n, tag:t?t.short:"", values:p.share, cash:cashOf(code), mask:p.tpl||null};
 }
 
 function statusLine(){
@@ -618,6 +804,7 @@ async function boot(){
   catch(e){ console.error("player chart:",e); }
 
   renderTicker(); renderFlows(); renderClubs();
+  setupViews(); renderSwappi(); renderAllocation(); renderPitch(); setupTeam();
   $("spanline").innerHTML=spanNote();
   draw("players"); renderLegend("players");
   $("status").textContent=statusLine();
@@ -635,9 +822,15 @@ async function boot(){
 
   setupSearch("players",
     q=>Object.entries(d.directory)
-      .filter(([,v])=>String(v[2])===S.players.pos && v[0].toLowerCase().includes(q))
-      .sort((a,b)=>b[1][3]-a[1][3])
-      .map(([code,v])=>({code,name:v[0],tag:(d.teams[String(v[1])]||{}).short||""})),
+      .filter(([,v])=>String(v[2])===S.players.pos)
+      .map(([code,v])=>({
+        code, name:v[0], full:v[4]||v[0], share:v[3],
+        tag:(d.teams[String(v[1])]||{}).short||"",
+        score: q ? matchScore(q, v[0], v[4]||v[0]) : 0
+      }))
+      .filter(h=>h.score<99)
+      // Best match first, then whoever more managers actually own.
+      .sort((a,b)=>a.score-b.score || b.share-a.share),
     async hit=>{
       const pos=S.players.pos;
       if(((d.template||{})[pos]||[]).includes(hit.code)) return;
@@ -646,6 +839,379 @@ async function boot(){
       S.players.added[pos].push(hit.code);
       rebuildPlayers();
     });
+}
+
+
+/* ================= SWAPPI, allocation and alpha ================= */
+
+const WORKER = "https://fpl-proxy.5rhhsdbnnw.workers.dev";
+const POS_LABEL = {1:"GK", 2:"Def", 3:"Mid", 4:"Fwd"};
+const ALLOC_COLOUR = {gd:"#11436d", mid:"#26a197", fwd:"#f56927"};
+
+/* A general line chart over arbitrary x labels. The market chart draws
+   against timestamps; these draw against gameweeks, so the axis handling
+   differs enough to keep them apart. */
+function drawSeries(hostId, series, labels, opts){
+  const host=$(hostId); opts=opts||{};
+  const live=series.filter(s=>s.values.some(v=>v!=null));
+  if(!live.length){ host.innerHTML=`<p class="note">${opts.empty||"No data yet."}</p>`; return; }
+
+  let lo=Infinity, hi=-Infinity;
+  for(const s of live) for(const v of s.values)
+    if(v!=null){ if(v<lo) lo=v; if(v>hi) hi=v; }
+  if(lo===hi){ lo-=1; hi+=1; }
+  if(opts.zero && lo>0) lo=0;
+  const pad=(hi-lo)*0.08; lo-=pad; hi+=pad;
+
+  const n=labels.length;
+  const x=i=>M.l+(W-M.l-M.r)*(n<2?.5:i/(n-1));
+  const y=v=>M.t+(H-M.t-M.b)*(1-(v-lo)/(hi-lo));
+  const fmt=opts.fmt||(v=>v.toFixed(0));
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${opts.label||"Chart"}">`;
+  for(let g=0;g<=4;g++){
+    const v=lo+(hi-lo)*g/4, yy=y(v);
+    svg+=`<line class="grid" x1="${M.l}" y1="${yy}" x2="${W-M.r}" y2="${yy}"/>`
+       + `<text class="axis" x="${M.l-6}" y="${yy+3}" text-anchor="end">${fmt(v)}</text>`;
+  }
+  [0,Math.floor((n-1)/2),n-1].forEach((i,k,arr)=>{
+    if(arr.indexOf(i)!==k||i<0) return;
+    const anchor=i===0?"start":i===n-1?"end":"middle";
+    svg+=`<text class="axis" x="${x(i)}" y="${H-M.b+14}" text-anchor="${anchor}">${labels[i]}</text>`;
+  });
+  for(const s of live){
+    let run=[];
+    const flush=()=>{
+      if(run.length===1) svg+=`<circle cx="${run[0][0]}" cy="${run[0][1]}" r="2.4" fill="${s.colour}"/>`;
+      else if(run.length>1) svg+=`<polyline class="line" stroke="${s.colour}" points="${run.map(p=>p.join(",")).join(" ")}"`
+        + (s.dash?` stroke-dasharray="4 3"`:``)+`/>`;
+      run=[];
+    };
+    s.values.forEach((v,i)=>{ if(v==null) flush(); else run.push([x(i).toFixed(1),y(v).toFixed(1)]); });
+    flush();
+  }
+  host.innerHTML=svg+`</svg>`;
+}
+
+function simpleLegend(ulId, series, fmt){
+  const ul=$(ulId); ul.innerHTML="";
+  series.filter(s=>s.values.some(v=>v!=null)).forEach(s=>{
+    const v=lastOf(s.values);
+    const li=document.createElement("li");
+    li.innerHTML=`<span class="swatch" style="background:${s.colour}"></span>`
+      +`<span class="nm">${s.name}</span>`
+      +`<span class="val">${v==null?"—":fmt(v)}</span>`;
+    ul.appendChild(li);
+  });
+}
+
+/* ---------------- SWAPPI ---------------- */
+
+function gwList(){
+  const g=S.data.gameweeks||{};
+  return Object.keys(g).map(Number).sort((a,b)=>a-b).map(String);
+}
+
+/* Points a squad of codes scored, optionally starting only some of them and
+   doubling a captain. */
+function squadPoints(codes, pts, captain, mult){
+  let total=0;
+  for(const c of codes) total += (pts[c]||0);
+  if(captain) total += (pts[captain]||0) * ((mult||2)-1);
+  return total;
+}
+
+/* The obvious captain: highest-owned outfielder in the squad. Used for both
+   the modelled team and the visitor's, so the captain row measures the
+   decision rather than the luck of owning the crowd's pick. */
+function benchmarkCaptain(codes, weights){
+  let best=null, bw=-1;
+  for(const c of codes){
+    const meta=S.data.directory[c];
+    if(!meta || meta[2]===1) continue;          // skip keepers
+    const w=weights[c]||0;
+    if(w>bw){ bw=w; best=c; }
+  }
+  return best;
+}
+
+function renderSwappi(){
+  const gws=gwList();
+  const labels=gws.map(g=>"GW"+g);
+  const g=S.data.gameweeks||{}, models=S.data.models||{};
+
+  let runSwappi=0, runModel=0, runUser=0;
+  const swappi=[], model=[], user=[];
+
+  gws.forEach(gw=>{
+    const d=g[gw];
+    runSwappi += Object.entries(d.pts).reduce((a,[c,p])=>a+(d.w[c]||0)*p, 0);
+    swappi.push(runSwappi);
+
+    const m=models[gw];
+    if(m){
+      const cap=benchmarkCaptain(m.xi, d.w);
+      runModel += squadPoints(m.xi, d.pts, cap, 2);
+      model.push(runModel);
+    } else model.push(null);
+
+    const u=S.team && S.team.byGw[gw];
+    if(u){ runUser += u.actual; user.push(runUser); } else user.push(null);
+  });
+
+  const series=[
+    {name:"SWAPPI", colour:PALETTE[0], values:swappi},
+    {name:"Modelled team", colour:PALETTE[1], values:model},
+  ];
+  if(S.team) series.push({name:S.team.name, colour:PALETTE[3], values:user});
+
+  drawSeries("chart-swappi", series, labels,
+    {label:"Cumulative points by gameweek", zero:true,
+     empty:"SWAPPI starts once two deadlines have been frozen, so the first point lands after Gameweek 2."});
+  simpleLegend("legend-swappi", series, v=>v.toFixed(0)+" pts");
+}
+
+/* ---------------- allocation ---------------- */
+
+function renderAllocation(){
+  const a=S.data.allocation;
+  if(!a){ $("chart-alloc").innerHTML=`<p class="note">No allocation data yet.</p>`; return; }
+  const times=S.data.times;
+  const labels=times.map(t=>new Date(t).toLocaleDateString("en-GB",{day:"numeric",month:"short"}));
+
+  const series=GROUPS.map(([k,label])=>({
+    name:label, colour:ALLOC_COLOUR[k], values:a[k]
+  }));
+
+  // The visitor's own split is a single number per position, so it is drawn
+  // as a flat dashed line rather than a series.
+  if(S.team && S.team.allocation){
+    GROUPS.forEach(([k,label])=>{
+      const v=S.team.allocation[k];
+      if(v==null) return;
+      series.push({name:"You, "+label, colour:ALLOC_COLOUR[k], dash:true,
+                   values:times.map(()=>v)});
+    });
+  }
+
+  drawSeries("chart-alloc", series, labels,
+    {label:"Squad allocation by position", fmt:v=>share(v),
+     empty:"No allocation data yet."});
+  simpleLegend("legend-alloc", series, share);
+}
+
+/* ---------------- the visitor's team ---------------- */
+
+async function api(path){
+  const r=await fetch(WORKER+path);
+  if(r.status===404) throw new Error("notfound");
+  if(!r.ok) throw new Error("http"+r.status);
+  return r.json();
+}
+
+/* Build every rung of the ladder for one gameweek. */
+function rungsFor(gw, picks, weights, pts, model, actual){
+  const ids=S.data.ids||{};
+  const codes=picks.picks.map(p=>ids[String(p.element)]).filter(Boolean);
+  const xi=picks.picks.filter(p=>p.position<=11)
+    .map(p=>ids[String(p.element)]).filter(Boolean);
+  const capPick=picks.picks.find(p=>p.is_captain);
+  const capCode=capPick?ids[String(capPick.element)]:null;
+  const capMult=capPick?Math.max(2,capPick.multiplier||2):2;
+
+  const bench=benchmarkCaptain(codes, weights);
+  const modelBench=model?benchmarkCaptain(model.xi, weights):null;
+
+  return {
+    swappi: Object.entries(pts).reduce((a,[c,p])=>a+(weights[c]||0)*p, 0),
+    modelSquad: model?squadPoints(model.squad.map(p=>p.code), pts):null,
+    modelXi: model?squadPoints(model.xi, pts, modelBench, 2):null,
+    theirSquad: squadPoints(codes, pts),
+    theirXi: squadPoints(xi, pts, bench, 2),
+    theirCaptain: squadPoints(xi, pts, capCode, capMult),
+    actual: actual
+  };
+}
+
+function fmtPts(v){ return (v>=0?"+":"−")+Math.abs(v).toFixed(1); }
+
+function renderAlpha(){
+  if(!S.team || !S.team.total){ $("alpha").hidden=true; return; }
+  const t=S.team.total, gws=Object.keys(S.team.byGw);
+  $("alpha").hidden=false;
+  $("alpha-sub").textContent =
+    `${S.team.name}, across ${gws.length} finished gameweek${gws.length===1?"":"s"}. `
+    + `Each step swaps one more of your decisions in, so the parts add to the whole.`;
+
+  const rows=[
+    ["rung","SWAPPI","Every player, weighted by ownership", t.swappi],
+    ["step","Budget constraint","Cost of fitting the most-owned fifteen inside a real budget", t.modelSquad-t.swappi],
+    ["step","Benching four","Cost of starting eleven of fifteen, with the obvious captain", t.modelXi-t.modelSquad],
+    ["rung","Modelled team","What a passive manager would have scored", t.modelXi],
+    ["step","Squad selection","Your fifteen against the modelled fifteen", t.theirSquad-t.modelSquad],
+    ["step","Team selection","Which eleven of your own squad you started", t.theirXi-t.theirSquad-(t.modelXi-t.modelSquad)],
+    ["step","Captain","Your armband against the obvious pick", t.theirCaptain-t.theirXi],
+    ["step","Chips and hits","Chips played, transfer costs and autosubs", t.actual-t.theirCaptain],
+    ["total","Your total","",t.actual]
+  ];
+
+  $("alpha-rows").innerHTML = rows.map(([cls,name,desc,val])=>{
+    const signed = cls==="step";
+    const cell = signed
+      ? `<span class="${val>=0?"up":"down"}">${fmtPts(val)}</span>`
+      : val.toFixed(1);
+    return `<tr class="${cls}"><td>${name}`
+         + (desc?`<span class="d">${desc}</span>`:"")
+         + `</td><td class="v">${cell}</td></tr>`;
+  }).join("");
+
+  const diff=t.actual-t.swappi;
+  $("alpha-note").innerHTML =
+    `Against SWAPPI you are <b>${fmtPts(diff)}</b> points. Attribution is `
+    + `path-dependent: swapping decisions in a different order would move points `
+    + `between the steps, though never the total. The modelled team is rebuilt `
+    + `each deadline at no transfer cost, which flatters it slightly.`;
+}
+
+async function loadTeam(id){
+  const state=$("team-state");
+  state.className="teamstate"; state.textContent="Loading…";
+  const gws=gwList();
+  if(!gws.length){ state.textContent="No finished gameweeks yet, so there is nothing to compare."; return; }
+
+  try{
+    const [entry, history] = await Promise.all([
+      api(`/entry/${id}/`), api(`/entry/${id}/history/`)
+    ]);
+    const actualBy={};
+    (history.current||[]).forEach(r=>{ actualBy[String(r.event)]=r.points-(r.event_transfers_cost||0); });
+
+    const byGw={}, total={swappi:0,modelSquad:0,modelXi:0,theirSquad:0,theirXi:0,theirCaptain:0,actual:0};
+    let latestPicks=null;
+
+    for(const gw of gws){
+      const d=S.data.gameweeks[gw], model=(S.data.models||{})[gw];
+      let picks;
+      try{ picks=await api(`/entry/${id}/event/${gw}/picks/`); }
+      catch(e){ continue; }   // team may not have entered that gameweek
+      const r=rungsFor(gw, picks, d.w, d.pts, model, actualBy[gw]||0);
+      byGw[gw]=r; latestPicks=picks;
+      for(const k in total) if(r[k]!=null) total[k]+=r[k];
+    }
+
+    if(!Object.keys(byGw).length){
+      state.className="teamstate err";
+      state.textContent="That team has no picks in the finished gameweeks yet.";
+      return;
+    }
+
+    // Their own position split, from the most recent picks we managed to read.
+    let allocation=null;
+    if(latestPicks){
+      const ids=S.data.ids||{}, dir=S.data.directory||{};
+      const sums={gd:0,mid:0,fwd:0}; let all=0;
+      latestPicks.picks.forEach(p=>{
+        const c=ids[String(p.element)]; const meta=c&&dir[c];
+        if(!meta) return;
+        const price=(S.data.players[c]||{}).price;
+        const v=price?lastOf(price)/10:1;
+        const key=meta[2]===4?"fwd":meta[2]===3?"mid":"gd";
+        sums[key]+=v; all+=v;
+      });
+      if(all>0) allocation={gd:sums.gd/all*1e6, mid:sums.mid/all*1e6, fwd:sums.fwd/all*1e6};
+    }
+
+    S.team={id, name:entry.name||("Team "+id), byGw, total, allocation};
+    try{ localStorage.setItem("fpldaq.team", id); }catch(e){}
+    state.textContent=`${S.team.name} · ${Object.keys(byGw).length} gameweek(s) compared`;
+    renderSwappi(); renderAlpha(); renderAllocation();
+  }catch(err){
+    state.className="teamstate err";
+    state.textContent = err.message==="notfound"
+      ? "No team with that ID."
+      : "Could not reach the FPL API just now. Try again shortly.";
+  }
+}
+
+function setupTeam(){
+  const input=$("team-id"), go=$("team-go"), help=$("team-help"), info=$("team-info");
+  help.onclick=()=>{
+    const open=info.hidden;
+    info.hidden=!open; help.setAttribute("aria-expanded", String(open));
+  };
+  const submit=()=>{
+    const id=input.value.replace(/\D+/g,"");
+    if(!id){ $("team-state").className="teamstate err";
+             $("team-state").textContent="Enter the number from your team's URL."; return; }
+    loadTeam(id);
+  };
+  go.onclick=submit;
+  input.addEventListener("keydown",e=>{ if(e.key==="Enter"){ e.preventDefault(); submit(); } });
+  try{
+    const saved=localStorage.getItem("fpldaq.team");
+    if(saved){ input.value=saved; loadTeam(saved); }
+  }catch(e){}
+}
+
+function setupViews(){
+  document.querySelectorAll(".views button").forEach(b=>{
+    b.onclick=()=>{
+      const v=b.dataset.view;
+      document.querySelectorAll(".views button")
+        .forEach(o=>o.setAttribute("aria-selected", String(o===b)));
+      $("view-market").hidden = v!=="market";
+      $("view-team").hidden = v!=="team";
+      // Charts size themselves from their container, which is zero-width
+      // while hidden, so anything revealed has to be redrawn.
+      if(v==="market"){
+        renderSwappi(); draw("players"); renderAllocation(); renderClubs(); renderPitch();
+      } else { renderAlpha(); }
+      window.scrollTo({top:0});
+    };
+  });
+}
+
+/* ---------------- pitch view ---------------- */
+
+function renderPitch(){
+  const m = S.data.model_now;
+  const host = $("pitch");
+  if(!m){ host.innerHTML = `<p class="note">No modelled squad yet.</p>`; return; }
+
+  const by = {};
+  m.squad.forEach(p => { by[p.code] = p; });
+  const xi = m.xi.map(c => by[c]).filter(Boolean);
+  const bench = m.bench.map(c => by[c]).filter(Boolean);
+
+  // Captain is the same rule the benchmark uses: highest-owned outfielder.
+  let cap = null, best = -1;
+  xi.forEach(p => { if(p.pos !== 1 && p.own > best){ best = p.own; cap = p.code; } });
+
+  const card = (p, sub) => {
+    const t = S.data.teams[String(p.team)];
+    return `<div class="plr${p.code===cap?" cap":""}${sub?" sub":""}"`
+         + ` style="border-top-color:${CLUB_COLOUR[t?t.short:""]||"#11436d"}">`
+         + `<b>${p.n}</b><span class="c">${t?t.short:""} · £${(p.price/10).toFixed(1)}m</span>`
+         + `<span class="o">${(p.own*100).toFixed(1)}%</span></div>`;
+  };
+
+  const row = pos => xi.filter(p => p.pos === pos);
+  const form = [2,3,4].map(pos => row(pos).length).join("-");
+
+  host.innerHTML =
+      `<div class="pitch-row">${row(1).map(p=>card(p)).join("")}</div>`
+    + `<div class="pitch-row">${row(2).map(p=>card(p)).join("")}</div>`
+    + `<div class="pitch-row">${row(3).map(p=>card(p)).join("")}</div>`
+    + `<div class="pitch-row">${row(4).map(p=>card(p)).join("")}</div>`
+    + `<div class="pitch-bench"><span class="lbl">Bench, in order</span>`
+    + `<div class="pitch-row">${bench.map(p=>card(p,true)).join("")}</div></div>`;
+
+  $("pitch-sub").innerHTML =
+      `A ${form} costing <b>£${m.spend.toFixed(1)}m</b> of the £${m.budget.toFixed(1)}m `
+    + `the average manager holds. It captures ${m.overlap.toFixed(2)} of the `
+    + `${m.unconstrained.toFixed(2)} players an unlimited budget would reach, `
+    + `so the budget alone costs about ${(m.unconstrained-m.overlap).toFixed(2)} `
+    + `of a player's worth of ownership.`;
 }
 
 boot();
