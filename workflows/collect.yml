@@ -31,6 +31,10 @@ jobs:
         run: python scripts/collect.py
 
       - name: Rebuild site data
+        # Never fatal. The snapshot is already on disk by this point, and
+        # losing a reading because a chart could not be rebuilt would be a bad
+        # trade: the aggregation reruns next hour, the reading does not.
+        continue-on-error: true
         run: python scripts/aggregate.py
 
       - name: Commit and push
