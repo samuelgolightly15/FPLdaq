@@ -2,3570 +2,4165 @@
  "players": {
   "101188": {
    "full": "Lucas Digne",
+   "id": 30,
    "name": "Digne",
    "pos": 2,
    "team": 2
   },
   "101282": {
    "full": "Matt Crooks",
+   "id": 289,
    "name": "Crooks",
    "pos": 3,
    "team": 11
   },
   "105666": {
    "full": "Jack Butland",
+   "id": 274,
    "name": "Butland",
    "pos": 1,
    "team": 11
   },
   "105717": {
    "full": "Arthur Masuaku",
+   "id": 540,
    "name": "Masuaku",
    "pos": 2,
    "team": 20
   },
   "106611": {
    "full": "Michael Keane",
+   "id": 231,
    "name": "Keane",
    "pos": 2,
    "team": 9
   },
   "106760": {
    "full": "Luke Shaw",
+   "id": 423,
    "name": "Shaw",
    "pos": 2,
    "team": 16
   },
   "106921": {
    "full": "Gerónimo Rulli",
+   "id": 587,
    "name": "Rulli",
    "pos": 1,
    "team": 15
   },
   "108413": {
    "full": "Will Hughes",
+   "id": 212,
    "name": "Hughes",
    "pos": 3,
    "team": 8
   },
   "108416": {
    "full": "John Egan",
+   "id": 277,
    "name": "Egan",
    "pos": 2,
    "team": 11
   },
   "108813": {
    "full": "Christian Walton",
+   "id": 300,
    "name": "Walton",
    "pos": 1,
    "team": 12
   },
   "109646": {
    "full": "Tosin Adarabioyo",
+   "id": 147,
    "name": "Tosin",
    "pos": 2,
    "team": 6
   },
   "109745": {
    "full": "Kepa Arrizabalaga Revuelta",
+   "id": 2,
    "name": "Arrizabalaga",
    "pos": 1,
    "team": 1
   },
   "110690": {
    "full": "Ben Wilson",
+   "id": 172,
    "name": "Wilson",
    "pos": 1,
    "team": 7
   },
   "111234": {
    "full": "Jordan Pickford",
+   "id": 226,
    "name": "Pickford",
    "pos": 1,
    "team": 9
   },
   "111317": {
    "full": "David Brooks",
+   "id": 74,
    "name": "Brooks",
    "pos": 3,
    "team": 3
   },
   "112520": {
    "full": "Alex Palmer",
+   "id": 301,
    "name": "Palmer",
    "pos": 1,
    "team": 12
   },
   "114243": {
    "full": "Jacob Murphy",
+   "id": 457,
    "name": "J.Murphy",
    "pos": 3,
    "team": 17
   },
   "114283": {
    "full": "Jack Grealish",
+   "id": 238,
    "name": "Grealish",
    "pos": 3,
    "team": 15
   },
   "115556": {
    "full": "Ben Davies",
+   "id": 508,
    "name": "Davies",
    "pos": 2,
    "team": 19
   },
   "116535": {
    "full": "Alisson Becker",
+   "id": 350,
    "name": "A.Becker",
    "pos": 1,
    "team": 14
   },
   "119471": {
    "full": "Fabian Schär",
+   "id": 446,
    "name": "Schär",
    "pos": 2,
    "team": 17
   },
   "121709": {
    "full": "Walter Benítez",
+   "id": 199,
    "name": "Benitez",
    "pos": 1,
    "team": 8
   },
   "122074": {
    "full": "Marcus Bettinelli",
+   "id": 386,
    "name": "Bettinelli",
    "pos": 1,
    "team": 15
   },
   "122798": {
    "full": "Andrew Robertson",
+   "id": 502,
    "name": "Robertson",
    "pos": 2,
    "team": 19
   },
   "122806": {
    "full": "John McGinn",
+   "id": 45,
    "name": "McGinn",
    "pos": 3,
    "team": 2
   },
   "128295": {
    "full": "Christian Nørgaard",
+   "id": 21,
    "name": "Nørgaard",
    "pos": 3,
    "team": 9
   },
   "135720": {
    "full": "Kevin Danso",
+   "id": 501,
    "name": "Danso",
    "pos": 2,
    "team": 19
   },
   "138001": {
    "full": "Tom King",
+   "id": 228,
    "name": "King",
    "pos": 1,
    "team": 9
   },
   "141746": {
    "full": "Bruno Borges Fernandes",
+   "id": 426,
    "name": "B.Fernandes",
    "pos": 3,
    "team": 16
   },
   "146426": {
    "full": "Semi Ajayi",
+   "id": 279,
    "name": "Ajayi",
    "pos": 2,
    "team": 11
   },
   "147675": {
    "full": "Chuba Akpom",
+   "id": 320,
    "name": "Akpom",
    "pos": 4,
    "team": 12
   },
   "149484": {
    "full": "Tyrone Mings",
+   "id": 33,
    "name": "Mings",
    "pos": 2,
    "team": 2
   },
   "149929": {
    "full": "Wes Burns",
+   "id": 311,
    "name": "Burns",
    "pos": 3,
    "team": 12
   },
   "152551": {
    "full": "Jefferson Lerma Solís",
+   "id": 213,
    "name": "Lerma",
    "pos": 3,
    "team": 8
   },
   "153133": {
    "full": "Alex Iwobi",
+   "id": 261,
    "name": "Iwobi",
    "pos": 3,
    "team": 10
   },
   "153366": {
    "full": "Harrison Reed",
+   "id": 270,
    "name": "Reed",
    "pos": 3,
    "team": 10
   },
   "153682": {
    "full": "Harry Wilson",
+   "id": 260,
    "name": "Wilson",
    "pos": 3,
    "team": 13
   },
   "154561": {
    "full": "David Raya Martín",
+   "id": 1,
    "name": "Raya",
    "pos": 1,
    "team": 1
   },
   "154566": {
    "full": "Dominic Solanke-Mitchell",
+   "id": 526,
    "name": "Solanke",
    "pos": 4,
    "team": 19
   },
   "155405": {
    "full": "Kalvin Phillips",
+   "id": 408,
    "name": "Phillips",
    "pos": 3,
    "team": 15
   },
   "155408": {
    "full": "Lewis Cook",
+   "id": 71,
    "name": "Cook",
    "pos": 3,
    "team": 3
   },
   "155503": {
    "full": "Freddie Woodman",
+   "id": 352,
    "name": "Woodman",
    "pos": 1,
    "team": 14
   },
   "158499": {
    "full": "Ryan Christie",
+   "id": 75,
    "name": "Christie",
    "pos": 3,
    "team": 3
   },
   "158983": {
    "full": "Endo Wataru",
+   "id": 374,
    "name": "Endo",
    "pos": 3,
    "team": 14
   },
   "159506": {
    "full": "Ola Aina",
+   "id": 473,
    "name": "Aina",
    "pos": 2,
    "team": 18
   },
   "160817": {
    "full": "Paddy McNair",
+   "id": 285,
    "name": "McNair",
    "pos": 2,
    "team": 11
   },
   "166477": {
    "full": "Timothy Castagne",
+   "id": 258,
    "name": "Castagne",
    "pos": 2,
    "team": 10
   },
   "166989": {
    "full": "Youri Tielemans",
+   "id": 43,
    "name": "Tielemans",
    "pos": 3,
    "team": 16
   },
   "167074": {
    "full": "Kenny Tete",
+   "id": 256,
    "name": "Tete",
    "pos": 2,
    "team": 10
   },
   "167512": {
    "full": "Luke O'Nien",
+   "id": 539,
    "name": "O'Nien",
    "pos": 2,
    "team": 20
   },
   "167825": {
    "full": "Dillon Phillips",
+   "id": 273,
    "name": "Phillips",
    "pos": 1,
    "team": 11
   },
   "168144": {
    "full": "Matt Grimes",
+   "id": 184,
    "name": "Grimes",
    "pos": 3,
    "team": 7
   },
   "168636": {
    "full": "Enes Ünal",
+   "id": 80,
    "name": "Enes Ünal",
    "pos": 4,
    "team": 3
   },
   "169359": {
    "full": "Matt Targett",
+   "id": 556,
    "name": "Targett",
    "pos": 2,
    "team": 11
   },
   "169432": {
    "full": "Oli McBurnie",
+   "id": 295,
    "name": "McBurnie",
    "pos": 4,
    "team": 11
   },
   "169528": {
    "full": "Antonee Robinson",
+   "id": 254,
    "name": "Robinson",
    "pos": 2,
    "team": 10
   },
   "169593": {
    "full": "Remi Matthews",
+   "id": 555,
    "name": "Matthews",
    "pos": 1,
    "team": 8
   },
   "171270": {
    "full": "Kieran Dowell",
+   "id": 288,
    "name": "Dowell",
    "pos": 3,
    "team": 11
   },
   "171287": {
    "full": "Joe Gomez",
+   "id": 359,
    "name": "Gomez",
    "pos": 2,
    "team": 14
   },
   "171314": {
    "full": "Rúben dos Santos Gato Alves Dias",
+   "id": 390,
    "name": "Rúben",
    "pos": 2,
    "team": 15
   },
   "172453": {
    "full": "Sam Szmodics",
+   "id": 319,
    "name": "Szmodics",
    "pos": 3,
    "team": 12
   },
   "172649": {
    "full": "Dean Henderson",
+   "id": 198,
    "name": "Henderson",
    "pos": 1,
    "team": 8
   },
   "172780": {
    "full": "James Maddison",
+   "id": 515,
    "name": "Maddison",
    "pos": 3,
    "team": 19
   },
   "173878": {
    "full": "Jay Dasilva",
+   "id": 176,
    "name": "Dasilva",
    "pos": 2,
    "team": 7
   },
   "173879": {
    "full": "Tammy Abraham",
+   "id": 56,
    "name": "Abraham",
    "pos": 4,
    "team": 2
   },
   "174594": {
    "full": "Lukas Nmecha",
+   "id": 347,
    "name": "Nmecha",
    "pos": 4,
    "team": 13
   },
   "174874": {
    "full": "Joachim Andersen",
+   "id": 253,
    "name": "Andersen",
    "pos": 2,
    "team": 10
   },
   "176297": {
    "full": "Marcus Rashford",
+   "id": 429,
    "name": "Rashford",
    "pos": 3,
    "team": 16
   },
   "176412": {
    "full": "Haji Wright",
+   "id": 193,
    "name": "Wright",
    "pos": 4,
    "team": 7
   },
   "176420": {
    "full": "Darnell Furlong",
+   "id": 308,
    "name": "Furlong",
    "pos": 2,
    "team": 12
   },
   "17761": {
    "full": "James Tarkowski",
+   "id": 229,
    "name": "Tarkowski",
    "pos": 2,
    "team": 9
   },
   "177815": {
    "full": "Dominic Calvert-Lewin",
+   "id": 346,
    "name": "Calvert-Lewin",
    "pos": 4,
    "team": 13
   },
   "178301": {
    "full": "Ollie Watkins",
+   "id": 55,
    "name": "Watkins",
    "pos": 4,
    "team": 2
   },
   "180135": {
    "full": "Sean Longstaff",
+   "id": 339,
    "name": "Longstaff",
    "pos": 3,
    "team": 13
   },
   "180736": {
    "full": "Trevoh Chalobah",
+   "id": 143,
    "name": "Chalobah",
    "pos": 2,
    "team": 6
   },
   "180974": {
    "full": "Joelinton Cássio Apolinário de Lira",
+   "id": 458,
    "name": "Joelinton",
    "pos": 3,
    "team": 17
   },
   "183015": {
    "full": "Cédric Kipré",
+   "id": 303,
    "name": "Kipré",
    "pos": 2,
    "team": 12
   },
   "183656": {
    "full": "Josh Dasilva",
+   "id": 103,
    "name": "Dasilva",
    "pos": 3,
    "team": 4
   },
   "184029": {
    "full": "Martin Ødegaard",
+   "id": 15,
    "name": "Ødegaard",
    "pos": 3,
    "team": 1
   },
   "184254": {
    "full": "Guglielmo Vicario",
+   "id": 494,
    "name": "Vicario",
    "pos": 1,
    "team": 19
   },
   "184341": {
    "full": "Mason Mount",
+   "id": 430,
    "name": "Mount",
    "pos": 3,
    "team": 16
   },
   "184349": {
    "full": "Ryan Sessegnon",
+   "id": 269,
    "name": "Sessegnon",
    "pos": 2,
    "team": 10
   },
   "184667": {
    "full": "Victor Lindelöf",
+   "id": 37,
    "name": "Lindelöf",
    "pos": 2,
    "team": 2
   },
   "191866": {
    "full": "Kristoffer Ajer",
+   "id": 87,
    "name": "Ajer",
    "pos": 2,
    "team": 4
   },
   "193278": {
    "full": "Lewie Coyle",
+   "id": 280,
    "name": "Coyle",
    "pos": 2,
    "team": 11
   },
   "194010": {
    "full": "Rico Henry",
+   "id": 89,
    "name": "Henry",
    "pos": 2,
    "team": 4
   },
   "195384": {
    "full": "Mikel Merino Zazón",
+   "id": 17,
    "name": "Merino",
    "pos": 3,
    "team": 1
   },
   "195546": {
    "full": "Emiliano Buendía Stati",
+   "id": 41,
    "name": "Buendía",
    "pos": 3,
    "team": 2
   },
   "196100": {
    "full": "Gustavo Hamer",
+   "id": 584,
    "name": "Hamer",
    "pos": 3,
    "team": 7
   },
   "198869": {
    "full": "Benjamin White",
+   "id": 10,
    "name": "White",
    "pos": 2,
    "team": 1
   },
   "199598": {
    "full": "Ethan Ampadu",
+   "id": 338,
    "name": "Ampadu",
    "pos": 3,
    "team": 13
   },
   "199796": {
    "full": "Matty Cash",
+   "id": 32,
    "name": "Cash",
    "pos": 2,
    "team": 2
   },
   "199798": {
    "full": "Ezri Konsa Ngoyo",
+   "id": 31,
    "name": "Konsa",
    "pos": 2,
    "team": 2
   },
   "200089": {
    "full": "Joe Willock",
+   "id": 460,
    "name": "Willock",
    "pos": 3,
    "team": 17
   },
   "200617": {
    "full": "Daniel James",
+   "id": 343,
    "name": "James",
    "pos": 3,
    "team": 13
   },
   "200641": {
    "full": "Reiss Nelson",
+   "id": 24,
    "name": "Nelson",
    "pos": 3,
    "team": 1
   },
   "200720": {
    "full": "Caoimhín Kelleher",
+   "id": 82,
    "name": "Kelleher",
    "pos": 1,
    "team": 4
   },
   "200785": {
    "full": "Tyler Adams",
+   "id": 73,
    "name": "Adams",
    "pos": 3,
    "team": 3
   },
   "200834": {
    "full": "Nordi Mukiele",
+   "id": 533,
    "name": "Mukiele",
    "pos": 2,
    "team": 20
   },
   "201595": {
    "full": "Lucas Estella Perri",
+   "id": 326,
    "name": "Perri",
    "pos": 1,
    "team": 13
   },
   "201658": {
    "full": "Marcus Tavernier",
+   "id": 68,
    "name": "Tavernier",
    "pos": 3,
    "team": 3
   },
   "201666": {
    "full": "Harvey Barnes",
+   "id": 453,
    "name": "Barnes",
    "pos": 3,
    "team": 17
   },
   "201895": {
    "full": "Omar Alderete",
+   "id": 535,
    "name": "Alderete",
    "pos": 2,
    "team": 20
   },
   "202993": {
    "full": "Rodrigo Bentancur",
+   "id": 516,
    "name": "Bentancur",
    "pos": 3,
    "team": 19
   },
   "204120": {
    "full": "Olivier Boscagli",
+   "id": 114,
    "name": "Boscagli",
    "pos": 2,
    "team": 5
   },
   "204480": {
    "full": "Declan Rice",
+   "id": 13,
    "name": "Rice",
    "pos": 3,
    "team": 1
   },
   "204561": {
    "full": "Xaver Schlager",
+   "id": 558,
    "name": "Schlager",
    "pos": 3,
    "team": 18
   },
   "204580": {
    "full": "Vitaly Janelt",
+   "id": 98,
    "name": "Janelt",
    "pos": 3,
    "team": 4
   },
   "204813": {
    "full": "Joel Latibeaudiere",
+   "id": 179,
    "name": "Latibeaudiere",
    "pos": 2,
    "team": 7
   },
   "204822": {
    "full": "Omar Richards",
+   "id": 476,
    "name": "O.Richards",
    "pos": 2,
    "team": 18
   },
   "204936": {
    "full": "Gianluigi Donnarumma",
+   "id": 384,
    "name": "Donnarumma",
    "pos": 1,
    "team": 15
   },
   "204968": {
    "full": "Ryan Yates",
+   "id": 489,
    "name": "Yates",
    "pos": 3,
    "team": 18
   },
   "205533": {
    "full": "Eddie Nketiah",
+   "id": 224,
    "name": "Nketiah",
    "pos": 4,
    "team": 8
   },
   "205651": {
    "full": "Gabriel Fernando de Jesus",
+   "id": 27,
    "name": "G.Jesus",
    "pos": 4,
    "team": 1
   },
   "206915": {
    "full": "Curtis Jones",
+   "id": 373,
    "name": "C.Jones",
    "pos": 3,
    "team": 14
   },
   "207189": {
    "full": "Sander Berge",
+   "id": 265,
    "name": "Berge",
    "pos": 3,
    "team": 10
   },
   "207283": {
    "full": "Mathias Jensen",
+   "id": 97,
    "name": "Jensen",
    "pos": 3,
    "team": 4
   },
   "208481": {
    "full": "Abdülkadir Ömür",
+   "id": 292,
    "name": "Ömür",
    "pos": 3,
    "team": 11
   },
   "208706": {
    "full": "Bruno Guimarães Rodriguez Moura",
+   "id": 452,
    "name": "Bruno G.",
    "pos": 3,
    "team": 1
   },
   "209036": {
    "full": "Marc Guéhi",
+   "id": 388,
    "name": "Guéhi",
    "pos": 2,
    "team": 15
   },
   "209046": {
    "full": "Callum Hudson-Odoi",
+   "id": 482,
    "name": "Hudson-Odoi",
    "pos": 3,
    "team": 18
   },
   "209244": {
    "full": "Phil Foden",
+   "id": 398,
    "name": "Foden",
    "pos": 3,
    "team": 15
   },
   "209289": {
    "full": "Emile Smith Rowe",
+   "id": 262,
    "name": "Smith Rowe",
    "pos": 3,
    "team": 10
   },
   "209365": {
    "full": "Matthijs de Ligt",
+   "id": 416,
    "name": "De Ligt",
    "pos": 2,
    "team": 16
   },
   "209400": {
    "full": "Daichi Kamada",
+   "id": 214,
    "name": "Kamada",
    "pos": 3,
    "team": 8
   },
   "210156": {
    "full": "Taiwo Awoniyi",
+   "id": 492,
    "name": "Awoniyi",
    "pos": 4,
    "team": 7
   },
   "210462": {
    "full": "Ibrahim Sangaré",
+   "id": 488,
    "name": "Sangaré",
    "pos": 3,
    "team": 18
   },
   "21205": {
    "full": "Tom Heaton",
+   "id": 414,
    "name": "Heaton",
    "pos": 1,
    "team": 16
   },
   "212314": {
    "full": "Saša Lukić",
+   "id": 267,
    "name": "Lukić",
    "pos": 3,
    "team": 12
   },
   "212319": {
    "full": "Richarlison de Andrade",
+   "id": 527,
    "name": "Richarlison",
    "pos": 4,
    "team": 19
   },
   "213292": {
    "full": "David Akintola",
+   "id": 296,
    "name": "Akintola",
    "pos": 3,
    "team": 11
   },
   "214225": {
    "full": "Joe Rodon",
+   "id": 329,
    "name": "Rodon",
    "pos": 2,
    "team": 13
   },
   "214285": {
    "full": "Kostas Tsimikas",
+   "id": 364,
    "name": "Tsimikas",
    "pos": 2,
    "team": 14
   },
   "214572": {
    "full": "Brandon Austin",
+   "id": 495,
    "name": "Austin",
    "pos": 1,
    "team": 19
   },
   "215059": {
    "full": "Robert Lynch Sánchez",
+   "id": 140,
    "name": "Sánchez",
    "pos": 1,
    "team": 6
   },
   "215136": {
    "full": "Neco Williams",
+   "id": 469,
    "name": "N.Williams",
    "pos": 2,
    "team": 18
   },
   "215379": {
    "full": "Elliot Anderson",
+   "id": 481,
    "name": "Anderson",
    "pos": 3,
    "team": 15
   },
   "215413": {
    "full": "Kiernan Dewsbury-Hall",
+   "id": 236,
    "name": "Dewsbury-Hall",
    "pos": 3,
    "team": 9
   },
   "215711": {
    "full": "Leon Bailey",
+   "id": 44,
    "name": "Bailey",
    "pos": 3,
    "team": 2
   },
   "216051": {
    "full": "Diogo Dalot Teixeira",
+   "id": 417,
    "name": "Dalot",
    "pos": 2,
    "team": 16
   },
   "216055": {
    "full": "Florentino Ibrain Morris Luís",
+   "id": 571,
    "name": "Florentino",
    "pos": 3,
    "team": 12
   },
   "216094": {
    "full": "Jeremie Frimpong",
+   "id": 357,
    "name": "Frimpong",
    "pos": 2,
    "team": 14
   },
   "216616": {
    "full": "Dara O'Shea",
+   "id": 304,
    "name": "O'Shea",
    "pos": 2,
    "team": 12
   },
   "216646": {
    "full": "Yoane Wissa",
+   "id": 464,
    "name": "Wissa",
    "pos": 4,
    "team": 17
   },
   "218364": {
    "full": "Borna Sosa",
+   "id": 205,
    "name": "Sosa",
    "pos": 2,
    "team": 8
   },
   "218997": {
    "full": "Ellis Simms",
+   "id": 195,
    "name": "Simms",
    "pos": 4,
    "team": 7
   },
   "219168": {
    "full": "Alexander Isak",
+   "id": 379,
    "name": "Isak",
    "pos": 4,
    "team": 14
   },
   "219249": {
    "full": "Matt O'Riley",
+   "id": 126,
    "name": "O'Riley",
    "pos": 3,
    "team": 5
   },
   "219847": {
    "full": "Kai Havertz",
+   "id": 26,
    "name": "Havertz",
    "pos": 4,
    "team": 1
   },
   "219924": {
    "full": "Issa Diop",
+   "id": 259,
    "name": "Diop",
    "pos": 2,
    "team": 12
   },
   "220237": {
    "full": "Sven Botman",
+   "id": 447,
    "name": "Botman",
    "pos": 2,
    "team": 17
   },
   "220362": {
    "full": "Axel Disasi",
+   "id": 153,
    "name": "Disasi",
    "pos": 2,
    "team": 6
   },
   "220566": {
    "full": "Rodrigo 'Rodri' Hernandez Cascante",
+   "id": 402,
    "name": "Rodrigo",
    "pos": 3,
    "team": 15
   },
   "220583": {
    "full": "Luke Woolfenden",
+   "id": 180,
    "name": "Woolfenden",
    "pos": 2,
    "team": 7
   },
   "220627": {
    "full": "James Justin",
+   "id": 332,
    "name": "Justin",
    "pos": 2,
    "team": 13
   },
   "221389": {
    "full": "John Victor Maciel Furtado",
+   "id": 468,
    "name": "John",
    "pos": 1,
    "team": 18
   },
   "221399": {
    "full": "Jack Harrison",
+   "id": 342,
    "name": "Harrison",
    "pos": 3,
    "team": 13
   },
   "221466": {
    "full": "Marcos Senesi Barón",
+   "id": 498,
    "name": "Senesi",
    "pos": 2,
    "team": 19
   },
   "221632": {
    "full": "Cristian Romero",
+   "id": 500,
    "name": "Romero",
    "pos": 2,
    "team": 19
   },
   "221820": {
    "full": "Lisandro Martínez",
+   "id": 419,
    "name": "Martinez",
    "pos": 2,
    "team": 16
   },
   "222018": {
    "full": "Ben Johnson",
+   "id": 307,
    "name": "Johnson",
    "pos": 2,
    "team": 12
   },
   "222531": {
    "full": "Morgan Gibbs-White",
+   "id": 480,
    "name": "Gibbs-White",
    "pos": 3,
    "team": 18
   },
   "222625": {
    "full": "George Hirst",
+   "id": 317,
    "name": "Hirst",
    "pos": 4,
    "team": 12
   },
   "222683": {
    "full": "Justin Kluivert",
+   "id": 70,
    "name": "Kluivert",
    "pos": 3,
    "team": 3
   },
   "222694": {
    "full": "Pascal Struijk",
+   "id": 328,
    "name": "Struijk",
    "pos": 2,
    "team": 5
   },
   "223094": {
    "full": "Erling Haaland",
+   "id": 411,
    "name": "Haaland",
    "pos": 4,
    "team": 15
   },
   "223340": {
    "full": "Bukayo Saka",
+   "id": 12,
    "name": "Saka",
    "pos": 3,
    "team": 1
   },
   "223434": {
    "full": "Igor Julio dos Santos de Paulo",
+   "id": 118,
    "name": "Igor",
    "pos": 2,
    "team": 5
   },
   "223541": {
    "full": "Federico Chiesa",
+   "id": 370,
    "name": "Chiesa",
    "pos": 3,
    "team": 14
   },
   "223723": {
    "full": "Takehiro Tomiyasu",
+   "id": 577,
    "name": "Tomiyasu",
    "pos": 2,
    "team": 8
   },
   "223827": {
    "full": "Daniel Ballard",
+   "id": 532,
    "name": "Ballard",
    "pos": 2,
    "team": 20
   },
   "224117": {
    "full": "Viktor Gyökeres",
+   "id": 25,
    "name": "Gyökeres",
    "pos": 4,
    "team": 1
   },
   "224967": {
    "full": "Vitalii Mykolenko",
+   "id": 233,
    "name": "Mykolenko",
    "pos": 2,
    "team": 9
   },
   "225796": {
    "full": "Reece James",
+   "id": 142,
    "name": "James",
    "pos": 2,
    "team": 6
   },
   "226182": {
    "full": "Jayden Bogle",
+   "id": 330,
    "name": "Bogle",
    "pos": 2,
    "team": 13
   },
   "226597": {
    "full": "Gabriel dos Santos Magalhães",
+   "id": 4,
    "name": "Gabriel",
    "pos": 2,
    "team": 1
   },
   "226944": {
    "full": "Boubacar Kamara",
+   "id": 47,
    "name": "Kamara",
    "pos": 3,
    "team": 2
   },
   "226965": {
    "full": "Victor Torp",
+   "id": 188,
    "name": "Torp",
    "pos": 3,
    "team": 7
   },
   "227444": {
    "full": "Nikola Milenković",
+   "id": 471,
    "name": "Milenković",
    "pos": 2,
    "team": 18
   },
   "229164": {
    "full": "Chiedozie Ogbene",
+   "id": 314,
    "name": "Ogbene",
    "pos": 3,
    "team": 12
   },
   "229600": {
    "full": "Mark Travers",
+   "id": 227,
    "name": "Travers",
    "pos": 1,
    "team": 9
   },
   "230001": {
    "full": "Noussair Mazraoui",
+   "id": 422,
    "name": "Mazraoui",
    "pos": 2,
    "team": 16
   },
   "230730": {
    "full": "Brandon Thomas-Asante",
+   "id": 194,
    "name": "Thomas-Asante",
    "pos": 4,
    "team": 7
   },
   "231065": {
    "full": "Ethan Pinnock",
+   "id": 91,
    "name": "Pinnock",
    "pos": 2,
    "team": 4
   },
   "231416": {
    "full": "Ferdi Kadıoğlu",
+   "id": 113,
    "name": "F.Kadıoğlu",
    "pos": 2,
    "team": 5
   },
   "231747": {
    "full": "Jean-Philippe Mateta",
+   "id": 223,
    "name": "Mateta",
    "pos": 4,
    "team": 8
   },
   "231899": {
    "full": "Jack Taylor",
+   "id": 312,
    "name": "Taylor",
    "pos": 3,
    "team": 12
   },
   "232112": {
    "full": "Manuel Ugarte Ribeiro",
+   "id": 433,
    "name": "Ugarte",
    "pos": 3,
    "team": 16
   },
   "232185": {
    "full": "Ismaïla Sarr",
+   "id": 208,
    "name": "Sarr",
    "pos": 3,
    "team": 8
   },
   "232351": {
    "full": "Ryan Giles",
+   "id": 282,
    "name": "Giles",
    "pos": 2,
    "team": 11
   },
   "232413": {
    "full": "Eberechi Eze",
+   "id": 14,
    "name": "Eze",
    "pos": 3,
    "team": 1
   },
   "232457": {
    "full": "Anis Mehmeti",
+   "id": 324,
    "name": "Mehmeti",
    "pos": 3,
    "team": 12
   },
   "232571": {
    "full": "Anthony Patterson",
+   "id": 530,
    "name": "Patterson",
    "pos": 1,
    "team": 20
   },
   "232653": {
    "full": "Jacob Ramsey",
+   "id": 456,
    "name": "J.Ramsey",
    "pos": 3,
    "team": 17
   },
   "232787": {
    "full": "Conor Gallagher",
+   "id": 519,
    "name": "Gallagher",
    "pos": 3,
    "team": 19
   },
   "232859": {
    "full": "Djed Spence",
+   "id": 505,
    "name": "Spence",
    "pos": 2,
    "team": 19
   },
   "232892": {
    "full": "Calvin Bassey",
+   "id": 257,
    "name": "Bassey",
    "pos": 2,
    "team": 10
   },
   "232905": {
    "full": "Liam Millar",
+   "id": 287,
    "name": "Millar",
    "pos": 3,
    "team": 11
   },
   "232928": {
    "full": "James Garner",
+   "id": 239,
    "name": "Garner",
    "pos": 3,
    "team": 9
   },
   "235826": {
    "full": "Joël Piroe",
+   "id": 348,
    "name": "Piroe",
    "pos": 4,
    "team": 13
   },
   "240514": {
    "full": "Kjell Scherpen",
+   "id": 564,
    "name": "Scherpen",
    "pos": 1,
    "team": 12
   },
   "241117": {
    "full": "Azor Matusiwa",
+   "id": 310,
    "name": "Matusiwa",
    "pos": 3,
    "team": 12
   },
   "241293": {
    "full": "Ephron Mason-Clark",
+   "id": 186,
    "name": "Mason-Clark",
    "pos": 3,
    "team": 7
   },
   "242313": {
    "full": "Oscar Mingueza",
+   "id": 207,
    "name": "Mingueza",
    "pos": 2,
    "team": 8
   },
   "242880": {
    "full": "Benoît Badiashile Mukinayi",
+   "id": 146,
    "name": "B.Badiashile",
    "pos": 2,
    "team": 6
   },
   "242882": {
    "full": "Bafodé Diakité",
+   "id": 62,
    "name": "Diakité",
    "pos": 2,
    "team": 3
   },
   "242898": {
    "full": "Brennan Johnson",
+   "id": 209,
    "name": "Johnson",
    "pos": 3,
    "team": 9
   },
   "243016": {
    "full": "Alexis Mac Allister",
+   "id": 372,
    "name": "Mac Allister",
    "pos": 3,
    "team": 14
   },
   "243298": {
    "full": "Cody Gakpo",
+   "id": 367,
    "name": "Gakpo",
    "pos": 3,
    "team": 14
   },
   "243413": {
    "full": "Regan Slater",
+   "id": 290,
    "name": "Slater",
    "pos": 3,
    "team": 11
   },
   "243526": {
    "full": "Gabriel Gudmundsson",
+   "id": 331,
    "name": "Gudmundsson",
    "pos": 2,
    "team": 13
   },
   "243571": {
    "full": "Nathan Patterson",
+   "id": 234,
    "name": "Patterson",
    "pos": 2,
    "team": 9
   },
   "244042": {
    "full": "Rodrigo Muniz Carvalho",
+   "id": 271,
    "name": "Muniz",
    "pos": 4,
    "team": 10
   },
   "244723": {
    "full": "Tyrick Mitchell",
+   "id": 204,
    "name": "Mitchell",
    "pos": 2,
    "team": 8
   },
   "244850": {
    "full": "Morgan Rogers",
+   "id": 40,
    "name": "Rogers",
    "pos": 3,
    "team": 6
   },
   "244851": {
    "full": "Cole Palmer",
+   "id": 154,
    "name": "Palmer",
    "pos": 3,
    "team": 6
   },
   "244858": {
    "full": "Fábio Freitas Gouveia Carvalho",
+   "id": 100,
    "name": "Carvalho",
    "pos": 3,
    "team": 4
   },
   "244860": {
    "full": "Hayden Hackney",
+   "id": 247,
    "name": "Hackney",
    "pos": 3,
    "team": 9
   },
   "244954": {
    "full": "Pau Torres",
+   "id": 34,
    "name": "Pau",
    "pos": 2,
    "team": 2
   },
   "246301": {
    "full": "Jorge Cuenca Barreno",
+   "id": 255,
    "name": "J.Cuenca",
    "pos": 2,
    "team": 10
   },
   "247348": {
    "full": "Daniel Muñoz Mejía",
+   "id": 201,
    "name": "Muñoz",
    "pos": 2,
    "team": 8
   },
   "247412": {
    "full": "Jørgen Strand Larsen",
+   "id": 222,
    "name": "Strand Larsen",
    "pos": 4,
    "team": 8
   },
   "247632": {
    "full": "Pedro Lomba Neto",
+   "id": 156,
    "name": "Neto",
    "pos": 3,
    "team": 6
   },
   "248056": {
    "full": "Tanaka Ao",
+   "id": 345,
    "name": "Tanaka",
    "pos": 3,
    "team": 13
   },
   "248857": {
    "full": "Noni Madueke",
+   "id": 16,
    "name": "Madueke",
    "pos": 3,
    "team": 1
   },
   "248875": {
    "full": "Jérémy Doku",
+   "id": 400,
    "name": "Doku",
    "pos": 3,
    "team": 15
   },
   "249231": {
    "full": "Keane Lewis-Potter",
+   "id": 86,
    "name": "Lewis-Potter",
    "pos": 3,
    "team": 4
   },
   "250199": {
    "full": "Nicolás Domínguez",
+   "id": 487,
    "name": "Dominguez",
    "pos": 3,
    "team": 18
   },
   "40383": {
    "full": "Fraser Forster",
+   "id": 58,
    "name": "Forster",
    "pos": 1,
    "team": 3
   },
   "424876": {
    "full": "Dominik Szoboszlai",
+   "id": 368,
    "name": "Szoboszlai",
    "pos": 3,
    "team": 14
   },
   "427623": {
    "full": "Chris Richards",
+   "id": 202,
    "name": "Richards",
    "pos": 2,
    "team": 8
   },
   "427637": {
    "full": "Brenden Aaronson",
+   "id": 337,
    "name": "Aaronson",
    "pos": 3,
    "team": 13
   },
   "428580": {
    "full": "Frank Onyeka",
+   "id": 104,
    "name": "Onyeka",
    "pos": 3,
    "team": 7
   },
   "428971": {
    "full": "Steven Benda",
+   "id": 590,
    "name": "Benda",
    "pos": 1,
    "team": 18
   },
   "430871": {
    "full": "Matheus Santos Carneiro da Cunha",
+   "id": 428,
    "name": "Cunha",
    "pos": 3,
    "team": 16
   },
   "432422": {
    "full": "Sandro Tonali",
+   "id": 455,
    "name": "Tonali",
    "pos": 3,
    "team": 19
   },
   "432714": {
    "full": "James McAtee",
+   "id": 486,
    "name": "McAtee",
    "pos": 3,
    "team": 18
   },
   "432720": {
    "full": "James Trafford",
+   "id": 385,
    "name": "Trafford",
    "pos": 1,
    "team": 13
   },
   "432830": {
    "full": "Nathan Collins",
+   "id": 84,
    "name": "Collins",
    "pos": 2,
    "team": 4
   },
   "432987": {
    "full": "Vitezslav Jaros",
+   "id": 354,
    "name": "Jaros",
    "pos": 1,
    "team": 14
   },
   "433036": {
    "full": "Tijjani Reijnders",
+   "id": 404,
    "name": "Reijnders",
    "pos": 3,
    "team": 15
   },
   "433154": {
    "full": "Dwight McNeil",
+   "id": 241,
    "name": "McNeil",
    "pos": 3,
    "team": 8
   },
   "433590": {
    "full": "Cody Drameh",
+   "id": 281,
    "name": "Drameh",
    "pos": 2,
    "team": 11
   },
   "434399": {
    "full": "Reinildo Mandava",
+   "id": 536,
    "name": "Reinildo",
    "pos": 2,
    "team": 20
   },
   "434752": {
    "full": "Jaka Bijol",
+   "id": 327,
    "name": "Bijol",
    "pos": 2,
    "team": 13
   },
   "435997": {
    "full": "Noah Okafor",
+   "id": 336,
    "name": "Okafor",
    "pos": 3,
    "team": 13
   },
   "436761": {
    "full": "Liam Kitching",
+   "id": 174,
    "name": "Kitching",
    "pos": 2,
    "team": 7
   },
   "436893": {
    "full": "Julián Araujo Zúñiga",
+   "id": 65,
    "name": "J.Araujo",
    "pos": 2,
    "team": 3
   },
   "437495": {
    "full": "Illan Meslier",
+   "id": 3,
    "name": "Meslier",
    "pos": 1,
    "team": 1
   },
   "437499": {
    "full": "Maxence Lacroix",
+   "id": 200,
    "name": "Lacroix",
    "pos": 2,
    "team": 6
   },
   "437505": {
    "full": "Wilson Isidor",
+   "id": 553,
    "name": "Isidor",
    "pos": 4,
    "team": 20
   },
   "437730": {
    "full": "Antoine Semenyo",
+   "id": 397,
    "name": "Semenyo",
    "pos": 3,
    "team": 15
   },
   "437738": {
    "full": "Sebastiaan Bornauw",
+   "id": 333,
    "name": "Bornauw",
    "pos": 2,
    "team": 13
   },
   "438098": {
    "full": "Fábio Ferreira Vieira",
+   "id": 23,
    "name": "Fábio Vieira",
    "pos": 3,
    "team": 1
   },
   "438234": {
    "full": "Omar Marmoush",
+   "id": 401,
    "name": "Marmoush",
    "pos": 4,
    "team": 15
   },
   "438464": {
    "full": "Cheick Doucouré",
+   "id": 218,
    "name": "Doucouré",
    "pos": 3,
    "team": 8
   },
   "439509": {
    "full": "Christos Tzolis",
+   "id": 557,
    "name": "Tzolis",
    "pos": 3,
    "team": 1
   },
   "439668": {
    "full": "Josh Eccles",
+   "id": 187,
    "name": "Eccles",
    "pos": 3,
    "team": 7
   },
   "440089": {
    "full": "Mikkel Damsgaard",
+   "id": 96,
    "name": "Damsgaard",
    "pos": 3,
    "team": 4
   },
   "440993": {
    "full": "Iliman Ndiaye",
+   "id": 237,
    "name": "Ndiaye",
    "pos": 3,
    "team": 9
   },
   "441164": {
    "full": "Pedro Porro Sauceda",
+   "id": 499,
    "name": "Pedro Porro",
    "pos": 2,
    "team": 19
   },
   "441191": {
    "full": "Tino Livramento",
+   "id": 450,
    "name": "Livramento",
    "pos": 2,
    "team": 17
   },
   "441264": {
    "full": "Brian Brobbey",
+   "id": 552,
    "name": "Brobbey",
    "pos": 4,
    "team": 20
   },
   "441266": {
    "full": "Ryan Gravenberch",
+   "id": 371,
    "name": "Gravenberch",
    "pos": 3,
    "team": 14
   },
   "441302": {
    "full": "Ian Maatsen",
+   "id": 36,
    "name": "Maatsen",
    "pos": 2,
    "team": 2
   },
   "442967": {
    "full": "Daizen Maeda",
+   "id": 562,
    "name": "Maeda",
    "pos": 3,
    "team": 12
   },
   "443261": {
    "full": "Jack Clarke",
+   "id": 313,
    "name": "Clarke",
    "pos": 3,
    "team": 12
   },
   "444102": {
    "full": "Francisco Evanilson de Lima Barbosa",
+   "id": 79,
    "name": "Evanilson",
    "pos": 4,
    "team": 3
   },
   "444145": {
    "full": "Gabriel Martinelli Silva",
+   "id": 18,
    "name": "Martinelli",
    "pos": 3,
    "team": 1
   },
   "444172": {
    "full": "Will Dennis",
+   "id": 59,
    "name": "Dennis",
    "pos": 1,
    "team": 3
   },
   "444180": {
    "full": "Jaidon Anthony",
+   "id": 105,
    "name": "Anthony",
    "pos": 3,
    "team": 4
   },
   "444307": {
    "full": "Thimothée Lo-Tutala",
+   "id": 276,
    "name": "Lo-Tutala",
    "pos": 1,
    "team": 11
   },
   "444463": {
    "full": "Wesley Fofana",
+   "id": 145,
    "name": "Fofana",
    "pos": 2,
    "team": 6
   },
   "444765": {
    "full": "Sepp van den Berg",
+   "id": 85,
    "name": "Van den Berg",
    "pos": 2,
    "team": 4
   },
   "444884": {
    "full": "Harvey Elliott",
+   "id": 383,
    "name": "Elliott",
    "pos": 3,
    "team": 14
   },
   "445028": {
    "full": "Hidemasa Morita",
+   "id": 563,
    "name": "Morita",
    "pos": 3,
    "team": 11
   },
   "445044": {
    "full": "Dejan Kulusevski",
+   "id": 521,
    "name": "Kulusevski",
    "pos": 3,
    "team": 19
   },
   "445087": {
    "full": "Ronald Araujo",
+   "id": 579,
    "name": "Araujo",
    "pos": 2,
    "team": 14
   },
   "445122": {
    "full": "Jurriën Timber",
+   "id": 5,
    "name": "J.Timber",
    "pos": 2,
    "team": 1
   },
   "446008": {
    "full": "Bryan Mbeumo",
+   "id": 427,
    "name": "Mbeumo",
    "pos": 3,
    "team": 16
   },
   "448047": {
    "full": "Enzo Fernández",
+   "id": 155,
    "name": "Enzo",
    "pos": 3,
    "team": 6
   },
   "448089": {
    "full": "Joao Gomes",
+   "id": 54,
    "name": "Gomes",
    "pos": 3,
    "team": 2
   },
   "448104": {
    "full": "Piero Hincapié",
+   "id": 9,
    "name": "Hincapie",
    "pos": 2,
    "team": 1
   },
   "448514": {
    "full": "Rayan Aït-Nouri",
+   "id": 392,
    "name": "Aït-Nouri",
    "pos": 2,
    "team": 15
   },
   "449027": {
    "full": "Giorgi Mamardashvili",
+   "id": 351,
    "name": "Mamardashvili",
    "pos": 1,
    "team": 14
   },
   "449428": {
    "full": "Matty Jacob",
+   "id": 283,
    "name": "Jacob",
    "pos": 2,
    "team": 11
   },
   "449429": {
    "full": "Jacob Greaves",
+   "id": 306,
    "name": "Greaves",
    "pos": 2,
    "team": 12
   },
   "449434": {
    "full": "Anthony Elanga",
+   "id": 454,
    "name": "Elanga",
    "pos": 3,
    "team": 17
   },
   "449871": {
    "full": "Amadou Onana",
+   "id": 48,
    "name": "Onana",
    "pos": 3,
    "team": 2
   },
   "450542": {
    "full": "Jesurun Rak-Sakyi",
+   "id": 219,
    "name": "J.Rak-Sakyi",
    "pos": 3,
    "team": 8
   },
   "451284": {
    "full": "Milan van Ewijk",
+   "id": 175,
    "name": "van Ewijk",
    "pos": 2,
    "team": 7
   },
   "451302": {
    "full": "Altay Bayındır",
+   "id": 413,
    "name": "Bayindir",
    "pos": 1,
    "team": 16
   },
   "451340": {
    "full": "Mitoma Kaoru",
+   "id": 121,
    "name": "Mitoma",
    "pos": 3,
    "team": 5
   },
   "451490": {
    "full": "João Pedro Loureiro da Costa",
+   "id": 119,
    "name": "Costinha",
    "pos": 2,
    "team": 5
   },
   "454490": {
    "full": "Michael Svoboda",
+   "id": 120,
    "name": "Svoboda",
    "pos": 2,
    "team": 5
   },
   "455084": {
    "full": "Leif Davis",
+   "id": 305,
    "name": "Davis",
    "pos": 2,
    "team": 12
   },
   "456512": {
    "full": "Dan Ndoye",
+   "id": 483,
    "name": "Ndoye",
    "pos": 3,
    "team": 18
   },
   "457569": {
    "full": "Đorđe Petrović",
+   "id": 57,
    "name": "Petrović",
    "pos": 1,
    "team": 3
   },
   "458249": {
    "full": "Joshua Zirkzee",
+   "id": 440,
    "name": "Zirkzee",
    "pos": 4,
    "team": 16
   },
   "460028": {
    "full": "Levi Samuels Colwill",
+   "id": 149,
    "name": "Colwill",
    "pos": 2,
    "team": 6
   },
   "460842": {
    "full": "Mohammed Kudus",
+   "id": 512,
    "name": "Kudus",
    "pos": 3,
    "team": 19
   },
   "461102": {
    "full": "Bobby Thomas",
+   "id": 173,
    "name": "Thomas",
    "pos": 2,
    "team": 7
   },
   "461199": {
    "full": "Romaine Mundle",
+   "id": 547,
    "name": "Mundle",
    "pos": 3,
    "team": 20
   },
   "461587": {
    "full": "Kasey McAteer",
+   "id": 323,
    "name": "McAteer",
    "pos": 3,
    "team": 12
   },
   "462387": {
    "full": "Ali Al-Hamadi",
+   "id": 322,
    "name": "Al-Hamadi",
    "pos": 4,
    "team": 12
   },
   "462424": {
    "full": "William Saliba",
+   "id": 6,
    "name": "Saliba",
    "pos": 2,
    "team": 1
   },
   "462635": {
    "full": "Joe Gelhardt",
+   "id": 340,
    "name": "Gelhardt",
    "pos": 3,
    "team": 11
   },
   "463034": {
    "full": "Liam Delap",
+   "id": 167,
    "name": "Delap",
    "pos": 4,
    "team": 6
   },
   "463067": {
    "full": "Georginio Rutter",
+   "id": 125,
    "name": "Georginio",
    "pos": 4,
    "team": 5
   },
   "463210": {
    "full": "Shea Charles",
+   "id": 580,
    "name": "Charles",
    "pos": 3,
    "team": 10
   },
   "463726": {
    "full": "Amar Dedic",
+   "id": 593,
    "name": "Dedić",
    "pos": 2,
    "team": 17
   },
   "463936": {
    "full": "Jamie Bynoe-Gittens",
+   "id": 158,
    "name": "Gittens",
    "pos": 3,
    "team": 6
   },
   "463981": {
    "full": "James Hill",
+   "id": 60,
    "name": "Hill",
    "pos": 2,
    "team": 3
   },
   "464353": {
    "full": "Harvey Davies",
+   "id": 355,
    "name": "Davies",
    "pos": 1,
    "team": 14
   },
   "465247": {
    "full": "Senne Lammens",
+   "id": 412,
    "name": "Lammens",
    "pos": 1,
    "team": 16
   },
   "465351": {
    "full": "Matheus Nunes",
+   "id": 389,
    "name": "Matheus N.",
    "pos": 2,
    "team": 15
   },
   "465390": {
    "full": "Kaine Kesler-Hayden",
+   "id": 177,
    "name": "Kesler-Hayden",
    "pos": 2,
    "team": 7
   },
   "465525": {
    "full": "Eliot Matazo",
+   "id": 291,
    "name": "Matazo",
    "pos": 3,
    "team": 11
   },
   "465642": {
    "full": "Malick Thiaw",
+   "id": 445,
    "name": "Thiaw",
    "pos": 2,
    "team": 17
   },
   "465680": {
    "full": "Arnaud Kalimuendo",
+   "id": 493,
    "name": "Kalimuendo",
    "pos": 4,
    "team": 18
   },
   "465694": {
    "full": "Nico González Iglesias",
+   "id": 405,
    "name": "N.Gonzalez",
    "pos": 3,
    "team": 15
   },
   "465730": {
    "full": "Maxim De Cuyper",
+   "id": 115,
    "name": "De Cuyper",
    "pos": 2,
    "team": 5
   },
   "465920": {
    "full": "Mykhailo Mudryk",
+   "id": 578,
    "name": "Mudryk",
    "pos": 3,
    "team": 6
   },
   "466052": {
    "full": "Rayan Cherki",
+   "id": 399,
    "name": "Cherki",
    "pos": 3,
    "team": 15
   },
   "466075": {
    "full": "Riccardo Calafiori",
+   "id": 8,
    "name": "Calafiori",
    "pos": 2,
    "team": 1
   },
   "466525": {
    "full": "Anton Stach",
+   "id": 335,
    "name": "Stach",
    "pos": 3,
    "team": 13
   },
   "467779": {
    "full": "Mats Wieffer",
+   "id": 130,
    "name": "Wieffer",
    "pos": 2,
    "team": 5
   },
   "469142": {
    "full": "Jan Paul van Hecke",
+   "id": 112,
    "name": "Van Hecke",
    "pos": 2,
    "team": 19
   },
   "469247": {
    "full": "Samuel Iling-Junior",
+   "id": 49,
    "name": "Iling Jr",
    "pos": 3,
    "team": 2
   },
   "469266": {
    "full": "Lucas Gourna-Douath",
+   "id": 589,
    "name": "Gourna-Douath",
    "pos": 3,
    "team": 11
   },
   "469272": {
    "full": "Loum Tchaouna",
+   "id": 190,
    "name": "Tchaouna",
    "pos": 3,
    "team": 7
   },
   "470294": {
    "full": "Darko Gyabi",
+   "id": 297,
    "name": "Gyabi",
    "pos": 3,
    "team": 11
   },
   "470313": {
    "full": "Nick Woltemade",
+   "id": 463,
    "name": "Woltemade",
    "pos": 4,
    "team": 17
   },
   "470315": {
    "full": "Luca Netz",
+   "id": 478,
    "name": "Netz",
    "pos": 2,
    "team": 18
   },
   "470551": {
    "full": "Lukás Hornícek",
+   "id": 567,
    "name": "Horníček",
    "pos": 1,
    "team": 17
   },
   "472713": {
    "full": "Aaron Hickey",
+   "id": 90,
    "name": "Hickey",
    "pos": 2,
    "team": 4
   },
   "472739": {
    "full": "Carl Rushworth",
+   "id": 110,
    "name": "Rushworth",
    "pos": 1,
    "team": 7
   },
   "472769": {
    "full": "Nico O'Reilly",
+   "id": 387,
    "name": "O'Reilly",
    "pos": 2,
    "team": 15
   },
   "473284": {
    "full": "Konstantinos Tzolakis",
+   "id": 572,
    "name": "Tzolakis",
    "pos": 1,
    "team": 11
   },
   "474120": {
    "full": "Julio Enciso",
+   "id": 591,
    "name": "Enciso",
    "pos": 3,
    "team": 12
   },
   "475168": {
    "full": "João Pedro Junqueira de Jesus",
+   "id": 165,
    "name": "João Pedro",
    "pos": 4,
    "team": 6
   },
   "476887": {
    "full": "Dilane Bakwa",
+   "id": 485,
    "name": "Bakwa",
    "pos": 3,
    "team": 18
   },
   "477064": {
    "full": "Rico Lewis",
+   "id": 395,
    "name": "Lewis",
    "pos": 2,
    "team": 15
   },
   "477424": {
    "full": "Joško Gvardiol",
+   "id": 391,
    "name": "Gvardiol",
    "pos": 2,
    "team": 15
   },
   "477547": {
    "full": "Leo Fuhr Hjelde",
+   "id": 538,
    "name": "Hjelde",
    "pos": 2,
    "team": 20
   },
   "477555": {
    "full": "Oscar Bobb",
+   "id": 264,
    "name": "Bobb",
    "pos": 3,
    "team": 10
   },
   "480455": {
    "full": "Jarrad Branthwaite",
+   "id": 230,
    "name": "Branthwaite",
    "pos": 2,
    "team": 9
   },
   "480457": {
    "full": "Jack Rudoni",
+   "id": 183,
    "name": "Rudoni",
    "pos": 3,
    "team": 7
   },
   "481624": {
    "full": "Jaden Philogene",
+   "id": 318,
    "name": "Philogene",
    "pos": 3,
    "team": 12
   },
   "481655": {
    "full": "Martín Zubimendi Ibáñez",
+   "id": 19,
    "name": "Zubimendi",
    "pos": 3,
    "team": 1
   },
   "482442": {
    "full": "Pape Matar Sarr",
+   "id": 518,
    "name": "P.M.Sarr",
    "pos": 3,
    "team": 19
   },
   "482609": {
    "full": "Malo Gusto",
+   "id": 144,
    "name": "Gusto",
    "pos": 2,
    "team": 6
   },
   "482973": {
    "full": "Igor Jesus Maciel da Cruz",
+   "id": 491,
    "name": "Igor Jesus",
    "pos": 4,
    "team": 18
   },
   "483067": {
    "full": "António João Pereira de Albuquerque Tavares da Silva",
+   "id": 566,
    "name": "Silva",
    "pos": 2,
    "team": 3
   },
   "484389": {
    "full": "Oliver Dovin",
+   "id": 171,
    "name": "Dovin",
    "pos": 1,
    "team": 7
   },
   "484420": {
    "full": "Enzo Le Fée",
+   "id": 542,
    "name": "E.Le Fée",
    "pos": 3,
    "team": 20
   },
   "485047": {
    "full": "Felipe Rodrigues da Silva",
+   "id": 470,
    "name": "Morato",
    "pos": 2,
    "team": 18
   },
   "485055": {
    "full": "Antonín Kinský",
+   "id": 496,
    "name": "Kinsky",
    "pos": 1,
    "team": 19
   },
   "485337": {
    "full": "Evann Guessand",
+   "id": 42,
    "name": "Guessand",
    "pos": 3,
    "team": 8
   },
   "485711": {
    "full": "Benjamin Sesko",
+   "id": 439,
    "name": "Šeško",
    "pos": 4,
    "team": 16
   },
   "486385": {
    "full": "Norberto Bercique Gomes Betuncal",
+   "id": 248,
    "name": "Beto",
    "pos": 4,
    "team": 9
   },
   "486520": {
    "full": "Ilia Gruev",
+   "id": 344,
    "name": "Gruev",
    "pos": 3,
    "team": 13
   },
   "486672": {
    "full": "Moisés Caicedo Corozo",
+   "id": 159,
    "name": "Caicedo",
    "pos": 3,
    "team": 6
   },
   "487053": {
    "full": "Destiny Udogie",
+   "id": 506,
    "name": "Udogie",
    "pos": 2,
    "team": 19
   },
   "487117": {
    "full": "Evan Ferguson",
+   "id": 139,
    "name": "Ferguson",
    "pos": 4,
    "team": 5
   },
   "487676": {
    "full": "Trai Hume",
+   "id": 534,
    "name": "Hume",
    "pos": 2,
    "team": 20
   },
   "487838": {
    "full": "Lewis Hall",
+   "id": 449,
    "name": "Hall",
    "pos": 2,
    "team": 17
   },
   "488024": {
    "full": "Yéremy Pino Santos",
+   "id": 211,
    "name": "Yeremy",
    "pos": 3,
    "team": 8
   },
   "489580": {
    "full": "Calvin Ramsay",
+   "id": 365,
    "name": "Ramsay",
    "pos": 2,
    "team": 14
   },
   "489639": {
    "full": "Bart Verbruggen",
+   "id": 109,
    "name": "Verbruggen",
    "pos": 1,
    "team": 5
   },
   "489706": {
    "full": "Justin Devenny",
+   "id": 215,
    "name": "Devenny",
    "pos": 3,
    "team": 8
   },
   "489888": {
    "full": "Amine Adli",
+   "id": 77,
    "name": "Adli",
    "pos": 3,
    "team": 3
   },
   "490094": {
    "full": "Tim Iroegbunam",
+   "id": 240,
    "name": "Iroegbunam",
    "pos": 3,
    "team": 9
   },
   "490145": {
    "full": "Dane Scarlett",
+   "id": 528,
    "name": "Scarlett",
    "pos": 4,
    "team": 19
   },
   "490161": {
    "full": "Abu Kamara",
+   "id": 293,
    "name": "Kamara",
    "pos": 3,
    "team": 11
   },
   "490881": {
    "full": "Toby Collyer",
+   "id": 436,
    "name": "Collyer",
    "pos": 3,
    "team": 16
   },
   "491007": {
    "full": "Dário Luís Essugo",
+   "id": 163,
    "name": "D.Essugo",
    "pos": 3,
    "team": 6
   },
   "491279": {
    "full": "Micky van de Ven",
+   "id": 503,
    "name": "Van de Ven",
    "pos": 2,
    "team": 19
   },
   "491501": {
    "full": "James McConnell",
+   "id": 378,
    "name": "McConnell",
    "pos": 3,
    "team": 14
   },
   "492498": {
    "full": "Raphael Borges Rodrigues",
+   "id": 191,
    "name": "Borges Rodrigues",
    "pos": 3,
    "team": 7
   },
   "49262": {
    "full": "Jason Steele",
+   "id": 111,
    "name": "Steele",
    "pos": 1,
    "team": 5
   },
   "492777": {
    "full": "Conor Bradley",
+   "id": 360,
    "name": "Bradley",
    "pos": 2,
    "team": 14
   },
   "492859": {
    "full": "Wilfried Gnonto",
+   "id": 341,
    "name": "Gnonto",
    "pos": 3,
    "team": 13
   },
   "493105": {
    "full": "Alejandro Garnacho Ferreyra",
+   "id": 160,
    "name": "Garnacho",
    "pos": 3,
    "team": 2
   },
   "493250": {
    "full": "Amad Diallo",
+   "id": 431,
    "name": "Amad",
    "pos": 3,
    "team": 16
   },
   "493362": {
    "full": "Xavi Simons",
+   "id": 513,
    "name": "Xavi",
    "pos": 3,
    "team": 19
   },
   "494307": {
    "full": "Max Alleyne",
+   "id": 394,
    "name": "Alleyne",
    "pos": 2,
    "team": 15
   },
   "494521": {
    "full": "Adrien Truffert",
+   "id": 61,
    "name": "Truffert",
    "pos": 2,
    "team": 3
   },
   "494595": {
    "full": "Florian Wirtz",
+   "id": 366,
    "name": "Wirtz",
    "pos": 3,
    "team": 14
   },
   "494928": {
    "full": "Juanlu Sánchez",
+   "id": 573,
    "name": "Sanchez",
    "pos": 2,
    "team": 3
   },
   "494950": {
    "full": "Harvey Cartwright",
+   "id": 275,
    "name": "Cartwright",
    "pos": 1,
    "team": 11
   },
   "496208": {
    "full": "Ben Gannon-Doak",
+   "id": 72,
    "name": "Gannon-Doak",
    "pos": 3,
    "team": 3
   },
   "496221": {
    "full": "Adam Wharton",
+   "id": 210,
    "name": "Wharton",
    "pos": 3,
    "team": 8
   },
   "496661": {
    "full": "Tyler Dibling",
+   "id": 245,
    "name": "Dibling",
    "pos": 3,
    "team": 9
   },
   "498016": {
    "full": "Robin Roefs",
+   "id": 529,
    "name": "Roefs",
    "pos": 1,
    "team": 20
   },
   "498444": {
    "full": "Pep Chavarría",
+   "id": 583,
    "name": "Chavarria",
    "pos": 2,
    "team": 6
   },
   "499169": {
    "full": "Myles Lewis-Skelly",
+   "id": 7,
    "name": "Lewis-Skelly",
    "pos": 3,
    "team": 1
   },
   "499175": {
    "full": "Ethan Nwaneri",
+   "id": 22,
    "name": "Nwaneri",
    "pos": 3,
    "team": 1
   },
   "499300": {
    "full": "Adam Aznou",
+   "id": 235,
    "name": "Aznou",
    "pos": 2,
    "team": 9
   },
   "499309": {
    "full": "Marc Guiu Paz",
+   "id": 168,
    "name": "Marc Guiu",
    "pos": 4,
    "team": 6
   },
   "499604": {
    "full": "Rayan Vitor Simplício Rocha",
+   "id": 67,
    "name": "Rayan",
    "pos": 3,
    "team": 3
   },
   "499716": {
    "full": "James Rowswell",
+   "id": 510,
    "name": "Rowswell",
    "pos": 2,
    "team": 19
   },
   "499721": {
    "full": "Mikey Moore",
+   "id": 523,
    "name": "Moore",
    "pos": 3,
    "team": 19
   },
   "499726": {
    "full": "Callum Olusesi",
+   "id": 524,
    "name": "Olusesi",
    "pos": 3,
    "team": 19
   },
   "500040": {
    "full": "Cristhian Mosquera",
+   "id": 11,
    "name": "Mosquera",
    "pos": 2,
    "team": 1
   },
   "500058": {
    "full": "Jayden Danns",
+   "id": 382,
    "name": "Danns",
    "pos": 4,
    "team": 14
   },
   "500151": {
    "full": "Nicolò Savona",
+   "id": 475,
    "name": "Savona",
    "pos": 2,
    "team": 18
   },
   "50093": {
    "full": "David Button",
+   "id": 302,
    "name": "Button",
    "pos": 1,
    "team": 12
   },
   "500957": {
    "full": "Enis Destan",
+   "id": 298,
    "name": "Destan",
    "pos": 4,
    "team": 11
   },
   "501390": {
    "full": "Marcelino Núñez",
+   "id": 309,
    "name": "Núñez",
    "pos": 3,
    "team": 12
   },
   "501459": {
    "full": "Tatsuhiro Sakamoto",
+   "id": 185,
    "name": "Sakamoto",
    "pos": 3,
    "team": 7
   },
   "50175": {
    "full": "Danny Welbeck",
+   "id": 136,
    "name": "Welbeck",
    "pos": 4,
    "team": 6
   },
   "501902": {
    "full": "Charlie Hughes",
+   "id": 278,
    "name": "Hughes",
    "pos": 2,
    "team": 11
   },
   "502500": {
    "full": "Igor Thiago Nascimento Rodrigues",
+   "id": 106,
    "name": "Thiago",
    "pos": 4,
    "team": 4
   },
   "502697": {
    "full": "Carlos Alcaraz Durán",
+   "id": 243,
    "name": "Alcaraz",
    "pos": 3,
    "team": 9
   },
   "503037": {
    "full": "Emmanuel Emegha",
+   "id": 170,
    "name": "Emegha",
    "pos": 4,
    "team": 6
   },
   "503139": {
    "full": "Alex Scott",
+   "id": 69,
    "name": "Scott",
    "pos": 3,
    "team": 3
   },
   "503301": {
    "full": "Omari Hutchinson",
+   "id": 484,
    "name": "Hutchinson",
    "pos": 3,
    "team": 18
   },
   "505079": {
    "full": "Alfie McNally",
+   "id": 252,
    "name": "McNally",
    "pos": 1,
    "team": 10
   },
   "507433": {
    "full": "Hákon Rafn Valdimarsson",
+   "id": 83,
    "name": "Valdimarsson",
    "pos": 1,
    "team": 4
   },
   "508395": {
    "full": "Yehor Yarmoliuk",
+   "id": 102,
    "name": "Yarmoliuk",
    "pos": 3,
    "team": 4
   },
   "508479": {
    "full": "Filip Jörgensen",
+   "id": 141,
    "name": "Jörgensen",
    "pos": 1,
    "team": 6
   },
   "509416": {
    "full": "Yasin Ayari",
+   "id": 129,
    "name": "Ayari",
    "pos": 3,
    "team": 5
   },
   "510281": {
    "full": "Sávio Moreira de Oliveira",
+   "id": 403,
    "name": "Savinho",
    "pos": 3,
    "team": 15
   },
   "510663": {
    "full": "Hugo Ekitiké",
+   "id": 380,
    "name": "Ekitiké",
    "pos": 4,
    "team": 14
   },
   "511499": {
    "full": "Mathys Tel",
+   "id": 514,
    "name": "Tel",
    "pos": 3,
    "team": 19
   },
   "512462": {
    "full": "Jake O'Brien",
+   "id": 232,
    "name": "O'Brien",
    "pos": 2,
    "team": 9
   },
   "513086": {
    "full": "Jannik Schuster",
+   "id": 93,
    "name": "Schuster",
    "pos": 2,
    "team": 4
   },
   "513418": {
    "full": "Kevin Schade",
+   "id": 94,
    "name": "Schade",
    "pos": 3,
    "team": 4
   },
   "513466": {
    "full": "Merlin Röhl",
+   "id": 246,
    "name": "Röhl",
    "pos": 3,
    "team": 9
   },
   "513545": {
    "full": "Mamadou Sangaré",
+   "id": 565,
    "name": "Sangaré",
    "pos": 3,
    "team": 4
   },
   "514254": {
    "full": "Diego Gómez Amarilla",
+   "id": 127,
    "name": "Gomez",
    "pos": 3,
    "team": 5
   },
   "514356": {
    "full": "Roméo Lavia",
+   "id": 161,
    "name": "Lavia",
    "pos": 3,
    "team": 6
   },
   "514514": {
    "full": "Lewis Koumas",
+   "id": 381,
    "name": "Koumas",
    "pos": 3,
    "team": 14
   },
   "515046": {
    "full": "Melker Ellborg",
+   "id": 531,
    "name": "Ellborg",
    "pos": 1,
    "team": 20
   },
   "515597": {
    "full": "Lamare Bogarde",
+   "id": 35,
    "name": "Bogarde",
    "pos": 3,
    "team": 2
   },
   "515621": {
    "full": "Chadi Riad Dnanou",
+   "id": 206,
    "name": "Chadi Riad",
    "pos": 2,
    "team": 8
   },
   "516895": {
    "full": "Kobbie Mainoo",
+   "id": 432,
    "name": "Mainoo",
    "pos": 3,
    "team": 16
   },
   "517052": {
    "full": "Nicolas Jackson",
+   "id": 166,
    "name": "N.Jackson",
    "pos": 4,
    "team": 6
   },
   "519440": {
    "full": "Wellity Lucky",
+   "id": 361,
    "name": "Lucky",
    "pos": 2,
    "team": 14
   },
   "519634": {
    "full": "Jenson Seelt",
+   "id": 537,
    "name": "Seelt",
    "pos": 2,
    "team": 20
   },
   "519913": {
    "full": "Tyler Fletcher",
+   "id": 438,
    "name": "Fletcher",
    "pos": 3,
    "team": 16
   },
   "522047": {
    "full": "Tarik Muharemović",
+   "id": 334,
    "name": "Muharemović",
    "pos": 2,
    "team": 13
   },
   "531442": {
    "full": "Abdul Fatawu",
+   "id": 315,
    "name": "Fatawu",
    "pos": 3,
    "team": 12
   },
   "532529": {
    "full": "Jack Hinshelwood",
+   "id": 123,
    "name": "Hinshelwood",
    "pos": 3,
    "team": 5
   },
   "532605": {
    "full": "Andrey Nascimento dos Santos",
+   "id": 162,
    "name": "Andrey Santos",
    "pos": 3,
    "team": 16
   },
   "533463": {
    "full": "Dango Ouattara",
+   "id": 95,
    "name": "O.Dango",
    "pos": 3,
    "team": 4
   },
   "534392": {
    "full": "Mason Burstow",
+   "id": 299,
    "name": "Burstow",
    "pos": 4,
    "team": 11
   },
   "535301": {
    "full": "Carlos Baleba",
+   "id": 131,
    "name": "Baleba",
    "pos": 3,
    "team": 5
   },
   "535818": {
    "full": "Simon Adingra",
+   "id": 546,
    "name": "Adingra",
    "pos": 3,
    "team": 20
   },
   "535928": {
    "full": "Stefan Bajčetić Maquieira",
+   "id": 376,
    "name": "Bajcetic",
    "pos": 3,
    "team": 14
   },
   "536661": {
    "full": "Nilson Angulo",
+   "id": 551,
    "name": "Angulo",
    "pos": 3,
    "team": 20
   },
   "536694": {
    "full": "Matheus França de Oliveira",
+   "id": 217,
    "name": "M.França",
    "pos": 3,
    "team": 8
   },
   "536916": {
    "full": "Facundo Buonanotte",
+   "id": 128,
    "name": "Buonanotte",
    "pos": 3,
    "team": 5
   },
   "538007": {
    "full": "Promise David",
+   "id": 594,
    "name": "David",
    "pos": 4,
    "team": 5
   },
   "538207": {
    "full": "William Osula",
+   "id": 465,
    "name": "Osula",
    "pos": 4,
    "team": 17
   },
   "538638": {
    "full": "Tyler Bindon",
+   "id": 479,
    "name": "Bindon",
    "pos": 2,
    "team": 18
   },
   "539142": {
    "full": "Aurèle Amenda",
+   "id": 182,
    "name": "Amenda",
    "pos": 2,
    "team": 7
   },
   "540324": {
    "full": "Mohamed Belloumi",
+   "id": 286,
    "name": "Belloumi",
    "pos": 3,
    "team": 11
   },
   "543158": {
    "full": "Valentín Barco",
+   "id": 568,
    "name": "Barco",
    "pos": 3,
    "team": 6
   },
   "543295": {
    "full": "Antoni Milambo",
+   "id": 99,
    "name": "Milambo",
    "pos": 3,
    "team": 4
   },
   "543968": {
    "full": "Emersonn Correia da Silva",
+   "id": 316,
    "name": "Emersonn",
    "pos": 4,
    "team": 12
   },
   "54469": {
    "full": "Adam Smith",
+   "id": 64,
    "name": "Smith",
    "pos": 2,
    "team": 3
   },
   "544877": {
    "full": "Milos Kerkez",
+   "id": 358,
    "name": "Kerkez",
    "pos": 2,
    "team": 14
   },
   "545477": {
    "full": "Alex Murphy",
+   "id": 451,
    "name": "A.Murphy",
    "pos": 2,
    "team": 17
   },
   "546600": {
    "full": "Kayne van Oevelen",
+   "id": 554,
    "name": "Van Oevelen",
    "pos": 1,
    "team": 12
   },
   "547027": {
    "full": "Habib Diarra",
+   "id": 543,
    "name": "Diarra",
    "pos": 3,
    "team": 20
   },
   "547037": {
    "full": "Jack Fletcher",
+   "id": 434,
    "name": "J.Fletcher",
    "pos": 3,
    "team": 16
   },
   "547676": {
    "full": "Tyler Fredricson",
+   "id": 425,
    "name": "Fredricson",
    "pos": 2,
    "team": 16
   },
   "547701": {
    "full": "Archie Gray",
+   "id": 522,
    "name": "Gray",
    "pos": 3,
    "team": 19
   },
   "547719": {
    "full": "Lewis Miley",
+   "id": 459,
    "name": "L.Miley",
    "pos": 3,
    "team": 17
   },
   "548308": {
    "full": "Ashley Phillips",
+   "id": 507,
    "name": "Phillips",
    "pos": 2,
    "team": 19
   },
   "549067": {
    "full": "Zach Abbott",
+   "id": 477,
    "name": "Abbott",
    "pos": 2,
    "team": 18
   },
   "549074": {
    "full": "Tom Watson",
+   "id": 133,
    "name": "Watson",
    "pos": 3,
    "team": 5
   },
   "549653": {
    "full": "Norman Bassette",
+   "id": 197,
    "name": "Bassette",
    "pos": 4,
    "team": 7
   },
   "549912": {
    "full": "Chemsdine Talbi",
+   "id": 549,
    "name": "Talbi",
    "pos": 3,
    "team": 20
   },
   "549939": {
    "full": "Mike Penders",
+   "id": 560,
    "name": "Penders",
    "pos": 1,
    "team": 6
   },
   "550090": {
    "full": "Diego Coppola",
+   "id": 117,
    "name": "Coppola",
    "pos": 2,
    "team": 5
   },
   "550615": {
    "full": "Tyrique George",
+   "id": 242,
    "name": "George",
    "pos": 3,
    "team": 9
   },
   "550839": {
    "full": "Wilson Odobert",
+   "id": 517,
    "name": "Odobert",
    "pos": 3,
    "team": 19
   },
   "550864": {
    "full": "Leny Yoro",
+   "id": 420,
    "name": "Yoro",
    "pos": 2,
    "team": 16
   },
   "551210": {
    "full": "Jorrel Hato",
+   "id": 148,
    "name": "Hato",
    "pos": 2,
    "team": 6
   },
   "551226": {
    "full": "Mateus Fernandes",
+   "id": 525,
    "name": "Fernandes",
    "pos": 3,
    "team": 19
   },
   "551262": {
    "full": "Jahnoah Markelo",
+   "id": 196,
    "name": "Markelo",
    "pos": 4,
    "team": 7
   },
   "551466": {
    "full": "Gonzalo García",
+   "id": 569,
    "name": "Gonzalo",
    "pos": 4,
    "team": 10
   },
   "551499": {
    "full": "Victor Munoz",
+   "id": 377,
    "name": "Munoz",
    "pos": 3,
    "team": 14
   },
   "552946": {
    "full": "Jens Hjertø-Dahl",
+   "id": 574,
    "name": "Hjertø-Dahl",
    "pos": 3,
    "team": 11
   },
   "553783": {
    "full": "Óscar Zambrano",
+   "id": 294,
    "name": "Zambrano",
    "pos": 3,
    "team": 11
   },
   "554197": {
    "full": "Chris Rigg",
+   "id": 548,
    "name": "Rigg",
    "pos": 3,
    "team": 20
   },
   "554578": {
    "full": "Ewen Jaouen",
+   "id": 444,
    "name": "Jaouen",
    "pos": 1,
    "team": 17
   },
   "556637": {
    "full": "Nehemiah Oriola",
+   "id": 134,
    "name": "Oriola",
    "pos": 3,
    "team": 5
   },
   "557012": {
    "full": "Sindre Walle Egeli",
+   "id": 321,
    "name": "Walle Egeli",
    "pos": 4,
    "team": 12
   },
   "559152": {
    "full": "Zavier Gozo",
+   "id": 595,
    "name": "Gozo",
    "pos": 3,
    "team": 8
   },
   "560262": {
    "full": "Junior Kroupi",
+   "id": 78,
    "name": "Kroupi.Jr",
    "pos": 3,
    "team": 3
   },
   "560552": {
    "full": "Kevin Santos Lopes de Macedo",
+   "id": 263,
    "name": "Kevin",
    "pos": 3,
    "team": 10
   },
   "561245": {
    "full": "Álvaro Rodríguez",
+   "id": 81,
    "name": "Rodríguez",
    "pos": 4,
    "team": 3
   },
   "565297": {
    "full": "Mateo Joseph Fernández-Regatillo",
+   "id": 349,
    "name": "Mateo Joseph",
    "pos": 4,
    "team": 13
   },
   "567119": {
    "full": "Shumaira Mheuka",
+   "id": 169,
    "name": "Mheuka",
    "pos": 4,
    "team": 6
   },
   "568420": {
    "full": "Ousmane Diomande",
+   "id": 581,
    "name": "Diomande",
    "pos": 2,
    "team": 18
   },
   "56979": {
    "full": "Jordan Henderson",
+   "id": 101,
    "name": "Henderson",
    "pos": 3,
    "team": 6
   },
   "570241": {
    "full": "Kim Ji-soo",
+   "id": 92,
    "name": "Ji-soo",
    "pos": 2,
    "team": 4
   },
   "570526": {
    "full": "Lucas Bergvall",
+   "id": 520,
    "name": "Bergvall",
    "pos": 3,
    "team": 19
   },
   "570794": {
    "full": "Anan Khalaili",
+   "id": 588,
    "name": "Khalaili",
    "pos": 2,
    "team": 8
   },
   "571779": {
    "full": "César Palacios",
+   "id": 570,
    "name": "Palacios",
    "pos": 3,
    "team": 10
   },
   "572584": {
    "full": "Abdoul Ouattara",
+   "id": 592,
    "name": "Ouattara",
    "pos": 2,
    "team": 12
   },
   "574458": {
    "full": "Mamadou Sarr",
+   "id": 150,
    "name": "M.Sarr",
    "pos": 2,
    "team": 6
   },
   "575204": {
    "full": "Claudio Echeverri",
+   "id": 407,
    "name": "Echeverri",
    "pos": 3,
    "team": 15
   },
   "575458": {
    "full": "Jair Paula da Cunha Filho",
+   "id": 474,
    "name": "Jair Cunha",
    "pos": 2,
    "team": 18
   },
   "575476": {
    "full": "Murillo Costa dos Santos",
+   "id": 472,
    "name": "Murillo",
    "pos": 2,
    "team": 18
   },
   "575901": {
    "full": "Julio Soler Barreto",
+   "id": 66,
    "name": "Soler",
    "pos": 2,
    "team": 3
   },
   "576620": {
    "full": "Bendito Mantato",
+   "id": 437,
    "name": "Bendito Mantato",
    "pos": 3,
    "team": 16
   },
   "576628": {
    "full": "Shea Lacey",
+   "id": 435,
    "name": "Lacey",
    "pos": 3,
    "team": 16
   },
   "577016": {
    "full": "Josh Acheampong",
+   "id": 151,
    "name": "Acheampong",
    "pos": 2,
    "team": 6
   },
   "577285": {
    "full": "George Hemmings",
+   "id": 51,
    "name": "George Hemmings",
    "pos": 3,
    "team": 2
   },
   "577411": {
    "full": "Miguel Brau",
+   "id": 181,
    "name": "Brau",
    "pos": 2,
    "team": 7
   },
   "577669": {
    "full": "Noah Sadiki",
+   "id": 545,
    "name": "Sadiki",
    "pos": 3,
    "team": 20
   },
   "577725": {
    "full": "Josh King",
+   "id": 268,
    "name": "King",
    "pos": 3,
    "team": 10
   },
   "577974": {
    "full": "Harry Amass",
+   "id": 424,
    "name": "Amass",
    "pos": 2,
    "team": 16
   },
   "578153": {
    "full": "Abdukodir Khusanov",
+   "id": 393,
    "name": "Khusanov",
    "pos": 2,
    "team": 15
   },
   "578545": {
    "full": "Kosta Nedeljkovic",
+   "id": 39,
    "name": "Nedeljkovic",
    "pos": 2,
    "team": 2
   },
   "586268": {
    "full": "Armin Pecsi",
+   "id": 353,
    "name": "Pecsi",
    "pos": 1,
    "team": 14
   },
   "586309": {
    "full": "Thierno Barry",
+   "id": 249,
    "name": "Barry",
    "pos": 4,
    "team": 9
   },
   "590014": {
    "full": "Rio Cardines",
+   "id": 220,
    "name": "Cardines",
    "pos": 2,
    "team": 8
   },
   "590039": {
    "full": "Divine Mukasa",
+   "id": 409,
    "name": "Mukasa",
    "pos": 3,
    "team": 15
   },
   "591386": {
    "full": "Trey Nyoni",
+   "id": 375,
    "name": "Nyoni",
    "pos": 3,
    "team": 14
   },
   "592031": {
    "full": "Yankuba Minteh",
+   "id": 122,
    "name": "Minteh",
    "pos": 3,
    "team": 5
   },
   "593117": {
    "full": "Geovany Quenda",
+   "id": 164,
    "name": "Quenda",
    "pos": 3,
    "team": 6
   },
   "593174": {
    "full": "Kaye Furo",
+   "id": 107,
    "name": "Furo",
    "pos": 4,
    "team": 4
   },
   "596047": {
    "full": "Chido Obi",
+   "id": 441,
    "name": "Obi",
    "pos": 4,
    "team": 16
   },
   "596777": {
    "full": "Patrick Dorgu",
+   "id": 415,
    "name": "Dorgu",
    "pos": 3,
    "team": 16
   },
   "597320": {
    "full": "Harry Howell",
+   "id": 132,
    "name": "Howell",
    "pos": 3,
    "team": 5
   },
   "59735": {
    "full": "Karl Darlow",
+   "id": 325,
    "name": "Darlow",
    "pos": 1,
    "team": 16
   },
   "597462": {
    "full": "Lucas Herrington",
+   "id": 585,
    "name": "Herrington",
    "pos": 2,
    "team": 11
   },
   "599303": {
    "full": "Sean Neave",
+   "id": 466,
    "name": "Neave",
    "pos": 4,
    "team": 17
   },
   "60307": {
    "full": "Pascal Groß",
+   "id": 124,
    "name": "Groß",
    "pos": 3,
    "team": 5
   },
   "606702": {
    "full": "Jeremy Jacquet",
+   "id": 362,
    "name": "Jacquet",
    "pos": 2,
    "team": 14
   },
   "606745": {
    "full": "Ayden Heaven",
+   "id": 421,
    "name": "Heaven",
    "pos": 2,
    "team": 16
   },
   "606798": {
    "full": "Andrés García",
+   "id": 38,
    "name": "A.García",
    "pos": 2,
    "team": 2
   },
   "60689": {
    "full": "Chris Wood",
+   "id": 490,
    "name": "Wood",
    "pos": 4,
    "team": 18
   },
   "606921": {
    "full": "Romain Esse",
+   "id": 216,
    "name": "Esse",
    "pos": 3,
    "team": 8
   },
   "606930": {
    "full": "Nobel Mendy",
+   "id": 586,
    "name": "Mendy",
    "pos": 2,
    "team": 11
   },
   "607464": {
    "full": "Michael Kayode",
+   "id": 88,
    "name": "Kayode",
    "pos": 2,
    "team": 4
   },
   "608181": {
    "full": "Stefanos Tzimas",
+   "id": 137,
    "name": "Tzimas",
    "pos": 4,
    "team": 5
   },
   "608227": {
    "full": "Elliot Stroud",
+   "id": 576,
    "name": "Stroud",
    "pos": 3,
    "team": 11
   },
   "609873": {
    "full": "Harrison Armstrong",
+   "id": 244,
    "name": "Armstrong",
    "pos": 3,
    "team": 9
   },
   "610799": {
    "full": "Luka Vušković",
+   "id": 504,
    "name": "Vuskovic",
    "pos": 2,
    "team": 5
   },
   "611665": {
    "full": "Bazoumana Touré",
+   "id": 461,
    "name": "Touré",
    "pos": 3,
    "team": 17
   },
   "611922": {
    "full": "Rio Ngumoha",
+   "id": 369,
    "name": "Ngumoha",
    "pos": 3,
    "team": 14
   },
   "614071": {
    "full": "Johan Manzambi",
+   "id": 53,
    "name": "Manzambi",
    "pos": 3,
    "team": 2
   },
   "614574": {
    "full": "Alex Tóth",
+   "id": 76,
    "name": "Tóth.A",
    "pos": 3,
    "team": 3
   },
   "616077": {
    "full": "Max Dowman",
+   "id": 20,
    "name": "Dowman",
    "pos": 3,
    "team": 1
   },
   "616221": {
    "full": "João Victor de Souza Menezes",
+   "id": 511,
    "name": "Souza",
    "pos": 2,
    "team": 19
   },
   "616222": {
    "full": "Vitor de Oliveira Nunes dos Reis",
+   "id": 396,
    "name": "Vitor Reis",
    "pos": 2,
    "team": 15
   },
   "620109": {
    "full": "Marco Palestra",
+   "id": 152,
    "name": "Palestra",
    "pos": 2,
    "team": 6
   },
   "620487": {
    "full": "Veljko Milosavljevic",
+   "id": 63,
    "name": "Milosavljević",
    "pos": 2,
    "team": 3
   },
   "622758": {
    "full": "Aaron Anselmino",
+   "id": 561,
    "name": "Anselmino",
    "pos": 2,
    "team": 6
   },
   "624773": {
    "full": "Estêvão Almeida de Oliveira Gonçalves",
+   "id": 157,
    "name": "Estêvão",
    "pos": 3,
    "team": 6
   },
   "629397": {
    "full": "Kaine Andrews",
+   "id": 192,
    "name": "Andrews",
    "pos": 3,
    "team": 7
   },
   "631786": {
    "full": "Jonah Kusi-Asare",
+   "id": 272,
    "name": "Kusi-Asare",
    "pos": 4,
    "team": 10
   },
   "632794": {
    "full": "Aladji Bamba",
+   "id": 559,
    "name": "Bamba",
    "pos": 3,
    "team": 17
   },
   "636852": {
    "full": "Sean Steur",
+   "id": 462,
    "name": "Steur",
    "pos": 3,
    "team": 17
   },
   "640419": {
    "full": "Jun'ai Byfield",
+   "id": 509,
    "name": "Byfield",
    "pos": 2,
    "team": 19
   },
   "645618": {
    "full": "Bradley Burrowes",
+   "id": 50,
    "name": "Burrowes",
    "pos": 3,
    "team": 2
   },
   "647681": {
    "full": "Giovanni Leoni",
+   "id": 363,
    "name": "Leoni",
    "pos": 2,
    "team": 14
   },
   "647850": {
    "full": "Charalampos Kostoulas",
+   "id": 138,
    "name": "Kostoulas",
    "pos": 4,
    "team": 5
   },
   "649208": {
    "full": "Jeremy Monga",
+   "id": 410,
    "name": "Monga",
    "pos": 3,
    "team": 15
   },
   "651426": {
    "full": "Jaydee Canvot",
+   "id": 203,
    "name": "Canvot",
    "pos": 2,
    "team": 8
   },
   "653481": {
    "full": "Alysson Edward Franco da Rocha dos Santos",
+   "id": 52,
    "name": "Alysson",
    "pos": 3,
    "team": 2
   },
   "660392": {
    "full": "Christantus Uche",
+   "id": 225,
    "name": "Uche",
    "pos": 4,
    "team": 8
   },
   "661800": {
    "full": "Cathal McCarthy",
+   "id": 284,
    "name": "McCarthy",
    "pos": 2,
    "team": 11
   },
   "661888": {
    "full": "Caleb Yirenkyi",
+   "id": 575,
    "name": "Yirenkyi",
    "pos": 3,
    "team": 7
   },
   "67089": {
    "full": "Martin Dubravka",
+   "id": 497,
    "name": "Dubravka",
    "pos": 1,
    "team": 19
   },
   "672492": {
    "full": "Joél Drakes-Thomas",
+   "id": 221,
    "name": "Drakes-Thomas",
    "pos": 3,
    "team": 8
   },
   "684268": {
    "full": "George Shepherd",
+   "id": 189,
    "name": "Shepherd",
    "pos": 3,
    "team": 7
   },
   "690838": {
    "full": "Brian Madjo",
+   "id": 582,
    "name": "Madjo",
    "pos": 4,
    "team": 2
   },
   "699989": {
    "full": "Djiamgone Jocelin Ta Bi",
+   "id": 550,
    "name": "Jocelin.T",
    "pos": 3,
    "team": 20
   },
   "700308": {
    "full": "Zadok Yohanna",
+   "id": 135,
    "name": "Yohanna",
    "pos": 3,
    "team": 5
   },
   "72147": {
    "full": "Marco Bizot",
+   "id": 29,
    "name": "M.Bizot",
    "pos": 1,
    "team": 2
   },
   "75115": {
    "full": "Callum Wilson",
+   "id": 108,
    "name": "Wilson",
    "pos": 4,
    "team": 4
   },
   "76357": {
    "full": "Tom Cairney",
+   "id": 266,
    "name": "Cairney",
    "pos": 3,
    "team": 10
   },
   "78916": {
    "full": "Dan Burn",
+   "id": 448,
    "name": "Burn",
    "pos": 2,
    "team": 17
   },
   "80178": {
    "full": "Jake Bidwell",
+   "id": 178,
    "name": "Bidwell",
    "pos": 2,
    "team": 7
   },
   "80201": {
    "full": "Bernd Leno",
+   "id": 250,
    "name": "Leno",
    "pos": 1,
    "team": 10
   },
   "81441": {
    "full": "Mark Gillespie",
+   "id": 443,
    "name": "Gillespie",
    "pos": 1,
    "team": 17
   },
   "83299": {
    "full": "Lewis Dunk",
+   "id": 116,
    "name": "Dunk",
    "pos": 2,
    "team": 5
   },
   "84450": {
    "full": "Granit Xhaka",
+   "id": 544,
    "name": "Xhaka",
    "pos": 3,
    "team": 20
   },
   "85633": {
    "full": "Matz Sels",
+   "id": 467,
    "name": "Sels",
    "pos": 1,
    "team": 18
   },
   "86873": {
    "full": "Benjamin Lecomte",
+   "id": 251,
    "name": "Lecomte",
    "pos": 1,
    "team": 10
   },
   "88894": {
    "full": "Ross Barkley",
+   "id": 46,
    "name": "Barkley",
    "pos": 3,
    "team": 2
   },
   "91651": {
    "full": "Mateo Kovačić",
+   "id": 406,
    "name": "Kovačić",
    "pos": 3,
    "team": 15
   },
   "93605": {
    "full": "Thomas Meunier",
+   "id": 541,
    "name": "Meunier",
    "pos": 2,
    "team": 20
   },
   "95658": {
    "full": "Harry Maguire",
+   "id": 418,
    "name": "Maguire",
    "pos": 2,
    "team": 16
   },
   "97032": {
    "full": "Virgil van Dijk",
+   "id": 356,
    "name": "Virgil",
    "pos": 2,
    "team": 14
   },
   "98747": {
    "full": "Nick Pope",
+   "id": 442,
    "name": "Pope",
    "pos": 1,
    "team": 17
   },
   "98980": {
    "full": "Emiliano Martínez Romero",
+   "id": 28,
    "name": "Martinez",
    "pos": 1,
    "team": 2
