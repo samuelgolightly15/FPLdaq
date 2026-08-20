@@ -26,6 +26,7 @@ grows by about 14,000 numbers a day and stops being loadable on a phone.
 import json
 import os
 import glob
+import model_squad as MS
 from datetime import datetime, timezone, timedelta
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -213,6 +214,60 @@ def gameweek_points(snaps, weights_dir):
     return out
 
 
+def last_value(seq):
+    for v in reversed(seq):
+        if v is not None:
+            return v
+    return None
+
+
+def model_now(players, players_meta, managers):
+    """
+    The affordable modelled squad as of the latest reading.
+
+    Runs the same optimiser the per-gameweek models use, but against current
+    ownership and prices rather than a frozen deadline, so the pitch view has
+    something to show before any deadline has passed.
+    """
+    total = last_value(managers)
+    if not total:
+        return None
+
+    candidates, capital = [], 0.0
+    for c, p in players.items():
+        own_k, price = last_value(p["own"]), last_value(p["price"])
+        meta = players_meta.get(c)
+        if own_k is None or price is None or not meta:
+            continue
+        frac = own_k * 1000 / total          # thousands of managers -> fraction
+        if frac <= 0:
+            continue
+        capital += frac * price / 10
+        candidates.append({
+            "code": c, "name": meta.get("name", c), "pos": meta.get("pos", 0),
+            "team": meta.get("team", 0), "own": frac, "price": price,
+        })
+
+    candidates = [c for c in candidates if c["pos"] in MS.SLOTS]
+    budget = int(round(capital * 10))
+    squad = MS.improve(MS.greedy(candidates, budget), candidates, budget)
+    if len(squad) < 15:
+        return None
+
+    xi, bench = MS.pick_xi(squad)
+    return {
+        "budget": round(budget / 10, 1),
+        "spend": round(MS.spend(squad) / 10, 1),
+        "overlap": round(MS.overlap(squad), 4),
+        "unconstrained": round(MS.upper_bound(candidates), 4),
+        "squad": [{"code": p["code"], "n": p["name"], "pos": p["pos"],
+                   "team": p["team"], "own": round(p["own"], 6), "price": p["price"]}
+                  for p in squad],
+        "xi": [p["code"] for p in xi],
+        "bench": [p["code"] for p in bench],
+    }
+
+
 def find_flows(players, managers, times, hours=24, top=12):
     """
     Who gained and lost the most money over the last `hours`.
@@ -395,6 +450,27 @@ def main():
     core["performance"] = load_performance(times)
     core["gameweeks"] = gameweek_points(snaps, WEIGHTS_DIR)
     core["models"] = load_models()
+    # Template membership at every point in time, so the composition chart can
+    # draw a player solid while they were in the template and dotted while they
+    # were not. Only computed for players in core, which is where it is drawn.
+    def template_at(i):
+        out = set()
+        for pos, slots in TEMPLATE_SLOTS.items():
+            ranked_i = sorted(
+                (c for c in players if players[c]["p"] == pos and players[c]["share"][i] is not None),
+                key=lambda c: -players[c]["share"][i],
+            )
+            out.update(ranked_i[:slots])
+        return out
+
+    membership = [template_at(i) for i in range(n)]
+    for c in core_codes:
+        players[c]["tpl"] = [1 if c in membership[i] else 0 for i in range(n)]
+
+    # A modelled affordable squad for right now, not just for past deadlines,
+    # so the pitch view has something to show before the season starts.
+    core["model_now"] = model_now(players, players_meta, managers)
+
     core["teams"] = teams
     # element id -> permanent code, so picks from the API can be joined to
     # everything else here. Absent for any player predating the id capture.
