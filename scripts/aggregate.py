@@ -33,6 +33,7 @@ SNAP_GLOB = os.path.join(ROOT, "data", "snapshots", "*.jsonl")
 PLAYERS_PATH = os.path.join(ROOT, "data", "players.json")
 CORE_PATH = os.path.join(ROOT, "docs", "data", "core.json")
 FULL_PATH = os.path.join(ROOT, "docs", "data", "full.json")
+WEIGHTS_DIR = os.path.join(ROOT, "data", "weights")
 
 RECENT_DAYS = 7
 CORE_PLAYERS = 40
@@ -153,6 +154,61 @@ def load_models():
             "squad": m["squad"],
             "xi": m["xi"],
             "bench": m["bench"],
+        }
+    return out
+
+
+def gameweek_points(snaps, weights_dir):
+    """
+    Points scored by each player in each gameweek, plus that gameweek's
+    ownership weights.
+
+    The market collector stores cumulative total_points on every snapshot, so
+    a gameweek's points are the difference between the reading at its deadline
+    and the reading at the next one. Nothing extra needs collecting.
+
+    Only gameweeks that have actually finished get a row, so a part-played
+    gameweek never appears as a suspiciously low score.
+    """
+    if not os.path.isdir(weights_dir):
+        return {}
+
+    frozen = []
+    for name in sorted(os.listdir(weights_dir)):
+        if not name.startswith("gw") or not name.endswith(".json"):
+            continue
+        with open(os.path.join(weights_dir, name), "r", encoding="utf-8") as fh:
+            frozen.append(json.load(fh))
+    frozen.sort(key=lambda w: w["event"])
+    if not frozen:
+        return {}
+
+    def points_at(stamp):
+        """Cumulative points per player at a given snapshot time."""
+        for snap in snaps:
+            if snap["t"] == stamp:
+                return {c: (el[2] if len(el) > 2 else 0) for c, el in snap["e"].items()}
+        return None
+
+    out = {}
+    for i, w in enumerate(frozen):
+        start = points_at(w["frozen_from"])
+        # The next deadline's freeze marks the end of this gameweek. Without
+        # one, the gameweek is still in progress.
+        if start is None or i + 1 >= len(frozen):
+            continue
+        end = points_at(frozen[i + 1]["frozen_from"])
+        if end is None:
+            continue
+        out[str(w["event"])] = {
+            "capital": w["capital"],
+            "squad": w.get("squad"),
+            "pts": {
+                c: end[c] - start.get(c, 0)
+                for c in end
+                if end[c] - start.get(c, 0) != 0
+            },
+            "w": w["weights"],
         }
     return out
 
@@ -337,6 +393,7 @@ def main():
     core = dict(header)
     core["allocation"] = allocation
     core["performance"] = load_performance(times)
+    core["gameweeks"] = gameweek_points(snaps, WEIGHTS_DIR)
     core["models"] = load_models()
     core["teams"] = teams
     core["template"] = template
