@@ -139,6 +139,9 @@ def build_players(data):
         if p.get("removed"):
             continue
         players[str(p["code"])] = {
+            # The per-season element id, which is what /picks/ returns. Codes
+            # are permanent; ids are not, so both are needed to join them.
+            "id": p["id"],
             "name": p["web_name"],
             "full": f"{p['first_name']} {p['second_name']}".strip(),
             "team": p["team"],

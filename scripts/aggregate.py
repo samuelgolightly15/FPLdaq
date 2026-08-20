@@ -396,6 +396,13 @@ def main():
     core["gameweeks"] = gameweek_points(snaps, WEIGHTS_DIR)
     core["models"] = load_models()
     core["teams"] = teams
+    # element id -> permanent code, so picks from the API can be joined to
+    # everything else here. Absent for any player predating the id capture.
+    core["ids"] = {
+        str(m["id"]): c
+        for c, m in players_meta.items()
+        if m.get("id") is not None
+    }
     core["template"] = template
     core["flows"] = find_flows(players, managers, times)
     core["clubs"] = clubs
