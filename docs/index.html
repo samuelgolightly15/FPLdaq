@@ -220,6 +220,13 @@ table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
 .plr .o{display:block;font-size:.62rem;font-variant-numeric:tabular-nums}
 .plr.cap b::after{content:" C";color:var(--orange)}
 .plr.sub{opacity:.72;border-top-width:2px}
+
+.panels{display:grid;grid-template-columns:1fr 1fr;gap:.9rem .8rem}
+.panel h3{font-family:"Archivo",Arial,sans-serif;font-size:.68rem;font-weight:700;
+  letter-spacing:.11em;text-transform:uppercase;margin:0 0 .1rem;color:var(--slate)}
+.panel .big{font-size:.98rem;font-variant-numeric:tabular-nums;line-height:1.1}
+.panel .you{font-size:.66rem;color:var(--slate)}
+.panel svg{height:56px;width:100%}
 </style>
 </head>
 <body>
@@ -252,7 +259,7 @@ table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
   <ul class="legend" id="legend-swappi"></ul>
 
   <div class="method">
-    <p><b>SWAPPI</b>, the Selection-Weighted All Player Points Index, takes
+    <p><b>FPLdaq SWAPPI</b>, the Selection-Weighted All Player Points Index, takes
     every point scored in the Premier League and weights it by how much of the
     average manager's squad was invested in that player. Weights are frozen at
     each deadline, because squads lock then, so it measures what the market was
@@ -260,7 +267,7 @@ table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
     577 players, so it is not a score any manager could achieve: no eleven, no
     captain, no bench. It does reflect aggregate market behaviour, and serves as
     a guide to what a less engaged or disengaged manager might score.</p>
-    <p><b>The modelled template</b> is a more realistic demonstration of what a
+    <p><b>The FPLdaq Template</b> is a more realistic demonstration of what a
     manager could achieve by simply following the crowd. It is the affordable fifteen that overlaps most with
     what the market owns, picked under the real rules: two goalkeepers, five
     defenders, five midfielders, three forwards, no more than three from any
@@ -272,18 +279,20 @@ table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
     played: a budget you cannot exceed, a bench of four, and one armband.</p>
   </div>
 
-  <div class="eyebrow" style="margin-top:1.7rem">The modelled template today</div>
+  <div class="eyebrow" style="margin-top:1.7rem">FPLdaq Template Composition Today</div>
   <p class="blurb" id="pitch-sub"></p>
   <div class="pitch" id="pitch"></div>
 </section>
 
 <section>
   <div class="eyebrow">Flows &amp; ownership</div>
-  <h2>The template squad</h2>
-  <p class="blurb">The most invested-in players in each position, two
-  goalkeepers, five defenders, five midfielders and three forwards, which is
-  the shape of a squad. Calculated as price multiplied by % ownership, so it
-  reads as the money the average manager holds in each player.</p>
+  <h2>Most owned players</h2>
+  <p class="blurb">The most invested-in players in each position, on the same
+  measure as the index: price multiplied by % ownership, read as the money the
+  average manager holds in each player. A <b>solid</b> line means the player was
+  in the FPLdaq Template at that moment; <b>dotted</b> means the market held them
+  but an affordable template could not fit them in.</p>
+  <p class="squadline" id="ownline"></p>
 
   <div class="modes" role="group" aria-label="Position">
     <button type="button" data-pos="1" aria-pressed="false">GK</button>
@@ -306,21 +315,24 @@ table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
 
 <section>
   <div class="eyebrow">Allocation</div>
-  <h2>Where the money sits by position</h2>
-  <p class="blurb">The share of the average manager's squad held in each
-  position, over time. Enter a team ID above and your own split is drawn over
-  the top as dashed lines.</p>
-  <div class="chart" id="chart-alloc"></div>
-  <p class="readout" id="readout-alloc"></p>
-  <ul class="legend" id="legend-alloc"></ul>
+  <h2>Investment per player slot</h2>
+  <p class="blurb">What the average manager holds in a single player of each
+  position. Dividing by the number of slots, two keepers against five
+  midfielders, is what makes the four comparable: it answers where the
+  expensive places to be are, not simply where the most money sits.</p>
+  <div class="panels" id="alloc-panels"></div>
+  <p class="note" id="alloc-note"></p>
 </section>
 
 <section>
   <div class="eyebrow">Flows</div>
   <h2>Bought and sold today</h2>
   <p class="blurb" id="flow-blurb">Change over the last 24 hours in the money
-  the average manager holds in each player, on the same measure as the chart
-  above. Price rises count as money in, as well as new owners.</p>
+  the average manager holds in each player. Each figure is that player's price
+  multiplied by their ownership percentage, so it is both the average
+  investment across every manager and that player's slice of the whole SWAPPI
+  index, expressed in pounds of a squad. Price rises count as money in, as well
+  as new owners.</p>
   <div class="flows">
     <div>
       <div class="flow-head"><span class="lbl">Most bought</span><span class="n" id="flow-n-in"></span></div>
@@ -336,7 +348,10 @@ table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
 <section>
   <div class="eyebrow">Teams</div>
   <h2>FPL manager investment by team</h2>
-  <p class="blurb">All twenty clubs, most heavily invested in first.</p>
+  <p class="blurb">All twenty clubs, most heavily invested in first. Each line
+  tracks how much of the average squad sits in that club's goalkeepers and
+  defenders, midfielders and forwards, so the shape shows sentiment shifting
+  between positions at a club rather than the club's total rising or falling.</p>
   <p class="spanline" id="spanline"></p>
 
   <div class="club-head" aria-hidden="true">
@@ -804,7 +819,7 @@ async function boot(){
   catch(e){ console.error("player chart:",e); }
 
   renderTicker(); renderFlows(); renderClubs();
-  setupViews(); renderSwappi(); renderAllocation(); renderPitch(); setupTeam();
+  setupViews(); renderSwappi(); renderAllocation(); renderPitch(); renderOwnLine(); setupTeam();
   startPolling();
   $("spanline").innerHTML=spanNote();
   draw("players"); renderLegend("players");
@@ -976,7 +991,7 @@ function renderSwappi(){
 
   const series=[
     {name:"SWAPPI", colour:PALETTE[0], values:swappi},
-    {name:"Modelled template", colour:PALETTE[1], values:model},
+    {name:"FPLdaq Template", colour:PALETTE[1], values:model},
   ];
   if(S.team) series.push({name:S.team.name, colour:PALETTE[3], values:user});
 
@@ -991,34 +1006,87 @@ function renderSwappi(){
     : "";
 }
 
-/* ---------------- allocation ---------------- */
+
+/* ---------------- allocation, four panels ---------------- */
+
+const SLOT_NAME = {1:"Goalkeepers", 2:"Defenders", 3:"Midfielders", 4:"Forwards"};
+const SLOT_COLOUR = {1:"#11436d", 2:"#26a197", 3:"#801650", 4:"#f56927"};
+
+/* A bare sparkline with no axes, used inside the allocation panels where the
+   headline number carries the level and the line only has to carry shape. */
+function panelLine(values, colour, overlay){
+  const W2=140, H2=56;
+  const live=values.filter(v=>v!=null);
+  if(!live.length) return "";
+  let lo=Math.min(...live), hi=Math.max(...live);
+  if(overlay!=null){ lo=Math.min(lo,overlay); hi=Math.max(hi,overlay); }
+  if(lo===hi){ lo-=1; hi+=1; }
+  const pad=(hi-lo)*0.18; lo-=pad; hi+=pad;
+  const x=i=>values.length<2?W2/2:(i/(values.length-1))*W2;
+  const y=v=>3+(H2-6)*(1-(v-lo)/(hi-lo));
+
+  let pts=[], out="";
+  values.forEach((v,i)=>{ if(v!=null) pts.push([x(i).toFixed(1),y(v).toFixed(1)]); });
+  if(pts.length>1){
+    out+=`<polygon class="sparkfill" fill="${colour}" points="${pts[0][0]},${H2} `
+       + pts.map(p=>p.join(",")).join(" ")+` ${pts[pts.length-1][0]},${H2}"/>`;
+    out+=`<polyline class="sparkline" stroke="${colour}" points="${pts.map(p=>p.join(",")).join(" ")}"/>`;
+  } else if(pts.length===1){
+    out+=`<circle cx="${pts[0][0]}" cy="${pts[0][1]}" r="2" fill="${colour}"/>`;
+  }
+  if(overlay!=null){
+    const yy=y(overlay);
+    out+=`<line x1="0" x2="${W2}" y1="${yy}" y2="${yy}" stroke="${colour}" `
+       + `stroke-width="1.4" stroke-dasharray="4 3" opacity=".85"/>`;
+  }
+  return `<svg viewBox="0 0 ${W2} ${H2}" preserveAspectRatio="none" aria-hidden="true">${out}</svg>`;
+}
 
 function renderAllocation(){
-  const a=S.data.allocation;
-  if(!a){ $("chart-alloc").innerHTML=`<p class="note">No allocation data yet.</p>`; return; }
-  const times=S.data.times;
-  const labels=times.map(t=>new Date(t).toLocaleDateString("en-GB",{day:"numeric",month:"short"}));
+  const host=$("alloc-panels");
+  const ps=S.data.per_slot;
+  if(!ps){ host.innerHTML=`<p class="note">No allocation data yet.</p>`; return; }
 
-  const series=GROUPS.map(([k,label])=>({
-    name:label, colour:ALLOC_COLOUR[k], values:a[k]
-  }));
+  host.innerHTML=[1,2,3,4].map(pos=>{
+    const v=ps[String(pos)]||[];
+    const now=lastOf(v);
+    const mine=S.team && S.team.perSlot ? S.team.perSlot[String(pos)] : null;
+    return `<div class="panel"><h3>${SLOT_NAME[pos]}</h3>`
+         + `<div class="big">${now==null?"—":money(now)}</div>`
+         + panelLine(v, SLOT_COLOUR[pos], mine)
+         + (mine!=null?`<div class="you">You ${money(mine)}</div>`:"")
+         + `</div>`;
+  }).join("");
 
-  // The visitor's own split is a single number per position, so it is drawn
-  // as a flat dashed line rather than a series.
-  if(S.team && S.team.allocation){
-    GROUPS.forEach(([k,label])=>{
-      const v=S.team.allocation[k];
-      if(v==null) return;
-      series.push({name:"You, "+label, colour:ALLOC_COLOUR[k], dash:true,
-                   values:times.map(()=>v)});
-    });
+  const note=$("alloc-note");
+  if(note){
+    const vals=[1,2,3,4].map(p=>lastOf(ps[String(p)]||[])).filter(v=>v!=null);
+    if(vals.length===4){
+      const most=Math.max(...vals), least=Math.min(...vals);
+      const mostPos=[1,2,3,4].find(p=>lastOf(ps[String(p)])===most);
+      const leastPos=[1,2,3,4].find(p=>lastOf(ps[String(p)])===least);
+      note.innerHTML=`The average manager commits <b>${money(most)}</b> to each `
+        + `${SLOT_NAME[mostPos].toLowerCase().replace(/s$/,"")} and only `
+        + `<b>${money(least)}</b> to each `
+        + `${SLOT_NAME[leastPos].toLowerCase().replace(/s$/,"")}.`;
+    } else note.textContent="";
   }
-
-  drawSeries("chart-alloc", series, labels,
-    {label:"Squad allocation by position", fmt:v=>share(v),
-     empty:"No allocation data yet."});
-  simpleLegend("legend-alloc", series, share);
 }
+
+/* How many of the most-owned fifteen the affordable Template actually holds. */
+function renderOwnLine(){
+  const el=$("ownline"); if(!el) return;
+  const t=S.data.template||{}, m=S.data.model_now;
+  if(!m){ el.textContent=""; return; }
+  const shown=[].concat(...Object.values(t));
+  const inTpl=new Set(m.squad.map(p=>p.code));
+  const hit=shown.filter(c=>inTpl.has(c)).length;
+  el.innerHTML=`<b>${hit} of the ${shown.length}</b> most owned players are in the `
+    + `FPLdaq Template. The rest are held by the market but priced out of an `
+    + `affordable fifteen.`;
+}
+
+
 
 /* ---------------- the visitor's team ---------------- */
 
@@ -1184,7 +1252,8 @@ function setupViews(){
       // Charts size themselves from their container, which is zero-width
       // while hidden, so anything revealed has to be redrawn.
       if(v==="market"){
-        renderSwappi(); draw("players"); renderAllocation(); renderClubs(); renderPitch();
+        renderSwappi(); draw("players"); renderAllocation(); renderClubs();
+        renderPitch(); renderOwnLine();
       } else { renderAlpha(); }
       window.scrollTo({top:0});
     };
