@@ -45,7 +45,14 @@ import time
 import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-import model_squad as MS
+# model_squad sits alongside this file. The path is added explicitly rather
+# than relying on the interpreter's default, and a missing module degrades to
+# "no modelled squad" instead of taking the whole run down with it.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    import model_squad as MS
+except ImportError:
+    MS = None
 from datetime import datetime, timedelta, timezone
 
 BASE = "https://fantasy.premierleague.com/api"
@@ -316,6 +323,8 @@ def model_points(event_id, pts_by_code, weights):
     deadline does not have to wait for a separate job. Captain is the same rule
     the benchmark uses everywhere: highest-owned outfielder in the eleven.
     """
+    if MS is None:
+        return None
     path = os.path.join(DATA, "models", f"gw{event_id}.json")
     if not os.path.exists(path):
         try:

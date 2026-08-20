@@ -25,8 +25,16 @@ grows by about 14,000 numbers a day and stops being loadable on a phone.
 
 import json
 import os
+import sys
 import glob
-import model_squad as MS
+# model_squad sits alongside this file. The path is added explicitly rather
+# than relying on the interpreter's default, and a missing module degrades to
+# "no modelled squad" instead of taking the whole run down with it.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+try:
+    import model_squad as MS
+except ImportError:
+    MS = None
 from datetime import datetime, timezone, timedelta
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -230,7 +238,7 @@ def model_now(players, players_meta, managers):
     something to show before any deadline has passed.
     """
     total = last_value(managers)
-    if not total:
+    if not total or MS is None:
         return None
 
     candidates, capital = [], 0.0
@@ -454,6 +462,8 @@ def main():
     # draw a player solid while they were in the template and dotted while they
     # were not. Only computed for players in core, which is where it is drawn.
     def solve_at(i):
+        if MS is None:
+            return set()
         """The FPLdaq Template as it stood at reading i."""
         total = managers[i]
         if not total:
@@ -482,22 +492,23 @@ def main():
     # comparable: five defenders naturally hold more in total than two
     # keepers, but the per-slot figure says which is actually the expensive
     # place to be. In thousands of pounds of the average manager's squad.
-    per_slot = {str(pos): [None] * n for pos in MS.SLOTS}
+    SLOTS = MS.SLOTS if MS else {1: 2, 2: 5, 3: 5, 4: 3}
+    per_slot = {str(pos): [None] * n for pos in SLOTS}
     for i in range(n):
         total = managers[i]
         if not total:
             continue
-        sums = {pos: 0.0 for pos in MS.SLOTS}
+        sums = {pos: 0.0 for pos in SLOTS}
         for c, p in players.items():
             own_k, price = p["own"][i], p["price"][i]
             pos = players_meta.get(c, {}).get("pos")
             if own_k is None or price is None or pos not in sums:
                 continue
             sums[pos] += (price / 10) * (own_k * 1000 / total)
-        for pos, slots in MS.SLOTS.items():
+        for pos, slots in SLOTS.items():
             per_slot[str(pos)][i] = round(sums[pos] / slots * 1000)
     core["per_slot"] = per_slot
-    core["slots"] = {str(k): v for k, v in MS.SLOTS.items()}
+    core["slots"] = {str(k): v for k, v in SLOTS.items()}
 
     core["model_now"] = model_now(players, players_meta, managers)
 
