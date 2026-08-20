@@ -43,6 +43,9 @@ import os
 import sys
 import time
 import urllib.request
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import model_squad as MS
 from datetime import datetime, timedelta, timezone
 
 BASE = "https://fantasy.premierleague.com/api"
@@ -305,6 +308,43 @@ def build_index(weights, live, id_to_code, positions):
     }
 
 
+def model_points(event_id, pts_by_code, weights):
+    """
+    What the modelled template has scored so far this gameweek.
+
+    Builds the model if it does not exist yet, so the first live poll after a
+    deadline does not have to wait for a separate job. Captain is the same rule
+    the benchmark uses everywhere: highest-owned outfielder in the eleven.
+    """
+    path = os.path.join(DATA, "models", f"gw{event_id}.json")
+    if not os.path.exists(path):
+        try:
+            MS.build(event_id)
+        except Exception as exc:
+            print(f"could not build the GW{event_id} model ({exc})", file=sys.stderr)
+            return None
+    if not os.path.exists(path):
+        return None
+
+    with open(path, "r", encoding="utf-8") as fh:
+        model = json.load(fh)
+
+    positions = {p["code"]: p["pos"] for p in model["squad"]}
+    total = sum(pts_by_code.get(c, 0) for c in model["xi"])
+
+    captain, best = None, -1
+    for c in model["xi"]:
+        if positions.get(c) == 1:
+            continue
+        w = weights["weights"].get(c, 0)
+        if w > best:
+            best, captain = w, c
+    if captain:
+        total += pts_by_code.get(captain, 0)
+
+    return round(total, 2)
+
+
 def recent_enough(when):
     if not os.path.exists(OUT_PATH):
         return False
@@ -367,6 +407,15 @@ def main():
     live = fetch(f"{BASE}/event/{event_id}/live/")
     index = build_index(weights, live, id_to_code, positions)
 
+    # Points keyed by permanent code, so the modelled template can be scored
+    # from the same response rather than fetching anything else.
+    pts_by_code = {}
+    for eid, stat in element_points(live).items():
+        code = id_to_code.get(eid)
+        if code is not None:
+            pts_by_code[str(code)] = stat["points"]
+    model = model_points(event_id, pts_by_code, weights)
+
     fixtures = [f for f in schedule["fixtures"] if f["event"] == event_id]
     confirmed = bool(fixtures) and all(f["confirmed"] for f in fixtures)
     average = next(
@@ -377,6 +426,8 @@ def main():
         "t": when.strftime("%Y-%m-%dT%H:%M:00Z"),
         "event": event_id,
         "index": index["points"],
+        # The modelled template's live score, on the same clock.
+        "model": model,
         "by_pos": index["by_pos"],
         "played": index["played"],
         "capital": weights["capital"],
@@ -392,7 +443,8 @@ def main():
     yield_pts = index["points"] / weights["capital"] if weights["capital"] else 0
     print(
         f"GW{event_id} {line['t']}: index {index['points']:.2f} pts, "
-        f"{yield_pts:.3f} pts per £m, {index['played']*100:.0f}% of the squad played"
+        f"{yield_pts:.3f} pts per £m, model {model if model is not None else '-'}, "
+        f"{index['played']*100:.0f}% of the squad played"
         + ("" if confirmed else ", bonus provisional")
     )
 
