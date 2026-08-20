@@ -107,6 +107,56 @@ def find_deadlines(snaps, times):
     return out
 
 
+def load_performance(times):
+    """
+    The SWAPPI series, aligned to the market timeline where possible.
+
+    Written by collect_live.py on its own schedule, which is far denser during
+    matches than the market collector, so it is passed through as its own
+    series rather than forced onto the market's timestamps.
+    """
+    path = os.path.join(ROOT, "data", "performance.jsonl")
+    if not os.path.exists(path):
+        return []
+    rows = []
+    with open(path, "r", encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                rows.append(json.loads(line))
+            except json.JSONDecodeError:
+                continue
+    # One line per gameweek per timestamp; keep them ordered and deduplicated.
+    seen = {}
+    for r in rows:
+        seen[(r.get("event"), r.get("t"))] = r
+    return [seen[k] for k in sorted(seen, key=lambda k: (k[0] or 0, k[1] or ""))]
+
+
+def load_models():
+    """Modelled affordable squads, one per gameweek, if built."""
+    d = os.path.join(ROOT, "data", "models")
+    if not os.path.isdir(d):
+        return {}
+    out = {}
+    for name in sorted(os.listdir(d)):
+        if not name.startswith("gw") or not name.endswith(".json"):
+            continue
+        with open(os.path.join(d, name), "r", encoding="utf-8") as fh:
+            m = json.load(fh)
+        out[str(m["event"])] = {
+            "overlap": m["overlap"],
+            "spend": m["spend"],
+            "budget": m["budget"],
+            "squad": m["squad"],
+            "xi": m["xi"],
+            "bench": m["bench"],
+        }
+    return out
+
+
 def find_flows(players, managers, times, hours=24, top=12):
     """
     Who gained and lost the most money over the last `hours`.
@@ -273,7 +323,21 @@ def main():
         "deadlines": find_deadlines(snaps, times),
     }
 
+    # Share of the average squad sitting in each position, over time. Derived
+    # from what the club splits already hold, so it costs nothing extra.
+    allocation = {name: [None] * n for name, _ in POS_GROUPS}
+    for i in range(n):
+        for name, _ in POS_GROUPS:
+            total = sum(
+                c["pos"][name][i] for c in clubs.values() if c["pos"][name][i] is not None
+            )
+            if any(c["pos"][name][i] is not None for c in clubs.values()):
+                allocation[name][i] = total
+
     core = dict(header)
+    core["allocation"] = allocation
+    core["performance"] = load_performance(times)
+    core["models"] = load_models()
     core["teams"] = teams
     core["template"] = template
     core["flows"] = find_flows(players, managers, times)
