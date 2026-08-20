@@ -441,6 +441,13 @@
    "pos": 3,
    "team": 19
   },
+  "173774": {
+   "full": "Nico Elvedi",
+   "id": 598,
+   "name": "Elvedi",
+   "pos": 2,
+   "team": 13
+  },
   "173878": {
    "full": "Jay Dasilva",
    "id": 176,
@@ -1701,6 +1708,13 @@
    "pos": 2,
    "team": 11
   },
+  "433969": {
+   "full": "Zion Suzuki",
+   "id": 597,
+   "name": "Suzuki",
+   "pos": 1,
+   "team": 2
+  },
   "434399": {
    "full": "Reinildo Mandava",
    "id": 536,
@@ -2568,6 +2582,13 @@
    "name": "Hall",
    "pos": 2,
    "team": 17
+  },
+  "487992": {
+   "full": "Matteo Ruggeri",
+   "id": 596,
+   "name": "Ruggeri",
+   "pos": 2,
+   "team": 2
   },
   "488024": {
    "full": "Yéremy Pino Santos",
@@ -3898,6 +3919,13 @@
    "name": "Estêvão",
    "pos": 3,
    "team": 6
+  },
+  "627221": {
+   "full": "Sidiki Cherif",
+   "id": 599,
+   "name": "Cherif",
+   "pos": 4,
+   "team": 7
   },
   "629397": {
    "full": "Kaine Andrews",
