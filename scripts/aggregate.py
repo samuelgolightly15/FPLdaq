@@ -453,22 +453,52 @@ def main():
     # Template membership at every point in time, so the composition chart can
     # draw a player solid while they were in the template and dotted while they
     # were not. Only computed for players in core, which is where it is drawn.
-    def template_at(i):
-        out = set()
-        for pos, slots in TEMPLATE_SLOTS.items():
-            ranked_i = sorted(
-                (c for c in players if players[c]["p"] == pos and players[c]["share"][i] is not None),
-                key=lambda c: -players[c]["share"][i],
-            )
-            out.update(ranked_i[:slots])
-        return out
+    def solve_at(i):
+        """The FPLdaq Template as it stood at reading i."""
+        total = managers[i]
+        if not total:
+            return set()
+        cands, capital = [], 0.0
+        for c, p in players.items():
+            own_k, price = p["own"][i], p["price"][i]
+            meta = players_meta.get(c)
+            if own_k is None or price is None or not meta:
+                continue
+            frac = own_k * 1000 / total
+            if frac <= 0 or meta.get("pos") not in MS.SLOTS:
+                continue
+            capital += frac * price / 10
+            cands.append({"code": c, "name": meta.get("name", c), "pos": meta["pos"],
+                          "team": meta.get("team", 0), "own": frac, "price": price})
+        budget = int(round(capital * 10))
+        squad = MS.improve(MS.greedy(cands, budget), cands, budget)
+        return {p["code"] for p in squad}
 
-    membership = [template_at(i) for i in range(n)]
+    membership = [solve_at(i) for i in range(n)]
     for c in core_codes:
         players[c]["tpl"] = [1 if c in membership[i] else 0 for i in range(n)]
 
-    # A modelled affordable squad for right now, not just for past deadlines,
-    # so the pitch view has something to show before the season starts.
+    # Money in each position per player slot, which is what makes positions
+    # comparable: five defenders naturally hold more in total than two
+    # keepers, but the per-slot figure says which is actually the expensive
+    # place to be. In thousands of pounds of the average manager's squad.
+    per_slot = {str(pos): [None] * n for pos in MS.SLOTS}
+    for i in range(n):
+        total = managers[i]
+        if not total:
+            continue
+        sums = {pos: 0.0 for pos in MS.SLOTS}
+        for c, p in players.items():
+            own_k, price = p["own"][i], p["price"][i]
+            pos = players_meta.get(c, {}).get("pos")
+            if own_k is None or price is None or pos not in sums:
+                continue
+            sums[pos] += (price / 10) * (own_k * 1000 / total)
+        for pos, slots in MS.SLOTS.items():
+            per_slot[str(pos)][i] = round(sums[pos] / slots * 1000)
+    core["per_slot"] = per_slot
+    core["slots"] = {str(k): v for k, v in MS.SLOTS.items()}
+
     core["model_now"] = model_now(players, players_meta, managers)
 
     core["teams"] = teams
