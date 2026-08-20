@@ -805,6 +805,7 @@ async function boot(){
 
   renderTicker(); renderFlows(); renderClubs();
   setupViews(); renderSwappi(); renderAllocation(); renderPitch(); setupTeam();
+  startPolling();
   $("spanline").innerHTML=spanNote();
   draw("players"); renderLegend("players");
   $("status").textContent=statusLine();
@@ -936,39 +937,58 @@ function benchmarkCaptain(codes, weights){
 }
 
 function renderSwappi(){
-  const gws=gwList();
-  const labels=gws.map(g=>"GW"+g);
-  const g=S.data.gameweeks||{}, models=S.data.models||{};
+  const g=S.data.gameweeks||{}, models=S.data.models||{}, perf=S.data.performance||[];
 
-  let runSwappi=0, runModel=0, runUser=0;
+  // Finished gameweeks come from the differenced point totals. A gameweek
+  // still in play has no closing reading yet, so its running score comes from
+  // the live collector instead, which is why the last point can move.
+  const finished=gwList();
+  const liveRow=perf.length?perf[perf.length-1]:null;
+  const liveGw=liveRow && !finished.includes(String(liveRow.event))
+    ? String(liveRow.event) : null;
+
+  const gws=finished.concat(liveGw?[liveGw]:[]);
+  if(!gws.length){
+    drawSeries("chart-swappi",[],[],
+      {empty:"Scoring starts with the first match of Gameweek 1."});
+    $("legend-swappi").innerHTML=""; return;
+  }
+  const labels=gws.map(x=>"GW"+x+(x===liveGw?" ·":""));
+
+  let rs=0, rm=0, ru=0;
   const swappi=[], model=[], user=[];
-
   gws.forEach(gw=>{
+    if(gw===liveGw){
+      rs+=liveRow.index||0; swappi.push(rs);
+      if(liveRow.model!=null){ rm+=liveRow.model; model.push(rm); } else model.push(null);
+      user.push(null);
+      return;
+    }
     const d=g[gw];
-    runSwappi += Object.entries(d.pts).reduce((a,[c,p])=>a+(d.w[c]||0)*p, 0);
-    swappi.push(runSwappi);
-
+    rs+=Object.entries(d.pts).reduce((a,[c,p])=>a+(d.w[c]||0)*p,0);
+    swappi.push(rs);
     const m=models[gw];
-    if(m){
-      const cap=benchmarkCaptain(m.xi, d.w);
-      runModel += squadPoints(m.xi, d.pts, cap, 2);
-      model.push(runModel);
-    } else model.push(null);
-
+    if(m){ rm+=squadPoints(m.xi,d.pts,benchmarkCaptain(m.xi,d.w),2); model.push(rm); }
+    else model.push(null);
     const u=S.team && S.team.byGw[gw];
-    if(u){ runUser += u.actual; user.push(runUser); } else user.push(null);
+    if(u){ ru+=u.actual; user.push(ru); } else user.push(null);
   });
 
   const series=[
     {name:"SWAPPI", colour:PALETTE[0], values:swappi},
-    {name:"Modelled team", colour:PALETTE[1], values:model},
+    {name:"Modelled template", colour:PALETTE[1], values:model},
   ];
   if(S.team) series.push({name:S.team.name, colour:PALETTE[3], values:user});
 
   drawSeries("chart-swappi", series, labels,
     {label:"Cumulative points by gameweek", zero:true,
-     empty:"SWAPPI starts once two deadlines have been frozen, so the first point lands after Gameweek 2."});
+     empty:"Scoring starts with the first match of Gameweek 1."});
   simpleLegend("legend-swappi", series, v=>v.toFixed(0)+" pts");
+
+  $("readout-swappi").textContent = liveRow && liveGw
+    ? `Gameweek ${liveGw} in play · ${Math.round((liveRow.played||0)*100)}% of the average squad has featured`
+      + (liveRow.confirmed?"":" · bonus provisional")
+    : "";
 }
 
 /* ---------------- allocation ---------------- */
@@ -1212,6 +1232,26 @@ function renderPitch(){
     + `${m.unconstrained.toFixed(2)} players an unlimited budget would reach, `
     + `so the budget alone costs about ${(m.unconstrained-m.overlap).toFixed(2)} `
     + `of a player's worth of ownership.`;
+}
+
+/* While a gameweek is in play the collector writes a new reading every ten
+   minutes, so the page refetches on the same cadence rather than sitting on
+   whatever it loaded with. Quiet periods are left alone. */
+function startPolling(){
+  const perf=S.data.performance||[];
+  const last=perf.length?perf[perf.length-1]:null;
+  const finished=gwList();
+  const live = last && !finished.includes(String(last.event));
+  if(!live) return;
+  setInterval(async ()=>{
+    try{
+      const fresh=await fetch("data/core.json?t="+Date.now()).then(r=>r.json());
+      if(!fresh || !fresh.generated || fresh.generated===S.data.generated) return;
+      S.data=fresh;
+      renderTicker(); renderSwappi(); renderPitch();
+      $("status").textContent=statusLine();
+    }catch(e){ /* a failed poll is not worth surfacing */ }
+  }, 10*60*1000);
 }
 
 boot();
