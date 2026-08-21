@@ -283,6 +283,10 @@ table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
   </div>
 
   <div class="eyebrow" style="margin-top:1.7rem">FPLdaq Template Composition Today</div>
+  <div class="modes" role="group" aria-label="Squad view">
+    <button type="button" data-squad="model" aria-pressed="true">Affordable</button>
+    <button type="button" data-squad="raw" aria-pressed="false">Most selected 15</button>
+  </div>
   <p class="blurb" id="pitch-sub"></p>
   <div class="pitch" id="pitch"></div>
 </section>
@@ -418,7 +422,7 @@ const PALETTE = ["#11436d","#26a197","#801650","#f56927","#25303b","#6a3d8f",
                  "#0f7a8f","#b5762a","#4f6b1f","#c2445f","#3b6ea5","#8a6a1f"];
 const GROUPS = [["gd","GK & Def"],["mid","Mid"],["fwd","Fwd"]];
 
-const S = {data:null, full:null, fullLoading:null,
+const S = {data:null, full:null, fullLoading:null, pitchView:"model",
            players:{sel:[], mode:"share", pos:"4", added:{1:[],2:[],3:[],4:[]}}};
 
 const $ = id => document.getElementById(id);
@@ -837,6 +841,15 @@ async function boot(){
   $("spanline").innerHTML=spanNote();
   draw("players"); renderLegend("players");
   $("status").textContent=statusLine();
+
+  document.querySelectorAll(".modes button[data-squad]").forEach(b=>{
+    b.onclick=()=>{
+      S.pitchView=b.dataset.squad;
+      document.querySelectorAll(".modes button[data-squad]")
+        .forEach(o=>o.setAttribute("aria-pressed",String(o===b)));
+      renderPitch();
+    };
+  });
 
   document.querySelectorAll(".modes button[data-pos]").forEach(b=>{
     b.onclick=()=>{
@@ -1275,8 +1288,47 @@ function setupViews(){
 
 /* ---------------- pitch view ---------------- */
 
+/* The fifteen most-selected players in each position, ignoring the budget and
+   the three-per-club limit. Not a squad anyone can pick, which is the point:
+   it shows what the constraints cost. Built here rather than in Python because
+   everything it needs is already in core.json. */
+function rawFifteen(){
+  const d=S.data, t=d.template, mgr=lastOf(d.managers);
+  if(!t || !mgr) return null;
+  const squad=[];
+  ["1","2","3","4"].forEach(pos=>{
+    (t[pos]||[]).forEach(code=>{
+      const p=d.players[code], meta=d.directory[code];
+      if(!p||!meta) return;
+      const price=lastOf(p.price), own=lastOf(p.own);
+      if(price==null||own==null) return;
+      squad.push({code, n:p.n, pos:Number(pos), team:meta[1],
+                  own: own*1000/mgr, price});
+    });
+  });
+  if(squad.length<15) return null;
+
+  // Same eleven-and-bench rule the affordable squad uses.
+  const by=p=>squad.filter(x=>x.pos===p).sort((a,b)=>b.own-a.own);
+  const g=by(1), df=by(2), md=by(3), fw=by(4);
+  const xi=[g[0]].concat(df.slice(0,3), fw.slice(0,1));
+  const pool=df.slice(3).concat(md, fw.slice(1)).sort((a,b)=>b.own-a.own);
+  for(const p of pool){ if(xi.length===11) break; xi.push(p); }
+  const started=new Set(xi.map(p=>p.code));
+  const bench=squad.filter(p=>!started.has(p.code)&&p.pos!==1).sort((a,b)=>a.own-b.own);
+  const spareGk=squad.filter(p=>p.pos===1&&!started.has(p.code));
+
+  return {
+    squad, xi:xi.map(p=>p.code), bench:spareGk.concat(bench).map(p=>p.code),
+    spend: squad.reduce((a,p)=>a+p.price,0)/10,
+    overlap: squad.reduce((a,p)=>a+p.own,0),
+    budget: (S.data.model_now||{}).budget,
+    raw: true
+  };
+}
+
 function renderPitch(){
-  const m = S.data.model_now;
+  const m = S.pitchView==="raw" ? rawFifteen() : S.data.model_now;
   const host = $("pitch");
   if(!m){ host.innerHTML = `<p class="note">No modelled squad yet.</p>`; return; }
 
@@ -1312,13 +1364,29 @@ function renderPitch(){
   // ownership fraction, so 4.39 means the average manager already holds 4.39
   // of these fifteen. Spelled out because the bare number reads as a rating.
   const pctOverlap = (m.overlap / 15 * 100).toFixed(0);
-  $("pitch-sub").innerHTML =
-      `A ${form} costing <b>£${m.spend.toFixed(1)}m</b> of the £${m.budget.toFixed(1)}m `
-    + `the average manager holds. Of these fifteen players, the average manager `
-    + `already owns <b>${m.overlap.toFixed(2)}</b>, or ${pctOverlap} per cent of `
-    + `the squad. Without the budget and the three-per-club limit the closest `
-    + `possible fifteen would overlap by ${m.unconstrained.toFixed(2)}, so those `
-    + `rules cost about ${(m.unconstrained-m.overlap).toFixed(2)} of a player.`;
+  if(m.raw){
+    const over = m.budget!=null ? m.spend-m.budget : null;
+    const clubs={}; m.squad.forEach(p=>{ clubs[p.team]=(clubs[p.team]||0)+1; });
+    const worst=Math.max(...Object.values(clubs));
+    $("pitch-sub").innerHTML =
+        `The ${form} of most-selected players, ignoring the budget and the `
+      + `three-per-club limit. It costs <b>£${m.spend.toFixed(1)}m</b>`
+      + (over!=null && over>0
+          ? `, which is £${over.toFixed(1)}m more than the average manager holds, `
+            + `so it cannot be picked. `
+          : `. `)
+      + `The average manager owns <b>${m.overlap.toFixed(2)}</b> of them, `
+      + `${pctOverlap} per cent of a squad`
+      + (worst>3 ? `, and it takes ${worst} players from one club.` : `.`);
+  } else {
+    $("pitch-sub").innerHTML =
+        `A ${form} costing <b>£${m.spend.toFixed(1)}m</b> of the £${m.budget.toFixed(1)}m `
+      + `the average manager holds. Of these fifteen players, the average manager `
+      + `already owns <b>${m.overlap.toFixed(2)}</b>, or ${pctOverlap} per cent of `
+      + `the squad. Without the budget and the three-per-club limit the closest `
+      + `possible fifteen would overlap by ${m.unconstrained.toFixed(2)}, so those `
+      + `rules cost about ${(m.unconstrained-m.overlap).toFixed(2)} of a player.`;
+  }
 }
 
 /* While a gameweek is in play the collector writes a new reading every ten
