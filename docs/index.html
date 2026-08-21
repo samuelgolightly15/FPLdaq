@@ -916,6 +916,9 @@ function drawSeries(hostId, series, labels, opts){
     svg+=`<line class="grid" x1="${M.l}" y1="${yy}" x2="${W-M.r}" y2="${yy}"/>`
        + `<text class="axis" x="${M.l-6}" y="${yy+3}" text-anchor="end">${fmt(v)}</text>`;
   }
+  (opts.marks||[]).forEach(i=>{
+    if(i>0 && i<n) svg+=`<line class="deadline" x1="${x(i)}" x2="${x(i)}" y1="${M.t}" y2="${H-M.b}"/>`;
+  });
   [0,Math.floor((n-1)/2),n-1].forEach((i,k,arr)=>{
     if(arr.indexOf(i)!==k||i<0) return;
     const anchor=i===0?"start":i===n-1?"end":"middle";
@@ -979,40 +982,46 @@ function benchmarkCaptain(codes, weights){
 
 function renderSwappi(){
   const g=S.data.gameweeks||{}, models=S.data.models||{}, perf=S.data.performance||[];
-
-  // Finished gameweeks come from the differenced point totals. A gameweek
-  // still in play has no closing reading yet, so its running score comes from
-  // the live collector instead, which is why the last point can move.
   const finished=gwList();
-  const liveRow=perf.length?perf[perf.length-1]:null;
-  const liveGw=liveRow && !finished.includes(String(liveRow.event))
-    ? String(liveRow.event) : null;
 
-  const gws=finished.concat(liveGw?[liveGw]:[]);
-  if(!gws.length){
+  /* One observation per live reading rather than one per gameweek, so the
+     line moves while matches are on. A finished gameweek contributes its
+     readings plus an authoritative closing value from the differenced point
+     totals, which is the one that includes confirmed bonus. */
+  const byEvent={};
+  perf.forEach(r=>{ (byEvent[String(r.event)]=byEvent[String(r.event)]||[]).push(r); });
+  const events=[...new Set(finished.concat(Object.keys(byEvent)))]
+    .map(Number).sort((a,b)=>a-b).map(String);
+
+  if(!events.length){
     drawSeries("chart-swappi",[],[],
       {empty:"Scoring starts with the first match of Gameweek 1."});
-    $("legend-swappi").innerHTML=""; return;
+    $("legend-swappi").innerHTML=""; $("readout-swappi").textContent=""; return;
   }
-  const labels=gws.map(x=>"GW"+x+(x===liveGw?" ·":""));
 
+  const labels=[], swappi=[], model=[], user=[], marks=[];
   let rs=0, rm=0, ru=0;
-  const swappi=[], model=[], user=[];
-  gws.forEach(gw=>{
-    if(gw===liveGw){
-      rs+=liveRow.index||0; swappi.push(rs);
-      if(liveRow.model!=null){ rm+=liveRow.model; model.push(rm); } else model.push(null);
-      user.push(null);
-      return;
-    }
+
+  events.forEach((gw,gi)=>{
+    if(gi) marks.push(labels.length);        // gameweek boundary
+    const rows=byEvent[gw]||[];
+    rows.forEach(r=>{
+      labels.push("GW"+gw);
+      swappi.push(rs+(r.index||0));
+      model.push(r.model!=null ? rm+r.model : null);
+      user.push(ru||null);
+    });
+
     const d=g[gw];
-    rs+=Object.entries(d.pts).reduce((a,[c,p])=>a+(d.w[c]||0)*p,0);
-    swappi.push(rs);
-    const m=models[gw];
-    if(m){ rm+=squadPoints(m.xi,d.pts,benchmarkCaptain(m.xi,d.w),2); model.push(rm); }
-    else model.push(null);
-    const u=S.team && S.team.byGw[gw];
-    if(u){ ru+=u.actual; user.push(ru); } else user.push(null);
+    if(d){
+      const close=Object.entries(d.pts).reduce((a,[c,p])=>a+(d.w[c]||0)*p,0);
+      const m=models[gw];
+      const mclose=m?squadPoints(m.xi,d.pts,benchmarkCaptain(m.xi,d.w),2):null;
+      const u=S.team && S.team.byGw[gw];
+      rs+=close; rm+=(mclose||0); if(u) ru+=u.actual;
+      labels.push("GW"+gw);
+      swappi.push(rs); model.push(mclose!=null?rm:null); user.push(u?ru:null);
+    }
   });
 
   const series=[
@@ -1022,16 +1031,18 @@ function renderSwappi(){
   if(S.team) series.push({name:S.team.name, colour:PALETTE[3], values:user});
 
   drawSeries("chart-swappi", series, labels,
-    {label:"Cumulative points by gameweek", zero:true,
+    {label:"Cumulative points", zero:true, marks:marks,
      empty:"Scoring starts with the first match of Gameweek 1."});
-  simpleLegend("legend-swappi", series, v=>v.toFixed(0)+" pts");
+  simpleLegend("legend-swappi", series, v=>v.toFixed(1)+" pts");
 
-  $("readout-swappi").textContent = liveRow && liveGw
-    ? `Gameweek ${liveGw} in play · ${Math.round((liveRow.played||0)*100)}% of the average squad has featured`
-      + (liveRow.confirmed?"":" · bonus provisional")
+  const last=perf.length?perf[perf.length-1]:null;
+  const live=last && !finished.includes(String(last.event));
+  $("readout-swappi").textContent = live
+    ? `Gameweek ${last.event} in play · ${Math.round((last.played||0)*100)}% of the `
+      + `average squad has featured · ${labels.length} readings`
+      + (last.confirmed?"":" · bonus provisional")
     : "";
 }
-
 
 /* ---------------- allocation, four panels ---------------- */
 
