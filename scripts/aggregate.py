@@ -144,11 +144,104 @@ def load_performance(times):
                 rows.append(json.loads(line))
             except json.JSONDecodeError:
                 continue
-    # One line per gameweek per timestamp; keep them ordered and deduplicated.
+    # One line per gameweek per timestamp, ordered and deduplicated.
     seen = {}
     for r in rows:
         seen[(r.get("event"), r.get("t"))] = r
-    return [seen[k] for k in sorted(seen, key=lambda k: (k[0] or 0, k[1] or ""))]
+    ordered = [seen[k] for k in sorted(seen, key=lambda k: (k[0] or 0, k[1] or ""))]
+
+    # Readings pile up fast: a gameweek's matches span three days and are
+    # polled every ten minutes. The two most recent gameweeks keep every
+    # reading, so the live line stays smooth. Older ones are cut back to the
+    # moments that actually mean something, half-time and full-time of each
+    # kick-off slot, which preserves the step shape of a gameweek far better
+    # than sampling at a fixed interval would.
+    by_event = {}
+    for r in ordered:
+        by_event.setdefault(r.get("event"), []).append(r)
+
+    kickoffs = kickoffs_by_event()
+    recent = sorted(e for e in by_event if e is not None)[-2:]
+
+    out = []
+    for event in sorted(by_event, key=lambda e: e or 0):
+        group = by_event[event]
+        if event in recent or len(group) <= 13:
+            out.extend(group)
+        else:
+            out.extend(match_phases(group, kickoffs.get(event, [])))
+    return out
+
+
+def kickoffs_by_event():
+    """Distinct kick-off times per gameweek, from the cached fixture list."""
+    path = os.path.join(ROOT, "data", "schedule.json")
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            schedule = json.load(fh)
+    except (json.JSONDecodeError, OSError):
+        return {}
+
+    out = {}
+    for f in schedule.get("fixtures", []):
+        ko, event = f.get("kickoff"), f.get("event")
+        if not ko or event is None:
+            continue
+        out.setdefault(event, set()).add(ko)
+    return {e: sorted(v) for e, v in out.items()}
+
+
+# Minutes after kick-off at which a match is halfway and finished. Full time
+# allows for the interval and stoppage rather than a clean ninety.
+PHASES = (("HT", 45), ("FT", 115))
+PHASE_TOLERANCE_MINUTES = 25
+
+
+def match_phases(rows, kickoff_times):
+    """
+    The readings nearest half-time and full-time of each kick-off slot.
+
+    Falls back to even sampling when no fixture times are available, so a
+    missing schedule thins the data rather than dropping it.
+    """
+    if not kickoff_times:
+        step = max(1, len(rows) // 12)
+        thinned = rows[::step]
+        if thinned[-1] is not rows[-1]:
+            thinned.append(rows[-1])
+        return thinned
+
+    stamped = []
+    for r in rows:
+        try:
+            stamped.append((parse(r["t"]), r))
+        except (KeyError, ValueError):
+            continue
+    if not stamped:
+        return rows
+
+    picked = {}
+    for ko in kickoff_times:
+        try:
+            start = parse(ko.replace("Z", "").split("+")[0] + "Z")
+        except ValueError:
+            continue
+        for label, minutes in PHASES:
+            target = start + timedelta(minutes=minutes)
+            best, gap = None, timedelta(minutes=PHASE_TOLERANCE_MINUTES)
+            for when, row in stamped:
+                delta = abs(when - target)
+                if delta <= gap:
+                    best, gap = row, delta
+            if best is not None:
+                picked[best["t"]] = dict(best, k=label)
+
+    # The last reading is always kept: it is the only one with bonus confirmed.
+    last = stamped[-1][1]
+    picked.setdefault(last["t"], dict(last, k="close"))
+    return [picked[t] for t in sorted(picked)]
 
 
 def load_models():
