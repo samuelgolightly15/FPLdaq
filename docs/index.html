@@ -422,7 +422,7 @@ const PALETTE = ["#11436d","#26a197","#801650","#f56927","#25303b","#6a3d8f",
                  "#0f7a8f","#b5762a","#4f6b1f","#c2445f","#3b6ea5","#8a6a1f"];
 const GROUPS = [["gd","GK & Def"],["mid","Mid"],["fwd","Fwd"]];
 
-const S = {data:null, full:null, fullLoading:null, pitchView:"model",
+const S = {data:null, full:null, fullLoading:null, live:null, pitchView:"model",
            players:{sel:[], mode:"share", pos:"4", added:{1:[],2:[],3:[],4:[]}}};
 
 const $ = id => document.getElementById(id);
@@ -957,6 +957,18 @@ function gwList(){
   return Object.keys(g).map(Number).sort((a,b)=>a-b).map(String);
 }
 
+/* Finished gameweeks plus, if one is in progress, the live snapshot dressed
+   up in the same shape. Everything downstream then treats them alike. */
+function scorable(){
+  const out={};
+  Object.assign(out, S.data.gameweeks||{});
+  const L=S.live;
+  if(L && L.event!=null && !out[String(L.event)]){
+    out[String(L.event)]={pts:L.pts, w:L.w, capital:L.capital, squad:L.squad, live:true};
+  }
+  return out;
+}
+
 /* Points a squad of codes scored, optionally starting only some of them and
    doubling a captain. */
 function squadPoints(codes, pts, captain, mult){
@@ -999,8 +1011,8 @@ function renderSwappi(){
     $("legend-swappi").innerHTML=""; $("readout-swappi").textContent=""; return;
   }
 
-  const labels=[], swappi=[], model=[], user=[], marks=[];
-  let rs=0, rm=0, ru=0;
+  const labels=[], swappi=[], model=[], user=[], avg=[], marks=[];
+  let rs=0, rm=0, ru=0, ra=0, seenAvg=false;
 
   events.forEach((gw,gi)=>{
     if(gi) marks.push(labels.length);        // gameweek boundary
@@ -1010,6 +1022,11 @@ function renderSwappi(){
       swappi.push(rs+(r.index||0));
       model.push(r.model!=null ? rm+r.model : null);
       user.push(ru||null);
+      // The game may publish the average during a gameweek or only at the
+      // end. Where it is missing the previous total is carried forward, so
+      // the line flatlines and then steps rather than breaking apart.
+      if(r.average!=null){ seenAvg=true; avg.push(ra+r.average); }
+      else avg.push(seenAvg?ra:null);
     });
 
     const d=g[gw];
@@ -1019,14 +1036,19 @@ function renderSwappi(){
       const mclose=m?squadPoints(m.xi,d.pts,benchmarkCaptain(m.xi,d.w),2):null;
       const u=S.team && S.team.byGw[gw];
       rs+=close; rm+=(mclose||0); if(u) ru+=u.actual;
+      // The closing average is whatever the last reading of the gameweek saw.
+      const closeAvg=rows.length?rows[rows.length-1].average:null;
+      if(closeAvg!=null){ ra+=closeAvg; seenAvg=true; }
       labels.push("GW"+gw);
       swappi.push(rs); model.push(mclose!=null?rm:null); user.push(u?ru:null);
+      avg.push(seenAvg?ra:null);
     }
   });
 
   const series=[
     {name:"SWAPPI", colour:PALETTE[0], values:swappi},
     {name:"FPLdaq Template", colour:PALETTE[1], values:model},
+    {name:"Average manager", colour:PALETTE[4], values:avg},
   ];
   if(S.team) series.push({name:S.team.name, colour:PALETTE[3], values:user});
 
@@ -1037,9 +1059,11 @@ function renderSwappi(){
 
   const last=perf.length?perf[perf.length-1]:null;
   const live=last && !finished.includes(String(last.event));
+  const avgLive=last && last.average!=null;
   $("readout-swappi").textContent = live
     ? `Gameweek ${last.event} in play · ${Math.round((last.played||0)*100)}% of the `
       + `average squad has featured · ${labels.length} readings`
+      + (avgLive?"":" · published average not yet available")
       + (last.confirmed?"":" · bonus provisional")
     : "";
 }
@@ -1165,7 +1189,8 @@ function renderAlpha(){
   const t=S.team.total, gws=Object.keys(S.team.byGw);
   $("alpha").hidden=false;
   $("alpha-sub").textContent =
-    `${S.team.name}, across ${gws.length} finished gameweek${gws.length===1?"":"s"}. `
+    `${S.team.name}, across ${gws.length} gameweek${gws.length===1?"":"s"}`
+    + (S.team.live ? ", one of them still in play. " : ". ")
     + `Each step swaps one more of your decisions in, so the parts add to the whole.`;
 
   const rows=[
@@ -1192,7 +1217,11 @@ function renderAlpha(){
 
   const diff=t.actual-t.swappi;
   $("alpha-note").innerHTML =
-    `Against SWAPPI you are <b>${fmtPts(diff)}</b> points. Attribution is `
+    (S.team.live
+      ? `<b>Gameweek in progress.</b> Live figures move with every match and `
+        + `exclude auto-substitutions, which only apply at the final whistle. `
+      : "")
+    + `Against SWAPPI you are <b>${fmtPts(diff)}</b> points. Attribution is `
     + `path-dependent: swapping decisions in a different order would move points `
     + `between the steps, though never the total. The modelled team is rebuilt `
     + `each deadline at no transfer cost, which flatters it slightly.`;
@@ -1201,8 +1230,16 @@ function renderAlpha(){
 async function loadTeam(id){
   const state=$("team-state");
   state.className="teamstate"; state.textContent="Loading…";
-  const gws=gwList();
-  if(!gws.length){ state.textContent="No finished gameweeks yet, so there is nothing to compare."; return; }
+
+  // A gameweek in progress is scoreable too, from the live snapshot.
+  try{
+    const r=await fetch("data/live.json?t="+Date.now());
+    if(r.ok) S.live=await r.json();
+  }catch(e){ /* absent between gameweeks, which is normal */ }
+
+  const all=scorable();
+  const gws=Object.keys(all).map(Number).sort((a,b)=>a-b).map(String);
+  if(!gws.length){ state.textContent="No gameweek has started yet, so there is nothing to compare."; return; }
 
   try{
     const [entry, history] = await Promise.all([
@@ -1215,11 +1252,24 @@ async function loadTeam(id){
     let latestPicks=null;
 
     for(const gw of gws){
-      const d=S.data.gameweeks[gw], model=(S.data.models||{})[gw];
+      const d=all[gw], model=(S.data.models||{})[gw];
       let picks;
       try{ picks=await api(`/entry/${id}/event/${gw}/picks/`); }
       catch(e){ continue; }   // team may not have entered that gameweek
-      const r=rungsFor(gw, picks, d.w, d.pts, model, actualBy[gw]||0);
+      // The history endpoint has no row for a gameweek still in play, so the
+      // live score is built from the picks themselves: starters times their
+      // multiplier, less any hit. Autosubs only apply at the final whistle,
+      // so a live figure can understate a team with a blank starter.
+      let actual=actualBy[gw];
+      if(actual==null && d.live){
+        const ids=S.data.ids||{};
+        actual=picks.picks.filter(p=>p.multiplier>0).reduce((a,p)=>{
+          const c=ids[String(p.element)];
+          return a + (d.pts[c]||0)*p.multiplier;
+        },0) - ((picks.entry_history||{}).event_transfers_cost||0);
+      }
+      const r=rungsFor(gw, picks, d.w, d.pts, model, actual||0);
+      if(d.live) r.live=true;
       byGw[gw]=r; latestPicks=picks;
       for(const k in total) if(r[k]!=null) total[k]+=r[k];
     }
@@ -1246,7 +1296,8 @@ async function loadTeam(id){
       if(all>0) allocation={gd:sums.gd/all*1e6, mid:sums.mid/all*1e6, fwd:sums.fwd/all*1e6};
     }
 
-    S.team={id, name:entry.name||("Team "+id), byGw, total, allocation};
+    S.team={id, name:entry.name||("Team "+id), byGw, total, allocation,
+            live:Object.values(byGw).some(r=>r.live)};
     try{ localStorage.setItem("fpldaq.team", id); }catch(e){}
     state.textContent=`${S.team.name} · ${Object.keys(byGw).length} gameweek(s) compared`;
     renderSwappi(); renderAlpha(); renderAllocation();
@@ -1414,7 +1465,12 @@ function startPolling(){
       const fresh=await fetch("data/core.json?t="+Date.now()).then(r=>r.json());
       if(!fresh || !fresh.generated || fresh.generated===S.data.generated) return;
       S.data=fresh;
+      try{
+        const r=await fetch("data/live.json?t="+Date.now());
+        if(r.ok) S.live=await r.json();
+      }catch(e){}
       renderTicker(); renderSwappi(); renderPitch();
+      if(S.team) loadTeam(S.team.id);
       $("status").textContent=statusLine();
     }catch(e){ /* a failed poll is not worth surfacing */ }
   }, 10*60*1000);
