@@ -3122,6 +3122,13 @@
    "pos": 2,
    "team": 13
   },
+  "524180": {
+   "full": "Cameron Humphreys",
+   "id": 602,
+   "name": "Humphreys",
+   "pos": 3,
+   "team": 12
+  },
   "531442": {
    "full": "Abdul Fatawu",
    "id": 315,
@@ -3703,6 +3710,13 @@
    "pos": 3,
    "team": 5
   },
+  "592740": {
+   "full": "Alfie Cresswell",
+   "id": 604,
+   "name": "Cresswell",
+   "pos": 3,
+   "team": 13
+  },
   "593117": {
    "full": "Geovany Quenda",
    "id": 164,
@@ -3850,6 +3864,13 @@
    "pos": 3,
    "team": 17
   },
+  "611917": {
+   "full": "Luca Williams-Barnett",
+   "id": 601,
+   "name": "Williams-Barnett",
+   "pos": 3,
+   "team": 19
+  },
   "611922": {
    "full": "Rio Ngumoha",
    "id": 369,
@@ -3968,6 +3989,13 @@
    "name": "Byfield",
    "pos": 2,
    "team": 19
+  },
+  "643970": {
+   "full": "Jayden Lienou",
+   "id": 603,
+   "name": "Lienou",
+   "pos": 2,
+   "team": 13
   },
   "645618": {
    "full": "Bradley Burrowes",
