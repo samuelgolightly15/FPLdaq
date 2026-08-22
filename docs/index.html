@@ -1048,7 +1048,11 @@ function renderSwappi(){
   const series=[
     {name:"SWAPPI", colour:PALETTE[0], values:swappi},
     {name:"FPLdaq Template", colour:PALETTE[1], values:model},
-    {name:"Average manager", colour:PALETTE[4], values:avg},
+    // Grey and dotted: the game's own published figure rather than anything
+    // computed here, and deliberately recessive so it reads as a reference
+    // line behind the two the site builds.
+    {name:"Average Manager (as published by FPL)", colour:"#858f9b",
+     values:avg, dash:true},
   ];
   if(S.team) series.push({name:S.team.name, colour:PALETTE[3], values:user});
 
