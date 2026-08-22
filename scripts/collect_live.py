@@ -65,6 +65,10 @@ SNAP_DIR = os.path.join(DATA, "snapshots")
 WEIGHTS_DIR = os.path.join(DATA, "weights")
 SCHEDULE_PATH = os.path.join(DATA, "schedule.json")
 OUT_PATH = os.path.join(DATA, "performance.jsonl")
+# Written straight into the site's data folder rather than aggregated later:
+# the market job only rebuilds every half hour, and this has to keep up with
+# ten-minute polling for the team comparison to be live at all.
+LIVE_PATH = os.path.join(ROOT, "docs", "data", "live.json")
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (compatible; fpl-index/1.0)",
@@ -427,9 +431,17 @@ def main():
 
     fixtures = [f for f in schedule["fixtures"] if f["event"] == event_id]
     confirmed = bool(fixtures) and all(f["confirmed"] for f in fixtures)
+    # Taken from the bootstrap response fetched moments ago, not the daily
+    # schedule cache. The game may or may not update this during a gameweek;
+    # reading it fresh each poll means we record it the instant it moves
+    # rather than deciding in advance that it cannot.
     average = next(
-        (ev["average"] for ev in schedule["events"] if ev["id"] == event_id), None
+        (ev.get("average_entry_score") for ev in boot.get("events", [])
+         if ev["id"] == event_id),
+        None,
     )
+    if not average:                      # null or zero before it is published
+        average = None
 
     line = {
         "t": when.strftime("%Y-%m-%dT%H:%M:00Z"),
@@ -448,6 +460,23 @@ def main():
     os.makedirs(DATA, exist_ok=True)
     with open(OUT_PATH, "a", encoding="utf-8") as fh:
         fh.write(json.dumps(line, ensure_ascii=False, separators=(",", ":")) + "\n")
+
+    # Per-player detail for the gameweek in progress, so the browser can score
+    # any manager's picks without calling the FPL API for every player. Only
+    # the current gameweek is published; finished ones come from the market
+    # aggregation, which has confirmed bonus.
+    snapshot = {
+        "event": event_id,
+        "t": line["t"],
+        "confirmed": confirmed,
+        "capital": weights["capital"],
+        "squad": weights.get("squad"),
+        "w": weights["weights"],
+        "pts": {c: p for c, p in pts_by_code.items() if p},
+    }
+    os.makedirs(os.path.dirname(LIVE_PATH), exist_ok=True)
+    with open(LIVE_PATH, "w", encoding="utf-8") as fh:
+        json.dump(snapshot, fh, ensure_ascii=False, separators=(",", ":"))
 
     yield_pts = index["points"] / weights["capital"] if weights["capital"] else 0
     print(
