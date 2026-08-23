@@ -79,6 +79,7 @@ SCHEDULE_MAX_AGE_HOURS = 20   # refreshed daily, with slack for cron drift
 LIVE_LEAD_MINUTES = 15        # start polling shortly before kickoff
 LIVE_TAIL_MINUTES = 150       # keep polling after kickoff for stoppages
 MIN_GAP_MINUTES = 8           # don't record twice inside one polling window
+IDLE_GAP_MINUTES = 55         # between match days, refresh roughly hourly
 
 
 def fetch(url, attempts=4):
@@ -180,6 +181,31 @@ def live_window(schedule, when):
         ):
             return f["event"]
     return None
+
+
+def gameweek_underway(schedule, when):
+    """
+    The gameweek that has started but not finished, or None.
+
+    A gameweek runs from its deadline until every fixture is confirmed, which
+    spans days with long gaps between matches. Those gaps are not "nothing
+    happening": squads are locked, points are banked, and the team comparison
+    should work throughout. Polling backs off between match days rather than
+    stopping.
+    """
+    started = [
+        (ev["id"], parse_iso(ev["deadline"]))
+        for ev in schedule["events"]
+        if ev.get("deadline") and parse_iso(ev["deadline"]) <= when
+    ]
+    if not started:
+        return None
+    event_id = max(started, key=lambda x: x[1])[0]
+
+    fixtures = [f for f in schedule["fixtures"] if f["event"] == event_id]
+    if fixtures and all(f["confirmed"] for f in fixtures):
+        return None          # gameweek complete, nothing left to move
+    return event_id
 
 
 def passed_deadlines(schedule, when):
@@ -358,10 +384,10 @@ def model_points(event_id, pts_by_code, weights):
     return round(total, 2)
 
 
-def recent_enough(when):
+def recent_enough(when, gap=MIN_GAP_MINUTES):
     if not os.path.exists(OUT_PATH):
         return False
-    cutoff = when - timedelta(minutes=MIN_GAP_MINUTES)
+    cutoff = when - timedelta(minutes=gap)
     last = None
     with open(OUT_PATH, "r", encoding="utf-8") as fh:
         for line in fh:
@@ -389,8 +415,14 @@ def main():
         freeze_weights(event_id, deadline)
 
     event_id = live_window(schedule, when)
+    playing = event_id is not None
+
+    if event_id is None:
+        # No match on right now, but the gameweek may still be running.
+        event_id = gameweek_underway(schedule, when)
+
     if event_id is None and not force:
-        print("no fixture in play, nothing to record")
+        print("no gameweek underway, nothing to record")
         return
 
     if event_id is None:
@@ -400,8 +432,9 @@ def main():
             return
         event_id = recent[0][0]
 
-    if recent_enough(when) and not force:
-        print(f"recorded within the last {MIN_GAP_MINUTES} minutes, skipping")
+    gap = MIN_GAP_MINUTES if playing else IDLE_GAP_MINUTES
+    if recent_enough(when, gap) and not force:
+        print(f"recorded within the last {gap} minutes, skipping")
         return
 
     weights_path = os.path.join(WEIGHTS_DIR, f"gw{event_id}.json")
@@ -483,6 +516,7 @@ def main():
         f"GW{event_id} {line['t']}: index {index['points']:.2f} pts, "
         f"{yield_pts:.3f} pts per £m, model {model if model is not None else '-'}, "
         f"{index['played']*100:.0f}% of the squad played"
+        + ("" if playing else " (between matches)")
         + ("" if confirmed else ", bonus provisional")
     )
 
