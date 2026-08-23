@@ -3122,6 +3122,13 @@
    "pos": 2,
    "team": 13
   },
+  "523700": {
+   "full": "Daniel Jebbison",
+   "id": 608,
+   "name": "Jebbison",
+   "pos": 4,
+   "team": 3
+  },
   "524180": {
    "full": "Cameron Humphreys",
    "id": 602,
@@ -3437,6 +3444,13 @@
    "pos": 3,
    "team": 11
   },
+  "553746": {
+   "full": "Leo Shahar",
+   "id": 609,
+   "name": "Shahar",
+   "pos": 2,
+   "team": 17
+  },
   "553783": {
    "full": "Óscar Zambrano",
    "id": 294,
@@ -3521,6 +3535,13 @@
    "pos": 2,
    "team": 18
   },
+  "569577": {
+   "full": "Triston Rowe",
+   "id": 606,
+   "name": "Rowe",
+   "pos": 2,
+   "team": 2
+  },
   "56979": {
    "full": "Jordan Henderson",
    "id": 101,
@@ -3548,6 +3569,13 @@
    "name": "Khalaili",
    "pos": 2,
    "team": 8
+  },
+  "571380": {
+   "full": "Luka Lynch",
+   "id": 607,
+   "name": "Lynch",
+   "pos": 3,
+   "team": 2
   },
   "571779": {
    "full": "César Palacios",
@@ -3863,6 +3891,13 @@
    "name": "Touré",
    "pos": 3,
    "team": 17
+  },
+  "611695": {
+   "full": "Malick Yalcouyé",
+   "id": 605,
+   "name": "Yalcouyé",
+   "pos": 3,
+   "team": 5
   },
   "611917": {
    "full": "Luca Williams-Barnett",
