@@ -1,0 +1,59 @@
+name: Collect FPL performance index
+
+on:
+  schedule:
+    # Every 10 minutes. The script checks the cached fixture list first and
+    # exits in under a second when nothing is being played, so most runs cost
+    # almost nothing. Public repositories get unlimited Actions minutes.
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: 'Force a fixture schedule refresh'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# Separate from the market collector's group so the two never block each
+# other, but serialised against itself so two runs cannot push at once.
+concurrency:
+  group: live
+  cancel-in-progress: false
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Collect
+        run: |
+          if [ "${{ inputs.refresh }}" = "true" ]; then
+            python3 scripts/collect_live.py --refresh
+          else
+            python3 scripts/collect_live.py
+          fi
+
+      - name: Commit and push
+        run: |
+          git config user.name "fpl-index bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if [ -z "$(git status --porcelain data docs)" ]; then
+            echo "Nothing new to commit"
+            exit 0
+          fi
+
+          git add data docs
+          git commit -m "performance $(date -u +'%Y-%m-%dT%H:%MZ')"
+
+          for attempt in 1 2 3; do
+            if git pull --rebase --autostash && git push; then
+              exit 0
+            fi
+            echo "push attempt $attempt failed, retrying"
+            sleep 10
+          done
+          exit 1

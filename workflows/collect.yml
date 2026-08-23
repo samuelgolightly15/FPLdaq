@@ -21,21 +21,18 @@ jobs:
   collect:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
 
       - name: Take snapshot
-        run: python scripts/collect.py
+        run: python3 scripts/collect.py
 
       - name: Rebuild site data
         # Never fatal. The snapshot is already on disk by this point, and
         # losing a reading because a chart could not be rebuilt would be a bad
         # trade: the aggregation reruns next hour, the reading does not.
         continue-on-error: true
-        run: python scripts/aggregate.py
+        run: python3 scripts/aggregate.py
 
       - name: Commit and push
         run: |
