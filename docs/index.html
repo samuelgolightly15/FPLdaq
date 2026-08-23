@@ -392,6 +392,10 @@ table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
 
   <div id="alpha" hidden>
     <div class="eyebrow" style="margin-top:1.6rem">Value-add / alpha breakdown</div>
+    <p class="blurb" id="alpha-sub"></p>
+    <table class="alpha"><tbody id="alpha-rows"></tbody></table>
+    <p class="note" id="alpha-note"></p>
+  </div>
 </section>
 </div>
 </main>
@@ -1243,7 +1247,14 @@ async function loadTeam(id){
 
   const all=scorable();
   const gws=Object.keys(all).map(Number).sort((a,b)=>a-b).map(String);
-  if(!gws.length){ state.textContent="No gameweek has started yet, so there is nothing to compare."; return; }
+  if(!gws.length){
+    const perf=S.data.performance||[];
+    state.textContent = perf.length
+      ? "Gameweek scoring has started but the per-player detail has not been "
+        + "published yet. This fills in within the hour."
+      : "No gameweek has started yet, so there is nothing to compare.";
+    return;
+  }
 
   try{
     const [entry, history] = await Promise.all([
@@ -1302,13 +1313,18 @@ async function loadTeam(id){
 
     S.team={id, name:entry.name||("Team "+id), byGw, total, allocation,
             live:Object.values(byGw).some(r=>r.live)};
+    S.teamLoaded=true;
     try{ localStorage.setItem("fpldaq.team", id); }catch(e){}
     state.textContent=`${S.team.name} · ${Object.keys(byGw).length} gameweek(s) compared`;
     renderSwappi(); renderAlpha(); renderAllocation();
   }catch(err){
+    console.error("team load:", err);
     state.className="teamstate err";
-    state.textContent = err.message==="notfound"
-      ? "No team with that ID."
+    // Distinguish a failed request from a fault drawing the result, which
+    // previously both surfaced as "could not reach the FPL API".
+    state.textContent =
+      err.message==="notfound" ? "No team with that ID."
+      : S.teamLoaded ? "Loaded your team but could not draw the breakdown."
       : "Could not reach the FPL API just now. Try again shortly.";
   }
 }
