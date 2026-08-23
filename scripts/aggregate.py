@@ -266,6 +266,19 @@ def load_models():
     return out
 
 
+def fixtures_for(event_id):
+    """Cached fixtures for one gameweek, or an empty list."""
+    path = os.path.join(ROOT, "data", "schedule.json")
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, "r", encoding="utf-8") as fh:
+            schedule = json.load(fh)
+    except (json.JSONDecodeError, OSError):
+        return []
+    return [f for f in schedule.get("fixtures", []) if f.get("event") == event_id]
+
+
 def gameweek_points(snaps, weights_dir):
     """
     Points scored by each player in each gameweek, plus that gameweek's
@@ -291,6 +304,23 @@ def gameweek_points(snaps, weights_dir):
     if not frozen:
         return {}
 
+    # A gameweek's points are normally the difference between its own freeze
+    # and the next one, which means waiting a week. Once every fixture is
+    # confirmed the totals stop moving, so the closing reading can be taken
+    # far sooner. FPL settles bonus within about an hour of the last whistle;
+    # 10am the following day is a generous margin.
+    def settled_cutoff(event_id):
+        kickoffs = [
+            parse(f["kickoff"].replace("Z", "").split("+")[0] + "Z")
+            for f in fixtures_for(event_id)
+            if f.get("kickoff")
+        ]
+        if not kickoffs or not all(f["confirmed"] for f in fixtures_for(event_id)):
+            return None
+        day_after = (max(kickoffs) + timedelta(days=1)).date()
+        return datetime(day_after.year, day_after.month, day_after.day,
+                        10, 0, tzinfo=timezone.utc)
+
     def points_at(stamp):
         """Cumulative points per player at a given snapshot time."""
         for snap in snaps:
@@ -298,14 +328,30 @@ def gameweek_points(snaps, weights_dir):
                 return {c: (el[2] if len(el) > 2 else 0) for c, el in snap["e"].items()}
         return None
 
+    def points_after(cutoff):
+        """Cumulative points at the first snapshot on or after `cutoff`."""
+        if datetime.now(timezone.utc) < cutoff:
+            return None
+        for snap in snaps:
+            if parse(snap["t"]) >= cutoff:
+                return {c: (el[2] if len(el) > 2 else 0) for c, el in snap["e"].items()}
+        return None
+
     out = {}
     for i, w in enumerate(frozen):
         start = points_at(w["frozen_from"])
-        # The next deadline's freeze marks the end of this gameweek. Without
-        # one, the gameweek is still in progress.
-        if start is None or i + 1 >= len(frozen):
+        if start is None:
             continue
-        end = points_at(frozen[i + 1]["frozen_from"])
+
+        if i + 1 < len(frozen):
+            # The next deadline's freeze is the cleanest closing reading.
+            end = points_at(frozen[i + 1]["frozen_from"])
+        else:
+            # No next freeze yet. If the gameweek has settled, close it on the
+            # first snapshot taken after 10am the day after its last match,
+            # which is deterministic and does not drift as more arrive.
+            cutoff = settled_cutoff(w["event"])
+            end = points_after(cutoff) if cutoff else None
         if end is None:
             continue
         out[str(w["event"])] = {
