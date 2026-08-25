@@ -1,12 +1,12 @@
 {
- "fetched": "2026-08-24T19:51:00Z",
+ "fetched": "2026-08-25T15:57:00Z",
  "events": [
   {
    "id": 1,
    "deadline": "2026-08-21T17:30:00Z",
-   "finished": false,
-   "average": 36,
-   "highest": 114
+   "finished": true,
+   "average": 50,
+   "highest": 131
   },
   {
    "id": 2,
@@ -274,7 +274,7 @@
    "event": 1,
    "kickoff": "2026-08-21T19:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -282,7 +282,7 @@
    "event": 1,
    "kickoff": "2026-08-22T11:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -290,7 +290,7 @@
    "event": 1,
    "kickoff": "2026-08-22T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -298,7 +298,7 @@
    "event": 1,
    "kickoff": "2026-08-22T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -306,7 +306,7 @@
    "event": 1,
    "kickoff": "2026-08-22T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -314,7 +314,7 @@
    "event": 1,
    "kickoff": "2026-08-22T16:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -322,7 +322,7 @@
    "event": 1,
    "kickoff": "2026-08-23T13:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -330,7 +330,7 @@
    "event": 1,
    "kickoff": "2026-08-23T13:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -338,7 +338,7 @@
    "event": 1,
    "kickoff": "2026-08-23T15:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -346,8 +346,8 @@
    "event": 1,
    "kickoff": "2026-08-24T19:00:00Z",
    "started": true,
-   "finished": false,
-   "confirmed": false
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 11,
