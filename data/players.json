@@ -945,6 +945,13 @@
    "pos": 1,
    "team": 19
   },
+  "214590": {
+   "full": "Aaron Wan-Bissaka",
+   "id": 611,
+   "name": "Wan-Bissaka",
+   "pos": 2,
+   "team": 2
+  },
   "215059": {
    "full": "Robert Lynch Sánchez",
    "id": 140,
@@ -2987,7 +2994,7 @@
    "id": 403,
    "name": "Savinho",
    "pos": 3,
-   "team": 15
+   "team": 19
   },
   "510663": {
    "full": "Hugo Ekitiké",
@@ -4024,6 +4031,13 @@
    "name": "Steur",
    "pos": 3,
    "team": 17
+  },
+  "638411": {
+   "full": "Dayann Méthalie",
+   "id": 612,
+   "name": "Methalie",
+   "pos": 2,
+   "team": 20
   },
   "640419": {
    "full": "Jun'ai Byfield",
