@@ -3010,6 +3010,13 @@
    "pos": 3,
    "team": 19
   },
+  "512123": {
+   "full": "Jaouen Hadjam",
+   "id": 614,
+   "name": "Hadjam",
+   "pos": 2,
+   "team": 5
+  },
   "512462": {
    "full": "Jake O'Brien",
    "id": 232,
@@ -3183,7 +3190,7 @@
    "id": 131,
    "name": "Baleba",
    "pos": 3,
-   "team": 5
+   "team": 16
   },
   "535818": {
    "full": "Simon Adingra",
@@ -4143,6 +4150,13 @@
    "name": "Madjo",
    "pos": 4,
    "team": 2
+  },
+  "696104": {
+   "full": "Jules Ahoka",
+   "id": 613,
+   "name": "Ahoka",
+   "pos": 3,
+   "team": 20
   },
   "699989": {
    "full": "Djiamgone Jocelin Ta Bi",
