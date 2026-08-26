@@ -192,8 +192,13 @@ table.alpha td{padding:.45rem .2rem;border-bottom:1px solid var(--hair);
   vertical-align:baseline}
 table.alpha td.v{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;
   width:5.2rem}
-table.alpha td.d{font-size:.72rem;color:var(--slate);display:block;padding-top:0;
-  border:0;margin-bottom:.2rem}
+/* The explainer is a span inside the label cell, not a cell of its own, so
+   it has to be selected as one. Written small and italic on its own line so
+   it sits clearly below the term rather than competing with it. */
+table.alpha td .d{display:block;font-size:.68rem;font-style:italic;
+  font-weight:400;color:var(--slate);line-height:1.25;margin-top:.12rem;
+  text-wrap:balance}
+table.alpha td:first-child{padding-right:.6rem}
 table.alpha tr.rung td{color:var(--slate)}
 table.alpha tr.step td:first-child{padding-left:.9rem;border-left:3px solid var(--grid)}
 table.alpha tr.total td{border-top:1px solid var(--royal);border-bottom:0;
@@ -236,6 +241,7 @@ table.alpha thead th{font-family:"Archivo",Arial,sans-serif;font-size:.62rem;
   letter-spacing:.09em;text-transform:uppercase;color:var(--slate);font-weight:600;
   text-align:right;padding:0 .2rem .3rem;border-bottom:1px solid var(--royal)}
 table.alpha thead th:first-child{text-align:left}
+#alpha-you{max-width:7rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 table.alpha td.v{width:auto;min-width:4.6rem}
 table.alpha td .vs{display:block;font-size:.68rem;font-variant-numeric:tabular-nums}
 table.alpha tr.sub td:first-child{padding-left:1.1rem;font-size:.78rem;color:var(--slate)}
@@ -437,7 +443,7 @@ table.alpha td.dash{color:var(--grid)}
     <p class="blurb" id="alpha-sub"></p>
     <div class="tablewrap">
       <table class="alpha">
-        <thead><tr><th></th><th>SWAPPI</th><th>Template</th><th>Your team</th></tr></thead>
+        <thead><tr><th></th><th>SWAPPI</th><th>Template</th><th id="alpha-you">Your team</th></tr></thead>
         <tbody id="alpha-rows"></tbody>
       </table>
     </div>
@@ -1258,10 +1264,15 @@ function renderAlpha(){
     $("alpha").hidden=true; return;
   }
   $("alpha").hidden=false;
+  // The last column is the visitor's own team, so it should carry their name.
+  // Long names are truncated by CSS rather than here, so the full one stays
+  // available to a screen reader and on a wider screen.
+  $("alpha-you").textContent=S.team.name||"Your team";
+  $("alpha-you").title=S.team.name||"";
   const t=alphaTotals();
   const gws=Object.keys(S.team.byGw);
   $("alpha-sub").textContent =
-    `${S.team.name}, across ${gws.length} gameweek${gws.length===1?"":"s"}`
+    `Across ${gws.length} gameweek${gws.length===1?"":"s"}`
     + (S.team.live ? ", one of them still in play." : ".")
     + " Figures in brackets are against the Template.";
 
