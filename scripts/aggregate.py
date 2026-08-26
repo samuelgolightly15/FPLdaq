@@ -354,14 +354,36 @@ def gameweek_points(snaps, weights_dir):
             end = points_after(cutoff) if cutoff else None
         if end is None:
             continue
+        # total_points is cumulative, so a gameweek's points can never be
+        # negative. If they are, the two readings being differenced are not
+        # what they are assumed to be: most often one predates points being
+        # collected at all and reports zero for everyone. Publishing that
+        # would put a large negative step on the chart, so the gameweek is
+        # refused instead.
+        diffs = {c: end[c] - start.get(c, 0) for c in end}
+        negatives = [c for c, v in diffs.items() if v < 0]
+        if negatives:
+            print(
+                f"GW{w['event']}: {len(negatives)} players with negative points "
+                f"between {w['frozen_from']} and the closing reading. Refusing to "
+                f"publish this gameweek; check that both snapshots carry points.",
+                file=sys.stderr,
+            )
+            continue
+
+        total = sum(diffs.values())
+        if total <= 0:
+            print(
+                f"GW{w['event']}: total points came to {total}, which cannot be "
+                f"right. Skipping.",
+                file=sys.stderr,
+            )
+            continue
+
         out[str(w["event"])] = {
             "capital": w["capital"],
             "squad": w.get("squad"),
-            "pts": {
-                c: end[c] - start.get(c, 0)
-                for c in end
-                if end[c] - start.get(c, 0) != 0
-            },
+            "pts": {c: v for c, v in diffs.items() if v},
             "w": w["weights"],
         }
     return out
