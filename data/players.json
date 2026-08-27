@@ -1288,6 +1288,13 @@
    "pos": 2,
    "team": 16
   },
+  "230650": {
+   "full": "Michele Di Gregorio",
+   "id": 615,
+   "name": "Di Gregorio",
+   "pos": 1,
+   "team": 3
+  },
   "230730": {
    "full": "Brandon Thomas-Asante",
    "id": 194,
@@ -4012,7 +4019,7 @@
    "team": 7
   },
   "629397": {
-   "full": "Kaine Andrews",
+   "full": "Kai Andrews",
    "id": 192,
    "name": "Andrews",
    "pos": 3,
@@ -4038,6 +4045,13 @@
    "name": "Steur",
    "pos": 3,
    "team": 17
+  },
+  "637238": {
+   "full": "Ayyoub Bouaddi",
+   "id": 616,
+   "name": "Bouaddi",
+   "pos": 3,
+   "team": 15
   },
   "638411": {
    "full": "Dayann Méthalie",
