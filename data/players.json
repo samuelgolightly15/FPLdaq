@@ -140,6 +140,13 @@
    "pos": 1,
    "team": 14
   },
+  "119090": {
+   "full": "Leon Goretzka",
+   "id": 618,
+   "name": "Goretzka",
+   "pos": 3,
+   "team": 2
+  },
   "119471": {
    "full": "Fabian Schär",
    "id": 446,
@@ -1029,6 +1036,13 @@
    "pos": 2,
    "team": 8
   },
+  "218543": {
+   "full": "Exequiel Palacios",
+   "id": 619,
+   "name": "Palacios",
+   "pos": 3,
+   "team": 12
+  },
   "218997": {
    "full": "Ellis Simms",
    "id": 195,
@@ -1076,7 +1090,7 @@
    "id": 153,
    "name": "Disasi",
    "pos": 2,
-   "team": 6
+   "team": 8
   },
   "220566": {
    "full": "Rodrigo 'Rodri' Hernandez Cascante",
@@ -1307,7 +1321,7 @@
    "id": 91,
    "name": "Pinnock",
    "pos": 2,
-   "team": 4
+   "team": 7
   },
   "231416": {
    "full": "Ferdi Kadıoğlu",
@@ -1811,7 +1825,7 @@
    "id": 401,
    "name": "Marmoush",
    "pos": 4,
-   "team": 15
+   "team": 19
   },
   "438464": {
    "full": "Cheick Doucouré",
@@ -2182,7 +2196,7 @@
    "id": 167,
    "name": "Delap",
    "pos": 4,
-   "team": 6
+   "team": 18
   },
   "463067": {
    "full": "Georginio Rutter",
@@ -2273,7 +2287,7 @@
    "id": 405,
    "name": "N.Gonzalez",
    "pos": 3,
-   "team": 15
+   "team": 17
   },
   "465730": {
    "full": "Maxim De Cuyper",
@@ -2666,6 +2680,13 @@
    "name": "Collyer",
    "pos": 3,
    "team": 16
+  },
+  "490884": {
+   "full": "Mohamed-Ali Cho",
+   "id": 617,
+   "name": "Cho",
+   "pos": 3,
+   "team": 11
   },
   "491007": {
    "full": "Dário Luís Essugo",
@@ -3947,6 +3968,13 @@
    "name": "Osman",
    "pos": 3,
    "team": 5
+  },
+  "613804": {
+   "full": "El Hadji Malick Diouf",
+   "id": 620,
+   "name": "Diouf",
+   "pos": 2,
+   "team": 4
   },
   "614071": {
    "full": "Johan Manzambi",
