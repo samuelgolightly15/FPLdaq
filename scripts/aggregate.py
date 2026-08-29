@@ -363,10 +363,21 @@ def gameweek_points(snaps, weights_dir):
         diffs = {c: end[c] - start.get(c, 0) for c in end}
         negatives = [c for c, v in diffs.items() if v < 0]
         if negatives:
+            closing = (
+                frozen[i + 1]["frozen_from"] if i + 1 < len(frozen)
+                else "the first settled reading"
+            )
+            worst = sorted(negatives, key=lambda c: diffs[c])[:5]
+            detail = ", ".join(
+                f"{c} {start.get(c, 0)}->{end[c]}" for c in worst
+            )
             print(
-                f"GW{w['event']}: {len(negatives)} players with negative points "
-                f"between {w['frozen_from']} and the closing reading. Refusing to "
-                f"publish this gameweek; check that both snapshots carry points.",
+                f"GW{w['event']}: {len(negatives)} of {len(diffs)} players went "
+                f"backwards between {w['frozen_from']} and {closing}. "
+                f"Worst: {detail}. "
+                f"Start readings above zero before a gameweek means the opening "
+                f"snapshot already carried points; a closing reading of zero "
+                f"means it predates points being collected. Refusing to publish.",
                 file=sys.stderr,
             )
             continue
