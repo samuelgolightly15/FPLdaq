@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>FPLdaq</title>
-<meta name="description" content="Real-time tracking of the Fantasy Premier League player trading and performance benchmarking.">
+<meta name="description" content="Real-time tracking of the Fantasy Premier League player market and where managers are investing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -441,6 +441,10 @@ table.alpha td.dash{color:var(--grid)}
   <div id="alpha" hidden>
     <div class="eyebrow" style="margin-top:1.6rem">Value-add / alpha breakdown</div>
     <p class="blurb" id="alpha-sub"></p>
+    <div class="modes" role="group" aria-label="Period" id="alpha-scope">
+      <button type="button" data-scope="gw" aria-pressed="true">This gameweek</button>
+      <button type="button" data-scope="season" aria-pressed="false">Season total</button>
+    </div>
     <div class="tablewrap">
       <table class="alpha">
         <thead><tr><th></th><th>SWAPPI</th><th>Template</th><th id="alpha-you">Your team</th></tr></thead>
@@ -506,7 +510,7 @@ const PALETTE = ["#11436d","#26a197","#801650","#f56927","#25303b","#6a3d8f",
 const GROUPS = [["gd","GK & Def"],["mid","Mid"],["fwd","Fwd"]];
 
 const S = {data:null, full:null, fullLoading:null, live:null,
-           pitchView:"model", compView:"swappi",
+           pitchView:"model", compView:"swappi", alphaScope:"gw",
            players:{sel:[], mode:"share", pos:"4", added:{1:[],2:[],3:[],4:[]}}};
 
 const $ = id => document.getElementById(id);
@@ -867,7 +871,7 @@ async function ensureFull(){
   if(S.full) return S.full;
   if(!S.fullLoading){
     $("status").textContent="Loading the rest of the squad list.";
-    S.fullLoading=fetch("data/full.json").then(r=>r.json()).then(j=>{
+    S.fullLoading=fetch("data/full.json?t="+Date.now()).then(r=>r.json()).then(j=>{
       S.full=j; $("status").textContent=statusLine(); return j;
     });
   }
@@ -889,8 +893,12 @@ function statusLine(){
   const dl=d.deadlines&&d.deadlines.length
     ? "since deadline "+new Date(d.deadlines[d.deadlines.length-1].time)
         .toLocaleDateString("en-GB",{day:"numeric",month:"short"})+" · " : "";
+  const ageMin=Math.round((Date.now()-new Date(d.generated).getTime())/60000);
+  const age = ageMin<90 ? `${ageMin} min ago`
+            : ageMin<2880 ? `${Math.round(ageMin/60)} hours ago`
+            : `${Math.round(ageMin/1440)} days ago`;
   return `${n} snapshot${n===1?"":"s"} · ${m?(m/1e6).toFixed(2)+"m managers · ":""}`
-       + dl+`updated ${when} UTC`;
+       + dl+`updated ${when} UTC (${age})`;
 }
 
 function renderTicker(){
@@ -906,7 +914,11 @@ function renderTicker(){
 
 async function boot(){
   try{
-    S.data=await fetch("data/core.json").then(r=>{
+    // Cache-busted like every other data fetch. GitHub Pages serves through a
+    // CDN and Safari caches hard on top of it, so a plain request here can
+    // return a file hours older than the repository, which looks exactly like
+    // the collector having stopped.
+    S.data=await fetch("data/core.json?t="+Date.now()).then(r=>{
       if(!r.ok) throw new Error("core.json "+r.status);
       return r.json();
     });
@@ -925,6 +937,10 @@ async function boot(){
   $("spanline").innerHTML=spanNote();
   draw("players"); renderLegend("players");
   $("status").textContent=statusLine();
+
+  document.querySelectorAll("#alpha-scope button").forEach(b=>{
+    b.onclick=()=>{ S.alphaScope=b.dataset.scope; renderAlpha(); };
+  });
 
   document.querySelectorAll(".modes button[data-comp]").forEach(b=>{
     b.onclick=()=>{
@@ -1123,18 +1139,31 @@ function renderSwappi(){
     });
 
     const d=g[gw];
+    const last=rows.length?rows[rows.length-1]:null;
+
     if(d){
+      // A closed gameweek: the differenced totals are authoritative, so they
+      // set the running total and get their own point.
       const close=Object.entries(d.pts).reduce((a,[c,p])=>a+(d.w[c]||0)*p,0);
       const m=models[gw];
       const mclose=m?squadPoints(m.xi,d.pts,benchmarkCaptain(m.xi,d.w),2):null;
       const u=S.team && S.team.byGw[gw];
       rs+=close; rm+=(mclose||0); if(u) ru+=u.actual;
-      // The closing average is whatever the last reading of the gameweek saw.
-      const closeAvg=rows.length?rows[rows.length-1].average:null;
+      const closeAvg=last?last.average:null;
       if(closeAvg!=null){ ra+=closeAvg; seenAvg=true; }
       labels.push("GW"+gw);
       swappi.push(rs); model.push(mclose!=null?rm:null); user.push(u?ru:null);
       avg.push(seenAvg?ra:null);
+    } else if(last && gw!==events[events.length-1]){
+      // Not closed, but a later gameweek follows, so this one has finished
+      // playing and simply has no settled figure yet. Carry its final live
+      // reading into the running total, otherwise the next gameweek would
+      // start again from zero and the line would collapse.
+      rs+=last.index||0;
+      if(last.model!=null) rm+=last.model;
+      if(last.average!=null){ ra+=last.average; seenAvg=true; }
+      const u=S.team && S.team.byGw[gw];
+      if(u) ru+=u.actual;
     }
   });
 
@@ -1209,12 +1238,20 @@ function splitByPos(codes, pts){
 }
 
 /* Everything the three columns need, summed across the gameweeks loaded. */
-function alphaTotals(){
+/* The most recent gameweek loaded, which is the one in play if there is one. */
+function latestGw(){
+  const gws=Object.keys(S.team.byGw).map(Number).sort((a,b)=>a-b);
+  return gws.length ? String(gws[gws.length-1]) : null;
+}
+
+function alphaTotals(scope){
   const blank=()=>({1:0,2:0,3:0,4:0,total:0});
   const col=()=>({squad:blank(), teamSel:0, captain:0, chips:{}, hits:0});
   const out={swappi:col(), template:col(), team:col()};
 
+  const only = scope==="gw" ? latestGw() : null;
   Object.entries(S.team.byGw).forEach(([gw,r])=>{
+    if(only && gw!==only) return;
     const d=S.team.data[gw];
     if(!d) return;
 
@@ -1269,11 +1306,19 @@ function renderAlpha(){
   // available to a screen reader and on a wider screen.
   $("alpha-you").textContent=S.team.name||"Your team";
   $("alpha-you").title=S.team.name||"";
-  const t=alphaTotals();
+  const scope=S.alphaScope||"gw";
+  const t=alphaTotals(scope);
   const gws=Object.keys(S.team.byGw);
+  const gw=latestGw();
+  document.querySelectorAll("#alpha-scope button").forEach(b=>{
+    b.setAttribute("aria-pressed", String(b.dataset.scope===scope));
+    if(b.dataset.scope==="gw") b.textContent = gw ? "Gameweek "+gw : "This gameweek";
+  });
   $("alpha-sub").textContent =
-    `Across ${gws.length} gameweek${gws.length===1?"":"s"}`
-    + (S.team.live ? ", one of them still in play." : ".")
+    (scope==="gw"
+      ? `Gameweek ${gw}${S.team.live?", still in play":""}.`
+      : `Across ${gws.length} gameweek${gws.length===1?"":"s"}`
+        + (S.team.live ? ", one of them still in play." : "."))
     + " Figures in brackets are against the Template.";
 
   const num=v=>v.toFixed(1);
