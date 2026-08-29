@@ -3134,7 +3134,7 @@
    "id": 166,
    "name": "N.Jackson",
    "pos": 4,
-   "team": 6
+   "team": 2
   },
   "519440": {
    "full": "Wellity Lucky",
@@ -3506,6 +3506,13 @@
    "name": "Zambrano",
    "pos": 3,
    "team": 11
+  },
+  "554054": {
+   "full": "Kaden Braithwaite",
+   "id": 622,
+   "name": "Braithwaite",
+   "pos": 2,
+   "team": 15
   },
   "554197": {
    "full": "Chris Rigg",
@@ -4009,6 +4016,13 @@
    "id": 396,
    "name": "Vitor Reis",
    "pos": 2,
+   "team": 15
+  },
+  "616288": {
+   "full": "Ryan McAidoo",
+   "id": 621,
+   "name": "McAidoo",
+   "pos": 3,
    "team": 15
   },
   "620109": {
