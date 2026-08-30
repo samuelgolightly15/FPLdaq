@@ -1009,7 +1009,7 @@ async function boot(){
 /* Bumped whenever this file changes. Shown in the footer so a stale deploy
    or a cached page can be spotted at a glance rather than inferred from a
    missing feature. */
-const BUILD = "2026-08-29b";
+const BUILD = "2026-08-29c";
 
 const WORKER = "https://fpl-proxy.5rhhsdbnnw.workers.dev";
 const POS_LABEL = {1:"GK", 2:"Def", 3:"Mid", 4:"Fwd"};
@@ -1050,6 +1050,23 @@ function drawSeries(hostId, series, labels, opts){
     svg+=`<text class="axis" x="${x(i)}" y="${H-M.b+14}" text-anchor="${anchor}">${labels[i]}</text>`;
   });
   for(const s of live){
+    // A sparse series only has a value at gameweek boundaries, because there
+    // is no reading between them: an individual team's score is not published
+    // as matches go on. Its points are joined straight through rather than
+    // broken at every gap, and each one is marked so the reader can see that
+    // these are observations rather than a traced path.
+    if(s.sparse){
+      const pts=[];
+      s.values.forEach((v,i)=>{ if(v!=null) pts.push([x(i).toFixed(1), y(v).toFixed(1)]); });
+      if(pts.length>1)
+        svg+=`<polyline class="line" stroke="${s.colour}" stroke-dasharray="2 4" `
+           + `stroke-width="1.5" points="${pts.map(p=>p.join(",")).join(" ")}"/>`;
+      pts.forEach(p=>{
+        svg+=`<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="#fff" `
+           + `stroke="${s.colour}" stroke-width="1.8"/>`;
+      });
+      continue;
+    }
     let run=[];
     const flush=()=>{
       if(run.length===1) svg+=`<circle cx="${run[0][0]}" cy="${run[0][1]}" r="2.4" fill="${s.colour}"/>`;
@@ -1072,13 +1089,13 @@ function benchLegend(hostId, series, startIdx, gwLabel){
     const before=startIdx>0 ? s.values.slice(0,startIdx).reduce(
       (a,v)=>v!=null?v:a, null) : 0;
     const thisGw=(total!=null && before!=null) ? total-before : null;
-    return {name:s.name, colour:s.colour, dash:s.dash, thisGw, total};
+    return {name:s.name, colour:s.colour, dash:s.dash, sparse:s.sparse, thisGw, total};
   });
   host.innerHTML =
       `<table class="bench"><thead><tr><th></th><th>${gwLabel}</th>`
     + `<th>Total</th></tr></thead><tbody>`
     + rows.map(r=>
-        `<tr><td><span class="swatch${r.dash?" dashed":""}" `
+        `<tr><td><span class="swatch${r.dash||r.sparse?" dashed":""}" `
       + `style="background:${r.colour}"></span>${r.name}</td>`
       + `<td class="v">${r.thisGw==null?"—":Math.round(r.thisGw)}</td>`
       + `<td class="v">${r.total==null?"—":Math.round(r.total)}</td></tr>`).join("")
@@ -1164,50 +1181,46 @@ function renderSwappi(){
   events.forEach((gw,gi)=>{
     if(gi) marks.push(labels.length);        // gameweek boundary
     const rows=byEvent[gw]||[];
-    rows.forEach((r,ri)=>{
+    rows.forEach(r=>{
       labels.push("GW"+gw);
       swappi.push(rs+(r.index||0));
       model.push(r.model!=null ? rm+r.model : null);
-      // Per-reading points are not available for a visitor's team, so their
-      // line holds at the total banked before this gameweek and steps up on
-      // the final reading of it. Continuous, and never ahead of itself.
-      const u=S.team && S.team.byGw[gw];
-      user.push(S.team ? ru + (ri===rows.length-1 && u ? u.actual : 0) : null);
-      // The game may publish the average during a gameweek or only at the
-      // end. Where it is missing the previous total is carried forward, so
-      // the line flatlines and then steps rather than breaking apart.
-      if(r.average!=null){ seenAvg=true; avg.push(ra+r.average); }
-      else avg.push(seenAvg?ra:null);
+      // Filled in at the gameweek boundary below, not per reading.
+      user.push(null); avg.push(null);
     });
 
     const d=g[gw];
     const last=rows.length?rows[rows.length-1]:null;
 
     if(d){
-      // A closed gameweek: the differenced totals are authoritative, so they
-      // set the running total and get their own point.
       const close=Object.entries(d.pts).reduce((a,[c,p])=>a+(d.w[c]||0)*p,0);
       const m=models[gw];
       const mclose=m?squadPoints(m.xi,d.pts,benchmarkCaptain(m.xi,d.w),2):null;
-      const u=S.team && S.team.byGw[gw];
-      rs+=close; rm+=(mclose||0); if(u) ru+=u.actual;
-      const closeAvg=last?last.average:null;
-      if(closeAvg!=null){ ra+=closeAvg; seenAvg=true; }
+      rs+=close; rm+=(mclose||0);
       labels.push("GW"+gw);
-      swappi.push(rs); model.push(mclose!=null?rm:null); user.push(u?ru:null);
-      avg.push(seenAvg?ra:null);
+      swappi.push(rs); model.push(mclose!=null?rm:null);
+      user.push(null); avg.push(null);
     } else if(last && gw!==events[events.length-1]){
-      // Not closed, but a later gameweek follows, so this one has finished
-      // playing and simply has no settled figure yet. Carry its final live
-      // reading into the running total, otherwise the next gameweek would
-      // start again from zero and the line would collapse.
       rs+=last.index||0;
       if(last.model!=null) rm+=last.model;
-      if(last.average!=null){ ra+=last.average; seenAvg=true; }
+    }
+
+    // One observation per gameweek for the two series that only report at the
+    // end of one: the visitor's own score, and the average the game publishes.
+    const at=labels.length-1;
+    if(at>=0){
       const u=S.team && S.team.byGw[gw];
-      if(u) ru+=u.actual;
+      if(u){ ru+=u.actual; user[at]=ru; }
+      const a=last?last.average:null;
+      if(a!=null){ ra+=a; seenAvg=true; avg[at]=ra; }
     }
   });
+
+  // Both start from nothing, so the first reading anchors them at zero.
+  if(labels.length){
+    if(S.team) user[0]=0;
+    if(seenAvg) avg[0]=0;
+  }
 
   const series=[
     {name:"SWAPPI", colour:PALETTE[0], values:swappi},
@@ -1216,9 +1229,9 @@ function renderSwappi(){
     // computed here, and deliberately recessive so it reads as a reference
     // line behind the two the site builds.
     {name:"Average Manager (as published by FPL)", colour:"#858f9b",
-     values:avg, dash:true},
+     values:avg, sparse:true},
   ];
-  if(S.team) series.push({name:S.team.name, colour:PALETTE[3], values:user});
+  if(S.team) series.push({name:S.team.name, colour:PALETTE[3], values:user, sparse:true});
 
   drawSeries("chart-swappi", series, labels,
     {label:"Cumulative points", zero:true, marks:marks,
