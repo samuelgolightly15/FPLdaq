@@ -3136,6 +3136,13 @@
    "pos": 4,
    "team": 2
   },
+  "519324": {
+   "full": "Amario Cozier-Duberry",
+   "id": 624,
+   "name": "Cozier-Duberry",
+   "pos": 3,
+   "team": 5
+  },
   "519440": {
    "full": "Wellity Lucky",
    "id": 361,
@@ -3997,6 +4004,13 @@
    "pos": 3,
    "team": 3
   },
+  "616069": {
+   "full": "Macauley Zepa",
+   "id": 626,
+   "name": "Zepa",
+   "pos": 3,
+   "team": 10
+  },
   "616077": {
    "full": "Max Dowman",
    "id": 20,
@@ -4346,6 +4360,13 @@
    "name": "Virgil",
    "pos": 2,
    "team": 14
+  },
+  "97846": {
+   "full": "Alex Cairns",
+   "id": 625,
+   "name": "Cairns",
+   "pos": 1,
+   "team": 13
   },
   "98747": {
    "full": "Nick Pope",
