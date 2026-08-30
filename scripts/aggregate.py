@@ -361,34 +361,39 @@ def gameweek_points(snaps, weights_dir):
         # would put a large negative step on the chart, so the gameweek is
         # refused instead.
         diffs = {c: end[c] - start.get(c, 0) for c in end}
-        negatives = [c for c, v in diffs.items() if v < 0]
+
+        def share_negative(d):
+            return sum(1 for v in d.values() if v < 0) / max(1, len(d))
 
         # FPL carries the previous season's total_points on bootstrap-static
         # right up to the first deadline, then resets them. Differencing a
         # pre-deadline snapshot against a post-gameweek one therefore shows
         # nearly every established player going backwards by a whole season.
-        # It happens exactly once, at the first gameweek, so it is recognised
-        # rather than treated as corruption: the correct baseline after a
-        # reset is zero.
-        if negatives and i == 0 and len(negatives) > len(diffs) * 0.25:
+        # It happens exactly once, so it is recognised rather than treated as
+        # corruption: after a reset the correct baseline is zero.
+        if i == 0 and share_negative(diffs) > 0.25:
             print(
-                f"GW{w['event']}: {len(negatives)} of {len(diffs)} players went "
-                f"backwards, which is the season rollover in total_points. "
-                f"Rebasing this gameweek to zero.",
+                f"GW{w['event']}: {sum(1 for v in diffs.values() if v < 0)} of "
+                f"{len(diffs)} players went backwards, which is the season "
+                f"rollover in total_points. Rebasing this gameweek to zero."
             )
             diffs = dict(end)
-            negatives = [c for c, v in diffs.items() if v < 0]
 
-        if negatives:
+        # A few negatives are ordinary football: a red card, own goals or a
+        # missed penalty can leave a player on negative points for a gameweek,
+        # and a cumulative total can be negative early in a season. Only a
+        # broad pattern of players going backwards indicates the two readings
+        # are mismatched.
+        if share_negative(diffs) > 0.10:
             closing = (
                 frozen[i + 1]["frozen_from"] if i + 1 < len(frozen)
                 else "the first settled reading"
             )
-            worst = sorted(negatives, key=lambda c: diffs[c])[:5]
+            worst = sorted(diffs, key=lambda c: diffs[c])[:5]
             detail = ", ".join(f"{c} {start.get(c, 0)}->{end[c]}" for c in worst)
             print(
-                f"GW{w['event']}: {len(negatives)} of {len(diffs)} players went "
-                f"backwards between {w['frozen_from']} and {closing}. "
+                f"GW{w['event']}: {share_negative(diffs)*100:.0f}% of players "
+                f"went backwards between {w['frozen_from']} and {closing}. "
                 f"Worst: {detail}. Refusing to publish.",
                 file=sys.stderr,
             )
