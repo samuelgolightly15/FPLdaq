@@ -362,22 +362,34 @@ def gameweek_points(snaps, weights_dir):
         # refused instead.
         diffs = {c: end[c] - start.get(c, 0) for c in end}
         negatives = [c for c, v in diffs.items() if v < 0]
+
+        # FPL carries the previous season's total_points on bootstrap-static
+        # right up to the first deadline, then resets them. Differencing a
+        # pre-deadline snapshot against a post-gameweek one therefore shows
+        # nearly every established player going backwards by a whole season.
+        # It happens exactly once, at the first gameweek, so it is recognised
+        # rather than treated as corruption: the correct baseline after a
+        # reset is zero.
+        if negatives and i == 0 and len(negatives) > len(diffs) * 0.25:
+            print(
+                f"GW{w['event']}: {len(negatives)} of {len(diffs)} players went "
+                f"backwards, which is the season rollover in total_points. "
+                f"Rebasing this gameweek to zero.",
+            )
+            diffs = dict(end)
+            negatives = [c for c, v in diffs.items() if v < 0]
+
         if negatives:
             closing = (
                 frozen[i + 1]["frozen_from"] if i + 1 < len(frozen)
                 else "the first settled reading"
             )
             worst = sorted(negatives, key=lambda c: diffs[c])[:5]
-            detail = ", ".join(
-                f"{c} {start.get(c, 0)}->{end[c]}" for c in worst
-            )
+            detail = ", ".join(f"{c} {start.get(c, 0)}->{end[c]}" for c in worst)
             print(
                 f"GW{w['event']}: {len(negatives)} of {len(diffs)} players went "
                 f"backwards between {w['frozen_from']} and {closing}. "
-                f"Worst: {detail}. "
-                f"Start readings above zero before a gameweek means the opening "
-                f"snapshot already carried points; a closing reading of zero "
-                f"means it predates points being collected. Refusing to publish.",
+                f"Worst: {detail}. Refusing to publish.",
                 file=sys.stderr,
             )
             continue
