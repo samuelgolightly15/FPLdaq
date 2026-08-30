@@ -278,6 +278,17 @@ table.alpha td.dash{color:var(--grid)}
 .prow .tot{font-size:.66rem;text-align:right;color:var(--slate);
   font-variant-numeric:tabular-nums}
 .prow .tot b{display:block;font-size:.8rem;color:var(--royal)}
+
+table.bench{width:100%;border-collapse:collapse;font-size:.86rem;margin-top:.9rem}
+table.bench thead th{font-family:"Archivo",Arial,sans-serif;font-size:.62rem;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--slate);font-weight:600;
+  text-align:right;padding:0 .2rem .3rem;border-bottom:1px solid var(--royal)}
+table.bench thead th:first-child{text-align:left}
+table.bench td{padding:.42rem .2rem;border-bottom:1px solid var(--hair)}
+table.bench td.v{text-align:right;font-variant-numeric:tabular-nums;width:4.4rem}
+table.bench .swatch{display:inline-block;width:.62rem;height:.62rem;
+  margin-right:.45rem;vertical-align:-1px}
+table.bench .swatch.dashed{height:.2rem;width:.9rem;vertical-align:.15rem}
 </style>
 </head>
 <body>
@@ -307,7 +318,7 @@ table.alpha td.dash{color:var(--grid)}
 
   <div class="chart" id="chart-swappi"></div>
   <p class="readout" id="readout-swappi"></p>
-  <ul class="legend" id="legend-swappi"></ul>
+  <div id="legend-swappi"></div>
 
   <div class="method">
     <p><b>FPLdaq SWAPPI</b>, the Selection-Weighted All Player Points Index, takes
@@ -898,7 +909,7 @@ function statusLine(){
             : ageMin<2880 ? `${Math.round(ageMin/60)} hours ago`
             : `${Math.round(ageMin/1440)} days ago`;
   return `${n} snapshot${n===1?"":"s"} · ${m?(m/1e6).toFixed(2)+"m managers · ":""}`
-       + dl+`updated ${when} UTC (${age})`;
+       + dl+`updated ${when} UTC (${age}) · build ${BUILD}`;
 }
 
 function renderTicker(){
@@ -923,7 +934,7 @@ async function boot(){
       return r.json();
     });
   }catch(err){
-    $("status").textContent="No data yet. Run the collector, then scripts/aggregate.py.";
+    $("status").textContent="No data yet. Run the collector, then scripts/aggregate.py. · build "+BUILD;
     return;
   }
   const d=S.data;
@@ -995,6 +1006,11 @@ async function boot(){
 
 /* ================= SWAPPI, allocation and alpha ================= */
 
+/* Bumped whenever this file changes. Shown in the footer so a stale deploy
+   or a cached page can be spotted at a glance rather than inferred from a
+   missing feature. */
+const BUILD = "2026-08-29b";
+
 const WORKER = "https://fpl-proxy.5rhhsdbnnw.workers.dev";
 const POS_LABEL = {1:"GK", 2:"Def", 3:"Mid", 4:"Fwd"};
 const ALLOC_COLOUR = {gd:"#11436d", mid:"#26a197", fwd:"#f56927"};
@@ -1045,6 +1061,28 @@ function drawSeries(hostId, series, labels, opts){
     flush();
   }
   host.innerHTML=svg+`</svg>`;
+}
+
+/* Two figures per series: what it has done this gameweek, and the running
+   total. Rendered as a table rather than a list so the columns line up. */
+function benchLegend(hostId, series, startIdx, gwLabel){
+  const host=$(hostId);
+  const rows=series.filter(s=>s.values.some(v=>v!=null)).map(s=>{
+    const total=lastOf(s.values);
+    const before=startIdx>0 ? s.values.slice(0,startIdx).reduce(
+      (a,v)=>v!=null?v:a, null) : 0;
+    const thisGw=(total!=null && before!=null) ? total-before : null;
+    return {name:s.name, colour:s.colour, dash:s.dash, thisGw, total};
+  });
+  host.innerHTML =
+      `<table class="bench"><thead><tr><th></th><th>${gwLabel}</th>`
+    + `<th>Total</th></tr></thead><tbody>`
+    + rows.map(r=>
+        `<tr><td><span class="swatch${r.dash?" dashed":""}" `
+      + `style="background:${r.colour}"></span>${r.name}</td>`
+      + `<td class="v">${r.thisGw==null?"—":Math.round(r.thisGw)}</td>`
+      + `<td class="v">${r.total==null?"—":Math.round(r.total)}</td></tr>`).join("")
+    + `</tbody></table>`;
 }
 
 function simpleLegend(ulId, series, fmt){
@@ -1126,11 +1164,15 @@ function renderSwappi(){
   events.forEach((gw,gi)=>{
     if(gi) marks.push(labels.length);        // gameweek boundary
     const rows=byEvent[gw]||[];
-    rows.forEach(r=>{
+    rows.forEach((r,ri)=>{
       labels.push("GW"+gw);
       swappi.push(rs+(r.index||0));
       model.push(r.model!=null ? rm+r.model : null);
-      user.push(ru||null);
+      // Per-reading points are not available for a visitor's team, so their
+      // line holds at the total banked before this gameweek and steps up on
+      // the final reading of it. Continuous, and never ahead of itself.
+      const u=S.team && S.team.byGw[gw];
+      user.push(S.team ? ru + (ri===rows.length-1 && u ? u.actual : 0) : null);
       // The game may publish the average during a gameweek or only at the
       // end. Where it is missing the previous total is carried forward, so
       // the line flatlines and then steps rather than breaking apart.
@@ -1181,7 +1223,14 @@ function renderSwappi(){
   drawSeries("chart-swappi", series, labels,
     {label:"Cumulative points", zero:true, marks:marks,
      empty:"Scoring starts with the first match of Gameweek 1."});
-  simpleLegend("legend-swappi", series, v=>v.toFixed(1)+" pts");
+
+  // Everything after the last gameweek boundary belongs to the current
+  // gameweek, so its contribution is the total now less the total at that
+  // boundary. Whole points throughout: tenths imply a precision the
+  // ownership rounding does not support.
+  const startIdx = marks.length ? marks[marks.length-1] : 0;
+  const gwLabel = events.length ? "GW"+events[events.length-1] : "This week";
+  benchLegend("legend-swappi", series, startIdx, gwLabel);
 
   const last=perf.length?perf[perf.length-1]:null;
   const live=last && !finished.includes(String(last.event));
