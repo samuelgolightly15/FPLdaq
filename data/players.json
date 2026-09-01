@@ -294,6 +294,13 @@
    "pos": 3,
    "team": 3
   },
+  "155465": {
+   "full": "Michael Zetterer",
+   "id": 629,
+   "name": "Zetterer",
+   "pos": 1,
+   "team": 13
+  },
   "155503": {
    "full": "Freddie Woodman",
    "id": 352,
@@ -1580,7 +1587,7 @@
    "id": 201,
    "name": "Muñoz",
    "pos": 2,
-   "team": 8
+   "team": 18
   },
   "247412": {
    "full": "Jørgen Strand Larsen",
@@ -2505,6 +2512,13 @@
    "name": "Gusto",
    "pos": 2,
    "team": 6
+  },
+  "482616": {
+   "full": "Bradley Barcola",
+   "id": 627,
+   "name": "Barcola",
+   "pos": 3,
+   "team": 14
   },
   "482973": {
    "full": "Igor Jesus Maciel da Cruz",
@@ -4066,6 +4080,13 @@
    "name": "Estêvão",
    "pos": 3,
    "team": 6
+  },
+  "624777": {
+   "full": "Allan Andrade Elias",
+   "id": 628,
+   "name": "Allan",
+   "pos": 3,
+   "team": 15
   },
   "627221": {
    "full": "Sidiki Cherif",
