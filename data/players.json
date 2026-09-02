@@ -75,7 +75,7 @@
    "id": 147,
    "name": "Tosin",
    "pos": 2,
-   "team": 6
+   "team": 19
   },
   "109745": {
    "full": "Kepa Arrizabalaga Revuelta",
@@ -124,7 +124,7 @@
    "id": 238,
    "name": "Grealish",
    "pos": 3,
-   "team": 15
+   "team": 9
   },
   "115556": {
    "full": "Ben Davies",
@@ -194,7 +194,7 @@
    "id": 501,
    "name": "Danso",
    "pos": 2,
-   "team": 19
+   "team": 20
   },
   "138001": {
    "full": "Tom King",
@@ -265,6 +265,13 @@
    "name": "Wilson",
    "pos": 3,
    "team": 13
+  },
+  "154043": {
+   "full": "Ainsley Maitland-Niles",
+   "id": 649,
+   "name": "Maitland-Niles",
+   "pos": 2,
+   "team": 9
   },
   "154561": {
    "full": "David Raya Martín",
@@ -454,6 +461,13 @@
    "name": "Maddison",
    "pos": 3,
    "team": 19
+  },
+  "172850": {
+   "full": "Ben Chilwell",
+   "id": 643,
+   "name": "Chilwell",
+   "pos": 2,
+   "team": 8
   },
   "173774": {
    "full": "Nico Elvedi",
@@ -1526,6 +1540,13 @@
    "pos": 2,
    "team": 9
   },
+  "243951": {
+   "full": "Sorba Thomas",
+   "id": 642,
+   "name": "Thomas",
+   "pos": 3,
+   "team": 11
+  },
   "244042": {
    "full": "Rodrigo Muniz Carvalho",
    "id": 271,
@@ -1572,6 +1593,13 @@
    "full": "Pau Torres",
    "id": 34,
    "name": "Pau",
+   "pos": 2,
+   "team": 2
+  },
+  "245719": {
+   "full": "Taylor Harwood-Bellis",
+   "id": 630,
+   "name": "Harwood-Bellis",
    "pos": 2,
    "team": 2
   },
@@ -1687,6 +1715,13 @@
    "pos": 3,
    "team": 16
   },
+  "431639": {
+   "full": "Zian Flemming",
+   "id": 640,
+   "name": "Flemming",
+   "pos": 4,
+   "team": 12
+  },
   "432422": {
    "full": "Sandro Tonali",
    "id": 455,
@@ -1792,6 +1827,13 @@
    "pos": 1,
    "team": 1
   },
+  "437497": {
+   "full": "Melvin Bard",
+   "id": 641,
+   "name": "Bard",
+   "pos": 2,
+   "team": 13
+  },
   "437499": {
    "full": "Maxence Lacroix",
    "id": 200,
@@ -1867,7 +1909,7 @@
    "id": 237,
    "name": "Ndiaye",
    "pos": 3,
-   "team": 9
+   "team": 15
   },
   "441164": {
    "full": "Pedro Porro Sauceda",
@@ -1903,6 +1945,13 @@
    "name": "Maatsen",
    "pos": 2,
    "team": 2
+  },
+  "442299": {
+   "full": "David Affengruber",
+   "id": 650,
+   "name": "Affengruber",
+   "pos": 2,
+   "team": 10
   },
   "442967": {
    "full": "Daizen Maeda",
@@ -2014,7 +2063,7 @@
    "id": 155,
    "name": "Enzo",
    "pos": 3,
-   "team": 6
+   "team": 15
   },
   "448089": {
    "full": "Joao Gomes",
@@ -2071,6 +2120,13 @@
    "name": "Onana",
    "pos": 3,
    "team": 2
+  },
+  "450063": {
+   "full": "Quinten Timber",
+   "id": 644,
+   "name": "Timber",
+   "pos": 3,
+   "team": 8
   },
   "450542": {
    "full": "Jesurun Rak-Sakyi",
@@ -2308,7 +2364,7 @@
    "id": 578,
    "name": "Mudryk",
    "pos": 3,
-   "team": 6
+   "team": 19
   },
   "466052": {
    "full": "Rayan Cherki",
@@ -2672,7 +2728,7 @@
    "id": 240,
    "name": "Iroegbunam",
    "pos": 3,
-   "team": 9
+   "team": 11
   },
   "490145": {
    "full": "Dane Scarlett",
@@ -2807,6 +2863,13 @@
    "pos": 1,
    "team": 11
   },
+  "496181": {
+   "full": "Brooke Norton-Cuffy",
+   "id": 638,
+   "name": "Norton-Cuffy",
+   "pos": 2,
+   "team": 11
+  },
   "496208": {
    "full": "Ben Gannon-Doak",
    "id": 72,
@@ -2897,6 +2960,13 @@
    "name": "Olusesi",
    "pos": 3,
    "team": 19
+  },
+  "500033": {
+   "full": "Manuel Ángel Morán Ibáñez",
+   "id": 636,
+   "name": "Ángel",
+   "pos": 3,
+   "team": 10
   },
   "500040": {
    "full": "Cristhian Mosquera",
@@ -3227,6 +3297,13 @@
    "pos": 3,
    "team": 4
   },
+  "533646": {
+   "full": "Darío Osorio",
+   "id": 647,
+   "name": "Osorio",
+   "pos": 3,
+   "team": 8
+  },
   "534392": {
    "full": "Mason Burstow",
    "id": 299,
@@ -3258,7 +3335,7 @@
   "536661": {
    "full": "Nilson Angulo",
    "id": 551,
-   "name": "Angulo",
+   "name": "N.Angulo",
    "pos": 3,
    "team": 20
   },
@@ -3444,6 +3521,13 @@
    "pos": 1,
    "team": 6
   },
+  "549940": {
+   "full": "Malick Fofana",
+   "id": 646,
+   "name": "Fofana",
+   "pos": 3,
+   "team": 20
+  },
   "550090": {
    "full": "Diego Coppola",
    "id": 117,
@@ -3471,6 +3555,13 @@
    "name": "Yoro",
    "pos": 2,
    "team": 16
+  },
+  "551050": {
+   "full": "Hugo Larsson",
+   "id": 635,
+   "name": "Larsson",
+   "pos": 3,
+   "team": 10
   },
   "551210": {
    "full": "Jorrel Hato",
@@ -3787,6 +3878,13 @@
    "pos": 4,
    "team": 9
   },
+  "587982": {
+   "full": "Jean-Mattéo Bahoya",
+   "id": 648,
+   "name": "Bahoya",
+   "pos": 3,
+   "team": 13
+  },
   "590014": {
    "full": "Rio Cardines",
    "id": 220,
@@ -3821,6 +3919,13 @@
    "name": "Cresswell",
    "pos": 3,
    "team": 13
+  },
+  "592984": {
+   "full": "José María Andrés Baixauli",
+   "id": 639,
+   "name": "Andrés",
+   "pos": 3,
+   "team": 5
   },
   "593117": {
    "full": "Geovany Quenda",
@@ -3884,6 +3989,13 @@
    "name": "Groß",
    "pos": 3,
    "team": 5
+  },
+  "605972": {
+   "full": "Honest Ahanor",
+   "id": 633,
+   "name": "Ahanor",
+   "pos": 2,
+   "team": 8
   },
   "606702": {
    "full": "Jeremy Jacquet",
@@ -3997,6 +4109,13 @@
    "pos": 3,
    "team": 5
   },
+  "613221": {
+   "full": "Matias Fernandez-Pardo",
+   "id": 634,
+   "name": "Fernandez-Pardo",
+   "pos": 4,
+   "team": 17
+  },
   "613804": {
    "full": "El Hadji Malick Diouf",
    "id": 620,
@@ -4088,6 +4207,13 @@
    "pos": 3,
    "team": 15
   },
+  "626751": {
+   "full": "Ilyas Ansah",
+   "id": 632,
+   "name": "Ansah",
+   "pos": 4,
+   "team": 11
+  },
   "627221": {
    "full": "Sidiki Cherif",
    "id": 599,
@@ -4101,6 +4227,13 @@
    "name": "Andrews",
    "pos": 3,
    "team": 7
+  },
+  "631000": {
+   "full": "Robinio Vaz",
+   "id": 637,
+   "name": "Vaz",
+   "pos": 4,
+   "team": 11
   },
   "631786": {
    "full": "Jonah Kusi-Asare",
@@ -4137,6 +4270,13 @@
    "pos": 2,
    "team": 20
   },
+  "638987": {
+   "full": "Ibrahim Mbaye",
+   "id": 631,
+   "name": "Mbaye",
+   "pos": 3,
+   "team": 2
+  },
   "640419": {
    "full": "Jun'ai Byfield",
    "id": 509,
@@ -4164,6 +4304,13 @@
    "name": "Leoni",
    "pos": 2,
    "team": 14
+  },
+  "647839": {
+   "full": "Christos Mouzakitis",
+   "id": 645,
+   "name": "Mouzakitis",
+   "pos": 3,
+   "team": 11
   },
   "647850": {
    "full": "Charalampos Kostoulas",
@@ -4199,6 +4346,13 @@
    "name": "Uche",
    "pos": 4,
    "team": 8
+  },
+  "661313": {
+   "full": "Juan Angulo",
+   "id": 651,
+   "name": "J.Angulo",
+   "pos": 4,
+   "team": 20
   },
   "661800": {
    "full": "Cathal McCarthy",
