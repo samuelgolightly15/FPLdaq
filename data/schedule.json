@@ -1,5 +1,5 @@
 {
- "fetched": "2026-09-01T12:10:00Z",
+ "fetched": "2026-09-02T09:02:00Z",
  "events": [
   {
    "id": 1,
@@ -11,7 +11,7 @@
   {
    "id": 2,
    "deadline": "2026-08-28T17:30:00Z",
-   "finished": false,
+   "finished": true,
    "average": 81,
    "highest": 161
   },
@@ -622,14 +622,6 @@
    "confirmed": false
   },
   {
-   "id": 44,
-   "event": 5,
-   "kickoff": "2026-09-19T14:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
    "id": 46,
    "event": 5,
    "kickoff": "2026-09-19T14:00:00Z",
@@ -647,6 +639,14 @@
   },
   {
    "id": 49,
+   "event": 5,
+   "kickoff": "2026-09-20T13:00:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 44,
    "event": 5,
    "kickoff": "2026-09-20T13:00:00Z",
    "started": false,
@@ -862,14 +862,6 @@
    "confirmed": false
   },
   {
-   "id": 78,
-   "event": 8,
-   "kickoff": "2026-10-24T14:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
    "id": 73,
    "event": 8,
    "kickoff": "2026-10-24T16:30:00Z",
@@ -887,6 +879,14 @@
   },
   {
    "id": 76,
+   "event": 8,
+   "kickoff": "2026-10-25T14:00:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 78,
    "event": 8,
    "kickoff": "2026-10-25T14:00:00Z",
    "started": false,
@@ -968,7 +968,7 @@
   {
    "id": 81,
    "event": 9,
-   "kickoff": "2026-11-01T14:00:00Z",
+   "kickoff": "2026-10-31T20:00:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
