@@ -1,5 +1,5 @@
 {
- "fetched": "2026-09-06T01:04:00Z",
+ "fetched": "2026-09-06T22:33:00Z",
  "events": [
   {
    "id": 1,
@@ -497,17 +497,17 @@
    "id": 30,
    "event": 3,
    "kickoff": "2026-09-06T13:00:00Z",
-   "started": false,
+   "started": true,
    "finished": false,
-   "confirmed": false
+   "confirmed": true
   },
   {
    "id": 29,
    "event": 3,
    "kickoff": "2026-09-06T15:30:00Z",
-   "started": false,
+   "started": true,
    "finished": false,
-   "confirmed": false
+   "confirmed": true
   },
   {
    "id": 31,
