@@ -1,5 +1,5 @@
 {
- "fetched": "2026-09-06T22:33:00Z",
+ "fetched": "2026-09-07T19:44:00Z",
  "events": [
   {
    "id": 1,
@@ -18,9 +18,9 @@
   {
    "id": 3,
    "deadline": "2026-09-04T17:30:00Z",
-   "finished": false,
-   "average": 36,
-   "highest": 107
+   "finished": true,
+   "average": 51,
+   "highest": 119
   },
   {
    "id": 4,
@@ -434,7 +434,7 @@
    "event": 3,
    "kickoff": "2026-09-04T19:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -442,7 +442,7 @@
    "event": 3,
    "kickoff": "2026-09-05T11:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -450,7 +450,7 @@
    "event": 3,
    "kickoff": "2026-09-05T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -458,7 +458,7 @@
    "event": 3,
    "kickoff": "2026-09-05T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -466,7 +466,7 @@
    "event": 3,
    "kickoff": "2026-09-05T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -474,7 +474,7 @@
    "event": 3,
    "kickoff": "2026-09-05T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -482,7 +482,7 @@
    "event": 3,
    "kickoff": "2026-09-05T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -490,7 +490,7 @@
    "event": 3,
    "kickoff": "2026-09-05T16:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -498,7 +498,7 @@
    "event": 3,
    "kickoff": "2026-09-06T13:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -506,7 +506,7 @@
    "event": 3,
    "kickoff": "2026-09-06T15:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
