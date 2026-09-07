@@ -1009,7 +1009,7 @@ async function boot(){
 /* Bumped whenever this file changes. Shown in the footer so a stale deploy
    or a cached page can be spotted at a glance rather than inferred from a
    missing feature. */
-const BUILD = "2026-08-29c";
+const BUILD = "2026-08-30c";
 
 const WORKER = "https://fpl-proxy.5rhhsdbnnw.workers.dev";
 const POS_LABEL = {1:"GK", 2:"Def", 3:"Mid", 4:"Fwd"};
@@ -1210,7 +1210,7 @@ function renderSwappi(){
     const at=labels.length-1;
     if(at>=0){
       const u=S.team && S.team.byGw[gw];
-      if(u){ ru+=u.actual; user[at]=ru; }
+      if(u){ ru += (u.reconstructed!=null ? u.reconstructed : u.actual); user[at]=ru; }
       const a=last?last.average:null;
       if(a!=null){ ra+=a; seenAvg=true; avg[at]=ra; }
     }
@@ -1310,6 +1310,7 @@ function alphaTotals(scope){
   const blank=()=>({1:0,2:0,3:0,4:0,total:0});
   const col=()=>({squad:blank(), teamSel:0, captain:0, chips:{}, hits:0});
   const out={swappi:col(), template:col(), team:col()};
+  out.team.actual=0;
 
   const only = scope==="gw" ? latestGw() : null;
   Object.entries(S.team.byGw).forEach(([gw,r])=>{
@@ -1343,6 +1344,7 @@ function alphaTotals(scope){
     out.team.teamSel+=r.xiPoints-sq.total;
     out.team.captain+=r.captainExtra;
     out.team.hits+=r.hits;
+    out.team.actual+=r.actual||0;
     if(r.chip) out.team.chips[r.chip]=(out.team.chips[r.chip]||0)+r.chipGain;
   });
   return out;
@@ -1351,6 +1353,14 @@ function alphaTotals(scope){
 function colTotal(c){
   return c.squad.total + c.teamSel + c.captain + c.hits
        + Object.values(c.chips).reduce((a,b)=>a+b,0);
+}
+
+/* How far the reconstruction sits from the score the game reports. Kept for
+   diagnostics: auto-substitutions can only add points, so the reconstruction
+   should never exceed the reported score. If it does, the reported figure is
+   the one to distrust. */
+function residual(c){
+  return c.actual==null ? 0 : c.actual - colTotal(c);
 }
 
 function vs(value, base){
@@ -1414,7 +1424,8 @@ function renderAlpha(){
   if(t.team.hits) html += row("Hits","Transfers taken above the free one",
                               null, 0, t.team.hits, "rung");
 
-  html += row("Total","", t.swappi.squad.total, colTotal(t.template), colTotal(t.team), "total");
+  html += row("Total","", t.swappi.squad.total, colTotal(t.template),
+              colTotal(t.team), "total");
   $("alpha-rows").innerHTML=html;
 
   const unplayed=ALL_CHIPS.filter(c=>!played.includes(c)).map(c=>CHIP_NAME[c]);
@@ -1711,7 +1722,11 @@ async function loadTeam(id){
       // live score is built from the picks themselves: starters times their
       // multiplier, less any hit. Autosubs only apply at the final whistle,
       // so a live figure can understate a team with a blank starter.
-      let actual=actualBy[gw];
+      // The history endpoint carries a row for the gameweek in play, but its
+      // points lag well behind live scoring, so it is only trusted once the
+      // gameweek has settled. While one is live the score is built from the
+      // picks and the live points instead.
+      let actual = d.live ? null : actualBy[gw];
       if(actual==null && d.live){
         const ids=S.data.ids||{};
         actual=picks.picks.filter(p=>p.multiplier>0).reduce((a,p)=>{
@@ -1763,7 +1778,10 @@ async function loadTeam(id){
         }
       }
 
-      const r={codes, xi, captain:capCode, xiPoints, captainExtra, hits,
+      // Built the same way the alpha table adds its column up, so the chart
+      // and the table cannot disagree.
+      const reconstructed = xiPoints + captainExtra + hits + chipGain;
+      const r={codes, xi, captain:capCode, xiPoints, captainExtra, hits, reconstructed,
                chip, chipGain, freehitBase:(typeof r_freehitBase!=="undefined"?r_freehitBase:null),
                actual:actual||0};
       r_freehitBase=undefined;
