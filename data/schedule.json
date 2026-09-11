@@ -1,5 +1,5 @@
 {
- "fetched": "2026-09-10T11:48:00Z",
+ "fetched": "2026-09-11T11:19:00Z",
  "events": [
   {
    "id": 1,
@@ -115,28 +115,28 @@
   },
   {
    "id": 17,
-   "deadline": "2026-12-26T13:30:00Z",
+   "deadline": "2026-12-26T11:00:00Z",
    "finished": false,
    "average": 0,
    "highest": null
   },
   {
    "id": 18,
-   "deadline": "2026-12-30T18:30:00Z",
+   "deadline": "2026-12-29T18:00:00Z",
    "finished": false,
    "average": 0,
    "highest": null
   },
   {
    "id": 19,
-   "deadline": "2027-01-02T13:30:00Z",
+   "deadline": "2027-01-01T18:30:00Z",
    "finished": false,
    "average": 0,
    "highest": null
   },
   {
    "id": 20,
-   "deadline": "2027-01-06T18:30:00Z",
+   "deadline": "2027-01-05T18:00:00Z",
    "finished": false,
    "average": 0,
    "highest": null
@@ -1552,23 +1552,7 @@
   {
    "id": 161,
    "event": 17,
-   "kickoff": "2026-12-26T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 162,
-   "event": 17,
-   "kickoff": "2026-12-26T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 163,
-   "event": 17,
-   "kickoff": "2026-12-26T15:00:00Z",
+   "kickoff": "2026-12-26T12:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1590,31 +1574,7 @@
    "confirmed": false
   },
   {
-   "id": 166,
-   "event": 17,
-   "kickoff": "2026-12-26T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
    "id": 167,
-   "event": 17,
-   "kickoff": "2026-12-26T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 168,
-   "event": 17,
-   "kickoff": "2026-12-26T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 169,
    "event": 17,
    "kickoff": "2026-12-26T15:00:00Z",
    "started": false,
@@ -1630,41 +1590,41 @@
    "confirmed": false
   },
   {
-   "id": 171,
-   "event": 18,
-   "kickoff": "2026-12-30T20:00:00Z",
+   "id": 166,
+   "event": 17,
+   "kickoff": "2026-12-26T17:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
   },
   {
-   "id": 172,
-   "event": 18,
-   "kickoff": "2026-12-30T20:00:00Z",
+   "id": 169,
+   "event": 17,
+   "kickoff": "2026-12-26T20:00:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
   },
   {
-   "id": 173,
-   "event": 18,
-   "kickoff": "2026-12-30T20:00:00Z",
+   "id": 162,
+   "event": 17,
+   "kickoff": "2026-12-27T14:00:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
   },
   {
-   "id": 174,
-   "event": 18,
-   "kickoff": "2026-12-30T20:00:00Z",
+   "id": 168,
+   "event": 17,
+   "kickoff": "2026-12-27T16:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
   },
   {
-   "id": 175,
-   "event": 18,
-   "kickoff": "2026-12-30T20:00:00Z",
+   "id": 163,
+   "event": 17,
+   "kickoff": "2026-12-27T19:00:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1672,31 +1632,7 @@
   {
    "id": 176,
    "event": 18,
-   "kickoff": "2026-12-30T20:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 177,
-   "event": 18,
-   "kickoff": "2026-12-30T20:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 178,
-   "event": 18,
-   "kickoff": "2026-12-30T20:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 179,
-   "event": 18,
-   "kickoff": "2026-12-30T20:00:00Z",
+   "kickoff": "2026-12-29T19:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1704,21 +1640,93 @@
   {
    "id": 180,
    "event": 18,
-   "kickoff": "2026-12-30T20:00:00Z",
+   "kickoff": "2026-12-29T19:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 174,
+   "event": 18,
+   "kickoff": "2026-12-29T20:15:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 172,
+   "event": 18,
+   "kickoff": "2026-12-30T19:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 173,
+   "event": 18,
+   "kickoff": "2026-12-30T19:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 175,
+   "event": 18,
+   "kickoff": "2026-12-30T19:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 178,
+   "event": 18,
+   "kickoff": "2026-12-30T19:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 179,
+   "event": 18,
+   "kickoff": "2026-12-30T19:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 171,
+   "event": 18,
+   "kickoff": "2026-12-30T20:15:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 177,
+   "event": 18,
+   "kickoff": "2026-12-30T20:15:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 186,
+   "event": 19,
+   "kickoff": "2027-01-01T20:00:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 184,
+   "event": 19,
+   "kickoff": "2027-01-02T12:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
   },
   {
    "id": 181,
-   "event": 19,
-   "kickoff": "2027-01-02T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 182,
    "event": 19,
    "kickoff": "2027-01-02T15:00:00Z",
    "started": false,
@@ -1734,39 +1742,7 @@
    "confirmed": false
   },
   {
-   "id": 184,
-   "event": 19,
-   "kickoff": "2027-01-02T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 185,
-   "event": 19,
-   "kickoff": "2027-01-02T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 186,
-   "event": 19,
-   "kickoff": "2027-01-02T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
    "id": 187,
-   "event": 19,
-   "kickoff": "2027-01-02T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 188,
    "event": 19,
    "kickoff": "2027-01-02T15:00:00Z",
    "started": false,
@@ -1790,9 +1766,33 @@
    "confirmed": false
   },
   {
+   "id": 182,
+   "event": 19,
+   "kickoff": "2027-01-02T17:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 185,
+   "event": 19,
+   "kickoff": "2027-01-03T14:00:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 188,
+   "event": 19,
+   "kickoff": "2027-01-03T16:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
    "id": 191,
    "event": 20,
-   "kickoff": "2027-01-06T20:00:00Z",
+   "kickoff": "2027-01-05T19:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1800,15 +1800,7 @@
   {
    "id": 192,
    "event": 20,
-   "kickoff": "2027-01-06T20:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 193,
-   "event": 20,
-   "kickoff": "2027-01-06T20:00:00Z",
+   "kickoff": "2027-01-05T19:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1816,39 +1808,7 @@
   {
    "id": 194,
    "event": 20,
-   "kickoff": "2027-01-06T20:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 195,
-   "event": 20,
-   "kickoff": "2027-01-06T20:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 196,
-   "event": 20,
-   "kickoff": "2027-01-06T20:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 197,
-   "event": 20,
-   "kickoff": "2027-01-06T20:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 198,
-   "event": 20,
-   "kickoff": "2027-01-06T20:00:00Z",
+   "kickoff": "2027-01-05T19:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1856,7 +1816,7 @@
   {
    "id": 199,
    "event": 20,
-   "kickoff": "2027-01-06T20:00:00Z",
+   "kickoff": "2027-01-05T19:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1864,7 +1824,47 @@
   {
    "id": 200,
    "event": 20,
-   "kickoff": "2027-01-06T20:00:00Z",
+   "kickoff": "2027-01-05T20:15:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 193,
+   "event": 20,
+   "kickoff": "2027-01-06T19:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 195,
+   "event": 20,
+   "kickoff": "2027-01-06T19:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 196,
+   "event": 20,
+   "kickoff": "2027-01-06T19:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 197,
+   "event": 20,
+   "kickoff": "2027-01-06T20:15:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 198,
+   "event": 20,
+   "kickoff": "2027-01-07T20:00:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
