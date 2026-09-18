@@ -1449,6 +1449,13 @@
    "pos": 3,
    "team": 9
   },
+  "235448": {
+   "full": "Ellery Balcombe",
+   "id": 661,
+   "name": "Balcombe",
+   "pos": 1,
+   "team": 4
+  },
   "235826": {
    "full": "Joël Piroe",
    "id": 348,
@@ -4130,6 +4137,13 @@
    "pos": 3,
    "team": 14
   },
+  "612534": {
+   "full": "Benjamin Fredrick",
+   "id": 660,
+   "name": "Fredrick",
+   "pos": 2,
+   "team": 4
+  },
   "612855": {
    "full": "Ibrahim Osman",
    "id": 600,
@@ -4290,6 +4304,13 @@
    "name": "Bamba",
    "pos": 3,
    "team": 17
+  },
+  "636846": {
+   "full": "Mahdi Nicoll-Jazuli",
+   "id": 662,
+   "name": "Nicoll-Jazuli",
+   "pos": 3,
+   "team": 6
   },
   "636852": {
    "full": "Sean Steur",
