@@ -2562,6 +2562,13 @@
    "pos": 3,
    "team": 7
   },
+  "481283": {
+   "full": "James Wright",
+   "id": 667,
+   "name": "Wright",
+   "pos": 1,
+   "team": 2
+  },
   "481624": {
    "full": "Jaden Philogene",
    "id": 318,
@@ -3885,6 +3892,13 @@
    "pos": 2,
    "team": 15
   },
+  "578512": {
+   "full": "Miodrag Pivas",
+   "id": 663,
+   "name": "Pivas",
+   "pos": 2,
+   "team": 17
+  },
   "578545": {
    "full": "Kosta Nedeljkovic",
    "id": 39,
@@ -4015,6 +4029,13 @@
    "full": "Sean Neave",
    "id": 466,
    "name": "Neave",
+   "pos": 4,
+   "team": 17
+  },
+  "601767": {
+   "full": "Vakhtang Salia",
+   "id": 664,
+   "name": "Salia",
    "pos": 4,
    "team": 17
   },
@@ -4403,6 +4424,13 @@
    "pos": 3,
    "team": 2
   },
+  "655585": {
+   "full": "Michael Mills",
+   "id": 665,
+   "name": "Mills",
+   "pos": 3,
+   "team": 17
+  },
   "660392": {
    "full": "Christantus Uche",
    "id": 225,
@@ -4451,6 +4479,13 @@
    "name": "Dubravka",
    "pos": 1,
    "team": 19
+  },
+  "671875": {
+   "full": "Kyran Thompson",
+   "id": 666,
+   "name": "Thompson",
+   "pos": 3,
+   "team": 17
   },
   "672492": {
    "full": "Joél Drakes-Thomas",
