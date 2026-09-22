@@ -1,5 +1,5 @@
 {
- "fetched": "2026-09-21T07:09:00Z",
+ "fetched": "2026-09-22T06:23:00Z",
  "events": [
   {
    "id": 1,
@@ -32,9 +32,9 @@
   {
    "id": 5,
    "deadline": "2026-09-18T17:30:00Z",
-   "finished": false,
-   "average": 44,
-   "highest": 124
+   "finished": true,
+   "average": 48,
+   "highest": 126
   },
   {
    "id": 6,
@@ -66,21 +66,21 @@
   },
   {
    "id": 10,
-   "deadline": "2026-11-07T13:30:00Z",
+   "deadline": "2026-11-06T18:30:00Z",
    "finished": false,
    "average": 0,
    "highest": null
   },
   {
    "id": 11,
-   "deadline": "2026-11-21T13:30:00Z",
+   "deadline": "2026-11-21T11:00:00Z",
    "finished": false,
    "average": 0,
    "highest": null
   },
   {
    "id": 12,
-   "deadline": "2026-11-28T13:30:00Z",
+   "deadline": "2026-11-27T18:30:00Z",
    "finished": false,
    "average": 0,
    "highest": null
@@ -594,7 +594,7 @@
    "event": 5,
    "kickoff": "2026-09-18T19:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -602,7 +602,7 @@
    "event": 5,
    "kickoff": "2026-09-19T11:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -610,7 +610,7 @@
    "event": 5,
    "kickoff": "2026-09-19T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -618,7 +618,7 @@
    "event": 5,
    "kickoff": "2026-09-19T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -626,7 +626,7 @@
    "event": 5,
    "kickoff": "2026-09-19T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -634,7 +634,7 @@
    "event": 5,
    "kickoff": "2026-09-19T16:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -642,7 +642,7 @@
    "event": 5,
    "kickoff": "2026-09-20T13:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -650,7 +650,7 @@
    "event": 5,
    "kickoff": "2026-09-20T13:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -658,7 +658,7 @@
    "event": 5,
    "kickoff": "2026-09-20T13:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -666,7 +666,7 @@
    "event": 5,
    "kickoff": "2026-09-20T15:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -990,31 +990,23 @@
    "confirmed": false
   },
   {
-   "id": 91,
-   "event": 10,
-   "kickoff": "2026-11-07T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 92,
-   "event": 10,
-   "kickoff": "2026-11-07T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 93,
-   "event": 10,
-   "kickoff": "2026-11-07T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
    "id": 94,
+   "event": 10,
+   "kickoff": "2026-11-06T20:00:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 97,
+   "event": 10,
+   "kickoff": "2026-11-07T12:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 91,
    "event": 10,
    "kickoff": "2026-11-07T15:00:00Z",
    "started": false,
@@ -1030,33 +1022,33 @@
    "confirmed": false
   },
   {
-   "id": 96,
-   "event": 10,
-   "kickoff": "2026-11-07T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 97,
-   "event": 10,
-   "kickoff": "2026-11-07T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 98,
-   "event": 10,
-   "kickoff": "2026-11-07T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
    "id": 99,
    "event": 10,
-   "kickoff": "2026-11-07T15:00:00Z",
+   "kickoff": "2026-11-07T17:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 92,
+   "event": 10,
+   "kickoff": "2026-11-08T14:00:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 93,
+   "event": 10,
+   "kickoff": "2026-11-08T14:00:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 96,
+   "event": 10,
+   "kickoff": "2026-11-08T14:00:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1064,7 +1056,23 @@
   {
    "id": 100,
    "event": 10,
-   "kickoff": "2026-11-07T15:00:00Z",
+   "kickoff": "2026-11-08T14:00:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 98,
+   "event": 10,
+   "kickoff": "2026-11-08T16:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 108,
+   "event": 11,
+   "kickoff": "2026-11-21T12:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1079,14 +1087,6 @@
   },
   {
    "id": 102,
-   "event": 11,
-   "kickoff": "2026-11-21T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 103,
    "event": 11,
    "kickoff": "2026-11-21T15:00:00Z",
    "started": false,
@@ -1110,23 +1110,7 @@
    "confirmed": false
   },
   {
-   "id": 106,
-   "event": 11,
-   "kickoff": "2026-11-21T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 107,
-   "event": 11,
-   "kickoff": "2026-11-21T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 108,
+   "id": 110,
    "event": 11,
    "kickoff": "2026-11-21T15:00:00Z",
    "started": false,
@@ -1136,63 +1120,39 @@
   {
    "id": 109,
    "event": 11,
-   "kickoff": "2026-11-21T15:00:00Z",
+   "kickoff": "2026-11-21T17:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
   },
   {
-   "id": 110,
+   "id": 106,
    "event": 11,
-   "kickoff": "2026-11-21T15:00:00Z",
+   "kickoff": "2026-11-22T14:00:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
   },
   {
-   "id": 111,
-   "event": 12,
-   "kickoff": "2026-11-28T15:00:00Z",
+   "id": 107,
+   "event": 11,
+   "kickoff": "2026-11-22T16:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
   },
   {
-   "id": 112,
-   "event": 12,
-   "kickoff": "2026-11-28T15:00:00Z",
+   "id": 103,
+   "event": 11,
+   "kickoff": "2026-11-23T20:00:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
   },
   {
-   "id": 113,
+   "id": 119,
    "event": 12,
-   "kickoff": "2026-11-28T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 114,
-   "event": 12,
-   "kickoff": "2026-11-28T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 115,
-   "event": 12,
-   "kickoff": "2026-11-28T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
-   "id": 116,
-   "event": 12,
-   "kickoff": "2026-11-28T15:00:00Z",
+   "kickoff": "2026-11-27T20:00:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1214,9 +1174,41 @@
    "confirmed": false
   },
   {
-   "id": 119,
+   "id": 116,
    "event": 12,
-   "kickoff": "2026-11-28T15:00:00Z",
+   "kickoff": "2026-11-28T17:30:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 114,
+   "event": 12,
+   "kickoff": "2026-11-29T12:00:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 112,
+   "event": 12,
+   "kickoff": "2026-11-29T14:05:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 113,
+   "event": 12,
+   "kickoff": "2026-11-29T14:05:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 115,
+   "event": 12,
+   "kickoff": "2026-11-29T14:05:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
@@ -1224,7 +1216,15 @@
   {
    "id": 120,
    "event": 12,
-   "kickoff": "2026-11-28T15:00:00Z",
+   "kickoff": "2026-11-29T14:05:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 111,
+   "event": 12,
+   "kickoff": "2026-11-29T16:30:00Z",
    "started": false,
    "finished": false,
    "confirmed": false
