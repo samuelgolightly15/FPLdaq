@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-10T00:59:00Z",
+ "fetched": "2026-10-10T21:33:00Z",
  "events": [
   {
    "id": 1,
@@ -40,8 +40,8 @@
    "id": 6,
    "deadline": "2026-10-10T10:00:00Z",
    "finished": false,
-   "average": 0,
-   "highest": null
+   "average": 37,
+   "highest": 114
   },
   {
    "id": 7,
@@ -673,49 +673,49 @@
    "id": 51,
    "event": 6,
    "kickoff": "2026-10-10T11:30:00Z",
-   "started": false,
+   "started": true,
    "finished": false,
-   "confirmed": false
+   "confirmed": true
   },
   {
    "id": 52,
    "event": 6,
    "kickoff": "2026-10-10T14:00:00Z",
-   "started": false,
+   "started": true,
    "finished": false,
-   "confirmed": false
+   "confirmed": true
   },
   {
    "id": 53,
    "event": 6,
    "kickoff": "2026-10-10T14:00:00Z",
-   "started": false,
+   "started": true,
    "finished": false,
-   "confirmed": false
+   "confirmed": true
   },
   {
    "id": 57,
    "event": 6,
    "kickoff": "2026-10-10T14:00:00Z",
-   "started": false,
+   "started": true,
    "finished": false,
-   "confirmed": false
+   "confirmed": true
   },
   {
    "id": 60,
    "event": 6,
    "kickoff": "2026-10-10T14:00:00Z",
-   "started": false,
+   "started": true,
    "finished": false,
-   "confirmed": false
+   "confirmed": true
   },
   {
    "id": 59,
    "event": 6,
    "kickoff": "2026-10-10T16:30:00Z",
-   "started": false,
+   "started": true,
    "finished": false,
-   "confirmed": false
+   "confirmed": true
   },
   {
    "id": 55,
