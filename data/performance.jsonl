@@ -162,3 +162,4 @@
 {"t":"2026-09-20T23:26:00Z","event":5,"index":50.168,"model":38,"by_pos":{"1":5.734,"2":16.83,"3":18.268,"4":9.336},"played":0.8355,"capital":99.3903,"average":44,"confirmed":false}
 {"t":"2026-09-21T01:30:00Z","event":5,"index":50.168,"model":38,"by_pos":{"1":5.734,"2":16.83,"3":18.268,"4":9.336},"played":0.8355,"capital":99.3903,"average":44,"confirmed":false}
 {"t":"2026-10-10T13:32:00Z","event":6,"index":9.538,"model":12,"by_pos":{"1":1.418,"2":5.921,"3":1.557,"4":0.642},"played":0.1682,"capital":99.1962,"average":null,"confirmed":false}
+{"t":"2026-10-10T17:59:00Z","event":6,"index":42.654,"model":57,"by_pos":{"1":5.551,"2":14.316,"3":13.104,"4":9.683},"played":0.5353,"capital":99.1962,"average":null,"confirmed":false}
