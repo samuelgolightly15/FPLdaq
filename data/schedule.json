@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-12T17:45:00Z",
+ "fetched": "2026-10-13T19:08:00Z",
  "events": [
   {
    "id": 1,
@@ -39,8 +39,8 @@
   {
    "id": 6,
    "deadline": "2026-10-10T10:00:00Z",
-   "finished": false,
-   "average": 54,
+   "finished": true,
+   "average": 58,
    "highest": 131
   },
   {
@@ -674,7 +674,7 @@
    "event": 6,
    "kickoff": "2026-10-10T11:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -682,7 +682,7 @@
    "event": 6,
    "kickoff": "2026-10-10T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -690,7 +690,7 @@
    "event": 6,
    "kickoff": "2026-10-10T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -698,7 +698,7 @@
    "event": 6,
    "kickoff": "2026-10-10T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -706,7 +706,7 @@
    "event": 6,
    "kickoff": "2026-10-10T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -714,7 +714,7 @@
    "event": 6,
    "kickoff": "2026-10-10T16:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -722,7 +722,7 @@
    "event": 6,
    "kickoff": "2026-10-11T13:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -730,7 +730,7 @@
    "event": 6,
    "kickoff": "2026-10-11T13:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -738,16 +738,16 @@
    "event": 6,
    "kickoff": "2026-10-11T15:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
    "id": 54,
    "event": 6,
    "kickoff": "2026-10-12T19:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
+   "started": true,
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 64,
