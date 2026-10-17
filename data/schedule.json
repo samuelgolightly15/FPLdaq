@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-16T13:54:00Z",
+ "fetched": "2026-10-17T13:16:00Z",
  "events": [
   {
    "id": 1,
@@ -753,7 +753,7 @@
    "id": 64,
    "event": 7,
    "kickoff": "2026-10-17T11:30:00Z",
-   "started": false,
+   "started": true,
    "finished": false,
    "confirmed": false
   },
