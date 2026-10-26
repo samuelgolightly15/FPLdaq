@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-25T12:05:00Z",
+ "fetched": "2026-10-26T14:12:00Z",
  "events": [
   {
    "id": 1,
@@ -54,8 +54,8 @@
    "id": 8,
    "deadline": "2026-10-23T17:30:00Z",
    "finished": false,
-   "average": 27,
-   "highest": 102
+   "average": 45,
+   "highest": 120
   },
   {
    "id": 9,
@@ -834,7 +834,7 @@
    "event": 8,
    "kickoff": "2026-10-23T19:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -842,7 +842,7 @@
    "event": 8,
    "kickoff": "2026-10-24T11:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -850,7 +850,7 @@
    "event": 8,
    "kickoff": "2026-10-24T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -858,7 +858,7 @@
    "event": 8,
    "kickoff": "2026-10-24T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -866,48 +866,48 @@
    "event": 8,
    "kickoff": "2026-10-24T16:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
    "id": 75,
    "event": 8,
    "kickoff": "2026-10-25T14:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
+   "started": true,
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 76,
    "event": 8,
    "kickoff": "2026-10-25T14:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
+   "started": true,
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 78,
    "event": 8,
    "kickoff": "2026-10-25T14:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
+   "started": true,
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 79,
    "event": 8,
    "kickoff": "2026-10-25T14:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
+   "started": true,
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 80,
    "event": 8,
    "kickoff": "2026-10-25T16:30:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
+   "started": true,
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 84,
