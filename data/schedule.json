@@ -1,5 +1,5 @@
 {
- "fetched": "2026-10-26T14:12:00Z",
+ "fetched": "2026-10-27T14:44:00Z",
  "events": [
   {
    "id": 1,
@@ -53,7 +53,7 @@
   {
    "id": 8,
    "deadline": "2026-10-23T17:30:00Z",
-   "finished": false,
+   "finished": true,
    "average": 45,
    "highest": 120
   },
