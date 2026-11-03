@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-02T05:48:00Z",
+ "fetched": "2026-11-03T03:44:00Z",
  "events": [
   {
    "id": 1,
@@ -61,8 +61,8 @@
    "id": 9,
    "deadline": "2026-10-31T11:00:00Z",
    "finished": false,
-   "average": 42,
-   "highest": 123
+   "average": 44,
+   "highest": 122
   },
   {
    "id": 10,
@@ -985,9 +985,9 @@
    "id": 89,
    "event": 9,
    "kickoff": "2026-11-02T20:00:00Z",
-   "started": false,
+   "started": true,
    "finished": false,
-   "confirmed": false
+   "confirmed": true
   },
   {
    "id": 94,
