@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-03T03:44:00Z",
+ "fetched": "2026-11-04T03:22:00Z",
  "events": [
   {
    "id": 1,
@@ -60,8 +60,8 @@
   {
    "id": 9,
    "deadline": "2026-10-31T11:00:00Z",
-   "finished": false,
-   "average": 44,
+   "finished": true,
+   "average": 47,
    "highest": 122
   },
   {
@@ -914,7 +914,7 @@
    "event": 9,
    "kickoff": "2026-10-31T12:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -922,7 +922,7 @@
    "event": 9,
    "kickoff": "2026-10-31T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -930,7 +930,7 @@
    "event": 9,
    "kickoff": "2026-10-31T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -938,7 +938,7 @@
    "event": 9,
    "kickoff": "2026-10-31T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -946,7 +946,7 @@
    "event": 9,
    "kickoff": "2026-10-31T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -954,7 +954,7 @@
    "event": 9,
    "kickoff": "2026-10-31T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -962,7 +962,7 @@
    "event": 9,
    "kickoff": "2026-10-31T17:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -970,7 +970,7 @@
    "event": 9,
    "kickoff": "2026-10-31T20:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -978,7 +978,7 @@
    "event": 9,
    "kickoff": "2026-11-01T16:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -986,7 +986,7 @@
    "event": 9,
    "kickoff": "2026-11-02T20:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
