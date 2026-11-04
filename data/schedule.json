@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-04T03:22:00Z",
+ "fetched": "2026-11-04T23:58:00Z",
  "events": [
   {
    "id": 1,
@@ -1502,14 +1502,6 @@
    "confirmed": false
   },
   {
-   "id": 159,
-   "event": 16,
-   "kickoff": "2026-12-19T15:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
-  },
-  {
    "id": 157,
    "event": 16,
    "kickoff": "2026-12-19T17:30:00Z",
@@ -1519,6 +1511,14 @@
   },
   {
    "id": 154,
+   "event": 16,
+   "kickoff": "2026-12-20T14:00:00Z",
+   "started": false,
+   "finished": false,
+   "confirmed": false
+  },
+  {
+   "id": 159,
    "event": 16,
    "kickoff": "2026-12-20T14:00:00Z",
    "started": false,
