@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-08T15:22:00Z",
+ "fetched": "2026-11-09T21:30:00Z",
  "events": [
   {
    "id": 1,
@@ -67,9 +67,9 @@
   {
    "id": 10,
    "deadline": "2026-11-06T18:30:00Z",
-   "finished": false,
-   "average": 25,
-   "highest": 100
+   "finished": true,
+   "average": 55,
+   "highest": 139
   },
   {
    "id": 11,
@@ -994,7 +994,7 @@
    "event": 10,
    "kickoff": "2026-11-06T20:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1002,7 +1002,7 @@
    "event": 10,
    "kickoff": "2026-11-07T12:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1010,7 +1010,7 @@
    "event": 10,
    "kickoff": "2026-11-07T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1018,7 +1018,7 @@
    "event": 10,
    "kickoff": "2026-11-07T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1026,7 +1026,7 @@
    "event": 10,
    "kickoff": "2026-11-07T17:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1034,40 +1034,40 @@
    "event": 10,
    "kickoff": "2026-11-08T14:00:00Z",
    "started": true,
-   "finished": false,
-   "confirmed": false
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 93,
    "event": 10,
    "kickoff": "2026-11-08T14:00:00Z",
    "started": true,
-   "finished": false,
-   "confirmed": false
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 96,
    "event": 10,
    "kickoff": "2026-11-08T14:00:00Z",
    "started": true,
-   "finished": false,
-   "confirmed": false
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 100,
    "event": 10,
    "kickoff": "2026-11-08T14:00:00Z",
    "started": true,
-   "finished": false,
-   "confirmed": false
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 98,
    "event": 10,
    "kickoff": "2026-11-08T16:30:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
+   "started": true,
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 108,
