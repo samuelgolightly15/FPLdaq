@@ -441,6 +441,13 @@
    "pos": 2,
    "team": 15
   },
+  "171422": {
+   "full": "Alan Browne",
+   "id": 673,
+   "name": "Browne",
+   "pos": 3,
+   "team": 20
+  },
   "172453": {
    "full": "Sam Szmodics",
    "id": 319,
@@ -4066,6 +4073,13 @@
    "name": "Tutierov",
    "pos": 3,
    "team": 20
+  },
+  "605845": {
+   "full": "Dino Kaiser",
+   "id": 674,
+   "name": "Kaiser",
+   "pos": 1,
+   "team": 10
   },
   "605972": {
    "full": "Honest Ahanor",
