@@ -1,5 +1,5 @@
 {
- "fetched": "2026-11-23T14:18:00Z",
+ "fetched": "2026-11-24T11:40:00Z",
  "events": [
   {
    "id": 1,
@@ -75,8 +75,8 @@
    "id": 11,
    "deadline": "2026-11-21T11:00:00Z",
    "finished": false,
-   "average": 32,
-   "highest": 102
+   "average": 35,
+   "highest": 106
   },
   {
    "id": 12,
@@ -1074,7 +1074,7 @@
    "event": 11,
    "kickoff": "2026-11-21T12:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1082,7 +1082,7 @@
    "event": 11,
    "kickoff": "2026-11-21T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1090,7 +1090,7 @@
    "event": 11,
    "kickoff": "2026-11-21T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1098,7 +1098,7 @@
    "event": 11,
    "kickoff": "2026-11-21T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1106,7 +1106,7 @@
    "event": 11,
    "kickoff": "2026-11-21T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1114,7 +1114,7 @@
    "event": 11,
    "kickoff": "2026-11-21T15:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1122,7 +1122,7 @@
    "event": 11,
    "kickoff": "2026-11-21T17:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1130,7 +1130,7 @@
    "event": 11,
    "kickoff": "2026-11-22T14:00:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
@@ -1138,16 +1138,16 @@
    "event": 11,
    "kickoff": "2026-11-22T16:30:00Z",
    "started": true,
-   "finished": false,
+   "finished": true,
    "confirmed": true
   },
   {
    "id": 103,
    "event": 11,
    "kickoff": "2026-11-23T20:00:00Z",
-   "started": false,
-   "finished": false,
-   "confirmed": false
+   "started": true,
+   "finished": true,
+   "confirmed": true
   },
   {
    "id": 119,
